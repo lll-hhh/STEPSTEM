@@ -1,0 +1,94 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the transistor amplifier with beta=120, rbe=3kOhm, UBEQ=0.7V and VCC=12V, identify DC/AC paths, obtain Q-point and compute gain and impedances from the small-signal model. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use capacitor-open DC path to find base bias and emitter current, then locate Q-point from resistor drops.",
+      "key_point": "VB=3V, VE=2.3V, IE≈1mA, IC≈1mA, and VC≈7V."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_bias_paths.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3581,
+            0.4102,
+            0.1042,
+            0.2246
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.5404,
+            0.332,
+            0.14,
+            0.1953
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.651,
+            0.2393,
+            0.1107,
+            0.2051
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For AC, capacitors are short and base is AC-grounded; re=rbe/(beta+1), collector load is R4||RL.",
+      "key_point": "Au≈alpha*(R4||RL)/re=100, Ri≈R1||re, Ro≈R4."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_small_signal.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1953,
+            0.166,
+            0.0977,
+            0.1855
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.4427,
+            0.3809,
+            0.1237,
+            0.293
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.7422,
+            0.166,
+            0.0977,
+            0.1855
+          ],
+          "weight": 0.33
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "100"
+  }
+}

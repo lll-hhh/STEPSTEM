@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the same air-compression refrigeration cycle assumptions, compute expander theoretical specific work for both no-regeneration and regeneration cases. Output exactly two decimal numbers separated by one comma as no_regen,regen, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use expansion-state temperatures from each case to evaluate turbine specific work.",
+      "key_point": "Expansion-state temperatures from each case to evaluate turbine specific work."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.059179,
+            0.445476,
+            0.63565,
+            0.505142
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up the relation for expander specific work in both cases."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.228563,
+            0.203959,
+            0.739339,
+            0.469584
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Return the two values in no_regen,regen order.",
+      "key_point": "Return the two values in no_regen,regen order."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "79.32,49.18"
+  }
+}

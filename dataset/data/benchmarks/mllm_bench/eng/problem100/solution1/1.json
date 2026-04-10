@@ -1,0 +1,111 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the N-channel enhancement MOSFET source follower, determine the quiescent point Q together with A_v, A_vs, R_i, and R_o. Answer format: Q;A_v;A_vs;R_i;R_o, separated by semicolons, with no explanatory text or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Gate bias: \\(V_G=9\\,\\mathrm{V}\\), \\(V_{GSQ}=9-I_{DQ}\\).",
+      "key_point": "Write bias relation."
+    },
+    "step_2": {
+      "modality": "text",
+      "content": "Use \\(I_{DQ}=2(V_{GSQ}-1.5)^2\\) to get \\(2I_{DQ}^2-31I_{DQ}+112.5=0\\).",
+      "key_point": "Build DC quadratic."
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Valid root: \\(I_{DQ}=5.8\\,\\mathrm{mA}\\). Then \\(V_{GSQ}=3.2\\,\\mathrm{V}\\), \\(V_{DSQ}=6.2\\,\\mathrm{V}\\).",
+      "key_point": "Keep physical root."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.063783,
+            0.476758,
+            0.2879,
+            0.4248
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Small signal: \\(g_m=6.8\\,\\mathrm{mS}\\), \\(A_v=\\frac{g_mR_s}{1+g_mR_s}\\approx0.87\\).",
+      "key_point": "Get \\(g_m\\) and \\(A_v\\)."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "\\(R_i=R_{g1}\\parallel R_{g2}=112.5\\,\\mathrm{k}\\Omega\\), \\(A_{vs}=A_v\\frac{R_i}{R_i+R_{si}}\\approx0.80\\).",
+      "key_point": "Get \\(R_i\\) and \\(A_{vs}\\)."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.012771,
+            0.144065,
+            0.391816,
+            0.552377
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.220478,
+            0.000529,
+            0.569354,
+            0.690676
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "With input zero: \\(R_o=R_s\\parallel r_o\\parallel\\frac{1}{g_m}\\). For \\(r_o=\\infty\\), \\(R_o\\approx0.128\\,\\mathrm{k}\\Omega\\).",
+      "key_point": "Compute \\(R_o\\)."
+    },
+    "step_9": {
+      "modality": "image",
+      "content": "step9.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.391368,
+            0.406886,
+            0.533835,
+            0.31716
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.234692,
+            0.006679,
+            0.560702,
+            0.377294
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Q: I_DQ = 5.8 mA, V_GSQ = 3.2 V, V_DSQ = 6.2 V; A_v = 0.87; A_vs = 0.80; R_i = 112.5 kOhm; R_o = 0.128 kOhm."
+  }
+}

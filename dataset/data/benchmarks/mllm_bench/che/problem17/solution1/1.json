@@ -1,0 +1,101 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A layered hexagonal C60 covalent crystal is formed through [2+2]66/66 cycloaddition. The in-plane lattice parameter is a = 919 pm. Adjacent layers stack in an ABCABC sequence along the c axis, and the spacing between adjacent layers is 817 pm. Find the density of this crystal. Answer format: the density result. If it naturally simplifies to a single numerical value, give the value; otherwise give an exact expression. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model one hexagonal layer using lattice parameter a and identify the basal area term.",
+      "key_point": "A_base = (sqrt(3)/2)*a^2."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_hex_layer_a.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.152414,
+            0.105968,
+            0.448246,
+            0.464941
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use ABCABC stacking so one c-period contains three adjacent-layer spacings.",
+      "key_point": "c = 3*817 pm."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_abc_stacking_c.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3,
+            0.16,
+            0.18,
+            0.68
+          ],
+          "weight": 0.62
+        },
+        {
+          "bbox": [
+            0.650075,
+            0.132832,
+            0.33,
+            0.76
+          ],
+          "weight": 0.38
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Take the rhombohedral hex setting with three C60 molecules per hexagonal cell.",
+      "key_point": "Z = 3 and m_cell = 3*60*12/N_A."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_cell_mass_volume.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.114149,
+            0.135065,
+            0.42,
+            0.72
+          ],
+          "weight": 0.52
+        },
+        {
+          "bbox": [
+            0.572446,
+            0.147897,
+            0.419157,
+            0.72
+          ],
+          "weight": 0.48
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Compute V_cell = (sqrt(3)/2)*a^2*c and evaluate rho = m_cell/V_cell in g*cm^-3.",
+      "key_point": "rho is about 2.00."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2.00"
+  }
+}

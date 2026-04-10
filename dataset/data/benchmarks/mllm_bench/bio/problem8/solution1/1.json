@@ -1,0 +1,93 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a cloning workflow, a Myc tag fragment and an R-gene fragment are assembled to build an expression construct. The observed product lacks the Myc tag, so one primer for amplifying the Myc sequence must be redesigned to produce the correct Myc-R fusion outcome. Write the modified 12-nt primer sequence in 5'-to-3' direction. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the construct map and isolate the Myc amplification segment as the part to be corrected.",
+      "key_point": "The primer edit must preserve a valid fusion junction for Myc-R."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_isolate_myc_segment.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.31,
+            0.34,
+            0.23,
+            0.34
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Introduce a compatible restriction-site design at the Myc-side primer to keep directional fusion assembly.",
+      "key_point": "The added 6-nt site is embedded at the primer 5' end."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_r_fragment.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.313746,
+            0.32208,
+            0.42,
+            0.38
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_correct_junction_frame.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.447768,
+            0.36,
+            0.175442,
+            0.28
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Read the modified primer in 5'-to-3' order with the added site followed by the Myc-complementary segment.",
+      "key_point": "Return only one compact 12-nt expression."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step8_final_fusion_layout.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.315619,
+            0.317279,
+            0.42,
+            0.4
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "GGATCCCAGGTC"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In plant salt-stress conditions, Na+ can move upward through the xylem, while Nax1 and Nax2 retrieve Na+ from xylem into surrounding cells. When Nax1 and Nax2 transporter level or activity increases, determine whether Na+ accumulation in cells around the xylem increases or decreases. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set a simplified transport geometry with xylem upward flow and surrounding cells.",
+      "key_point": "Separate xylem flow from retrieval into nearby cells."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_na.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.662497,
+            0.298773,
+            0.125721,
+            0.557408
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add Nax1 and Nax2 retrieval paths from xylem to cells around the xylem wall.",
+      "key_point": "Nax-mediated retrieval redirects Na+ into surrounding cells."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_nax_retrieval.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.497573,
+            0.503763,
+            0.153335,
+            0.267596
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Increase Nax1/Nax2 activity and compare ion distribution between xylem stream and surrounding cells.",
+      "key_point": "Higher retrieval gives more Na+ in surrounding cells and less upward Na+ transport."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_high_nax_storage.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.51,
+            0.54,
+            0.11,
+            0.22
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.559223,
+            0.157547,
+            0.317205,
+            0.229612
+          ],
+          "weight": 0.25
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "increase"
+  }
+}

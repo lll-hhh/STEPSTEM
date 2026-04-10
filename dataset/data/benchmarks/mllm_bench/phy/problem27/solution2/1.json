@@ -1,0 +1,87 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-stage collision sequence, compute the final velocity vector of body B in the inertial x direction. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: center-of-mass and relative-velocity method in the inertial x direction.",
+      "key_point": "Total x-momentum stays zero, so the center-of-mass x velocity is always 0."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_relative_jump.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.220162,
+            0.556174,
+            0.363589,
+            0.245266
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At takeoff, use v_C-v_A=3*i together with 75*v_C+50*v_A=0 for the A-C subsystem.",
+      "key_point": "The pair solution gives v_A=-1.8*i and v_C=1.2*i."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_momentum_partition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.181931,
+            0.420377,
+            0.515735,
+            0.297921
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "During landing on B, keep A at v_A=-1.8*i and apply whole-system momentum: 50*v_A+125*v_B=0.",
+      "key_point": "Hence v_B=-50*v_A/125=0.72*i."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_final_velocity.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.59,
+            0.65,
+            0.28,
+            0.12
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.24,
+            0.65,
+            0.16,
+            0.12
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.72*i"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For XeOF5-, PH2-, POCl3, and ClOF2+, determine the molecular geometry code around the first atom using VSEPR and report all four results. Output exactly one token sequence in the format CODE(species)*CODE(species)*CODE(species)*CODE(species), plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Draw the four Lewis-structure skeletons with a chemical drawing toolkit and classify each geometry by VSEPR around the first atom.",
+      "key_point": "Map each central atom to AXmEn."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_xeof5_anion.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.347595,
+            0.513595,
+            0.193677,
+            0.176722
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.436447,
+            0.342574,
+            0.088852,
+            0.235154
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "XeOF5- has 7 electron domains at Xe (AX6E), so its molecular geometry is pentagonal pyramidal.",
+      "key_point": "AX6E -> pentagonal pyramidal."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_ph2_anion.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.35658,
+            0.428084,
+            0.194601,
+            0.169208
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "PH2- is AX2E2 at P, giving a bent molecular geometry.",
+      "key_point": "AX2E2 -> bent."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_pocl3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.339608,
+            0.459691,
+            0.177663,
+            0.217799
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.394517,
+            0.291267,
+            0.12579,
+            0.23943
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "POCl3 is AX4 at P, so the molecular geometry is tetrahedral.",
+      "key_point": "AX4 -> tetrahedral."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_clof2_cation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.365565,
+            0.509596,
+            0.148678,
+            0.179296
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.476381,
+            0.289842,
+            0.064892,
+            0.299287
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "ClOF2+ is AX3E at Cl, giving trigonal pyramidal geometry.",
+      "key_point": "AX3E -> trigonal pyramidal."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "PP(XeOF5-)*B(PH2-)*T(POCl3)*TP(ClOF2+)"
+  }
+}

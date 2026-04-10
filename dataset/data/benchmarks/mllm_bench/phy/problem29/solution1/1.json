@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the monkey on the rotating-and-rising support, compute the time derivative of angular momentum about O at the shown instant. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set inertial Oxyz and rotating Ox1y1z1 with instantaneous axis coincidence, then express the monkey position vector in cylindrical form.",
+      "key_point": "Use shared origin O and the same z direction for both frames."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_frames_axes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.223088,
+            0.557426,
+            0.141,
+            0.291
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.427704,
+            0.377735,
+            0.220026,
+            0.466126
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute velocity from frame transport: V = r_dot*r_1 + z_dot*k + Omega x r, then identify the tangential term from Omega x r.",
+      "key_point": "The Omega x r direction is theta_1."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_velocity_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.534596,
+            0.32662,
+            0.198179,
+            0.384584
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Write angular momentum at O as h_/O = r x (mV), then keep only orthogonal products to obtain k and r_1 components.",
+      "key_point": "h_/O contains both k and -r_1 directions."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_angular_momentum.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.098879,
+            0.332705,
+            0.268747,
+            0.222644
+          ],
+          "weight": 0.507463
+        },
+        {
+          "bbox": [
+            0.130022,
+            0.731893,
+            0.243066,
+            0.135494
+          ],
+          "weight": 0.492537
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Differentiate h_/O in inertial frame and collect terms along k, r_1, and theta_1 to get the full moment-rate decomposition.",
+      "key_point": "dh/dt has three directional components."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_dhdt_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.100786,
+            0.731893,
+            0.294928,
+            0.267748
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.244349,
+            0.314449,
+            0.061638,
+            0.38215
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*m*r*r_dot*Omega*k+(-m*z_dot*r*Omega-m*z*r_dot*Omega)*r_1-m*z*r*Omega^2*theta_1"
+  }
+}

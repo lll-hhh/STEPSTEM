@@ -1,0 +1,134 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the rotating arm after the driving inputs are removed, compute the centripetal force vector acting on particle C at the shown instant. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set inertial and rotating coordinates at pivot B, with arm length L to particle C.",
+      "key_point": "Use angular-momentum balance about B."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_setup_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.531,
+            0.321,
+            0.031,
+            0.282
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.528355,
+            0.605559,
+            0.197645,
+            0.071677
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.261901,
+            0.606838,
+            0.297663,
+            0.153553
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "From M(t)+rF(t)=d(h/B)/dt, integrate from 0 to t to get h/B=(10*t^3+7.5*L*t^2)*k.",
+      "key_point": "At t=5, h/B=m*L^2*omega*k."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_torque_force_inputs.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.497659,
+            0.487603,
+            0.131346,
+            0.167884
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.236547,
+            0.590242,
+            0.303409,
+            0.150959
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "After drivers are removed at t=5, rotation is uniform and linear momentum is P=m*L*omega*j1.",
+      "key_point": "Only j1 changes direction with time."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_linear_momentum_P.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.504681,
+            0.494,
+            0.135247,
+            0.169163
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.258394,
+            0.573611,
+            0.288024,
+            0.166311
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Differentiate P in inertial frame: dP/dt=-m*L*omega^2*i1, directed toward pivot.",
+      "key_point": "This is the centripetal force on C."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_dpdt_centripetal.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.282581,
+            0.551862,
+            0.198179,
+            0.216205
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-m*L*omega^2*i1"
+  }
+}

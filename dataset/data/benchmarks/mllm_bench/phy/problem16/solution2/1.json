@@ -1,0 +1,57 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the three-particle system, compute the total kinetic energy under the given masses and velocities. Output exactly one integer in plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a single integer; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Read each particle mass and speed from the figure using one consistent unit system.",
+      "key_point": "Prepare m_i and v_i for direct energy computation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_particle_data.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0326,
+            0.263071,
+            0.262136,
+            0.531729
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.463668,
+            0.135719,
+            0.338696,
+            0.6407
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute each term with T_i = (1/2)*m_i*v_i^2 for i=1,2,3.",
+      "key_point": "This method directly targets total kinetic energy without center-of-mass decomposition."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Add T_1 + T_2 + T_3 and report the required single integer.",
+      "key_point": "The total kinetic energy is 5450."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "5450"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "# Regenerative Braking in a New Electric Vehicle A new electric vehicle can recover kinetic energy through a generator during braking. Assume the generator can be idealized as shown in Fig. 1: the magnetic field between two poles is approximately uniform with magnitude B. A rectangular coil with n turns has length a and width b, and the entire coil is inside the magnetic field. The rotation axis is the line connecting the trisection points on the two short sides (see Fig. 1). The coil is connected to a pure resistive load of resistance R, and the coil's own resistance is neglected. The vehicle mass is M. During braking, road friction and other resistive effects are negligible compared with the generator-induced resistance, so all kinetic energy is converted into electrical energy. In one braking mode: - At the start of braking, the coil plane is perpendicular to the magnetic field. - During the first full turn, the angular speed is omega_2. - After that, for each subsequent full turn, the angular speed is half of the previous turn. - The vehicle comes to a complete stop after exactly N full turns and before completing the (N+1)-th turn. Find the minimum and maximum possible initial speed of the vehicle. Directly write the maximum and minimum values as expressions, separated by a comma. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Magnetic torque / braking-work method: instead of integrating electrical power directly, find the magnetic braking torque on the current-carrying coil and integrate its mechanical work over each turn.",
+      "key_point": "The lost vehicle kinetic energy equals the rotational work done by the braking torque."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_offset_axis_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.075039,
+            0.14097,
+            0.153706,
+            0.588184
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.258394,
+            0.098957,
+            0.357347,
+            0.613129
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Because the rotation axis divides the width into b/3 and 2b/3, the two long active sides produce a resisting couple about the shaft. The current is induced by rotation in the uniform field B, and the torque direction always opposes the motion.",
+      "key_point": "This converts the generator into a pure angular brake with torque τ_b depending on θ and ω."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_braking_couple.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.152282,
+            0.272261,
+            0.631209,
+            0.618381
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For one full turn, the braking work is the integral of τ_b over θ from 0 to 2π. Since the induced current is proportional to ω and the magnetic torque follows the same angular envelope during every turn, the work of one full turn is proportional to that turn’s angular speed ω.",
+      "key_point": "So the full-turn energy losses form the same halving sequence as the given turn-by-turn angular speeds."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_turn_work_halving.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.053472,
+            0.273574,
+            0.84,
+            0.330853
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Hence the first N complete turns contribute a geometric sum of braking work. During the next turn the angular speed is ω_2/2^N, and the vehicle stops before reaching θ=π/2, so only part of the first-quarter work is used.",
+      "key_point": "That incomplete final sector gives a strict lower-to-upper energy window rather than a single extra value."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_partial_work_window.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.178231,
+            0.372043,
+            0.575611,
+            0.535113
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.286482,
+            0.599176,
+            0.156827,
+            0.291466
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Now match the total braking work to the initial vehicle kinetic energy 0.5Mv_0^2. The full-turn geometric sum gives the common base term, and the partial-sector window maps it to the interval bounded by vmin and vmax.",
+      "key_point": "This reaches the same final inequality without starting from the Φ→e→P integration chain used in solution1."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "vmin<v_0<vmax"
+  }
+}

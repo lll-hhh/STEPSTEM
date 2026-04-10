@@ -1,0 +1,134 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Split the figure into stages and derive overall gain and equivalent resistances for the multi-stage amplifier. Output exactly one ASCII line with three semicolon-separated fields in the form Au:...;Ri:...;Ro:...; do not use '=' or any equation form, no Chinese characters, no prose sentence, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct a full small-signal nodal admittance matrix for the whole multi-stage amplifier.",
+      "key_point": "Solve one global linear system instead of stage-by-stage tracing."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_signal_path_trace.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.038368,
+            0.189094,
+            0.397919,
+            0.40284
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.465156,
+            0.24021,
+            0.46658,
+            0.399189
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Inject an input test source and solve node voltages to obtain forward transfer Au.",
+      "key_point": "Au is extracted directly from solved output/input ratio."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_input_test_source.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.06,
+            0.32,
+            0.35288,
+            0.482482
+          ],
+          "weight": 0.566667
+        },
+        {
+          "bbox": [
+            0.169077,
+            0.280953,
+            0.304662,
+            0.252563
+          ],
+          "weight": 0.433333
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute Ri from input driving-point current and Ro from output test source with input grounded.",
+      "key_point": "Both resistances come from the same Y-matrix under different excitations."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_output_test_source.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.25,
+            0.22,
+            0.487457,
+            0.289175
+          ],
+          "weight": 0.65
+        },
+        {
+          "bbox": [
+            0.6,
+            0.28,
+            0.16,
+            0.52
+          ],
+          "weight": 0.35
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Write Au, Ri, Ro in the required semicolon-separated format.",
+      "key_point": "Return one ordered token sequence only."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_metric_merge_map.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.025104,
+            0.20735,
+            0.439006,
+            0.511271
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.476879,
+            0.418783,
+            0.34,
+            0.18
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Au:Au1*Au2*Au3;Ri:2*rbe1;Ro:(rbe4+R4)/(1+beta4)"
+  }
+}

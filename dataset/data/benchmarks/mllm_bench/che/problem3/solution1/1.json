@@ -1,0 +1,161 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the sampled Newman conformations at 0, 60, 120, 180, 240, 300, and 360 degrees around the CH2-CH bond, rank their relative energies from highest to lowest. Output exactly one token sequence using labels E0,E60,E120,E180,E240,E300,E360 with '>' for higher-than and '~' for equal-energy, plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Rotate around the CH2-CH bond and classify the seven sampled conformations as E or S.",
+      "key_point": "E at 0/120/240/360 and S at 60/180/300."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_newman_set.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.010501,
+            0.243468,
+            0.1452,
+            0.2844
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.286963,
+            0.234759,
+            0.256503,
+            0.329754
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.7018,
+            0.2533,
+            0.138123,
+            0.303604
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compare eclipsed cases: CH3-iPr overlap at 0 degrees is largest, CH3-CH3 at 120 is next, and CH3-H at 240 is smaller.",
+      "key_point": "E0 is the highest eclipsed peak."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_eclipsed_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.121056,
+            0.142372,
+            0.11215,
+            0.138127
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.434325,
+            0.136827,
+            0.130694,
+            0.149217
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.757514,
+            0.116864,
+            0.134562,
+            0.171398
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Among staggered states, anti CH3-iPr at 180 degrees is lowest, then 300 degrees, then 60 degrees.",
+      "key_point": "S180 < S300 < S60."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_energy_points.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.46874,
+            0.672774,
+            0.074727,
+            0.212575
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.74949,
+            0.59368,
+            0.053036,
+            0.300546
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Connect the sampled points into one periodic qualitative profile from 0 to 360 degrees.",
+      "key_point": "0 and 360 share the same highest level."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_profile.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.072662,
+            0.105279,
+            0.104052,
+            0.802896
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.43455,
+            0.598891,
+            0.1173,
+            0.304371
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.841055,
+            0.156813,
+            0.101294,
+            0.749463
+          ],
+          "weight": 0.33
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "E0~E360>E120>E240>S60>S300>S180"
+  }
+}

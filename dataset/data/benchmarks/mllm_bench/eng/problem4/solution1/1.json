@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the fixed-fixed beam under sinusoidal distributed load, derive the deflection function v(x). Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target function. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the fixed-fixed beam geometry and distributed load p(x)=p_0*sin(pi*x/L) on 0<=x<=L.",
+      "key_point": "Use Euler-Bernoulli equation E*I*v''''(x)=p(x)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_beam_load.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.086072,
+            0.328107,
+            0.850459,
+            0.338394
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Introduce redundant reactions and fixed-end constraints: v(0)=0, (0)=0, v(L)=0, (L)=0.",
+      "key_point": "Four boundary conditions determine all integration constants."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_reactions_bc.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.086,
+            0.273,
+            0.157,
+            0.308
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.736,
+            0.273,
+            0.157,
+            0.308
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate load successively to get V(x), M(x), (x), v(x), then apply the four fixed-end conditions.",
+      "key_point": "Final deflection must satisfy both displacement and slope zero at x=0 and x=L."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_chain.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08989,
+            0.393302,
+            0.808461,
+            0.175406
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The resulting deflection is a sinusoidal term plus a polynomial correction from fixed-end compatibility.",
+      "key_point": "v(x) combines a sinusoidal term and a compatibility polynomial."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_deflection.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.363831,
+            0.362256,
+            0.265351,
+            0.347708
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "p_0*L^4/(E*I*pi^4)*(sin(pi*x/L)+pi*(x^2/L^2-x/L))"
+  }
+}

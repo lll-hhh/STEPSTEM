@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Solve the number-loop puzzle on the given grid: draw one closed, non-branching, non-crossing loop satisfying all adjacency counts around numbered cells. Output exactly one token SEE_STEP4, plain ASCII only, no Chinese characters, no sentence, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Start from forced edges implied by strong numeric constraints and keep one continuous loop candidate.",
+      "key_point": "Extract the key constraints before committing to the final choice."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_forced_edges.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Propagate continuity and parity constraints to remove impossible turns.",
+      "key_point": "Each intermediate update must preserve single-loop feasibility."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_propagation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Merge partial segments while preventing branches or crossings.",
+      "key_point": "Dead ends are forbidden and must be pruned immediately."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_merge_segments.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Close the final loop and verify every numbered-cell condition.",
+      "key_point": "Final loop is the one shown in the last step figure."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_loop.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "step8_final_loop.png"
+  }
+}

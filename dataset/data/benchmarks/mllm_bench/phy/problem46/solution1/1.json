@@ -1,0 +1,52 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Use first-law decomposition with an auxiliary constant-pressure path through point c to derive the technical work expression. Output exactly one ASCII expression in the form wi:<area_symbol>; do not use '=' or any equation form, no Chinese characters, no spaces, no prose sentence, and no extra text. Answer format: `wi:...`; write only the field labels and values, with no explanatory text, units, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use first-law decomposition with an auxiliary constant-pressure path through point c.",
+      "key_point": "First-law decomposition with an auxiliary constant-pressure path through point c."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "input.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.34,
+            0.22,
+            0.26,
+            0.3
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.34,
+            0.54,
+            0.26,
+            0.3
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Combine heat-area and enthalpy-area terms into one technical-work area expression.",
+      "key_point": "Combine heat-area and enthalpy-area terms into one technical-work area expression."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "wi:A_abdefca"
+  }
+}

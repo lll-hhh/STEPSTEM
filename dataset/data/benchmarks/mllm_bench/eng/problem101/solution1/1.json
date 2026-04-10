@@ -1,0 +1,92 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the N-channel MOSFET common-gate amplifier in the accompanying image, the gate is AC-grounded through Rg. The input signal vi is coupled to the source through Cb1, and the source is connected to -VSS through Rs. The drain is connected to VDD through Rd, and the output is coupled through Cb2 to load RL; vo is measured across RL, with the body shorted to the source. Given VDD = VSS = 5 V, Rs = 10 kOhm, Rd = 5 kOhm, RL = 5 kOhm, Kn = 3 mA/V^2, VTN = 1 V, and lambda = 0, determine only the voltage gain Av = vo/vi. Answer format: a single numerical value or algebraic expression; use the variable name Av if needed, and do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "step2.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Saturation bias:\n\\[I_{DQ}=K_n(V_{GSQ}-V_{TN})^2.\\]",
+      "key_point": "Write the MOSFET current equation first."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.572553,
+            0.144874,
+            0.377057,
+            0.827823
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.192445,
+            0.127893,
+            0.350703,
+            0.793861
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Bias relation:\n\\[V_{GSQ}=V_{SS}-I_{DQ}R_s=5-10I_{DQ}.\\]",
+      "key_point": "Relate VGSQ to IDQ using Rs."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Substitute:\n\\[300I_{DQ}^2-241I_{DQ}+48=0.\\]",
+      "key_point": "Get a quadratic in IDQ."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Roots:\n\\[I_{DQ}=0.438\\,\\text{mA},\\;0.365\\,\\text{mA}.\\]",
+      "key_point": "Two current candidates are obtained."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Choose valid root:\n\\[I_{DQ}=0.365\\,\\text{mA}.\\]",
+      "key_point": "Pick the physically valid Q current."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "\\[V_{GSQ}=1.35\\,\\text{V},\\quad V_S=-1.35\\,\\text{V}.\\]",
+      "key_point": "Compute DC source and gate-source voltages."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "\\[V_{DSQ}=5-0.365\\times5+1.35=4.525\\,\\text{V}.\\]",
+      "key_point": "Compute VDSQ."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "\\[g_m=2K_n(V_{GSQ}-V_{TN})=2.1\\,\\text{mS}.\\]",
+      "key_point": "Calculate transconductance at Q."
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "\\(\\lambda=0\\Rightarrow r_{ds}\\to\\infty\\),\n\\[R_D\\parallel R_L=2.5\\,\\text{k}\\Omega.\\]",
+      "key_point": "Find the small-signal drain load."
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "\\[A_v=\\frac{v_o}{v_i}=g_m(R_D\\parallel R_L)=5.25.\\]",
+      "key_point": "Final gain is +5.25."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "5.25"
+  }
+}

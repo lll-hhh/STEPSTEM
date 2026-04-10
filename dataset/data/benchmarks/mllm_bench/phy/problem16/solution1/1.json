@@ -1,0 +1,110 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the three-particle system, compute the total kinetic energy under the given masses and velocities. Output exactly one integer in plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a single integer; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the three position vectors from O and apply the mass-weighted center-of-mass relation.",
+      "key_point": "rG equals weighted average of r1, r2, and r3."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_position_vectors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.40734,
+            0.197425,
+            0.466592,
+            0.517287
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.009143,
+            0.305329,
+            0.392112,
+            0.614197
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Locate G from the weighted-position sum, then move to momentum summation using m_i*V_i vectors.",
+      "key_point": "Use the same particle set for both position and momentum aggregation."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_center_of_mass.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.444085,
+            0.202581,
+            0.365769,
+            0.487186
+          ],
+          "weight": 0.65
+        },
+        {
+          "bbox": [
+            0.045791,
+            0.30009,
+            0.321345,
+            0.40937
+          ],
+          "weight": 0.35
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Add p1, p2, and p3 to get total P, then obtain VG by dividing by total mass.",
+      "key_point": "VG is parallel to P and scaled by 1/M_total."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_momentum_vectors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.217012,
+            0.701261,
+            0.1733,
+            0.2053
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.442031,
+            0.588673,
+            0.222191,
+            0.236324
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Compute total kinetic energy as the sum of particle energies and compare it with center-of-mass kinetic energy.",
+      "key_point": "T_total = T_G + relative-motion kinetic energy."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "5450"
+  }
+}

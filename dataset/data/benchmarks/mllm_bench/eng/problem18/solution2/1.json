@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For two charged masses connected by a spring, determine the maximum spring length during motion. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: relative-coordinate energy method with reduced mass μ.",
+      "key_point": "Convert the two-body system to one DOF Δr and use turning-point energy."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_relative_definition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.151172,
+            0.246312,
+            0.666974,
+            0.471848
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write the relative dynamics for Δr with effective drive F_rel from field-force mismatch.",
+      "key_point": "The sign of F_rel sets whether extension grows or shrinks first."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_relative_balance.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.19,
+            0.18,
+            0.62,
+            0.56
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Build potential U(Δr) and enforce U(Δr_t)=U(0) at the turning point.",
+      "key_point": "Roots give Δr_t=0 or Δr_t=2F_rel/k."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_effective_potential.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.150076,
+            0.541364,
+            0.642872,
+            0.304586
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Choose outward branch only: Δr_t contributes to maximum length when F_rel>0.",
+      "key_point": "Use positive-part form to merge sign branches into one expression."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_geometry_mapping.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.171682,
+            0.227579,
+            0.72,
+            0.578526
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "L+(((m_1*Q_2-m_2*Q_1)*E)+abs((m_1*Q_2-m_2*Q_1)*E))/(k*(m_1+m_2))"
+  }
+}

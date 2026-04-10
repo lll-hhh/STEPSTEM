@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the block-plus-groove system on a frictionless horizontal plane, compute the groove displacement magnitude when the block moves to the specified final position. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Treat the block and groove as one system on a frictionless horizontal plane.",
+      "key_point": "Horizontal external force on the system is zero."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_complete_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.409709,
+            0.375981,
+            0.358536,
+            0.320299
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use horizontal momentum conservation during sliding: m*v_x + m_slot*v_slot = 0.",
+      "key_point": "System horizontal momentum remains zero throughout motion."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_velocity_momentum_scene.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.429196,
+            0.314136,
+            0.275804,
+            0.382196
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.075881,
+            0.563326,
+            0.312891,
+            0.161889
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate in time to obtain m*x = -m_slot*x_slot, and use the geometric relation x = R + x_slot.",
+      "key_point": "Combine momentum relation and relative displacement relation."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_displacement_marking.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2,
+            0.12,
+            0.5,
+            0.16
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.389604,
+            0.361926,
+            0.438593,
+            0.327841
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Solve the two equations and take the displacement magnitude of the groove.",
+      "key_point": "Distance moved by the groove is the absolute value of x_slot."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_motion_process.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.511934,
+            0.306397,
+            0.364494,
+            0.456893
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*R/(m+m_slot)"
+  }
+}

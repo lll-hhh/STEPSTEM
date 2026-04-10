@@ -1,0 +1,87 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-rod rolling structure in the accompanying image, simplify the system as a simply supported beam of span \\(L\\), with a pin support at the left end and a roller support at the right end. A local uniformly distributed vertical load \\(q\\) acts over length \\(b\\); its start point is at distance \\(l\\) from the left support, and its end point is at distance \\(b\\) from the right support. The structure consists of two parallel circular rods (upper and lower), with center-to-center distance \\(D\\), connected by a middle transfer block. Given \\(D=280\\,\\text{mm}\\), \\(L=1000\\,\\text{mm}\\), \\(l=400\\,\\text{mm}\\), \\(b=200\\,\\text{mm}\\), and allowable bending stress \\([\\sigma]=100\\,\\text{MPa}\\), determine the maximum rolling force. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "step2.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model the roller as a simply supported beam under a local UDL. Let the UDL resultant be \\(qb\\), acting at the center of the loaded segment. For the symmetric loading model used in the solution, support reactions are \\(F_{R,L}=F_{R,R}=\\frac{qb}{2}\\). The section modulus of the circular shaft is \\(W=\\frac{\\pi D^3}{32}\\).",
+      "key_point": "Use \\(F_{R,L}=F_{R,R}=qb/2\\) and \\(W=\\pi D^3/32\\)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.363443,
+            0.041304,
+            0.26685,
+            0.379275
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.143188,
+            0.502477,
+            0.715374,
+            0.247644
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "By symmetry, the support reactions are equal: \\(F_{R,L}=F_{R,R}=\\frac{qb}{2}\\).",
+      "key_point": "\\(F_{R,L}=F_{R,R}=qb/2\\)."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Maximum moment section: \\(M_{\\max}=F_{R,L}\\cdot\\frac{L}{2}-\\left(q\\frac{b}{2}\\right)\\cdot\\frac{b}{4}\\).",
+      "key_point": "Use reaction moment minus UDL moment."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute \\(F_{R,L}=\\frac{qb}{2}\\): \\(M_{\\max}=\\frac{qbL}{4}-\\frac{qb^2}{8}=0.045q\\).",
+      "key_point": "\\(M_{\\max}=0.045q\\)."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Use \\(W=\\frac{\\pi D^3}{32}\\) and \\(\\sigma_{\\max}=\\frac{M_{\\max}}{W}\\le[\\sigma]\\), giving \\(q\\le 4787\\,\\text{kN/m}\\).",
+      "key_point": "\\(q_{\\max}=4787\\,\\text{kN/m}\\)."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3574,
+            0.2139,
+            0.2845,
+            0.1875
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Then the maximum rolling force is \\(F_{\\max}=qb=4787\\times0.2=957\\,\\text{kN}\\).",
+      "key_point": "Final result: \\(F_{\\max}=957\\,\\text{kN}\\)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "957"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the beam with supports at A, B, and C under end couple M_0, solve the three vertical reactions A_y, B_y, and C_y. Output exactly one tuple token in the order (A_y,B_y,C_y), plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: (A_y,B_y,C_y)."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the beam with points A, B, C, lengths AB=a and BC=a, and external end couple M_0.",
+      "key_point": "Unknown reactions are A_y, B_y, C_y."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_load.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.045983,
+            0.310116,
+            0.943057,
+            0.300279
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use global equilibrium and the compatibility relation from the second-integration method for segment continuity.",
+      "key_point": "From BC-segment integration, B_y and A_y are linked."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_unknown_reactions.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.463007,
+            0.316697,
+            0.518389,
+            0.391348
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.040399,
+            0.354159,
+            0.385392,
+            0.363079
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Cut segment AB at D: write M(x), then integrate to theta and v, applying v_B=0 and continuity at B.",
+      "key_point": "AB gives one compatibility equation with A_y."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_cut_AB.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.111,
+            0.3013,
+            0.3973,
+            0.2355
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.5692,
+            0.3803,
+            0.3336,
+            0.1553
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Cut segment BC at H and combine with equilibrium equations to solve all reactions.",
+      "key_point": "Obtain A_y, B_y, C_y as functions of M_0 and a."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_cut_BC.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1103,
+            0.3013,
+            0.4527,
+            0.3276
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.55092,
+            0.3026,
+            0.35118,
+            0.2303
+          ],
+          "weight": 0.25
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(-M_0/(4*a),3*M_0/(2*a),-5*M_0/(4*a))"
+  }
+}

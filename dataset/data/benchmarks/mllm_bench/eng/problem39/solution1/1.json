@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the same cycle with compressor adiabatic efficiency and expander internal efficiency both equal to 0.85, compute compressor theoretical specific work for no-regeneration and regeneration cases. Output exactly two decimal numbers separated by one comma as no_regen,regen, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Apply efficiency corrections to compressor states for both configurations.",
+      "key_point": "Efficiency corrections to compressor states for both configurations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.035325,
+            0.444094,
+            0.679149,
+            0.507906
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up relation for compressor specific work in no-regen and regen cases."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.22,
+            0.221,
+            0.567,
+            0.567
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute and output the two compressor specific-work values.",
+      "key_point": "Compute compressor work for no-regen and regen."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "114.65,79.19"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a Michelson interferometer, the center is bright and the outermost ring is bright with 20 bright rings total. When one mirror is translated, the center changes 23 intensity cycles while the outermost ring changes 20 cycles. A flat quartz empty cell is inserted in one arm; changing its tilt by theta=5.00 degrees causes 10 center cycles. After filling the cell with an unknown transparent liquid, tilting back to normal causes 17 center cycles. Given lambda=633 nm, inner spacing t=2.00 mm, and n_air=1.00, find only the refractive index n of the liquid. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use equal-inclination interference orders at center and edge during mirror translation.",
+      "key_point": "From 20 rings and cycle counts, obtain order difference and phase-offset consistency."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_rings.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.323929,
+            0.342857,
+            0.55943,
+            0.297982
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For the tilt experiment, isolate the angular optical-path term proportional to theta^2.",
+      "key_point": "Empty-cell count gives wall contribution; filled-cell count adds the liquid term."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_mirror_scan_counts.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.15494,
+            0.181037,
+            0.664923,
+            0.658218
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Subtract the two cycle counts to eliminate quartz-wall terms.",
+      "key_point": "(N2-N1)*lambda=t*theta^2*(n-1)/n with N2-N1=7."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_empty_vs_liquid_tilt.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.187937,
+            0.236436,
+            0.17,
+            0.38
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.69,
+            0.24,
+            0.18,
+            0.38
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Insert theta=5.00*pi/180, lambda=633e-9 m, and t=2.00e-3 m, then solve for n.",
+      "key_point": "n=1/(1-7*lambda/(t*theta^2)) and evaluate numerically."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_geometry_theta_t_n.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.192039,
+            0.295096,
+            0.751962,
+            0.235248
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1.41"
+  }
+}

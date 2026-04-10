@@ -1,0 +1,58 @@
+﻿{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the cast-iron I-section beam with unequal top and bottom flange widths, use the beam geometry and loading given in the accompanying image. The second moment of area about the centroidal z-axis is \\(I_z = 235 \\times 10^6\\,\\text{mm}^4\\), with \\(y_1=119\\,\\text{mm}\\) and \\(y_2=181\\,\\text{mm}\\). The allowable tensile stress is \\([\\sigma_t]=40\\,\\text{MPa}\\), and the allowable compressive stress is \\([\\sigma_c]=120\\,\\text{MPa}\\). Determine the allowable distributed load \\([q]\\), keeping two decimal places. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "step2.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify the governing mode first. Since [sigma_t] = 40 MPa is much smaller than [sigma_c] = 120 MPa, tension controls. Because y2 = 181 mm > y1 = 119 mm, the tensile critical edge is the bottom edge in positive bending and the top edge in negative bending.",
+      "key_point": "Tension-controlled edges: positive moment -> y2, negative moment -> y1."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.086,
+            0.1758,
+            0.8172,
+            0.4004
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use only tensile allowable moments: M_allow(+) = [sigma_t]*Iz/y2 = (40x10^6 x 235x10^-6)/0.181 = 51.93 kN*m, and M_allow(-) = [sigma_t]*Iz/y1 = (40x10^6 x 235x10^-6)/0.119 = 79.00 kN*m.",
+      "key_point": "Tensile allowable moments are 51.93 kN*m (positive) and 79.00 kN*m (negative)."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "From the beam moment diagram, the peak moments are M_max(+) = 6.4q and |M_max(-)| = 8q. Match each peak to its tensile allowable value.",
+      "key_point": "Control inequalities: 6.4q <= 51.93 and 8q <= 79.00."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Solve the two bounds: q <= 51.93/6.4 = 8.11 and q <= 79.00/8 = 9.87. Take the smaller admissible value.",
+      "key_point": "Governing load is q = min(8.11, 9.87) = 8.11."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Therefore, the allowable distributed load is [q] = 8.11.",
+      "key_point": "Final answer is 8.11."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "8.11"
+  }
+}

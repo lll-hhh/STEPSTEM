@@ -1,0 +1,96 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In triangle ABC, AB=AC. Point D lies on side BC but does not coincide with either endpoint, and segment AD is drawn. Rotate segment AD counterclockwise about point A by angle alpha to obtain segment AE, and connect DE. In Figure 1, alpha=angle BAC=60 degrees and angle CAE=20 degrees. Find angle ADB. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Since AB=AC and angle BAC=60 degrees, triangle ABC is equilateral, so angle ABC=60 degrees.",
+      "key_point": "Convert the isosceles triangle with a 60-degree apex into an equilateral triangle."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_equilateral_frame.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2444,
+            0.2708,
+            0.1667,
+            0.3611
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.4778,
+            0.2222,
+            0.1833,
+            0.4097
+          ],
+          "weight": 0.55
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The rotation sends AD to AE through 60 degrees. With angle CAE=20 degrees and AC lying between AD and AE, angle DAC=60-20=40, so angle BAD=60-40=20.",
+      "key_point": "Use the rotation angle and the 20-degree split at A to recover angle BAD."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rotation_split.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.350656,
+            0.164026,
+            0.113124,
+            0.745497
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.440489,
+            0.123842,
+            0.499076,
+            0.508545
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Because D lies on BC, angle ABD equals angle ABC=60 degrees. Then in triangle ABD, angle ADB=180-20-60=100.",
+      "key_point": "Finish with the angle sum in triangle ABD."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_target_angle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.142153,
+            0.168183,
+            0.361553,
+            0.719169
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "100"
+  }
+}

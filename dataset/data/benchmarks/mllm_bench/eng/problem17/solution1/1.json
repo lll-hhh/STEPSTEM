@@ -1,0 +1,121 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "An object moves with constant speed v_0 along the spiral r=r_0*theta/pi. Find the large-K approximation for the average normal force after K turns. Answer format: a single algebraic expression. Use the variable names from the problem, including K, v_0, r_0, theta, and pi; use ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model the trajectory with r=r_0*theta/pi and constant speed v_0.",
+      "key_point": "Use arc-length and turning-angle accumulation along the tube."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_spiral_motion.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.352813,
+            0.386683,
+            0.31,
+            0.22
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "From differential geometry: dl=(r_0/pi)*sqrt(1+theta^2)*dtheta and tan(beta)=theta.",
+      "key_point": "Integrate to get T_K and Delta phi_K=2*K*pi+arctan(2*K*pi)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_differential_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.559932,
+            0.382519,
+            0.323808,
+            0.245648
+          ],
+          "weight": 0.56
+        },
+        {
+          "bbox": [
+            0.168072,
+            0.607618,
+            0.275332,
+            0.166392
+          ],
+          "weight": 0.44
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use curvature dynamics N*dt=m*v_0*dphi, then average over total time.",
+      "key_point": "N_bar=(1/T_K)*integral(N*dt)=m*v_0*Delta phi_K/T_K."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_curvature_impulse.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.505926,
+            0.258295,
+            0.31,
+            0.46
+          ],
+          "weight": 0.67
+        },
+        {
+          "bbox": [
+            0.269165,
+            0.453462,
+            0.158007,
+            0.327885
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For K>>1, keep the dominant terms: Delta phi_K~2*K*pi and T_K~2*K^2*pi*r_0/v_0.",
+      "key_point": "The large-K asymptotic form scales as 1/K."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_largeK_limit.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.307095,
+            0.0855,
+            0.224021,
+            0.395092
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Output only the single-expression large-K approximation.",
+      "key_point": "Use the large-K asymptotic form of average normal force."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*v_0^2/(K*r_0)"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Problem 3: As shown in the figure, a metal frame with an opening angle is placed in a non-uniform magnetic field. The magnetic induction vector is perpendicular to the frame plane. A conducting rod is perpendicular to one side of the frame and slides to the right at constant speed on the frame. Assume the initial condition at time zero is given in the figure. Find the induced electromotive force in the metal frame. Requirement: draw the coordinate system and the corresponding differential element used in the derivation. Answer format: one final result only, in the form required by the problem; do not include any extra explanatory text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct the wedge geometry and the moving rod on the x-axis frame.",
+      "key_point": "The loop area is set by O, the upper rail, the lower rail, and rod MN."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_frame_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.127468,
+            0.323541,
+            0.59251,
+            0.414137
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Introduce a strip at position x' with width dx' to express dS.",
+      "key_point": "Use dS as a narrow region bounded by two nearby vertical cuts."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_micro_element.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.134958,
+            0.251192,
+            0.547573,
+            0.54262
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate magnetic flux with B=K*x*cos(omega*t) over strips from 0 to x.",
+      "key_point": "Flux is accumulated by strip integration across the current loop width."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_strip_integration.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.372129,
+            0.24745,
+            0.310402,
+            0.422869
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Apply x=vt and then take -dPhi/dt to obtain the induced emf expression.",
+      "key_point": "Time dependence comes from both x(t) and cos(omega*t)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_emf_result_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.150769,
+            0.246203,
+            0.526768,
+            0.491476
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "K*tan(theta)*(omega*v^3*t^3*sin(omega*t)/3-v^3*t^2*cos(omega*t))"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "The plot shows ln(S) versus 1/T for NaIO3-H2O with linear fit y=6.266-2088x. Use ln(S)=-(DeltaH/R)*(1/T)+constant to compute DeltaH. Output exactly one decimal number with 2 decimal places, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text. Answer format: a decimal number rounded to two decimal places; write only the numerical value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: two-point van't Hoff elimination method. Pick two points on the fitted line so the intercept term is canceled.",
+      "key_point": "Use Δln(S)/Δ(1/T) to remove the constant term."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_two_point_elimination.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.284177,
+            0.32247,
+            0.453522,
+            0.433405
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "From y = 6.266 - 2088x, subtract the two-point equations to get Δln(S) = -2088Δ(1/T), so the finite-difference slope is m = -2088.",
+      "key_point": "m = Δln(S)/Δ(1/T) = -2088."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Use m = -ΔH/R, then ΔH = -mR = 2088 × 8.314e-3 kJ/mol = 17.360..., which rounds to two decimals.",
+      "key_point": "ΔH = 17.36."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "17.36"
+  }
+}

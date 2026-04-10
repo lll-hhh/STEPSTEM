@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Identify the biasing and load-path mistakes in subcircuits (a), (b), and (c), then output the corrective action for each one. Output exactly one ASCII line in the form a:<action>;b:<action>;c:<action>, using lowercase letters, underscores, colons, and semicolons only, no Chinese characters, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify the biasing and load-path mistakes in each subcircuit (a), (b), and (c).",
+      "key_point": "Identify the biasing."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.333,
+            0.38,
+            0.568,
+            0.568
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 3 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Identify the first subcircuit mistake and its corrective action."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.166,
+            0.38,
+            0.565,
+            0.568
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Analyze panel 2 of 3 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Identify the second subcircuit mistake and its corrective action."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "panel_3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.161,
+            0.379,
+            0.566,
+            0.566
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Provide minimal edit rules that restore valid common-source amplification.",
+      "key_point": "Provide minimal edit rules that restore valid common-source amplification."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "a:add_source_resistor;b:add_drain_resistor_and_input_coupling_capacitor;c:use_negative_VGS_and_negative_VDD"
+  }
+}

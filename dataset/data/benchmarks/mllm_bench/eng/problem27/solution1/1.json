@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the balloon model at fixed temperature, derive the pressure-difference function Delta p as a function of stretch ratio lambda. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model the balloon as a sphere with inner pressure p+Delta p and outer pressure p, then track how radius changes at fixed temperature.",
+      "key_point": "Delta p acts across a spherical surface of radius r."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_balloon_r.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.47304,
+            0.359617,
+            0.304623,
+            0.242887
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use virtual work for a tiny radial increment dr: pressure work on dV equals elastic-energy increment dU.",
+      "key_point": "At constant T, Delta p*dV = dU."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_virtual_dr.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.487263,
+            0.278376,
+            0.240024,
+            0.389457
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_lambda_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.263241,
+            0.183733,
+            0.574872,
+            0.518438
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Substitute U = 4*pi*r_0^2*K*R*T*(2*lambda + 1/lambda^4 - 3), lambda = r/r_0, and V = 4*pi*r^3/3, then differentiate to get Delta p(lambda).",
+      "key_point": "Express every term by lambda and isolate Delta p."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The resulting Delta p-lambda curve starts from zero at lambda=1, rises to a peak, then decreases.",
+      "key_point": "Shape check is consistent with the required Delta p~lambda sketch."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_deltap_lambda_curve.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.076556,
+            0.318364,
+            0.384863,
+            0.490594
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "4*K*R*T/r_0*(1/lambda-1/lambda^7)"
+  }
+}

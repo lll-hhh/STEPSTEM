@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In isosceles right triangle ABC with AB=AC and angle BAC=90 deg, define x=AD and y=AE+CD in the motion setup. Find only the x-coordinate of the lowest point of the y-x graph. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Fix the base geometric configuration and identify invariant relations.",
+      "key_point": "Start from fixed points, fixed lengths, and fixed right/parallel constraints."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_construct.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12193,
+            0.306793,
+            0.411356,
+            0.533167
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add the dynamic or transformed elements required by the problem condition.",
+      "key_point": "Turn textual conditions into explicit segments, points, and angle relations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_relations.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.127961,
+            0.519145,
+            0.309243,
+            0.340768
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the added relations to lock the decisive constraint chain for the target quantity.",
+      "key_point": "Collapse multiple relations into one computable path."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_lock_constraint.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.179967,
+            0.516445,
+            0.229525,
+            0.266405
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.38054,
+            0.382478,
+            0.255574,
+            0.464608
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Move to the extremal or terminal configuration and keep only the target expression.",
+      "key_point": "Discard all non-target outputs."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_config.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.196173,
+            0.462233,
+            0.450923,
+            0.320721
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(2)-1"
+  }
+}

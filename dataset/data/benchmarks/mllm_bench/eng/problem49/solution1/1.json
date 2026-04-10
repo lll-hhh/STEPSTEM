@@ -1,0 +1,123 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the self-biased FET common-source circuit with UGS_off=-4 V and IDSS=4 mA, find Q point and dynamic parameters. Output exactly six comma-separated values in the order IDQ_mA,UGSQ_V,UDSQ_V,Au,Ri_MOhm,Ro_kOhm, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use load-line plus transfer-line intersection to locate Q point.",
+      "key_point": "Load-line plus transfer-line intersection to locate Q point."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.104,
+            0.433,
+            0.569,
+            0.565
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 5 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up the governing relation for Q point and dynamic parameters."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0,
+            0.378,
+            0.563,
+            0.566
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Analyze panel 2 of 5 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Transform the relation and isolate Q point and dynamic parameters."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "panel_3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.107,
+            0.324,
+            0.567,
+            0.568
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Analyze panel 3 of 5 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Substitute required values/constants to obtain Q point and dynamic parameters."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "panel_4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.030711,
+            0.365985,
+            0.704985,
+            0.566
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Analyze panel 4 of 5 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Keep the final canonical form of Q point and dynamic parameters."
+    },
+    "step_10": {
+      "modality": "image",
+      "content": "panel_5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.162,
+            0.333,
+            0.568,
+            0.564
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Compute gm and then Au, Ri, Ro and output in order.",
+      "key_point": "Compute gm and then derive Au, Ri, and Ro."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1.00,-2.00,3.20,-3.33,2.00,5.00"
+  }
+}

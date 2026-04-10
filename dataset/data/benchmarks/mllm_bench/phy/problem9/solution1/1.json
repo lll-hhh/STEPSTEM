@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the given current-carrying conductor OA in a uniform magnetic field, compute the resultant magnetic-force vector. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set OA as x-axis and the perpendicular through O as y-axis.",
+      "key_point": "Decompose elemental magnetic force into x and y components."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_wire_axes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.24232,
+            0.553833,
+            0.193967,
+            0.13386
+          ],
+          "weight": 0.8
+        },
+        {
+          "bbox": [
+            0.508522,
+            0.573796,
+            0.272628,
+            0.234011
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For a line element dl, write dF and decompose it into dFx and dFy with angle theta.",
+      "key_point": "Use dFx=IB*dy and dFy=IB*dx."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_element_decompose.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.320944,
+            0.605848,
+            0.226303,
+            0.229625
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate along the whole wire: Fx=IB*integral(dy), Fy=IB*integral(dx).",
+      "key_point": "For closed level path, integral(dy)=0; Fy uses integral(dx)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_component_integral.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.387473,
+            0.588891,
+            0.322676,
+            0.2533
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Hence Fx=0 and Fy=IB*OA, so the resultant force points along +y.",
+      "key_point": "Vector form uses unit vector j."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_resultant_force.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.391333,
+            0.524997,
+            0.171352,
+            0.347018
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "I*B*OA*j"
+  }
+}

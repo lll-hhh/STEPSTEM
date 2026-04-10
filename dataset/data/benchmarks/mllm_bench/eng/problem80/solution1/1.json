@@ -1,0 +1,78 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the overhanging simply supported beam model, find both the maximum bending normal stress and the maximum shear stress. Answer format: sigma_max/tau_max, in this order, with no explanatory text or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set unknown support reactions as \\(F_{R,A}\\) at x=2 m and \\(F_{R,B}\\) at x=6 m. External loads are 10 kN at x=0 and 20 kN at x=4 m.",
+      "key_point": "Define unknown reactions and load coordinates before equilibrium."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.136719,
+            0.546875,
+            0.553385,
+            0.175781
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.072301,
+            0.184634,
+            0.712773,
+            0.315893
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Take moments about A: \\(\\sum M_A=0\\Rightarrow F_{R,B}\\cdot4+10\\cdot2=20\\cdot2\\).",
+      "key_point": "Moment equilibrium about A gives \\(F_{R,B}\\)."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Solve the previous equation: \\(F_{R,B}=5\\,\\text{kN}\\).",
+      "key_point": "Right support reaction is 5 kN."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use vertical force equilibrium: \\(\\sum F_y=0\\Rightarrow F_{R,A}+F_{R,B}-10-20=0\\).",
+      "key_point": "Force equilibrium gives \\(F_{R,A}\\)."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Substitute \\(F_{R,B}=5\\): \\(F_{R,A}=25\\,\\text{kN}\\).",
+      "key_point": "Left support reaction is 25 kN."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "From the internal-force diagrams, read extrema: \\(V_{\\max}=15\\,\\text{kN}\\), \\(M_{\\max}=20\\,\\text{kN*m}\\).",
+      "key_point": "Use diagram extrema for stress checks."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "For No.16 I-beam, \\(W_z=141\\,\\text{cm}^3\\). Bending stress: \\(\\sigma_{\\max}=M_{\\max}/W_z=(20\\times10^3)/(141\\times10^{-6})=142\\,\\text{MPa}\\).",
+      "key_point": "Bending stress is 142 MPa."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Use \\(I_z/S=13.8\\,\\text{cm}\\), web thickness \\(d=6\\,\\text{mm}\\). Shear stress: \\(\\tau_{\\max}=V_{\\max}/[d(I_z/S)]\\) = \\((15\\times10^3)/(6\\times10^{-3}\\times13.8\\times10^{-2})=18.1\\,\\text{MPa}\\).",
+      "key_point": "Maximum shear stress is 18.1 MPa."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "142MPa/18.1MPa"
+  }
+}

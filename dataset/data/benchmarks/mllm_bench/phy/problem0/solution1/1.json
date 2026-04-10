@@ -1,0 +1,87 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the circular arc L with radius R and central angle 2*alpha, compute the line second-moment integral I about the x-axis in the form integral_L y^2 ds. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the arc on the x-y coordinate system with radius R and central angle 2*alpha.",
+      "key_point": "The symmetry axis is the x-axis."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_arc_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.303701,
+            0.282679,
+            0.294944,
+            0.318802
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Parameterize L by x=R*cos(theta), y=R*sin(theta), theta in [-alpha, alpha].",
+      "key_point": "Use I=integral_L y^2 ds."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_element_projection.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.290955,
+            0.269536,
+            0.28,
+            0.4
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Since ds=R dtheta and y=R*sin(theta), integrate R^3*sin(theta)^2 from -alpha to alpha.",
+      "key_point": "Apply symmetry to simplify the integral."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_symmetry_split.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.312292,
+            0.170081,
+            0.328352,
+            0.451749
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.426833,
+            0.296245,
+            0.190902,
+            0.546711
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "R^3*(alpha-sin(alpha)*cos(alpha))"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Compute the water velocity vector relative to the ship in i-j component form using the given absolute velocities. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set vectors in O-frame and use Vw/s=Vw/o-Vs/o.",
+      "key_point": "Relative velocity is vector subtraction."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_frame_vectors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.182863,
+            0.350114,
+            0.4,
+            0.36
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Construct Vw/s from the tip of Vs/o to the tip of Vw/o.",
+      "key_point": "Closing vector gives observer-on-ship smoke velocity."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_relative_subtraction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.322787,
+            0.324287,
+            0.233852,
+            0.418586
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Resolve Vw/s into x and y components in the same axes.",
+      "key_point": "Components are both negative in this geometry."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.32,
+            0.4,
+            0.22,
+            0.36
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use component ratio for direction and norm for magnitude.",
+      "key_point": "Direction is in the third quadrant."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_direction_angle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.239867,
+            0.4227,
+            0.23,
+            0.4
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(10*sqrt(3/2)-20*sqrt(2))*i+(5-20*sqrt(2))*j"
+  }
+}

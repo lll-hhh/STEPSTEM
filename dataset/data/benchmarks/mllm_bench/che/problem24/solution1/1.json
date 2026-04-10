@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Write one constitutional isomer of compound C that satisfies all listed constraints: it contains a phenolic hydroxyl group, gives a color reaction with ferric chloride solution, and has three proton NMR groups with integral ratio 9:6:2. Answer format: one condensed structural formula in ASCII; write only the formula, with no explanatory text, spaces, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct an aromatic phenol isomer with one tert-butyl substituent and two equivalent methyl substituents.",
+      "key_point": "This arrangement provides proton-set integrals 9H, 6H, and 2H."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_isomer_structure.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.354706,
+            0.285966,
+            0.129176,
+            0.17779
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.351584,
+            0.547373,
+            0.147902,
+            0.186168
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.230411,
+            0.640675,
+            0.1172,
+            0.253605
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.067178,
+            0.283386,
+            0.169369,
+            0.171634
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Check that two methyl groups are equivalent and two aromatic protons remain equivalent under ring symmetry.",
+      "key_point": "A valid condensed structural expression can be output directly."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_nmr_grouping.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.334076,
+            0.3,
+            0.162024,
+            0.17719
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.244455,
+            0.655918,
+            0.1172,
+            0.234206
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.534407,
+            0.265181,
+            0.0938,
+            0.459833
+          ],
+          "weight": 0.33
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "HOC6H2(CH3)2C(CH3)3"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For a bridge-crane girder AB with span \\(l=16\\,\\text{m}\\), the original maximum lifting load is \\(90\\,\\text{kN}\\). Use the rigging configuration given in the accompanying image: a rope is hung at point C located \\(x\\) from end B, passes around a pulley on the lifted object, and the other end is attached to the crane hook; the crane then moves to point D, symmetric to C. In this way, a \\(150\\,\\text{kN}\\) load can be lifted. Determine the maximum \\(x\\), considering only normal-stress strength of the girder. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "step2.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set two load cases for the same girder section modulus \\(W\\). Case 1 (original design): a simply supported beam with midspan concentrated load \\(F=90\\,\\text{kN}\\), so \\(M_1=\\frac{Fl}{4}=\\frac{90\\times16}{4}=360\\,\\text{kN}\\cdot\\text{m}\\). Case 2 (modified rigging): two equal loads of \\(75\\,\\text{kN}\\), and the critical section is at C/D with \\(M_2=75x\\,\\text{kN}\\cdot\\text{m}\\).",
+      "key_point": "Key moments are \\(M_1=360\\) and \\(M_2=75x\\) (kN·m)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.13025,
+            0.190237,
+            0.72,
+            0.374284
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.198091,
+            0.729707,
+            0.545988,
+            0.068936
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Because the original \\(90\\,\\text{kN}\\) design already reaches allowable normal stress at the critical point, require \\(\\sigma_2\\le\\sigma_1\\): \\(\\frac{M_2}{W}\\le\\frac{M_1}{W}\\Rightarrow\\frac{75x}{W}\\le\\frac{360}{W}\\Rightarrow 75x\\le360\\).",
+      "key_point": "Strength comparison gives the inequality \\(75x\\le360\\)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.20589,
+            0.229812,
+            0.322718,
+            0.162585
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.193216,
+            0.314357,
+            0.547938,
+            0.24908
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.22149,
+            0.326063,
+            0.521613,
+            0.243878
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.103652,
+            0.135926,
+            0.813154,
+            0.390111
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.017517,
+            0.068451,
+            0.917143,
+            0.639393
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "image",
+      "content": "step9.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.255993,
+            0.205888,
+            0.626577,
+            0.523938
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_10": {
+      "modality": "image",
+      "content": "step10.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.182282,
+            0.23776,
+            0.695023,
+            0.601956
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Solve the inequality: \\(x\\le\\frac{360}{75}=4.8\\,\\text{m}\\). Hence the maximum allowable distance is \\(x_{\\max}=4.8\\,\\text{m}\\).",
+      "key_point": "Final result: \\(x_{\\max}=4.8\\,\\text{m}\\)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "4.8"
+  }
+}

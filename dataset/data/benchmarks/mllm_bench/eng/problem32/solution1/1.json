@@ -1,0 +1,110 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the pressure-gap-induced couple model, derive the small rotation-angle expression alpha of the suspended plate. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Compute the pressure gap between coated and uncoated responses.",
+      "key_point": "p'=(1-q/2)p, so Dp=qp/2."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_delta_p_couple.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.193364,
+            0.2875,
+            0.2667,
+            0.377829
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.5417,
+            0.5375,
+            0.2667,
+            0.1875
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use the pressure-gap pair on two half-side faces to form a couple.",
+      "key_point": "M'=2[(Dp*bc)]*(b/2)=q*b^2*c*p/2."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_tension_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2083,
+            0.2875,
+            0.25,
+            0.425
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.5417,
+            0.2875,
+            0.25,
+            0.425
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply small-angle geometry and vertical force balance of two strings.",
+      "key_point": "theta≈alpha/2, N=mg/2 => M=(m*g*a/2)*alpha."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_torque_balance.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3583,
+            0.225,
+            0.3167,
+            0.275
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.325,
+            0.4875,
+            0.3167,
+            0.275
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Set static torque balance and solve for the small rotation angle.",
+      "key_point": "M'=M gives alpha=q*b^2*c*p/(m*g*a)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "q*b^2*c*p/(m*g*a)"
+  }
+}

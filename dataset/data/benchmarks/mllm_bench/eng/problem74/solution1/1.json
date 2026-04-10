@@ -1,0 +1,89 @@
+﻿{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the crane-beam model, find the maximum allowable concentrated load F that satisfies the strength requirement. Answer format: a single numerical value for F; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the symmetric midspan point-load model, so reactions are FRA = FRB = F/2.",
+      "key_point": "Core equilibrium result: FRA = FRB = F/2."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.05,
+            0.16,
+            0.9,
+            0.55
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.4388,
+            0.2285,
+            0.125,
+            0.4023
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.4453,
+            0.209,
+            0.1445,
+            0.1875
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.0677,
+            0.2383,
+            0.1315,
+            0.3145
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.8034,
+            0.248,
+            0.1445,
+            0.3145
+          ],
+          "weight": 0.166666
+        },
+        {
+          "bbox": [
+            0.4967,
+            0.2412,
+            0.0091,
+            0.3867
+          ],
+          "weight": 0.166666
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For F = 30 kN and l = 5 m: FRA = FRB = 15 kN, Mmax = Fl/4 = 37.5 kN*m. With Wz = 237 cm^3, sigmamax = Mmax/Wz = 158 MPa < [sigma] = 170 MPa.",
+      "key_point": "Bending check passes: sigmamax = 158 MPa < 170 MPa."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "From shear, Fmax = FRA = 15 kN. For the 20a I-beam: Iz/Smax = 17.2 cm and web thickness d = 7 mm, so taumax = Fmax*Smax/(Iz*d) = 12.5 MPa < [tau] = 100 MPa. Both strength checks are satisfied.",
+      "key_point": "Shear check also passes: taumax = 12.5 MPa < 100 MPa."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "12.5"
+  }
+}

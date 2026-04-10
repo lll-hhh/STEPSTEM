@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the right-triangle paper-folding setup with angle ACB=90 deg, angle B=30 deg, and AC=1, perform the two folds shown. Find only the shorter valid value of segment A'D'. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Fix the base geometric configuration and identify invariant relations.",
+      "key_point": "Start from fixed points, fixed lengths, and fixed right/parallel constraints."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_construct.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.09797,
+            0.255487,
+            0.44,
+            0.62
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add the dynamic or transformed elements required by the problem condition.",
+      "key_point": "Turn textual conditions into explicit segments, points, and angle relations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_relations.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.133951,
+            0.308369,
+            0.234609,
+            0.530166
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the added relations to lock the decisive constraint chain for the target quantity.",
+      "key_point": "Collapse multiple relations into one computable path."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_lock_constraint.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.151921,
+            0.539248,
+            0.312479,
+            0.287886
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Move to the extremal or terminal configuration and keep only the target expression.",
+      "key_point": "Discard all non-target outputs."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_config.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12896,
+            0.403856,
+            0.282529,
+            0.448931
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1/2"
+  }
+}

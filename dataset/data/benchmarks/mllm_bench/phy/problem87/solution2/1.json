@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Gravitational lenses and Einstein rings According to the general theory of relativity, when light passes near a massive spherically symmetrical celestial body, it will bend toward the direction of the celestial body at a small angle $\\varepsilon$, $\\varepsilon$ is called the deflection angle, that is, the angle between the outgoing light and the incident light. Known $\\varepsilon = \\frac{R}{r}$, where the constants $R = \\frac{4GM}{c^2}$, $r$ are the closest distance between the light and the center of the celestial body, $G$ is the universal gravitational constant, $M$ is the mass of the celestial body, and $c$ is the speed of light in vacuum. Physical constants and units: - $c = 3 \\times 10^8\\ \\mathrm{m\\cdot s^{-1}}$ - $G = 6.67 \\times 10^{-11}\\ \\mathrm{N\\cdot m^2\\cdot kg^{-2}}$ - $1$ Parsecs $= 3.09 \\times 10^{16}\\ \\mathrm{m}$ - $1$ Milliarc seconds $= 10^{-3} \\times \\frac{2\\pi}{360 \\times 3600}\\ \\mathrm{rad}$ The phenomenon of gravitational lensing can be simulated and demonstrated using an axisymmetric optical lens. The cross-section of the lens is shown in Figure 2b. The $x$ axis is the axis of rotational symmetry. The incident surface of the lens is opaque in the $0 \\le r < r_0$ area, and the exit surface is perpendicular to the $x$ axis. Assume that the light is incident parallel to the $x$ axis, the distance between the incident light and the $x$ axis is $r$, and the deflection angle $\\varepsilon$ still satisfies $\\varepsilon = \\frac{R}{r}$. It is known that the refractive index of the optical lens is $n_0$ ($n_0 > 1$), the refractive index of air is $1$, and the deflection angle $\\varepsilon$ can be regarded as a small angle. Find the expression $x(r)$ for the incident surface of the lens in the $r \\ge r_0$ region, represented by $r$, $n_0$, $R$ and $r_0$. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Thin-prism equivalent method: treat each illuminated annular shell of the entrance surface as a tiny prism and match its prism deviation to the required bending ε=R/r.",
+      "key_point": "This route uses local prism deviation instead of starting from Snell-law linearization on the curved surface."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_annular_shell_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.05,
+            0.16,
+            0.31,
+            0.4
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At radius r, the illuminated shell sees a nearly parallel incident beam. Over a very small neighborhood, the entrance profile behaves like a prism with small apex angle α equal to the local surface tilt dx/dr.",
+      "key_point": "The shell is analyzed locally, so the axisymmetric profile becomes a one-dimensional prism problem."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_local_prism_deviation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.297233,
+            0.377294,
+            0.332871,
+            0.370241
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For a thin prism in air, the small-angle deviation is ε=(n_0-1)α. Because α is the local entrance-surface tilt, α=dx/dr, and matching the target lensing law ε=R/r gives dx/dr=R/((n_0-1)r).",
+      "key_point": "The required surface slope is obtained by deviation matching, not by writing the refraction angles at the normal explicitly."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_surface_tilt_match.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.064223,
+            0.030686,
+            0.3362,
+            0.472648
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Now integrate the slope from the opaque rim r_0 outward. The boundary condition x(r_0)=0 fixes the additive constant because the visible entrance profile starts exactly at the edge of the blocked central disk.",
+      "key_point": "The profile is determined by accumulating the local prism tilt from r_0 to r."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_profile_anchor.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.079251,
+            0.156565,
+            0.31,
+            0.53
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Integrating dx/dr=R/((n_0-1)r) with that anchor condition produces a logarithmic entrance profile in r/r_0.",
+      "key_point": "The lens surface grows as ln(r/r_0)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "R*ln(r/r0)/(n0-1)"
+  }
+}

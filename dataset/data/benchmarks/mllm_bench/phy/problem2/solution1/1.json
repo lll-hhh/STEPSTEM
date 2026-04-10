@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using v=400 m/s and T=0.01 s, draw the two required wave snapshots at the specified times according to the given wave model. Output exactly one image filename: final.png. Use plain ASCII only, no Chinese characters, no equation form, and no extra text. Answer format: one final image only, with no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use v=400 m/s and T=0.01 s to set lambda=4 m and omega=200*pi.",
+      "key_point": "Wave scale is fixed by lambda and amplitude A."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_wave_scales.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.070846,
+            0.111371,
+            0.135679,
+            0.456713
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At t=0.005 s, the snapshot profile is y=0.01*sin(pi*x/2).",
+      "key_point": "This is the first required waveform."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_t005_wave.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.074258,
+            0.10963,
+            0.249604,
+            0.460401
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.313426,
+            0.585127,
+            0.2,
+            0.3
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "At t=0.0075 s, the snapshot profile is y=-0.01*cos(pi*x/2).",
+      "key_point": "This is the second required waveform."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_t0075_wave.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.198419,
+            0.102702,
+            0.2,
+            0.3
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.409293,
+            0.579584,
+            0.2,
+            0.3
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Compare the two snapshots to confirm the phase advance from t=0.005 s to t=0.0075 s.",
+      "key_point": "Overlay verifies the relative shift of the same traveling wave."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_overlay_two_instants.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.153426,
+            0.079261,
+            0.22,
+            0.44
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.569903,
+            0.120831,
+            0.22,
+            0.44
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For a sphere of radius R with center distance d from an infinite line charge, compute the electric flux through the spherical surface. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the geometric relation between the sphere center O and the infinite charged line at distance d.",
+      "key_point": "Use Gauss law with enclosed charge q_in only."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_case_R_lt_d.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.380883,
+            0.322341,
+            0.246907,
+            0.266331
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For R<d, the line does not intersect the sphere interior, so q_in is zero.",
+      "key_point": "Flux is zero when no charge is enclosed."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_case_R_gt_d.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.365544,
+            0.222371,
+            0.301427,
+            0.31113
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For R>d, the enclosed line segment length is ell=2*sqrt(R^2-d^2), so q_in=lambda*ell.",
+      "key_point": "Flux is q_in/epsilon_0."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_enclosed_segment.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.56888,
+            0.206083,
+            0.07,
+            0.595281
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*lambda*sqrt((R^2-d^2+abs(R^2-d^2))/2)/epsilon_0"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the four labeled Newman projections A-D around the C2-C3 bond, determine the most stable conformation and the least stable conformation. Output exactly one token in the format lowest>highest using labels A-D, plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Read the four labeled Newman candidates A-D and compare CH3-CH3 dihedral relationships around C2-C3.",
+      "key_point": "Large-group eclipsing raises energy; anti placement lowers energy."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_best_anti.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.47,
+            0.18617,
+            0.06,
+            0.07234
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.47,
+            0.62234,
+            0.06,
+            0.076596
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Candidate A is anti staggered, so CH3 groups are opposite and steric repulsion is minimized.",
+      "key_point": "Anti (180 deg) is the lowest-energy conformation for butane."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_worst_eclipsed.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.353333,
+            0.297872,
+            0.092954,
+            0.13686
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.544844,
+            0.297872,
+            0.101823,
+            0.119869
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.46134,
+            0.547298,
+            0.073333,
+            0.171849
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Candidate D is fully eclipsed with CH3 directly eclipsing CH3, maximizing torsional and steric strain.",
+      "key_point": "Fully eclipsed CH3-CH3 is the highest-energy conformation."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_compare_pair.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2,
+            0.218085,
+            0.08,
+            0.085106
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.2,
+            0.617021,
+            0.08,
+            0.095745
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.72,
+            0.617021,
+            0.08,
+            0.111702
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The requested output is the pair lowest>highest using labels only.",
+      "key_point": "Combine the two identified labels as one expression token."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "A>D"
+  }
+}

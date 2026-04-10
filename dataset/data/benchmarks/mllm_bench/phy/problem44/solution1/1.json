@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the symmetric two-ray geometry around the white dwarf, compute the white-dwarf mass from the given lensing-angle and distance data. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single mass expression or numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the symmetric two-ray geometry around the white dwarf and denote the half-distance from white dwarf to Earth by d.",
+      "key_point": "Small-angle relation comes from symmetric geometry."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_axis_OE.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.318948,
+            0.411804,
+            0.541087,
+            0.20922
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add the two symmetric light paths to the observer and define the observed angle theta_s at E.",
+      "key_point": "The observer-side angle is theta_s."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_rays_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.475312,
+            0.402735,
+            0.385909,
+            0.20707
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_add_rm.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.298732,
+            0.32729,
+            0.587379,
+            0.345281
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "From the trajectory equation, near the closest approach a approx -GM/(c^2*r_m); at the observer position a^2 approx GM/(2*c^2*d). Eliminating a gives r_m=sqrt(2*G*M*d/c^2).",
+      "key_point": "Bridge trajectory parameter a with geometric quantity r_m."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7_add_d.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.274741,
+            0.357308,
+            0.6,
+            0.33
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Use theta_s approx 2*r_m/d, substitute r_m, then solve M: M=theta_s^2*c^2*d/(8*G). With theta_s=1.80e-7 and d=3.787e17 m, compute M approx 2.07e30 kg.",
+      "key_point": "Final numeric mass from one-expression formula."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2.07*10^30"
+  }
+}

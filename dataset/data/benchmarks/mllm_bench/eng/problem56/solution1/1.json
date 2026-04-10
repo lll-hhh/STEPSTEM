@@ -1,0 +1,52 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the symmetric differential circuit with beta=100 and rbb=100 ohm, compute IEQ at midpoint slider position and dynamic parameters Ad and Ri. Output exactly three comma-separated numbers in the order IEQ_mA,Ad,Ri_kOhm; keep IEQ_mA to three digits after the decimal point and keep Ad and Ri_kOhm to one digit after the decimal point; plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Solve the DC emitter-current equation at midpoint slider setting.",
+      "key_point": "The DC emitter-current equation at midpoint slider setting."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "input.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.31,
+            0.13,
+            0.39,
+            0.36
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.347604,
+            0.46,
+            0.222396,
+            0.288733
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute rbe, then evaluate Ad and Ri.",
+      "key_point": "Compute rbe, then evaluate Ad and Ri."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.517,-98.0,20.5"
+  }
+}

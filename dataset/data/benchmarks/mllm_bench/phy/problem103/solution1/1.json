@@ -1,0 +1,43 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For n equally spaced thin metal plates, the rightmost plate stays on the negative terminal while the positive terminal is switched from plate n down to plate 2. Find the charge ratio between the rightmost plate and the third plate from the left. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single ratio expression; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model adjacent plates as equal-gap capacitive chain and mark the two asked plates: rightmost plate 1 and left-third plate n-2.",
+      "key_point": "Index mapping is required before extracting the final ratio."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_plate_mapping.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.195606,
+            0.114646,
+            0.555767,
+            0.71756
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The final charge pattern is Qk=1/(k(k-1)) for 2<=k<=n-1, with Q1=-1; substitute k=n-2 and form the ratio.",
+      "key_point": "Q1/Q(n-2) is a single closed expression in n."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-(n-2)*(n-3)"
+  }
+}

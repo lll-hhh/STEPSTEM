@@ -1,0 +1,114 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Compare the target ratio using the threshold line and the peak positions. Answer format: exactly one of >, <, or =; do not include words, units, or any other symbols."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the threshold lines and waveform peaks in the original graph to compare the numerator Vp-Ve while keeping the denominator Ve-Vm fixed.",
+      "key_point": "The index eta increases when the peak exceeds electrical threshold by a larger margin."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.06,
+            0.48,
+            0.24,
+            0.2
+          ],
+          "weight": 0.3
+        },
+        {
+          "bbox": [
+            0.33,
+            0.4,
+            0.3,
+            0.22
+          ],
+          "weight": 0.3
+        },
+        {
+          "bbox": [
+            0.65,
+            0.1,
+            0.27,
+            0.46
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "In cycles with only slow waves, the peak is around or below electrical threshold, so Vp-Ve is small or non-positive.",
+      "key_point": "eta is smaller in the no-spike cycle."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.07,
+            0.48,
+            0.25,
+            0.22
+          ],
+          "weight": 0.65
+        },
+        {
+          "bbox": [
+            0.33,
+            0.44,
+            0.2,
+            0.24
+          ],
+          "weight": 0.35
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "In cycles with spike bursts and clear tension rise, the membrane peak exceeds electrical threshold by more, increasing the numerator.",
+      "key_point": "eta is larger in the spike-associated cycle."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.53,
+            0.3,
+            0.3,
+            0.28
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.53,
+            0.03,
+            0.3,
+            0.24
+          ],
+          "weight": 0.4
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "eta_"
+  }
+}

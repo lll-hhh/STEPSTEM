@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In vacuum, two infinitely long coaxial thin-walled cylinders have radii r1 and r2. For each unit axial length, both cylinders have mass m; the inner cylinder carries charge q (q>0), and the outer cylinder carries charge -q. Both can rotate freely about the common axis. Initially both are at rest. A torque is applied to the outer cylinder until its angular speed reaches Omega. Find the total mechanical angular momentum per unit length of the two cylinders along the axis. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: canonical angular-momentum transfer through the flux linked with the inner charged shell.",
+      "key_point": "Track how the growing magnetic flux from the driven outer shell converts field-linked azimuthal momentum into mechanical rotation of the inner shell."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_shells_and_rotation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.245638,
+            0.110773,
+            0.366158,
+            0.648578
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Instead of integrating the induced torque directly, choose the circular orbit of the inner charged shell and use the axisymmetric canonical azimuthal momentum associated with that orbit.",
+      "key_point": "The relevant object is the flux-threaded inner loop, not the instantaneous tangential force."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_flux_and_vector_potential.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.305554,
+            0.104209,
+            0.379473,
+            0.702407
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "As the outer shell speeds up to Ω, the axial magnetic field through the inner loop grows and the linked flux changes. With zero initial motion, the final mechanical rotation of the inner shell is fixed by that flux linkage.",
+      "key_point": "The inner-shell angular momentum is read from the flux-linked canonical balance between the initial and final states."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_flux_to_inner_rotation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2,
+            0.15,
+            0.49,
+            0.7
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The outer shell contribution is still the rigid-body mechanical part at radius r2, while the inner contribution is the induced mechanical part obtained from the flux-linked response. Adding these two final mechanical pieces gives the requested total.",
+      "key_point": "The final answer is the sum of the directly driven outer term and the flux-induced inner term."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_mechanical_sum.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.11,
+            0.14,
+            0.6,
+            0.73
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Omega*(m*r2^2+mu_0*q^2*r1^2/(4*pi))"
+  }
+}

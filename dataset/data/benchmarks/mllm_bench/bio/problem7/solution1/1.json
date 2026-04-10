@@ -1,0 +1,143 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a yeast two-hybrid assay, engineered yeast cells cannot synthesize Leu, Trp, His, or Ade on their own. BD plasmid carries Trp1 and AD plasmid carries Leu2. All four groups grow on medium lacking Leu and Trp, but only group 4 grows on medium lacking Leu, Trp, His, and Ade. Which reporter genes are activated in this experiment?. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the yeast two-hybrid framework: BD and AD must be brought together by protein interaction to activate transcription.",
+      "key_point": "Reporter transcription occurs only when the fusion proteins interact."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_dual_hybrid_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.07,
+            0.1,
+            0.38,
+            0.62
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.49,
+            0.15,
+            0.43,
+            0.58
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Decode the four plasmid combinations and compare growth under the two selective media conditions.",
+      "key_point": "Top medium selects transformants; bottom medium reveals reporter activation."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_four_group_design.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.07,
+            0.8,
+            0.35
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.184924,
+            0.427624,
+            0.74,
+            0.22
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.191581,
+            0.668317,
+            0.74,
+            0.23
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Because only group 4 survives without His and Ade, interaction-dependent transcription must provide His and Ade biosynthesis.",
+      "key_point": "The activated reporter outputs correspond to His and Ade synthesis pathways."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_selective_growth_result.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.24,
+            0.76,
+            0.28
+          ],
+          "weight": 0.4
+        },
+        {
+          "bbox": [
+            0.12,
+            0.56,
+            0.76,
+            0.3
+          ],
+          "weight": 0.6
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Map the phenotype to genes: growth on -His and -Ade requires expression of His3 and Ade2 reporter genes.",
+      "key_point": "Reporter identity is uniquely determined by the missing nutrients."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_reporter_gene_identity.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.018516,
+            0.137426,
+            0.530866,
+            0.588957
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.515978,
+            0.171485,
+            0.478197,
+            0.462225
+          ],
+          "weight": 0.45
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "His3+Ade2"
+  }
+}

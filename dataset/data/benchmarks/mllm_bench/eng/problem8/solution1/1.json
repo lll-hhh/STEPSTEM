@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the cantilever under combined loading, write the total deflection superposition expression as the sum of the three subcase deflections. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Decompose the original load into three standard cases on the same cantilever geometry.",
+      "key_point": "Use linear superposition for beam deflection."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_udl_p0.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1313,
+            0.2767,
+            0.6781,
+            0.2544
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Construct the concentrated-force case and the end-moment case independently.",
+      "key_point": "Keep the same support and coordinate direction."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_point_P.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3994,
+            0.47,
+            0.2425,
+            0.2489
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Add the end moment contribution as the third standard component.",
+      "key_point": "Total deflection equals algebraic sum of the three responses."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_end_moment_M.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.739285,
+            0.370992,
+            0.167945,
+            0.24519
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Superpose all load effects on one final configuration.",
+      "key_point": "Combine v_p0, v_P, and v_M directly."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_superposition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.13536,
+            0.266808,
+            0.408103,
+            0.490691
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.618372,
+            0.25531,
+            0.3656,
+            0.3967
+          ],
+          "weight": 0.45
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "v_p0(x)+v_P(x)+v_M(x)"
+  }
+}

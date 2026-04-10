@@ -1,0 +1,94 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the JFET amplifier, find the operating-point quantities and AC indicators. Answer format: IDQ,UGSQ,UDSQ,Au,Ri,Ro in that order; write only the final results, with no units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "For DC bias, gate is near 0V, source self-bias gives VGS=-ID*RS and Shockley relation intersects at ID≈1mA.",
+      "key_point": "Q point is around IDQ=1mA, UDSQ=3V."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_dc_marked.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.5599,
+            0.0569,
+            0.0716,
+            0.1207
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.5697,
+            0.2679,
+            0.0716,
+            0.1207
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.3385,
+            0.2172,
+            0.0846,
+            0.14
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "With source bypass capacitor for AC, gm at Q is about 1mS, and drain load is Rd||RL.",
+      "key_point": "Au≈-gm*(Rd||RL)=-10/3, Ri≈Rg, Ro≈Rd."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_graphical_qpoint.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1641,
+            0.7104,
+            0.0482,
+            0.0357
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.3138,
+            0.7664,
+            0.0482,
+            0.0357
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.7708,
+            0.9083,
+            0.0482,
+            0.0357
+          ],
+          "weight": 0.33
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-10/3"
+  }
+}

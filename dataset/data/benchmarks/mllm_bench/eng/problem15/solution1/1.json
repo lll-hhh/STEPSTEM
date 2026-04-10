@@ -1,0 +1,121 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the coupled cylinder-block system on the incline, compute the acceleration magnitude a from the dynamic equations. Output exactly one decimal number with 2 digits after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a decimal number rounded to two decimal places; write only the numerical value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Take the incline direction as positive and draw the free-body diagram of cylinder m_1.",
+      "key_point": "Fix the sign convention before writing equations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_m1_a.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.14111,
+            0.513736,
+            0.24,
+            0.24
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add block m_2 and rope tension F to enforce interaction and kinematic constraints.",
+      "key_point": "Use the same tension F on both rope segments."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_m2_F.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.30844,
+            0.333865,
+            0.3,
+            0.22
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Add friction terms and combine the cylinder rotation equation with two translation equations.",
+      "key_point": "Relate friction S to acceleration a through rotation."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_add_S_mu.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.137179,
+            0.435677,
+            0.30741,
+            0.267503
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.471621,
+            0.164897,
+            0.345744,
+            0.30829
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Simplify to a = [((m_1+m_2)sin(alpha)-mu*m_2*cos(alpha))*g]/(m_1+m_2+I/r^2), then substitute I = m_1*r^2/2.",
+      "key_point": "The denominator becomes 1.5*m_1 + m_2."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_gravity_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.111403,
+            0.436664,
+            0.319555,
+            0.31471
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.498957,
+            0.160277,
+            0.316036,
+            0.315175
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Substitute m_1=8, m_2=4, alpha=30_TS, mu=0.2, and g=9.8 to get the numeric acceleration.",
+      "key_point": "Substitute m_1=8, m_2=4, alpha=30_TS, mu=0.2, and g=9.8 to get the numeric acceleration."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3.25"
+  }
+}

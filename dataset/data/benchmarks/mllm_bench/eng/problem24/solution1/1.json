@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For five equal-mass beads moving in one dimension with elastic collisions, determine the maximum possible number of collisions. Output exactly one integer in plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Treat equal-mass 1D elastic collisions as velocity exchange, equivalent to trajectory crossing.",
+      "key_point": "Collision count maps to pairwise trajectory intersections."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_beads_on_rod.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.413006,
+            0.1,
+            0.220451,
+            0.16241
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.404688,
+            0.273495,
+            0.248527,
+            0.245266
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.423405,
+            0.535389,
+            0.22877,
+            0.261894
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "In free-fall coordinates y*=y+1/2*g*t^2, each bead follows y*=y0*+v*t, which is a straight line.",
+      "key_point": "Five beads become five lines in the (t, y*) plane."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_freefall_lines.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.136403,
+            0.348322,
+            0.754939,
+            0.533487
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "A binary collision corresponds to one intersection point of two lines.",
+      "key_point": "Maximization requires distinct pairwise intersections."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_pair_collision.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08337,
+            0.465982,
+            0.464818,
+            0.449084
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "With 5 lines, the maximum number of pair intersections is C(5,2)=10.",
+      "key_point": "Maximum collision count equals C(5,2)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_max_crossings.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08233,
+            0.402364,
+            0.679029,
+            0.516859
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "10"
+  }
+}

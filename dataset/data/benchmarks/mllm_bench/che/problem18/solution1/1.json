@@ -1,0 +1,78 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "C60 undergoes [2+2]66/66 cycloaddition and forms an orthorhombic layered crystal with ABAB stacking. In one layer, determine how many C atoms of each C60 unit are used to connect with surrounding C60 units. Answer format: a single integer; do not include units, explanatory text, or an equals sign. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Each [2+2]66/66 intermolecular link consumes two C atoms from one C60 unit.",
+      "key_point": "One link contributes 2 connected C atoms per C60."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_single_22_link.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.38,
+            0.43,
+            0.28,
+            0.14
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "In the layer, one C60 unit connects to four surrounding C60 neighbors through four [2+2] links.",
+      "key_point": "Connected neighbor count in one layer is 4."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_four_neighbors_layer.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.293683,
+            0.300154,
+            0.410947,
+            0.405583
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Total connected C atoms on one C60 unit are 4*2.",
+      "key_point": "Multiply link count by atoms per link."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_eight_connected_atoms.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.38,
+            0.38,
+            0.24,
+            0.24
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "8"
+  }
+}

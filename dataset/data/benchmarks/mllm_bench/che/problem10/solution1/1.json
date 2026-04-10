@@ -1,0 +1,52 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "The plot shows ln(S) versus 1/T for NaIO3-H2O with linear fit y=6.266-2088x. Use ln(S)=-(DeltaH/R)*(1/T)+constant to compute DeltaH. Output exactly one decimal number with 2 decimal places, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text. Answer format: a decimal number rounded to two decimal places; write only the numerical value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Read the slope from the fitted line and map it to -DeltaH_over_R.",
+      "key_point": "The slope from the fitted line."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "input.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.41,
+            0.16,
+            0.37,
+            0.11
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.3,
+            0.3,
+            0.22,
+            0.3
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute DeltaH = 2088 * R and format to two decimals.",
+      "key_point": "DeltaH = 2088*R."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "17.36"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the rolling disk-particle system on the incline, derive the equation of motion with generalized coordinate theta and provide the combined left-hand-side expression. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set axes along and normal to the incline, and use the disk rotation angle as the generalized coordinate.",
+      "key_point": "Pure rolling couples translation and rotation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incline_disk.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.274036,
+            0.390901,
+            0.157177,
+            0.163194
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.133294,
+            0.506909,
+            0.218863,
+            0.25447
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write the center position vector r and particle position vector r, then express them as functions of .",
+      "key_point": "Use r = r_0 + relative displacement."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_vectors_r0_r.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.216588,
+            0.316057,
+            0.449299,
+            0.430388
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Differentiate position to get velocity, then obtain T = 0.5*m*(r^2+l^2-2*r*l*cos())*_dot^2.",
+      "key_point": "The speed square contains a cos() term."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_triangle_rl_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.24,
+            0.3,
+            0.45,
+            0.46
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use the y-coordinate to write potential energy V, construct L = T - V, and apply the Euler-Lagrange equation.",
+      "key_point": "Euler-Lagrange: d/dt(dL/d(theta_dot)) - dL/dtheta = 0."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_gravity_component.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.386602,
+            0.368448,
+            0.171102,
+            0.264338
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*(r^2+l^2-2*r*l*cos(theta))*theta_ddot+m*r*l*theta_dot^2*sin(theta)-m*g*r*sin(alpha)+m*g*l*sin(theta+alpha)"
+  }
+}

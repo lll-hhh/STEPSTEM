@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the laser Doppler velocimetry setup described, write the expression for the photodetector output current. Answer format: a single algebraic expression in SingleExpr form. Use the symbols E_0, phi_1, phi_2, v, alpha, beta, and the other symbols defined in the problem; use ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Superpose the two scattered electric fields from the same particle.",
+      "key_point": "The detector current follows the interference intensity."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incident_beams.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.18,
+            0.8,
+            0.64
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use particle motion to make the relative phase time-dependent.",
+      "key_point": "The beat term comes from the phase difference evolution."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_velocity_beta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.406073,
+            0.104418,
+            0.532537,
+            0.66
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Project velocity on the wave-vector difference direction.",
+      "key_point": "Delta omega is set by (k_1-k_2) dot v."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_add_delta_k.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.103993,
+            0.2,
+            0.491189,
+            0.6
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Substitute the beat angular frequency into the interference-current form.",
+      "key_point": "Keep one compact final expression only."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_interference_signal.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.145241,
+            0.251473,
+            0.5348,
+            0.39
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*k*E_0^2*(1+cos(4*pi*v*cos(beta)*sin(alpha/2)*t/lambda+phi_1-phi_2))"
+  }
+}

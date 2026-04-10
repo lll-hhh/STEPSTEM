@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Compute the convolution output y(t)=x(t)*h(t) of the two given rectangular signals and write it in expanded unit-step form. Answer format: a fully expanded unit-step expression. Use only the variable names from the problem and ASCII characters; write explicit multiplication signs *; do not use bracket shorthands such as [u(t)-u(t-1)] or compressed grouped forms; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: unit-step algebra with ramp-kernel mapping. Express each rectangle as shifted unit-step differences and convolve algebraically instead of using overlap-length geometry.",
+      "key_point": "New route uses bilinear expansion plus the identity u(t-a)*u(t-b)=r(t-a-b)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_unitstep_decompose.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.06,
+            0.11,
+            0.88,
+            0.34
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.06,
+            0.52,
+            0.88,
+            0.39
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply bilinearity: y(t)=6*(u(t)*u(t)-u(t)*u(t-1)-u(t-2)*u(t)+u(t-2)*u(t-1)).",
+      "key_point": "The convolution is reduced to four shifted unit-step pair terms."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_shifted_ramps.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.04,
+            0.12,
+            0.92,
+            0.82
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Replace each pair by a shifted ramp r(t)=t*u(t): y(t)=6*(r(t)-r(t-1)-r(t-2)+r(t-3)).",
+      "key_point": "This avoids piecewise integration and keeps a direct symbolic path."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_ramp_sum.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.06,
+            0.12,
+            0.88,
+            0.35
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.06,
+            0.56,
+            0.88,
+            0.36
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Expand r(t-a) as (t-a)*u(t-a) to obtain the required fully expanded unit-step expression.",
+      "key_point": "Expression format stays in ASCII with explicit multiplication signs."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_output_trapezoid.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.06,
+            0.18,
+            0.88,
+            0.68
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "6*t*u(t)-6*(t-1)*u(t-1)-6*(t-2)*u(t-2)+6*(t-3)*u(t-3)"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In PI-based flow cytometry, fluorescence intensity is proportional to DNA content. The plots compare wild-type cells and gene-A-deficient mutant cells under no irradiation and gamma-irradiation conditions. Determine which cell-cycle phase contains most mutant cells after 12 hours of gamma irradiation. Write only one phase. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single cell-cycle phase name; write only the name itself, with no explanatory text, units, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Map PI fluorescence peaks to DNA-content states before comparison.",
+      "key_point": "Left major peak corresponds to 2n and the right region corresponds to 4n."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_baseline_reference.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.19,
+            0.12,
+            0.22,
+            0.74
+          ],
+          "weight": 0.8
+        },
+        {
+          "bbox": [
+            0.62,
+            0.47,
+            0.18,
+            0.32
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Inspect the mutant profile after gamma irradiation and compare peak dominance.",
+      "key_point": "Most cells shift from the 2n-dominant region to the 4n-dominant region."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_mutant_gamma_profile.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.61,
+            0.18,
+            0.22,
+            0.62
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "A dominant 4n DNA-content peak indicates post-replication arrest.",
+      "key_point": "PI DNA histograms identify this accumulation as G2 arrest."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_shift_to_4n.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.6,
+            0.15,
+            0.24,
+            0.66
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.19,
+            0.13,
+            0.23,
+            0.73
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Return only one compact phase expression (single phase only).",
+      "key_point": "Single-phase output required."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "G2"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the boatman-canoe isolated system, state the final canoe displacement direction and final velocity state after the boatman sits at the front. Output exactly one ASCII line in the format x_f<x_i;v_f->0, using semicolons as separators, no Chinese characters, no prose sentence, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Take boatman plus canoe as an isolated horizontal system in water without drag.",
+      "key_point": "No external horizontal force, so center-of-mass position is invariant."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_state.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.229782,
+            0.337472,
+            0.35,
+            0.37
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "When the boatman moves forward inside the canoe, the canoe recoils backward to keep the same center of mass.",
+      "key_point": "Forward internal motion of m induces backward displacement of the canoe."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_man_forward_canoe_backward.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.173885,
+            0.504329,
+            0.348392,
+            0.222561
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.357149,
+            0.253197,
+            0.168946,
+            0.234591
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step6_cm_fixed.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.38,
+            0.15,
+            0.1,
+            0.68
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.12,
+            0.32,
+            0.44,
+            0.4
+          ],
+          "weight": 0.55
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "After he sits down at the front, no internal relative motion remains, so the final state is static.",
+      "key_point": "End of internal motion implies final velocity is zero."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step8_final_shifted_rest.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.13,
+            0.33,
+            0.42,
+            0.39
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "x_f<x_i;v_f->0"
+  }
+}

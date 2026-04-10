@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "## Gravitational Lensing and the Einstein Ring According to general relativity, when light passes near a massive spherically symmetric celestial body, it bends toward the body by a very small angle $\\varepsilon$. The angle $\\varepsilon$ is called the deflection angle, i.e., the angle between the outgoing ray and the incoming ray. It is known that $\\varepsilon = \\frac{R}{r}$, where the constant $R = \\frac{4GM}{c^2}$, $r$ is the closest distance between the light ray and the center of the celestial body, $G$ is the gravitational constant, $M$ is the mass of the celestial body, and $c$ is the speed of light in vacuum. Physical constants and units: - $c = 3 \\times 10^8\\ \\mathrm{m\\cdot s^{-1}}$ - $G = 6.67 \\times 10^{-11}\\ \\mathrm{N\\cdot m^2\\cdot kg^{-2}}$ - $1$ parsec $= 3.09 \\times 10^{16}\\ \\mathrm{m}$ - $1$ milliarcsecond $= 10^{-3} \\times \\frac{2\\pi}{360 \\times 3600}\\ \\mathrm{rad}$ The gravitational-lensing phenomenon can also be demonstrated using an axisymmetric lens of uniform thickness. The cross-section of the lens is shown in Fig. 2c. The $x$-axis is the rotational symmetry axis, the lens thickness is $D$, and the refractive index is $n(r) > 1$. Assume the light is incident normally, and the distance between the incident ray and the $x$-axis is $r$. Neglect the light bending inside the lens. The deflection angle at the exit surface is still $\\varepsilon$ and satisfies $\\varepsilon = \\frac{R}{r}$, where $\\varepsilon$ can be treated as a small angle. Given that $n(r_1) = n_1$, and the region $r < r_1$ is opaque, find the expression of the refractive index $n(r)$ in the region $r \\ge r_1$, expressed in terms of $r$, $n_1$, $R$, and $D$. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: wavefront optical-path-gradient method for an axisymmetric uniform-thickness lens.",
+      "key_point": "Start from radial optical-path variation, not from the thin-phase identity as a premise."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_ray_r.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.25812,
+            0.145163,
+            0.28294,
+            0.709771
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For neighboring rays labeled by r, the exit phase is ?(r)=k*D*n(r). In paraxial form, the outgoing tilt is ??-(1/k)*d?/dr=-D*dn/dr.",
+      "key_point": "Matching with ?=R/r gives dn/dr=-R/(D*r)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_deflected_ray_eps.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.48,
+            0.3,
+            0.43,
+            0.22
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate with the boundary anchor directly: ?_{n_1}^{n(r)}dn'=-(R/D)?_{r_1}^{r}(dr'/r').",
+      "key_point": "Using definite integrals removes the need for an intermediate integration constant."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_r1_boundary_n1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.260915,
+            0.285301,
+            0.290131,
+            0.602065
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Therefore n(r)-n_1=-(R/D)ln(r/r_1), so n(r)=n_1+(R/D)*ln(r_1/r) for r>=r_1.",
+      "key_point": "Return the required single compact expression."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_n_profile.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.556,
+            0.358568,
+            0.321,
+            0.443
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "n_1+(R/D)*ln(r_1/r)"
+  }
+}

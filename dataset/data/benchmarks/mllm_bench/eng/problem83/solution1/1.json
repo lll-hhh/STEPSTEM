@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the rod configuration in the accompanying image, find the two support reactions obtained in the final equilibrium step. Answer format: F_A'|F_NB', in this order, separated by |, with no units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "step2.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "First extract basic geometry:\n\\[ OA=l,\\quad AB=2l,\\quad OB=\\sqrt{3}l,\\quad OA'=l. \\]",
+      "key_point": "Start from geometric constraints."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.112622,
+            0.415704,
+            0.406463,
+            0.474814
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Then use dashed configuration:\n\\[ A'B=(\\sqrt{3}-1)l,\\quad \\sin\\theta=\\frac{\\sqrt{3}-1}{2}. \\]",
+      "key_point": "Get the angle relation."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Apply kinetic-energy theorem for rod AB:\n\\[ \\frac{1}{2}\\frac{P}{g}v^2=\\frac{1}{2}P(OB-A'B)=\\frac{1}{2}Pl. \\]",
+      "key_point": "Use energy first."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "So the instantaneous speed is\n\\[ v=\\sqrt{gl}. \\]",
+      "key_point": "Get v."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Write first acceleration compatibility on segment \\(A'B\\):\n\\[ 0=a_C'-a_l\\cos\\theta. \\]",
+      "key_point": "First compatibility equation."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Write second compatibility:\n\\[ \\frac{v^2}{l}=a_C'+a_l\\cos\\theta. \\]",
+      "key_point": "Second compatibility equation."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Substitute \\(v=\\sqrt{gl}\\):\n\\[ a_C'=\\frac{1}{2}g,\\quad \\alpha=\\frac{g}{2l\\cos\\theta}. \\]",
+      "key_point": "Get acceleration and angular acceleration."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Force balance in vertical direction:\n\\[ F_A'+F_{NB}'-P=\\frac{P}{g}a_C'=\\frac{P}{2}. \\]",
+      "key_point": "First dynamic equation."
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "Moment equation about C:\n\\[ (F_A'-F_{NB}')l\\cos\\theta=J_C\\alpha,\\quad J_C=\\frac{1}{3}\\frac{P}{g}l^2. \\]",
+      "key_point": "Second dynamic equation."
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Solve the two equations:\n\\[ F_A'=0.846P,\\quad F_{NB}'=0.654P. \\]",
+      "key_point": "Final reactions."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.846P|0.654P"
+  }
+}

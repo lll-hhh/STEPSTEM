@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Compute the convolution output y(t)=x(t)*h(t) of the two given rectangular signals and write it in expanded unit-step form. Answer format: a fully expanded unit-step expression. Use only the variable names from the problem and ASCII characters; write explicit multiplication signs *; do not use bracket shorthands such as [u(t)-u(t-1)] or compressed grouped forms; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Represent x and h as rectangular pulses in tau-domain and use y(t)=integral x(tau)h(t-tau) dtau.",
+      "key_point": "x(tau)=2 on [0,2], h(tau)=3 on [0,1]."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_signals.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.077482,
+            0.121134,
+            0.367487,
+            0.367692
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.093709,
+            0.444167,
+            0.335034,
+            0.42426
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Flip h to h(-tau), then shift by t to obtain h(t-tau) with support [t-1,t].",
+      "key_point": "Overlap interval is intersection of [0,2] and [t-1,t]."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_flip_shift.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.161479,
+            0.339962,
+            0.193766,
+            0.376624
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute overlap length L(t): 0 outside [0,3], ramp up on [0,1], flat on [1,2], ramp down on [2,3].",
+      "key_point": "Integrand constant equals 6 on overlap."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_overlap_length.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.084164,
+            0.448633,
+            0.711111,
+            0.345363
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Output is y(t)=6*L(t), giving trapezoid-like pulse with peak value 6.",
+      "key_point": "y(t)=6L(t), yielding a trapezoidal output pulse."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_output_waveform.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.097527,
+            0.3073,
+            0.679073,
+            0.4585
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "6*t*u(t)-6*(t-1)*u(t-1)-6*(t-2)*u(t-2)+6*(t-3)*u(t-3)"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the moving square observed from frame S, derive the expression of angle ABC in terms of phi and beta. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "In S', represent AB and BC as orthogonal edge vectors of the square and keep BC making angle phi with x'.",
+      "key_point": "Use S' geometry as the decomposition baseline."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_sprime_frame.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.29,
+            0.14,
+            0.43,
+            0.7
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Transform from S' to S at equal time in S: y-components stay unchanged, x-components scale by sqrt(1-beta^2).",
+      "key_point": "Only the x projection is Lorentz-contracted."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_s_frame_contracted.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.282221,
+            0.187383,
+            0.179555,
+            0.439361
+          ],
+          "weight": 0.555556
+        },
+        {
+          "bbox": [
+            0.294057,
+            0.563748,
+            0.328457,
+            0.25
+          ],
+          "weight": 0.444444
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For BC and AB in S, define inclination angles alpha and beta from x; then angle ABC = alpha + beta.",
+      "key_point": "Reduce the target angle to a sum of two arctangent terms."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_alpha_beta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.419925,
+            0.472288,
+            0.268835,
+            0.20125
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.197455,
+            0.343451,
+            0.206834,
+            0.317205
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use tan(alpha)=tan(phi)/sqrt(1-beta^2) and tan(beta)=cot(phi)/sqrt(1-beta^2), then substitute into angle ABC = alpha + beta.",
+      "key_point": "Apply arctan to each tangent relation and add."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_angle_abc.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.326287,
+            0.410436,
+            0.245722,
+            0.2982
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Canonical single-expression output for the requested angle follows directly.",
+      "key_point": "Express angle ABC as a closed form in phi and beta."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "arctan(tan(phi)/sqrt(1-beta^2))+arctan(cot(phi)/sqrt(1-beta^2))"
+  }
+}

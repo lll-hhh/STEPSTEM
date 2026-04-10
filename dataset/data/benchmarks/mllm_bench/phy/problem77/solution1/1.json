@@ -1,0 +1,124 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a Rutherford alpha-particle scattering setup, an alpha particle with mass m, charge +2e, and kinetic energy E approaches a fixed nucleus A with charge number Z at impact parameter b, then scatters by angle theta. The detected rate in dOmega=2*pi*sin(theta)*dtheta is dN/dt=sigma(theta)*I*dOmega. Derive sigma(theta) without parameter b. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    },
+    {
+      "modality": "image",
+      "content": "input_2.png"
+    },
+    {
+      "modality": "image",
+      "content": "input_3.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set Coulomb scattering geometry and connect impact parameter b to scattering angle theta.",
+      "key_point": "Build b(theta) before mapping area element to solid angle."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_p.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.13635,
+            0.362819,
+            0.515856,
+            0.253518
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use b=(Z*e^2/(4*pi*epsilon_0*E))*cot(theta/2) for alpha charge 2e scattered by nucleus charge Ze.",
+      "key_point": "b scales with cot(theta/2)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_pprime_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.44,
+            0.19,
+            0.45,
+            0.44
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.151332,
+            0.339901,
+            0.451646,
+            0.26767
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply sigma(theta)=b/sin(theta)*|db/dtheta| from annulus-to-solid-angle mapping.",
+      "key_point": "Convert 2*pi*b*db into 2*pi*sin(theta)*dtheta."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_solid_angle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.387824,
+            0.151386,
+            0.374251,
+            0.488264
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Substitute db/dtheta=-(Z*e^2/(8*pi*epsilon_0*E))*csc(theta/2)^2 and simplify by sin(theta)=2*sin(theta/2)*cos(theta/2).",
+      "key_point": "All b terms cancel and only E, Z, theta remain."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_band_mapping.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.175648,
+            0.298713,
+            0.447306,
+            0.317175
+          ],
+          "weight": 0.35
+        },
+        {
+          "bbox": [
+            0.479322,
+            0.175743,
+            0.4,
+            0.55
+          ],
+          "weight": 0.65
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(Z*e^2/(8*pi*epsilon_0*E))^2/sin(theta/2)^4"
+  }
+}

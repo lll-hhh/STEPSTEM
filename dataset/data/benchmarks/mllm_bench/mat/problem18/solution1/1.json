@@ -1,0 +1,96 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Circle O is the circumcircle of triangle ABD. Diameter AB is perpendicular to chord DE at point F. Point C is outside the circle, with segments BC and CD connected, and angle DBC equals angle DEB. Given BE parallel CD, tan(C)=3/4, and CD=5, find the length OF. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "From tan(C)=3/4 and CD=5, the direction from C to D has horizontal-vertical components 4 and 3, so D=(c-4,y) and C=(c,y-3) in a local frame with BC horizontal.",
+      "key_point": "Use the 3-4-5 decomposition implied by tan and side length."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_base_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1458,
+            0.4375,
+            0.4688,
+            0.3056
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.375,
+            0.4722,
+            0.4062,
+            0.2639
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Because BE is parallel to CD and B is on BC, take B->E parallel to (-4,3), giving E=(-4,-R+3) while D=(4,-R+3). Then D and E are symmetric about AB, and both lie on the circle.",
+      "key_point": "Parallel condition fixes x_D=4 and x_E=-4 at the same chord height."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_parallel_relations.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1719,
+            0.4722,
+            0.2552,
+            0.2361
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.5365,
+            0.4722,
+            0.2448,
+            0.2361
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "With O as origin and radius R, point D satisfies 4^2+(-R+3)^2=R^2, so R=25/6. Since F is on AB and DE, F=(0,-R+3), hence OF=R-3=7/6.",
+      "key_point": "Perpendicular diameter to chord gives F as chord level on AB."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_of_target.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3438,
+            0.4028,
+            0.0729,
+            0.1042
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "7/6"
+  }
+}

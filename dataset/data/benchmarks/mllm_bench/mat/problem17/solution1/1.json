@@ -1,0 +1,105 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the figure, point C lies on semicircle O with AB as its diameter. Draw AC and BC. The tangent to semicircle O at C meets the extension of AB at point D. On arc AC, choose point E so that arc EC equals arc BC. Connect BE, and let it intersect AC at F. If sin D = sqrt(3)/2 and BD = 1, find the radius of semicircle O and the length of BF. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Let the semicircle radius be r and set O as the origin. Writing C as (r*cos(theta), r*sin(theta)), the tangent at C meets the x-axis at D, and sin D = cos(theta) = sqrt(3)/2 gives theta = 30 degrees.",
+      "key_point": "Translate the tangent-angle condition into the point angle of C."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_tangent_frame.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.5927,
+            0.6057,
+            0.1427,
+            0.2743
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.3448,
+            0.6029,
+            0.3021,
+            0.28
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Then D has x-coordinate r/cos(theta), so BD = r*(sec(theta)-1) = r*(2/sqrt(3)-1) = 1. Hence r = sqrt(3)/(2-sqrt(3)) = 3+2*sqrt(3).",
+      "key_point": "Use the tangent-intercept length BD to solve the radius."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_equal_arc_intersection.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4802,
+            0.4486,
+            0.1771,
+            0.2429
+          ],
+          "weight": 0.52
+        },
+        {
+          "bbox": [
+            0.4969,
+            0.4686,
+            0.1833,
+            0.4029
+          ],
+          "weight": 0.48
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Because arc EC equals arc BC, point E is at 60 degrees, so E=(r/2,sqrt(3)*r/2). The lines AC and BE intersect at F, and solving the two line equations gives BF = 2*sqrt(3).",
+      "key_point": "Convert equal arcs into E, then use the intersection of AC and BE."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_target_bf.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.5625,
+            0.6257,
+            0.1198,
+            0.2486
+          ],
+          "weight": 0.62
+        },
+        {
+          "bbox": [
+            0.5646,
+            0.6171,
+            0.076,
+            0.0657
+          ],
+          "weight": 0.38
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3+2*sqrt(3)|2*sqrt(3)"
+  }
+}

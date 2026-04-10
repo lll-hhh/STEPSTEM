@@ -1,0 +1,179 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For 1-chloropropane around the C1-C2 bond, draw the best (lowest-energy) and worst (highest-energy) Newman projections from the given figure. Answer format: <image>. Return exactly one image file named final.png, with no extra text. Answer format: one final image only, with no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Fix the viewing axis along C1-C2 and place one front and one back carbon with three substituent directions each.",
+      "key_point": "Front carbon has Cl, H, H; back carbon has CH3, H, H."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_best_anti.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.454714,
+            0.270087,
+            0.115,
+            0.141177
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.453033,
+            0.572638,
+            0.09,
+            0.16938
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Set the best conformation as anti between the largest groups Cl and CH3.",
+      "key_point": "Anti staggered minimizes steric and torsional strain."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_worst_eclipsed.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.445912,
+            0.262766,
+            0.118,
+            0.164746
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.352,
+            0.545887,
+            0.110035,
+            0.109113
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.549421,
+            0.53196,
+            0.122579,
+            0.1242
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Set the worst conformation as fully eclipsed with Cl eclipsing CH3.",
+      "key_point": "This gives the highest energy arrangement."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_compare_pair.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.221758,
+            0.279766,
+            0.1,
+            0.138461
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.212593,
+            0.560974,
+            0.09,
+            0.167334
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.708417,
+            0.278656,
+            0.1,
+            0.151177
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.608,
+            0.526158,
+            0.093567,
+            0.116842
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Present both conformations in one final comparison figure.",
+      "key_point": "Return the final file reference only."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_pair.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.225659,
+            0.275124,
+            0.1,
+            0.140782
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.217274,
+            0.586528,
+            0.09,
+            0.139243
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.705296,
+            0.277495,
+            0.1,
+            0.150016
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.77803,
+            0.543566,
+            0.10997,
+            0.099434
+          ],
+          "weight": 0.25
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

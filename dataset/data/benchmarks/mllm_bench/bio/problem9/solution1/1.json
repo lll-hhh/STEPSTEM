@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a pedigree problem that combines beta-thalassemia and an X-linked fava-bean disease (female carriers are phenotypically normal), the local pathogenic-allele frequency is 10%. Individual II-4 is a normal male and marries a phenotypically normal female. Find the probability that their child is a boy with fava-bean disease. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a simplest fraction such as a/b; write only the fraction itself, with no explanatory text, units, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify II-4 as a normal male in an X-linked fava-bean pedigree.",
+      "key_point": "A son gets Y from father and X from mother."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_pedigree_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.152978,
+            0.31285,
+            0.48,
+            0.46
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For II-4 (normal male), only maternal mutant X can produce an affected son.",
+      "key_point": "P(affected boy) = P(boy) * P(maternal mutant X transmission)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_cross_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.687088,
+            0.24715,
+            0.22,
+            0.33
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the local mutant-allele frequency q = 0.1 for the mother side.",
+      "key_point": "Combine q with the boy probability 1/2."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_probability_tree.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.547987,
+            0.145899,
+            0.359675,
+            0.302652
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Multiply the two factors and keep only one compact final expression.",
+      "key_point": "SingleExpr output only."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1/20"
+  }
+}

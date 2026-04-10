@@ -1,0 +1,148 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For two charged masses connected by a spring, determine the maximum spring length during motion. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Reduce to center-of-mass and relative coordinate r=x_2-x_1.",
+      "key_point": "Use center-of-mass and relative coordinate r=x_2-x_1."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_config.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.24051,
+            0.382688,
+            0.56,
+            0.34
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.14637,
+            0.174838,
+            0.76,
+            0.15
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "In the non-inertial center-of-mass frame, each ball performs SHM around shifted equilibrium.",
+      "key_point": "The shift direction is determined by m_2Q_1-m_1Q_2."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_equilibrium_shift.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.302115,
+            0.434817,
+            0.132207,
+            0.249137
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.587851,
+            0.434817,
+            0.128332,
+            0.238851
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For m_2Q_1<m_1Q_2, both balls first move away from equilibrium and reach outward extremes.",
+      "key_point": "Maximum spring extension appears at the two outward turning points."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_outward_extreme.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.227975,
+            0.446526,
+            0.254398,
+            0.224012
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.556208,
+            0.432476,
+            0.227365,
+            0.269293
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The added separation is 2(A_1+A_2), and it is nonzero only for m_1Q_2-m_2Q_1>0.",
+      "key_point": "Use a single positive-part expression to cover all three cases."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_lmax_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.25432,
+            0.395009,
+            0.202855,
+            0.258158
+          ],
+          "weight": 0.533333
+        },
+        {
+          "bbox": [
+            0.302625,
+            0.666643,
+            0.413559,
+            0.122938
+          ],
+          "weight": 0.133333
+        },
+        {
+          "bbox": [
+            0.573788,
+            0.389155,
+            0.186345,
+            0.254072
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Rewrite the piecewise result into one canonical expression without case split.",
+      "key_point": "Convert the piecewise maximum-length result to one closed form."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "L+(((m_1*Q_2-m_2*Q_1)*E)+abs((m_1*Q_2-m_2*Q_1)*E))/(k*(m_1+m_2))"
+  }
+}

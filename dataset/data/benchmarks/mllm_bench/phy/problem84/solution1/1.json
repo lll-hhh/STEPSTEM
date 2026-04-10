@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "3. (60 points) Rolling of a homogeneous rigid thin ring. A homogeneous rigid thin ring has radius $R$ and mass $M$, and rolls on a horizontal ground plane (the $x$-$y$ coordinate plane). Assume the friction coefficient is large enough so that there is no slipping between the ring and the ground at all times. At time $t$, let the angle between the ring plane and the vertical direction (the $z$ direction) be $\\theta(t)$, and let the angle between the line of intersection of the ring plane with the ground and the $x$ direction be $\\phi(t)$. The instantaneous contact point between the ring and the ground has Cartesian coordinates $(x(t), y(t), 0)$, as shown in Fig. 3a. The gravitational acceleration magnitude is $g$. Suppose the ring performs uniform circular motion: the contact point traces a circle of radius $r$ around the $z$ axis at constant speed, with $\\theta(t) = \\theta_0$ (a constant), and $\\phi(t)$ a linear function of time $t$. In the laboratory frame $\\Sigma$, without loss of generality, set $$ \\begin{pmatrix} x(t) \\\\ y(t) \\end{pmatrix} = r \\begin{pmatrix} -\\sin(\\omega t) \\\\ \\cos(\\omega t) \\end{pmatrix} $$ where $\\omega$ is the angular speed to be determined. In the rotating frame $\\Sigma'$ that rotates uniformly about the $z$ axis with angular speed $\\omega$, both $\\theta$ and $\\phi$ are constants, and the ring undergoes fixed-axis rotation about its central axis perpendicular to the ring plane. In frame $\\Sigma'$, each mass element of the ring experiences centrifugal and Coriolis forces. Treat the ring as a collection of infinitesimal elements, and find the net torque about the ring's center of mass due to the centrifugal force, $\\boldsymbol{\\tau}_{\\text{centrifugal}}$, and due to the Coriolis force, $\\boldsymbol{\\tau}_{\\text{Coriolis}}$ (the result may contain the still-undetermined $\\omega$). Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Define ring axis n and rotating-frame angular velocity Omega.",
+      "key_point": "Use fixed geometry in Sigma'."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_axes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.325527,
+            0.24745,
+            0.281276,
+            0.331809
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Centrifugal-force torque uses tau_c = Omega x (I*Omega).",
+      "key_point": "For thin ring: I3-I1 = M*R^2/2."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_centrifugal_element.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.408744,
+            0.28113,
+            0.392788,
+            0.314345
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Coriolis-force torque uses no-slip spin omega_s = -r*omega/R and Fcor = -2m(Omega x v).",
+      "key_point": "tau_cor is collinear with tau_c."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_coriolis_element.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.505277,
+            0.272398,
+            0.361997,
+            0.4079
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Combine two collinear torque components in the ezxn direction.",
+      "key_point": "Keep final result as one compact expression."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_collinear_torques.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.294736,
+            0.343742,
+            0.583356,
+            0.340298
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "M*R*omega^2*cos(theta_0)*(r+R*sin(theta_0)/2)"
+  }
+}

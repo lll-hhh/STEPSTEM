@@ -1,0 +1,161 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the pyrolysis of ethyl acetate, write the six-membered elimination transition state in which the beta-H is transferred to the carbonyl oxygen and an alkene is formed. Answer format: a single ASCII structural representation. Use only atomic symbols, bond connectors, parentheses, and other ASCII characters needed for the structure; write only the transition-state structure itself, with no explanatory text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the highlighted information in this step to derive the next relation needed for the final answer.",
+      "key_point": "Locate beta-H donor and carbonyl-oxygen acceptor sites."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_reactant_framework.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.28,
+            0.2,
+            0.088137,
+            0.359633
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.273907,
+            0.43,
+            0.388184,
+            0.181929
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.695279,
+            0.292023,
+            0.159612,
+            0.224302
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use the highlighted information in this step to derive the next relation needed for the final answer.",
+      "key_point": "Define six-membered cyclic transition-state connectivity."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_h_transfer_path.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.284741,
+            0.196731,
+            0.597814,
+            0.172918
+          ],
+          "weight": 0.507463
+        },
+        {
+          "bbox": [
+            0.569025,
+            0.304278,
+            0.276786,
+            0.292572
+          ],
+          "weight": 0.492537
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_bond_reorganization.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.288642,
+            0.202995,
+            0.579689,
+            0.153171
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.575551,
+            0.314492,
+            0.272038,
+            0.278621
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.439625,
+            0.442646,
+            0.220095,
+            0.195432
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Use the highlighted information in this step to derive the next relation needed for the final answer.",
+      "key_point": "Apply concerted elimination bond reorganization for H transfer."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step8_transition_state.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.324482,
+            0.233697,
+            0.035,
+            0.352493
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.501185,
+            0.108166,
+            0.225504,
+            0.178952
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.480593,
+            0.492219,
+            0.241948,
+            0.175563
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Use the highlighted information in this step to derive the next relation needed for the final answer.",
+      "key_point": "Write the cyclic transition-state expression with beta-H transfer."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "[(CH3COO...H...CH2CH2...O)]"
+  }
+}

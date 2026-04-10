@@ -1,0 +1,43 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A charged particle returns to hole a after moving in a uniform magnetic field for exactly T0. Determine the magnetic flux density magnitude using one cyclotron period relation only. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single magnetic-field expression or numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the return condition to identify that motion in magnetic field corresponds to one full cyclotron period.",
+      "key_point": "Set T0 equal to the circular-motion period in uniform magnetic field."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_cycle_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.209875,
+            0.159008,
+            0.537218,
+            0.387061
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Combine omega=qB/m with T=2pi/omega and substitute T=T0.",
+      "key_point": "Isolate B as a single expression in m, q, T0."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*pi*m/(q*T0)"
+  }
+}

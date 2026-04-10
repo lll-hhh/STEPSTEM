@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the pure-rolling wheel configuration, compute the inertial-frame velocity vector of point C at the shown instant. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use pure rolling kinematics with B as instantaneous center.",
+      "key_point": "No slip gives V_B/O=0."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_wheel_contact.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.38,
+            0.34,
+            0.28,
+            0.42
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write V_C/O=V_B/O+omegar_C/B and set V_B/O=0.",
+      "key_point": "Only rotational term remains."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_instant_center.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.404639,
+            0.352046,
+            0.22,
+            0.44
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.417913,
+            0.365764,
+            0.184543,
+            0.152759
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute omega=4*k and r_C/B=0.3*j.",
+      "key_point": "omega=4k and r=0.3j give direction -i"
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_cross_product_vectors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.284607,
+            0.321276,
+            0.34362,
+            0.451712
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.249291,
+            0.255025,
+            0.311167,
+            0.215316
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Compute magnitude 4*0.3=1.2 and top-point speed relative to B is 2*omega*R.",
+      "key_point": "Given setup yields final speed 2.4 along negative x."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_velocity.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3,
+            0.33,
+            0.3,
+            0.14
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.405829,
+            0.331816,
+            0.250079,
+            0.4487
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-2.4*i"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Points A and B move on y=x^2 with OA perpendicular OB, and OC is perpendicular to AB at C. Find only the maximum distance from C to the y-axis. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Fix the base geometric configuration and identify invariant relations.",
+      "key_point": "Start from fixed points, fixed lengths, and fixed right/parallel constraints."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_construct.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.078044,
+            0.55635,
+            0.321464,
+            0.269359
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add the dynamic or transformed elements required by the problem condition.",
+      "key_point": "Turn textual conditions into explicit segments, points, and angle relations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_relations.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.080041,
+            0.530697,
+            0.334443,
+            0.246556
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the added relations to lock the decisive constraint chain for the target quantity.",
+      "key_point": "Collapse multiple relations into one computable path."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_lock_constraint.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.063161,
+            0.484133,
+            0.38,
+            0.36
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Move to the extremal or terminal configuration and keep only the target expression.",
+      "key_point": "Discard all non-target outputs."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_config.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.056406,
+            0.517815,
+            0.342104,
+            0.330697
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1/2"
+  }
+}

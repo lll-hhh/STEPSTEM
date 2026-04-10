@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For two charged masses connected by a spring, determine the maximum spring length during motion. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Define relative extension y=x_2-x_1-L and reduce the two-body motion to one driven oscillator.",
+      "key_point": "The system becomes one DOF with forcing from field-force mismatch."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_relative_definition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.172268,
+            0.234146,
+            0.7,
+            0.618661
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "From Newton equations obtain y\"+omega0^2*y=F_rel/mu with initial conditions y(0)=0 and y'(0)=0.",
+      "key_point": "Initial state is release from natural spring length with zero relative speed."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_relative_balance.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.19,
+            0.18,
+            0.62,
+            0.584994
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Solve y(t)=y_eq*(1-cos(omega0*t)); turning points satisfy y'(t)=0.",
+      "key_point": "The first outward turning point gives maximum spring extension."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_effective_potential.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.14949,
+            0.540193,
+            0.636426,
+            0.340882
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Convert y_max to l_max and encode sign cases using a single positive-part expression.",
+      "key_point": "ODE solution provides the same closed form through a different derivation chain."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_geometry_mapping.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.171212,
+            0.230921,
+            0.695272,
+            0.569198
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "L+(((m_1*Q_2-m_2*Q_1)*E)+abs((m_1*Q_2-m_2*Q_1)*E))/(k*(m_1+m_2))"
+  }
+}

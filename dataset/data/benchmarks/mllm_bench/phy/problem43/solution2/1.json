@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the semicylindrical refractive geometry with parallel incident beam, compute the final angular-span expression requested by the problem. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: critical-angle envelope method at the curved interface.",
+      "key_point": "Determine the output span from escape-limit rays, not from d-extremum optimization."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_i.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.183938,
+            0.301629,
+            0.32762,
+            0.600388
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At the transmission boundary on the curved surface, internal incidence reaches i_c with sin(i_c)=1/n, hence i_c=arcsin(1/n).",
+      "key_point": "The two limiting transmitted rays are symmetric with respect to the central axis."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_refraction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.25,
+            0.14,
+            0.56,
+            0.33
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.24,
+            0.52,
+            0.57,
+            0.33
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_add_i2_critical.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.502288,
+            0.221775,
+            0.319817,
+            0.187403
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.480435,
+            0.506563,
+            0.370117,
+            0.188424
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.488445,
+            0.279633,
+            0.2015,
+            0.455027
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Write the two boundary directions as ?_+=?_0+i_c and ?_-=?_0-i_c, where ?_0 is the common offset set by entry refraction.",
+      "key_point": "Common offset ?_0 cancels in the angular difference."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7_phi_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.478229,
+            0.225881,
+            0.244311,
+            0.525107
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Thus ?=?_+-?_-=2*i_c=2*arcsin(1/n).",
+      "key_point": "The final span is independent of the incident-beam position parameter."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*arcsin(1/n)"
+  }
+}

@@ -1,0 +1,54 @@
+﻿{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Build the following structural model: a horizontal rigid beam is supported by two vertical steel rods of length l at points A and C on the beam, with AC=a and CB=a, so C is the midpoint of AB. A third vertical steel rod is above the right end B; its upper end is fixed to a rigid top plate, but this rod is shorter than the first two by delta, so after initial assembly there is a vertical gap delta between its lower end and point B of the beam. An axial strain gauge is attached on rod 3. After assembly, the gauge reading is epsilon1. Then a downward vertical load F is applied at B, so rod 3 contacts the beam and carries force; the gauge reading becomes epsilon2. All three rods are linear elastic, with elastic modulus E and cross-sectional area A. Determine delta and F from the two strain readings. Answer format: delta|F, in this order, separated by |, with no explanatory text or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model rods 1-3 as vertical springs with stiffness k = E*A/l, and model AB as a rigid body.",
+      "key_point": "Convert the rod system into a rigid-beam plus three-spring model."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.12,
+            0.84,
+            0.70
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use two rigid-body DOFs for the beam: vertical translation y0 and small rotation phi. Then support displacements are uA = y0 - a*phi, uC = y0, uB = y0 + a*phi.",
+      "key_point": "All support-point displacements come from one translation and one rotation."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Write spring forces from these displacements and substitute into beam equilibrium. For Stage I (no external load), rigid-beam equilibrium gives N1:N2:N3 = 1:2:1 and the gap relation yields N3 = delta*E*A/(6*l).",
+      "key_point": "Stage-I equilibrium + compatibility gives a direct delta-N3 relation."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use gauge equations for rod 3: Stage I gives N3 from epsilon1, and Stage II gives N3' = E*A*(2*epsilon2 - epsilon1). Stage-II beam equilibrium at B gives N3' = 5F/6.",
+      "key_point": "Use epsilon1 and epsilon2 to connect spring force and external load."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Solving the two stages under the same convention as solution1 gives delta = 6*l/epsilon1 and F = 6*E*A*(2*epsilon2-epsilon1)/5.",
+      "key_point": "Final target relation: delta|F."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "6*l/epsilon1|6*E*A*(2*epsilon2-epsilon1)/5"
+  }
+}

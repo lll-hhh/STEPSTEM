@@ -1,0 +1,105 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In triangle ABC, AB=AC and point D lies on side BC with D not equal to B or C. Rotate segment AD counterclockwise around A by alpha to get segment AE, and connect DE. For alpha=angle BAC=90 degrees and BD<CD, draw DG perpendicular to BC through D and let DG meet the extension of CA at G. Connect BG. Point F is the midpoint of DE, and point H is the midpoint of BG. Connect FH and CF. Express the quantitative relation between FH and CF. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use coordinates B(-1,0), C(1,0), A(0,1) so AB=AC and angle BAC is 90 degrees, and set D=(t,0) with t<0.",
+      "key_point": "This coordinate frame keeps BC horizontal and makes the 90-degree rotation easy to express."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_base_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1354,
+            0.7222,
+            0.6042,
+            0.0972
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.3125,
+            0.25,
+            0.1562,
+            0.5694
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "After rotating AD by 90 degrees around A, get E=(1,t+1). Midpoints are F=((t+1)/2,(t+1)/2) for DE and H=((t-1)/2,(1-t)/2) for BG.",
+      "key_point": "Write midpoint coordinates directly from endpoint averages."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rotation_midpoints.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2292,
+            0.4722,
+            0.3438,
+            0.25
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.3229,
+            0.5,
+            0.4479,
+            0.3472
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute squared lengths: FH^2=1+t^2 and CF^2=(1+t^2)/2, hence FH^2=2*CF^2 and FH=sqrt(2)*CF.",
+      "key_point": "The ratio is constant and independent of t."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_relation_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2344,
+            0.4861,
+            0.3438,
+            0.25
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.5208,
+            0.625,
+            0.2135,
+            0.2014
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(2)*CF"
+  }
+}

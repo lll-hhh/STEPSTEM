@@ -1,0 +1,92 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the accelerating crate, determine the maximum admissible acceleration that avoids both sliding and tipping. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: effective-gravity and support-window approach in the accelerating frame.",
+      "key_point": "Combine gravity and the inertial force into one resultant direction, then read sliding and tipping directly from geometry."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_effective_gravity.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.395406,
+            0.027166,
+            0.239599,
+            0.715786
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "No sliding means the effective-gravity direction stays inside the static-friction cone, so its inclination α must satisfy tan(α)<=μ_s.",
+      "key_point": "The sliding limit is obtained from the direction of the resultant, not from separate x-y force equations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_support_intersection.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.365376,
+            0.315532,
+            0.400615,
+            0.427421
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "No tipping means the line of action of the same effective gravity, extended through C, still intersects the support segment between the two lower edges. That geometric requirement gives a/g<=b/h.",
+      "key_point": "Tipping is decided by where the resultant meets the base, not by a separate moment equation."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_two_geometric_limits.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.164745,
+            0.119009,
+            0.268109,
+            0.536743
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.634313,
+            0.11305,
+            0.263278,
+            0.575843
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The admissible acceleration is the smaller of the two geometric limits. With the given numbers, the support-window limit is tighter, so the final allowable acceleration is 0.1*g.",
+      "key_point": "Compare the friction-cone limit and the support-window limit, then keep the smaller one."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.1*g"
+  }
+}

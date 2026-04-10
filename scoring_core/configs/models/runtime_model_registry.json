@@ -1,0 +1,236 @@
+{
+  "version": 2,
+  "models": {
+    "qwen35_9b": {
+      "family": "text",
+      "runner_kind": "text_causal",
+      "path": "models/Qwen3.5-9B",
+      "hf_repo": "Qwen/Qwen3.5-9B",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 24.0,
+      "min_vram_gb": 18.0,
+      "env_name": "core_env",
+      "runtime": {}
+    },
+    "qwen25_7b": {
+      "family": "text",
+      "runner_kind": "text_causal",
+      "path": "models/Qwen2.5-7B",
+      "hf_repo": "Qwen/Qwen2.5-7B",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 20.0,
+      "min_vram_gb": 14.0,
+      "env_name": "core_env",
+      "runtime": {}
+    },
+    "qwen25_vl_7b": {
+      "family": "vlm",
+      "runner_kind": "vlm_auto",
+      "path": "models/Qwen2.5-VL-7B-Instruct",
+      "hf_repo": "Qwen/Qwen2.5-VL-7B-Instruct",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 24.0,
+      "min_vram_gb": 16.0,
+      "env_name": "core_env",
+      "runtime": {}
+    },
+    "internvl3_8b": {
+      "family": "vlm",
+      "runner_kind": "internvl_chat",
+      "path": "models/InternVL3-8B",
+      "hf_repo": "OpenGVLab/InternVL3-8B",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 24.0,
+      "min_vram_gb": 16.0,
+      "env_name": "",
+      "runtime": {}
+    },
+    "internvl35_8b": {
+      "family": "vlm",
+      "runner_kind": "internvl_chat",
+      "path": "models/InternVL3.5-8B",
+      "hf_repo": "OpenGVLab/InternVL3_5-8B",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 24.0,
+      "min_vram_gb": 16.0,
+      "env_name": "vlm_env",
+      "runtime": {}
+    },
+    "llava_ov_qwen2_7b": {
+      "family": "vlm",
+      "runner_kind": "vlm_auto",
+      "path": "models/llava-onevision-qwen2-7b-ov-hf",
+      "hf_repo": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 24.0,
+      "min_vram_gb": 16.0,
+      "env_name": "",
+      "runtime": {}
+    },
+    "phi4_multimodal_instruct_5_6b": {
+      "family": "vlm",
+      "runner_kind": "causal_mm_chat",
+      "path": "models/Phi-4-multimodal-instruct",
+      "hf_repo": "microsoft/Phi-4-multimodal-instruct",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 16.0,
+      "min_vram_gb": 12.0,
+      "env_name": "vlm_env",
+      "runtime": {}
+    },
+    "intern_s1_mini": {
+      "family": "vlm",
+      "runner_kind": "causal_mm_chat",
+      "path": "models/Intern-S1-mini",
+      "hf_repo": "internlm/Intern-S1-mini",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 24.0,
+      "min_vram_gb": 18.0,
+      "env_name": "vlm_env",
+      "runtime": {}
+    },
+    "molmo2_8b": {
+      "family": "vlm",
+      "runner_kind": "molmo2_vlm",
+      "path": "models/Molmo2-8B",
+      "hf_repo": "allenai/Molmo2-8B",
+      "track": "understanding_only",
+      "tier": "open_source_under_10b",
+      "recommended_vram_gb": 24.0,
+      "min_vram_gb": 16.0,
+      "env_name": "vlm_env",
+      "runtime": {}
+    },
+    "bagel": {
+      "family": "vlm",
+      "runner_kind": "bagel_official",
+      "path": "models/BAGEL",
+      "hf_repo": "ByteDance-Seed/BAGEL-7B-MoT",
+      "track": "unified_models",
+      "tier": "generation_understanding_unified",
+      "recommended_vram_gb": 30.0,
+      "min_vram_gb": 22.0,
+      "env_name": "bagel_env",
+      "runtime": {
+        "entrypoint": "tools/runtimes/bagel_official_runtime.py",
+        "env_name": "bagel_env",
+        "use_conda_run": true,
+        "timeout_sec": 1800,
+        "extra_args": [
+          "--runtime-repo",
+          "repos/official/BAGEL_src"
+        ]
+      }
+    },
+    "unireason": {
+      "family": "vlm",
+      "runner_kind": "bagel_official",
+      "path": "models/UniReason",
+      "hf_repo": "ByteDance-Seed/UniReason",
+      "track": "unified_models",
+      "tier": "generation_understanding_unified",
+      "recommended_vram_gb": 30.0,
+      "min_vram_gb": 22.0,
+      "env_name": "bagel_env",
+      "runtime": {
+        "entrypoint": "tools/runtimes/bagel_official_runtime.py",
+        "env_name": "bagel_env",
+        "use_conda_run": true,
+        "timeout_sec": 1800,
+        "extra_args": [
+          "--runtime-repo",
+          "repos/official/BAGEL_src"
+        ]
+      }
+    },
+    "omnigen2": {
+      "family": "generation",
+      "runner_kind": "omnigen2_official",
+      "path": "models/OmniGen2",
+      "hf_repo": "OmniGen/OmniGen2",
+      "track": "generation_only",
+      "tier": "generation",
+      "recommended_vram_gb": 17.0,
+      "min_vram_gb": 14.0,
+      "env_name": "gen_env",
+      "runtime": {
+        "entrypoint": "tools/runtimes/omnigen2_official_runtime.py",
+        "env_name": "gen_env",
+        "use_conda_run": true,
+        "timeout_sec": 1800,
+        "extra_args": [
+          "--runtime-repo",
+          "repos/official/OmniGen2_src"
+        ]
+      }
+    },
+    "qwen_image_edit": {
+      "family": "generation",
+      "runner_kind": "image_gen_local",
+      "path": "models/Qwen-Image-Edit",
+      "hf_repo": "Qwen/Qwen-Image-Edit",
+      "track": "generation_only",
+      "tier": "generation",
+      "recommended_vram_gb": 48.0,
+      "min_vram_gb": 32.0,
+      "env_name": "",
+      "runtime": {}
+    },
+    "intern_s1_pro": {
+      "family": "text",
+      "runner_kind": "text_causal",
+      "path": "models/Intern-S1-Pro",
+      "hf_repo": "internlm/Intern-S1-Pro",
+      "track": "understanding_only",
+      "tier": "closed_source_commercial_compare",
+      "recommended_vram_gb": 1280.0,
+      "min_vram_gb": 640.0,
+      "env_name": "",
+      "runtime": {}
+    },
+    "qwen35_122b_a10b": {
+      "family": "text",
+      "runner_kind": "text_causal",
+      "path": "models/Qwen3.5-122B-A10B",
+      "hf_repo": "Qwen/Qwen3.5-122B-A10B",
+      "track": "understanding_only",
+      "tier": "open_source_around_200b",
+      "recommended_vram_gb": 320.0,
+      "min_vram_gb": 160.0,
+      "env_name": "",
+      "runtime": {}
+    },
+    "qwen3_vl_235b_a22b": {
+      "family": "vlm",
+      "runner_kind": "vlm_auto",
+      "path": "models/Qwen3-VL-235B-A22B",
+      "hf_repo": "Qwen/Qwen3-VL-235B-A22B",
+      "track": "understanding_only",
+      "tier": "open_source_around_200b",
+      "recommended_vram_gb": 480.0,
+      "min_vram_gb": 320.0,
+      "env_name": "",
+      "runtime": {}
+    },
+    "internvl35_241b_a28b": {
+      "family": "vlm",
+      "runner_kind": "internvl_chat",
+      "path": "models/InternVL3.5-241B-A28B",
+      "hf_repo": "OpenGVLab/InternVL3_5-241B-A28B",
+      "track": "understanding_only",
+      "tier": "open_source_around_200b",
+      "recommended_vram_gb": 480.0,
+      "min_vram_gb": 320.0,
+      "env_name": "",
+      "runtime": {}
+    }
+  }
+}

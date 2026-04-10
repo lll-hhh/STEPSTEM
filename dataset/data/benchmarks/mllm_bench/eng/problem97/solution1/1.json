@@ -1,0 +1,118 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the ideal-op-amp inverting integrator in the accompanying image, the non-inverting input is grounded. The input signal \\(v_1\\) is applied to the inverting node through \\(R_1=100\\,\\mathrm{k}\\Omega\\), and the feedback element is capacitor \\(C\\) from output to the inverting node. Use \\(C=0.47\\,\\mu\\mathrm{F}\\). The input waveform is rectangular: \\(v_1(t)=+6\\,\\mathrm{V}\\) for \\(0\\!\\sim\\!60\\,\\mathrm{ms}\\), \\(v_1(t)=-6\\,\\mathrm{V}\\) for \\(60\\!\\sim\\!120\\,\\mathrm{ms}\\), and \\(v_1(t)=0\\) otherwise. Draw the output integral waveform \\(v_o(t)\\), and mark its amplitude and zero-return time. Answer format: one final image only, with no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "step2.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "For an ideal inverting integrator,\\n\\n\\[v_o(t)=-\\frac{1}{R_1C}\\int v_1(t)\\,dt\\]\\n\\nGiven \\(R_1=100\\,\\mathrm{k}\\Omega\\), \\(C=0.47\\,\\mu\\mathrm{F}\\):\\n\\n\\[R_1C=100\\times10^3\\times0.47\\times10^{-6}=0.047\\,\\mathrm{s}\\]\\n\\nSo the slope relation is\\n\\n\\[\\frac{dv_o}{dt}=-\\frac{v_1}{0.047}\\]",
+      "key_point": "The output slope is piecewise constant and determined directly by the sign of \\(v_1(t)\\)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.15484,
+            0.178784,
+            0.706804,
+            0.43874
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.160037,
+            0.248982,
+            0.673023,
+            0.368542
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "From the input levels:\\n\\n\\[v_1=+6\\,\\mathrm{V}\\ (0\\!\\sim\\!60\\,\\mathrm{ms})\\Rightarrow \\frac{dv_o}{dt}=-\\frac{6}{0.047}=-127.66\\,\\mathrm{V/s}\\]\\n\\n\\[v_1=-6\\,\\mathrm{V}\\ (60\\!\\sim\\!120\\,\\mathrm{ms})\\Rightarrow \\frac{dv_o}{dt}=+\\frac{6}{0.047}=+127.66\\,\\mathrm{V/s}\\]\\n\\n\\[v_1=0\\Rightarrow \\frac{dv_o}{dt}=0\\]",
+      "key_point": "The output first ramps down, then ramps up with equal magnitude slope."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.127598,
+            0.265575,
+            0.4427,
+            0.2734
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Assume \\(v_o(0)=0\\). For \\(0\\le t\\le60\\,\\mathrm{ms}\\):\\n\\n\\[v_o(t)=0+\\left(-127.66\\,\\mathrm{V/s}\\right)t\\]\\n\\nAt \\(t=60\\,\\mathrm{ms}=0.06\\,\\mathrm{s}\\):\\n\\n\\[v_o(60\\,\\mathrm{ms})=-127.66\\times0.06=-7.66\\,\\mathrm{V}\\]",
+      "key_point": "The minimum output level is \\(-7.66\\,\\mathrm{V}\\) at \\(t_1=60\\,\\mathrm{ms}\\)."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.109283,
+            0.221625,
+            0.752362,
+            0.395899
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "For \\(60\\le t\\le120\\,\\mathrm{ms}\\), integrate from \\(t_1=60\\,\\mathrm{ms}\\):\\n\\n\\[v_o(t)=v_o(60\\,\\mathrm{ms})+127.66\\,(t-0.06)\\]\\n\\nAt \\(t=120\\,\\mathrm{ms}=0.12\\,\\mathrm{s}\\):\\n\\n\\[v_o(120\\,\\mathrm{ms})=-7.66+127.66\\times0.06=0\\,\\mathrm{V}\\]\\n\\nAfter \\(120\\,\\mathrm{ms}\\), \\(v_1=0\\), so \\(v_o\\) stays at 0 V.",
+      "key_point": "Zero-return time is \\(t_2=120\\,\\mathrm{ms}\\)."
+    },
+    "step_9": {
+      "modality": "image",
+      "content": "step9.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.097628,
+            0.232552,
+            0.743228,
+            0.359623
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "Therefore the output waveform is triangular: it falls linearly from 0 to \\(-7.66\\,\\mathrm{V}\\) over \\(0\\!\\sim\\!60\\,\\mathrm{ms}\\), then rises linearly back to 0 over \\(60\\!\\sim\\!120\\,\\mathrm{ms}\\), and remains 0 afterward. The labeled final plot is provided in \\(\\mathrm{final.png}\\).",
+      "key_point": "Amplitude magnitude: \\(7.66\\,\\mathrm{V}\\); zero-return time: \\(120\\,\\mathrm{ms}\\)."
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

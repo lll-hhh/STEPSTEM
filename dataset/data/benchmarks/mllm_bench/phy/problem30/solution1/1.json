@@ -1,0 +1,96 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the free-body diagram and the stated sign convention, compute the horizontal interaction force exerted by the blue block on the green block. Output exactly one integer in plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a single integer; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the green block free-body diagram and write horizontal force balance with positive x to the right.",
+      "key_point": "m_G*a = 3*3 = 9."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_fbd.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.142919,
+            0.379473,
+            0.714694,
+            0.211244
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Horizontal equation: 15 + F_B = 9, where F_B is the force from blue on green in the sign convention.",
+      "key_point": "F_B = 9 - 15."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_horizontal_equation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.087802,
+            0.379047,
+            0.369551,
+            0.214104
+          ],
+          "weight": 0.507463
+        },
+        {
+          "bbox": [
+            0.523186,
+            0.399736,
+            0.31,
+            0.34311
+          ],
+          "weight": 0.492537
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Solve to get F_B = -6, so the actual direction is leftward with magnitude 6.",
+      "key_point": "Final signed value is -6."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_final_force.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.489506,
+            0.403489,
+            0.335338,
+            0.127593
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.25,
+            0.44,
+            0.2,
+            0.11
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-6"
+  }
+}

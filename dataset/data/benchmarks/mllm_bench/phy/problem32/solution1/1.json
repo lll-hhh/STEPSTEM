@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Model the iron sphere as an equivalent dipole and derive the far-field magnetic-induction vector at observation angle phi. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model the iron sphere as a dipole with pole spacing a and far-field observation direction defined by phi.",
+      "key_point": "Set dipole geometry before component approximation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_dipole_axis.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.180751,
+            0.417326,
+            0.237765,
+            0.351092
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For d >> a, connect center-to-observer direction and mark phi between dipole axis and radial direction.",
+      "key_point": "Use small-separation geometry in the far field."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_observation_direction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.281268,
+            0.332928,
+            0.57818,
+            0.325697
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Decompose spacing a into radial and transverse offsets: a*cos(phi) and a*sin(phi).",
+      "key_point": "Prepare x = a*cos(phi) and transverse term for Br and B_phi."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_a_decomposition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.280901,
+            0.437595,
+            0.243107,
+            0.252674
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use inverse-square expansion to get Br and similar-triangle ratio to get B_phi, then substitute a = K_i*B_e.",
+      "key_point": "Br scales with 2*cos(phi), B_phi scales with sin(phi)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_component_vectors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.637479,
+            0.122896,
+            0.3,
+            0.3
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Combine radial and tangential parts into one vector expression for B_i.",
+      "key_point": "Combine radial and tangential terms into vector B_i."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "B_e*m*K_i*(2*cos(phi)*e_r+sin(phi)*e_phi)/d^3"
+  }
+}

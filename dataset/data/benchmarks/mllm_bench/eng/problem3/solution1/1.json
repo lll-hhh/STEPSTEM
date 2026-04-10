@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the perforated plate rotating about pivot A, derive the rotational dynamic equation and provide the combined left-hand-side expression. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use symmetry of the two identical holes to locate centroid C on the middle line at x=a/2.",
+      "key_point": "Hole removal does not shift centroid in y because of mirror symmetry."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_centroid.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.578386,
+            0.330379,
+            0.15574,
+            0.590413
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.138287,
+            0.410117,
+            0.39962,
+            0.5186
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute inertia by subtracting two removed-disk inertias from full plate inertia about C.",
+      "key_point": "Each hole contributes self inertia and parallel-axis term with offset d."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_inertia_decomposition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.259083,
+            0.2158,
+            0.522693,
+            0.464667
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Shift from C to pivot A using the parallel-axis theorem with distance a/2.",
+      "key_point": "IzzA = IzzC + M*(a/2)^2."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_rotational_fbd.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.284052,
+            0.462467,
+            0.194317,
+            0.382088
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.492131,
+            0.163317,
+            0.250526,
+            0.592005
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Apply rotational dynamics about fixed pivot A without small-angle approximation.",
+      "key_point": "Gravity torque is restoring and proportional to sin(theta)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_equation_terms.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1608,
+            0.6855,
+            0.666753,
+            0.094774
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "IzzA*theta_ddot+m*g*a*sin(theta)/2"
+  }
+}

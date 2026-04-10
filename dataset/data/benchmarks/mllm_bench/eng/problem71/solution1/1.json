@@ -1,0 +1,68 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Find the support reactions. Answer format: list the support reactions with the left support first and the right support second, separated by commas; write only the final results, with no units, explanatory text, or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Cut at section C and keep the left segment as the free body. Use the sign convention shown in the figure: internal shear \\(F_S\\) and internal moment \\(M_C\\) are treated as unknowns in the equilibrium equations.",
+      "key_point": "Section method: isolate the left part and solve internal forces from static equilibrium."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.031216,
+            0.07557,
+            0.379715,
+            0.624746
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.415708,
+            0.106582,
+            0.401675,
+            0.533887
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write vertical-force equilibrium on the left segment:\n\n\\(\\sum F_y=0:\\quad F_1-F_2+F_3-q\\cdot2-F_S=0.\\)",
+      "key_point": "Distributed load on 2 m contributes a resultant of \\(q\\cdot2\\)."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Substitute known force values \\(F_1=1\\), \\(F_2=2\\), \\(F_3=3\\), \\(q=2\\) (kN units):\n\n\\(1-2+3-2\\times2-F_S=0\\Rightarrow F_S=-2\\,\\text{kN}.\\)",
+      "key_point": "The negative sign means the real shear direction is opposite to the assumed positive direction."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Write moment equilibrium about section C for the same left segment:\n\n\\(\\sum M_C=0:\\ -F_1\\cdot6+F_2\\cdot5-M_{d1}-F_3\\cdot3+M_{d2}+q\\cdot2\\cdot1+M_C=0.\\)",
+      "key_point": "Use the distances from each load resultant/couple to section C."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Substitute \\(F_1=1\\), \\(F_2=2\\), \\(F_3=3\\), \\(M_{d1}=2\\), \\(M_{d2}=1\\), \\(q=2\\):\n\n\\(-1\\times6+2\\times5-2-3\\times3+1+2\\times2\\times1+M_C=0\\Rightarrow M_C=2\\,\\text{kN*m}.\\)",
+      "key_point": "Direct substitution gives the internal bending moment at C."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Therefore, the section internal forces are:\n\n\\(F_S=-2\\,\\text{kN},\\quad M_C=2\\,\\text{kN*m}.\\)",
+      "key_point": "Final section result at C combines one force unknown and one moment unknown."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "F_S=-2 kN, M_C=2 kN*m"
+  }
+}

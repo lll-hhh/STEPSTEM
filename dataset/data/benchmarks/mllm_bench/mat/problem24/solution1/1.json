@@ -1,0 +1,105 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "已知椭圆 C: x^2/2 + y^2 = 1，左、右焦点分别为 F_1(-1,0), F_2(1,0)。点 P=(x_0,y_0) 在第一象限的椭圆上，直线 PF_1, PF_2 分别与椭圆再次相交于 Q_1, Q_2。记三角形 PF_1Q_2 和 PF_2Q_1 的内切圆半径分别为 r_1, r_2，求 r_1-r_2 的最大值。 Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "设 Q_1=(x_1,y_1), Q_2=(x_2,y_2)。由椭圆的焦点性质，|PF_1|+|PF_2|=2sqrt(2)，|Q_2F_1|+|Q_2F_2|=2sqrt(2)。又因为 P,F_2,Q_2 共线，所以 |PF_2|+|Q_2F_2|=|PQ_2|。因此三角形 PF_1Q_2 的周长 l_1=|PF_1|+|PQ_2|+|Q_2F_1|=4sqrt(2)；同理，三角形 PF_2Q_1 的周长 l_2 也等于 4sqrt(2)。",
+      "key_point": "两个目标三角形的周长都固定为 4sqrt(2)，可直接用 r=2S/l 计算内切圆半径。"
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_target_triangles.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.07,
+            0.28,
+            0.42,
+            0.48
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.42,
+            0.1,
+            0.46,
+            0.62
+          ],
+          "weight": 0.55
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "由内切圆半径公式 r=2S/l 以及 |F_1F_2|=2，可得 r_1=2S_(PF_1Q_2)/l_1=(y_0-y_2)/(2sqrt(2))，r_2=2S_(PF_2Q_1)/l_2=(y_0-y_1)/(2sqrt(2))。所以 r_1-r_2=(y_1-y_2)/(2sqrt(2))，问题化为求 y_1-y_2 的最大值。",
+      "key_point": "先把半径差化成纵坐标差，再去做代数计算。"
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_inradii.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.16,
+            0.36,
+            0.2,
+            0.22
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.471803,
+            0.209599,
+            0.323122,
+            0.415519
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "直线 PF_1 的方程是 x=((x_0+1)/y_0)y-1。代入 x^2/2+y^2=1，结合 x_0^2+2y_0^2=2，可化为 (3+2x_0)y^2-2(x_0+1)y_0y-y_0^2=0。其两根为 y_0, y_1，因此 y_1=-y_0/(3+2x_0)。同理，y_2=-y_0/(3-2x_0)。于是 y_1-y_2=4x_0y_0/(9-4x_0^2)，从而 r_1-r_2=sqrt(2)x_0y_0/(9-4x_0^2)。又因为 x_0^2+2y_0^2=2，所以 9-4x_0^2=x_0^2/2+9y_0^2>=2sqrt((x_0^2/2)(9y_0^2))=3sqrt(2)x_0y_0，故 r_1-r_2<=1/3。等号成立当且仅当 x_0^2/2=9y_0^2，此时可取 x_0=3sqrt(5)/5, y_0=sqrt(10)/10。",
+      "key_point": "最终得到 r_1-r_2 的最大值为 1/3。"
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_y_coordinates.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.685745,
+            0.11521,
+            0.201639,
+            0.686788
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.044434,
+            0.377764,
+            0.472131,
+            0.222481
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1/3"
+  }
+}

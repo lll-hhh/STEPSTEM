@@ -1,0 +1,43 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Use **Figure 2.6A** from the given page.\n\nIn **Figure 2.6A**, a circle cuts two sides and one diagonal of a parallelogram \\(ABCD\\) at points \\(P\\), \\(R\\), and \\(Q\\), respectively, as shown in the figure. Here, \\(P\\) lies on side \\(AB\\), \\(R\\) lies on side \\(AD\\), and \\(Q\\) lies on diagonal \\(AC\\). The circle passes through the four points \\(A\\), \\(P\\), \\(Q\\), and \\(R\\).\n\nFind the value of the expression\n\n\\[\nAP \\cdot AB + AR \\cdot AD - AQ \\cdot AC.\n\\]\n\nYour answer should be given as a single exact value.\n\nAnswer format requirement: <expr>.\nStrictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "In Figure 2.6A, A, P, Q, R lie on one circle while AB and AD are sides and AC is a diagonal of parallelogram ABCD.",
+      "key_point": "Read the concyclic configuration from the redrawn diagram"
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.14583333333333334,
+            0.4176470588235294,
+            0.3572916666666667,
+            0.43529411764705883
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Using the stated relation for this exact figure, AP*AB + AR*AD = AQ*AC, so AP*AB + AR*AD - AQ*AC equals 0.",
+      "key_point": "Two positive terms cancel exactly with AQ*AC"
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0"
+  }
+}

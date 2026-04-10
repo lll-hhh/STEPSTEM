@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the three-particle momentum-closure model, identify the geometric locus of point P corresponding to all allowed kinetic-energy partitions. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use constrained quadratic-form modeling for the energy partition variables with E_k1+E_k2+E_k3=E_k.",
+      "key_point": "Feasibility is expressed as a quadratic inequality from momentum closure."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_height_partition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.294736,
+            0.394643,
+            0.366158,
+            0.481497
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Shift to centered coordinates around the incenter so the admissible set is z^T*Q*z<=c.",
+      "key_point": "The transformed feasible set is rotationally symmetric in the reduced plane."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_heron_triangle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.286414,
+            0.216265,
+            0.505964,
+            0.530146
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply Lagrange multipliers on the boundary to obtain the maximal center distance OP.",
+      "key_point": "Boundary optimization yields OP=E_k/3."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_quadratic_center.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.328023,
+            0.299841,
+            0.360333,
+            0.587526
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Map the bound back to the equilateral geometry and identify the full locus of P.",
+      "key_point": "The admissible region is exactly the incircle."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_incircle_locus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.369632,
+            0.413354,
+            0.322885,
+            0.422869
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "incircle(A1A2A3)"
+  }
+}

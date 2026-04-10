@@ -1,0 +1,161 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the sampled Newman conformations at 0, 60, 120, 180, 240, 300, and 360 degrees around the CH2-CH2 bond, rank their relative energies from highest to lowest. Output exactly one token sequence using labels E0,E60,E120,E180,E240,E300,E360 with '>' for higher-than and '~' for equal-energy, plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Rotate around the CH2-CH2 bond and classify each sampled dihedral as E or S.",
+      "key_point": "E at 0/120/240/360 and S at 60/180/300."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_newman_set.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.03,
+            0.2,
+            0.1,
+            0.26
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.296858,
+            0.218569,
+            0.256863,
+            0.371418
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.71,
+            0.2,
+            0.1,
+            0.26
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At 0 degrees CH3 and iPr are eclipsed, while 60 degrees is staggered with gauche interaction.",
+      "key_point": "0 degrees gives the largest eclipsing penalty."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_key_contacts.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.219623,
+            0.144642,
+            0.14,
+            0.19815
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.651893,
+            0.145803,
+            0.14,
+            0.206274
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Set relative levels so 0 degrees is highest, 120/240 are medium eclipsed peaks, and 180 is lowest.",
+      "key_point": "60 and 300 are equal local minima above 180."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_profile_points.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.214177,
+            0.187679,
+            0.180773,
+            0.72726
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.458484,
+            0.660716,
+            0.08,
+            0.213604
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.861457,
+            0.174642,
+            0.08,
+            0.749581
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Connect sampled points into a smooth qualitative torsional profile across 0 to 360 degrees.",
+      "key_point": "Keep periodic endpoint consistency at 0 and 360."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_profile.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08227,
+            0.16639,
+            0.201481,
+            0.723017
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.438954,
+            0.625964,
+            0.117964,
+            0.271567
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.818934,
+            0.171161,
+            0.150471,
+            0.778595
+          ],
+          "weight": 0.33
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "E0>E120~E240>E60~E300>E180"
+  }
+}

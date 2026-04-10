@@ -1,0 +1,129 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a dual-lens interference setup, a thin lens with focal length f=10.00 cm and radius r3=2.001 cm is cut to remove a central disk of radius r2=1.497 cm. The removed small lens is polished to radius r1=1.390 cm and shifted right along the optical axis by d=2.000 cm. A point source S is on the optical axis at distance s=15.00 cm to the left of the original lens plane, and emits monochromatic light with wavelength λ=500.0 nm. Two image points S₁′ and S₂′ are formed on the right side. A screen is placed at B=50.00 cm to the right of the original lens plane, with axis intersection O. How many bright interference fringes are visible in the overlap region on the screen? Use the small-x expansion √(1+x)≈1+x/2 where needed. Answer format: a single integer; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "Pasted image 20260318195107.png"
+    },
+    {
+      "modality": "image",
+      "content": "Pasted image 20260318195601.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set two coherent imaging branches: the annular lens at the original plane and the shifted small lens.",
+      "key_point": "Interference appears only where the two branch illuminations overlap on the screen."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_cut_and_shift_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.054346,
+            0.169155,
+            0.282521,
+            0.661782
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.116415,
+            0.259452,
+            0.503686,
+            0.44198
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use thin-lens imaging for both branches to locate S₁′ and S₂′, then define D between the two image points and L from S₁′ to O.",
+      "key_point": "The two effective point sources are on the same optical axis with longitudinal separation D."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_two_image_points.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.197033,
+            0.148957,
+            0.436623,
+            0.70099
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.576581,
+            0.45668,
+            0.343163,
+            0.25901
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.004405,
+            0.137076,
+            0.2283,
+            0.740198
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Project both apertures to the screen to get the overlap annulus [ρmin, ρmax], then write the phase-effective path difference as Δ(ρ).",
+      "key_point": "Only bright orders whose path-difference values lie inside this annulus are visible."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_overlap_annulus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.488115,
+            0.15371,
+            0.382402,
+            0.66297
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Count integer bright orders between the path-difference bounds at ρmin and ρmax using λ=500.0 nm.",
+      "key_point": "The resulting count is the total number of bright fringes visible in the overlap region."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_path_difference_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.468852,
+            0.211928,
+            0.459453,
+            0.363564
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "61"
+  }
+}

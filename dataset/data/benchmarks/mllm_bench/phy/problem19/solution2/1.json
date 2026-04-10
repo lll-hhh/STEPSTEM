@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For an infinitely long straight wire carrying current I along the z-axis, write the magnetic-field vector B at a point whose cylindrical radial distance from the wire is r. Use mu_0 for the vacuum permeability and keep the azimuthal unit-vector notation in ASCII form, such as hat(theta). Answer format: a single algebraic expression. Preserve the ASCII notation style used in the problem, including forms such as hat(theta); do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: Biot-Savart line-integration method for an infinite straight conductor.",
+      "key_point": "Compute magnitude by integration, then assign direction with the right-hand rule."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_axes_wire_loop.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.196539,
+            0.236813,
+            0.504299,
+            0.605252
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At radius r, pair current elements at +z and -z so axial components cancel and only azimuthal contribution survives.",
+      "key_point": "Cylindrical symmetry leaves only the ?-direction magnetic field."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rhat_thetahat_B.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.103685,
+            0.645926,
+            0.27843,
+            0.186948
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.39543,
+            0.231561,
+            0.157282,
+            0.504158
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate dB_? from z=-? to z=+? to obtain B(r)=?_0*I/(2*pi*r).",
+      "key_point": "This gives the 1/r law without using Ampere-loop circulation."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_ampere_loop.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.169909,
+            0.521714,
+            0.253814,
+            0.278336
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.494459,
+            0.390423,
+            0.238003,
+            0.317724
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Write the vector with unit direction hat(?) while preserving the problem's ASCII output style.",
+      "key_point": "Final vector form is magnitude multiplied by hat(?)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_vector_potential_Az.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.422028,
+            0.176123,
+            0.067,
+            0.355
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.217161,
+            0.549285,
+            0.233192,
+            0.179837
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "mu_0*I/(2*pi*r)*hat(theta)"
+  }
+}

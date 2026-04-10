@@ -1,0 +1,111 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In an electro-optic modulator with crossed polarizer and analyzer, the crystal has length l and thickness d. The refractive indices along x_1' and x_2' are n_0-(1/2)*n_0^3*gamma*E and n_0+(1/2)*n_0^3*gamma*E, and E=V/d. Determine the half-wave voltage V_pi under the condition Delta phi=pi. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single expression for V_pi; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Resolve the incident linear polarization into two equal components along x_1' and x_2'.",
+      "key_point": "The crystal axes are rotated by 45 degrees from x_1 and x_2."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_input_polarization.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.056838,
+            0.171501,
+            0.520839,
+            0.56
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use n_{x_1'} and n_{x_2'} to produce a differential phase delay after length l.",
+      "key_point": "Delta phi is proportional to (n_{x_2'}-n_{x_1'})*l."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_split_axes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0,
+            0.120901,
+            0.676706,
+            0.622341
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_phase_delay.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.440971,
+            0.167344,
+            0.259868,
+            0.643796
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.066685,
+            0.152887,
+            0.279646,
+            0.656867
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Set Delta phi = pi for the half-wave condition and substitute E = V/d.",
+      "key_point": "Solve directly for V_pi with a single compact expression."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step8_half_wave_condition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.02095,
+            0.280424,
+            0.410264,
+            0.479446
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.527746,
+            0.216682,
+            0.363662,
+            0.623557
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "lambda_0*d/(2*n_0^3*gamma*l)"
+  }
+}

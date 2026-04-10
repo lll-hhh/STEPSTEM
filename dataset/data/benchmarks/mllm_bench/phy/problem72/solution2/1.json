@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Gravitational lenses and Einstein rings According to the general theory of relativity, when light passes near a massive spherically symmetrical celestial body, it will bend toward the direction of the celestial body at a small angle $\\varepsilon$, $\\varepsilon$ is called the deflection angle, that is, the angle between the outgoing light and the incident light. Known $\\varepsilon = \\frac{R}{r}$, where the constants $R = \\frac{4GM}{c^2}$, $r$ are the closest distance between the light and the center of the celestial body, $G$ is the universal gravitational constant, $M$ is the mass of the celestial body, and $c$ is the speed of light in vacuum. Physical constants and units: - $c = 3 \\times 10^8\\ \\mathrm{m\\cdot s^{-1}}$ - $G = 6.67 \\times 10^{-11}\\ \\mathrm{N\\cdot m^2\\cdot kg^{-2}}$ - $1$ Parsecs $= 3.09 \\times 10^{16}\\ \\mathrm{m}$ - $1$ Milliarc seconds $= 10^{-3} \\times \\frac{2\\pi}{360 \\times 3600}\\ \\mathrm{rad}$ The phenomenon of gravitational lensing can be simulated and demonstrated using an axisymmetric optical lens. The cross-section of the lens is shown in Figure 2b. The $x$ axis is the axis of rotational symmetry. The incident surface of the lens is opaque in the $0 \\le r < r_0$ area, and the exit surface is perpendicular to the $x$ axis. Assume that the light is incident parallel to the $x$ axis, the distance between the incident light and the $x$ axis is $r$, and the deflection angle $\\varepsilon$ still satisfies $\\varepsilon = \\frac{R}{r}$. It is known that the refractive index of the optical lens is $n_0$ ($n_0 > 1$), the refractive index of air is $1$, and the deflection angle $\\varepsilon$ can be regarded as a small angle. Find the expression $x(r)$ for the incident surface of the lens in the $r \\ge r_0$ region, represented by $r$, $n_0$, $R$ and $r_0$. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: equivalent thin-prism deviation method on each annulus at radius r.",
+      "key_point": "Match the local prism deflection to the target gravitational law ε=R/r."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_ray_r.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.074003,
+            0.056954,
+            0.553096,
+            0.63254
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Model the entrance patch as a tiny wedge with prism angle α; for small angles, ε≈(n0-1)α.",
+      "key_point": "This route uses first-order prism deviation instead of directly chaining full Snell relations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_normal_and_epsilon.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.209723,
+            0.06507,
+            0.470209,
+            0.383074
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Relate geometry to optics with α=dx/dr in magnitude, then enforce ε=R/r.",
+      "key_point": "Obtain the governing slope equation dx/dr=R/((n0-1)r)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_refraction_chain.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.262005,
+            0.196581,
+            0.682089,
+            0.51
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Integrate from r0 to r and apply x(r0)=0 at the opaque-core boundary.",
+      "key_point": "The profile is logarithmic, giving x(r)=R*ln(r/r0)/(n0-1)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_profile_log_shape.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.126071,
+            0.027302,
+            0.791607,
+            0.610274
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "R*ln(r/r0)/(n0-1)"
+  }
+}

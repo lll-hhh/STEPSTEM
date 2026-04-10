@@ -1,0 +1,78 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the curve arc L between A and B with linear density mu, write the total mass expression as a line integral along L. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Do NOT use LaTeX commands (for example, do not use \\int or \\mu). Use canonical ASCII tokens and variable names exactly, in the style int_L mu ds. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the curve arc L with endpoints A and B as the integration path.",
+      "key_point": "Define the geometric path L."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_curve_base.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.17,
+            0.18,
+            0.57,
+            0.63
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Partition L into short arc elements and sample points to build the mass Riemann sum.",
+      "key_point": "Discretize the curve into local elements."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_points.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.403735,
+            0.303214,
+            0.421674,
+            0.64314
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Take the partition limit so the discrete sum converges to a curvilinear-integral form.",
+      "key_point": "Move from finite sum to limit expression."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_focus_segment.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.364486,
+            0.478616,
+            0.366323,
+            0.317023
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "int_L mu ds"
+  }
+}

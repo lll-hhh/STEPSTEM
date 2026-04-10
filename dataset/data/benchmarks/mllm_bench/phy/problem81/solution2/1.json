@@ -1,0 +1,83 @@
+﻿{
+    "question":  [
+                     {
+                         "modality":  "text",
+                         "content":  "In an electro-optic modulator with crossed polarizer and analyzer, the crystal has length l and thickness d. The refractive indices along x_1\u0027 and x_2\u0027 are n_0-(1/2)*n_0^3*gamma*E and n_0+(1/2)*n_0^3*gamma*E, and E=V/d. Determine the half-wave voltage V_pi under the condition Delta phi=pi. Answer format requirement: \u003cexpr\u003e. Strictly forbidden: any extra text beyond this format."
+                     },
+                     {
+                         "modality":  "image",
+                         "content":  "input.png"
+                     }
+                 ],
+    "solution":  {
+                     "step_1":  {
+                                    "modality":  "text",
+                                    "content":  "Model the setup as Polarizer -\u003e EO crystal (voltage-controlled retarder) -\u003e crossed Analyzer, and derive V_pi from the transmission law rather than from a direct axis-by-axis narrative.",
+                                    "key_point":  "Use a system-transfer viewpoint for a genuinely different solving path."
+                                },
+                     "step_2":  {
+                                    "modality":  "image",
+                                    "content":  "step2_transfer_block_diagram.png",
+                                    "important_bbox":  [
+                                                           {
+                                                               "bbox":  [
+                                                                            0.02,
+                                                                            0.18,
+                                                                            0.96,
+                                                                            0.7
+                                                                        ],
+                                                               "weight":  1
+                                                           }
+                                                       ]
+                                },
+                     "step_3":  {
+                                    "modality":  "text",
+                                    "content":  "Write the crossed-polarizer transmission directly in terms of retardance: T(V)=I_out/I_in=sin^2(Gamma(V)/2). The half-wave voltage corresponds to the first switching point Gamma(V_pi)=pi.",
+                                    "key_point":  "Voltage enters only through Gamma(V)."
+                                },
+                     "step_4":  {
+                                    "modality":  "image",
+                                    "content":  "step4_transmission_vs_voltage.png",
+                                    "important_bbox":  [
+                                                           {
+                                                               "bbox":  [
+                                                                            0.08,
+                                                                            0.12,
+                                                                            0.84,
+                                                                            0.78
+                                                                        ],
+                                                               "weight":  1
+                                                           }
+                                                       ]
+                                },
+                     "step_5":  {
+                                    "modality":  "text",
+                                    "content":  "From the given principal-index pair, get Delta n(V)=n_(x2\u0027)-n_(x1\u0027)=n_0^3*gamma*E=n_0^3*gamma*V/d, then use Gamma(V)=(2*pi/lambda_0)*Delta n(V)*l.",
+                                    "key_point":  "Translate index modulation into phase retardance."
+                                },
+                     "step_6":  {
+                                    "modality":  "image",
+                                    "content":  "step6_derivation_chain.png",
+                                    "important_bbox":  [
+                                                           {
+                                                               "bbox":  [
+                                                                            0.03,
+                                                                            0.08,
+                                                                            0.94,
+                                                                            0.82
+                                                                        ],
+                                                               "weight":  1
+                                                           }
+                                                       ]
+                                },
+                     "step_7":  {
+                                    "modality":  "text",
+                                    "content":  "Apply Gamma(V_pi)=pi and isolate V_pi, yielding V_pi=lambda_0*d/(2*n_0^3*gamma*l).",
+                                    "key_point":  "Final isolation of V_pi from the transfer-function condition."
+                                }
+                 },
+    "final_answer":  {
+                         "modality":  "text",
+                         "answer":  "lambda_0*d/(2*n_0^3*gamma*l)"
+                     }
+}

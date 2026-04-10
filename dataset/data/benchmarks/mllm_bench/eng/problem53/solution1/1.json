@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the ideal symmetric differential amplifier, estimate emitter quiescent current and dynamic metrics. Output exactly five comma-separated values in the order IEQ_mA,Ad,Ac,Ri_kOhm,Ro_kOhm; keep IEQ_mA to three digits after the decimal point and keep Ad, Ac, Ri_kOhm, Ro_kOhm to one digit after the decimal point; plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use symmetry to solve IEQ and small-signal transistor resistance.",
+      "key_point": "Symmetry to solve IEQ."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.269,
+            0.109,
+            0.568,
+            0.569
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Extract the first relation for IEQ and small-signal parameters."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.381,
+            0.0,
+            0.569,
+            0.564
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute differential/common-mode gains and input/output resistances.",
+      "key_point": "Compute Ad, Ac, Ri, and Ro from the small-signal model."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.517,-32.4,0.0,16.4,20.0"
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the shown geometry with points A, B, C, D, P, X, Y and the green arcs, determine the target angle in principal-value form. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Start from a simple overview of the circle and its main intersecting chords.",
+      "key_point": "First lock the base positions of A, B, C, D and the intersection point P."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_simple_overview.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.120873,
+            0.37954,
+            0.78048,
+            0.3803
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.451415,
+            0.047686,
+            0.370759,
+            0.759389
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add directional arrows and supporting rays to emphasize how the chord relations pass through P.",
+      "key_point": "Focus on AP, PC, AC, and BD with intersection-driven relations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_chords_focus_with_arrows.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.050492,
+            0.318983,
+            0.892336,
+            0.210739
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.504201,
+            0.067064,
+            0.309176,
+            0.742433
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use auxiliary dashed lines and local angle guidance around P to isolate the target relation.",
+      "key_point": "Angle focus is the local configuration around P, X, and the PC direction."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_angle_focus_with_helpers.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.494146,
+            0.27417,
+            0.407207,
+            0.251918
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Apply the constrained angle relation and keep only single-expression output.",
+      "key_point": "Principal target expression equals 2."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2"
+  }
+}

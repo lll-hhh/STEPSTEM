@@ -1,0 +1,121 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the ideal symmetric differential amplifier, estimate emitter quiescent current and dynamic metrics. Output exactly five comma-separated values in the order IEQ_mA,Ad,Ac,Ri_kOhm,Ro_kOhm; keep IEQ_mA to three digits after the decimal point and keep Ad, Ac, Ri_kOhm, Ro_kOhm to one digit after the decimal point; plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build one complete hybrid-pi nodal matrix for the differential pair and load network.",
+      "key_point": "No odd-mode/even-mode half-circuit decomposition is used."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_mode_split_topology.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.119147,
+            0.042694,
+            0.344522,
+            0.263539
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.196539,
+            0.38683,
+            0.162275,
+            0.437527
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute IEQ from DC bias, then substitute gm and rpi into the matrix coefficients.",
+      "key_point": "All AC metrics are extracted from one linearized parameter set."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_odd_mode_equivalent.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.219008,
+            0.476383,
+            0.214702,
+            0.447761
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Solve the matrix under differential excitation to obtain Ad and Ri.",
+      "key_point": "Gain and input resistance come from the same nodal solve."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_even_mode_equivalent.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.004993,
+            0.145039,
+            0.552711,
+            0.500213
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Change boundary excitation to common-mode and output test conditions to obtain Ac and Ro.",
+      "key_point": "Only source constraints change; model equations stay identical."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_metric_pipeline.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.188217,
+            0.429048,
+            0.208877,
+            0.463113
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.429549,
+            0.234592,
+            0.39362,
+            0.482303
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Apply required rounding and output order IEQ,Ad,Ac,Ri,Ro.",
+      "key_point": "Return the exact comma-separated token list."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.517,-32.4,0.0,16.4,20.0"
+  }
+}

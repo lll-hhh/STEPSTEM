@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the BBO uniaxial crystal, find n_o and n_e at vacuum wavelengths 800.0 nm and 400.0 nm. Answer format: n_o(800)|n_e(800)|n_o(400)|n_e(400), in this order, separated by |, with no units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Convert 800.0 nm and 400.0 nm into 0.8 um and 0.4 um, then evaluate the BBO dispersion formulas.",
+      "key_point": "Use one wavelength unit for all substitutions."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_axes_wavefront.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.078336,
+            0.326237,
+            0.57174,
+            0.42
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Identify o-wave and e-wave sections in the y-x plane and keep both n_o(λ) and n_e(λ) expressions.",
+      "key_point": "n_o and n_e are computed separately at each λ."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_direction_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.260617,
+            0.163874,
+            0.414424,
+            0.466528
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute λ=0.8 to obtain the pair at 800.0 nm.",
+      "key_point": "n_o(0.8)=1.66055 and n_e(0.8)=1.54442."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_lambda_0p8.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.27,
+            0.261171,
+            0.34346,
+            0.278829
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Substitute λ=0.4 to obtain the pair at 400.0 nm.",
+      "key_point": "n_o(0.4)=1.69298 and n_e(0.4)=1.56789."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_lambda_0p4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.273329,
+            0.279882,
+            0.310173,
+            0.261365
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Return one compact expression containing the four terminal values in order n_o(0.8), n_e(0.8), n_o(0.4), n_e(0.4).",
+      "key_point": "Keep the final answer as one single expression string."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1.66055|1.54442|1.69298|1.56789"
+  }
+}

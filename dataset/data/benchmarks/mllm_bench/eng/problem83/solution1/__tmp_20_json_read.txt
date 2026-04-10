@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Model the mechanism as a uniform slender rod AB with length l. The lower end B contacts a horizontal ground, and the upper end A is connected to a fixed hinge O by a horizontal light rod OA of the same length l, so point A is constrained to move around O by rod OA. Rod AB moves in a vertical plane; at the shown instant, B is on the ground and AB inclines up to the right. The rod midpoint C is the mass center, with a downward load P acting at C. In modeling, treat OA as a rigid constraint link and AB as a rigid body in plane motion. End B is constrained by the ground, and end A is constrained by the connecting rod OA. The dashed positions A' and B' indicate another reference configuration during motion, where A'B'=2l is used for geometry relations. Determine the instantaneous kinematic and dynamic relations (velocity, angular velocity, and/or forces) of rod AB using rigid-body kinematics and constraints."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "First extract basic geometry:\n\\[ OA=l,\\quad AB=2l,\\quad OB=\\sqrt{3}l,\\quad OA'=l. \\]",
+      "key_point": "Start from geometric constraints."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.133464,
+            0.712891,
+            0.085938,
+            0.12207
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.46875,
+            0.693359,
+            0.029948,
+            0.126953
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.46875,
+            0.480469,
+            0.029948,
+            0.113281
+          ],
+          "weight": 0.333334
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Then use dashed configuration:\n\\[ A'B=(\\sqrt{3}-1)l,\\quad \\sin\\theta=\\frac{\\sqrt{3}-1}{2}. \\]",
+      "key_point": "Get the angle relation."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Apply kinetic-energy theorem for rod AB:\n\\[ \\frac{1}{2}\\frac{P}{g}v^2=\\frac{1}{2}P(OB-A'B)=\\frac{1}{2}Pl. \\]",
+      "key_point": "Use energy first."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "So the instantaneous speed is\n\\[ v=\\sqrt{gl}. \\]",
+      "key_point": "Get v."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Write first acceleration compatibility on segment \\(A'B\\):\n\\[ 0=a_C'-a_l\\cos\\theta. \\]",
+      "key_point": "First compatibility equation."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Write second compatibility:\n\\[ \\frac{v^2}{l}=a_C'+a_l\\cos\\theta. \\]",
+      "key_point": "Second compatibility equation."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Substitute \\(v=\\sqrt{gl}\\):\n\\[ a_C'=\\frac{1}{2}g,\\quad \\alpha=\\frac{g}{2l\\cos\\theta}. \\]",
+      "key_point": "Get acceleration and angular acceleration."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Force balance in vertical direction:\n\\[ F_A'+F_{NB}'-P=\\frac{P}{g}a_C'=\\frac{P}{2}. \\]",
+      "key_point": "First dynamic equation."
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "Moment equation about C:\n\\[ (F_A'-F_{NB}')l\\cos\\theta=J_C\\alpha,\\quad J_C=\\frac{1}{3}\\frac{P}{g}l^2. \\]",
+      "key_point": "Second dynamic equation."
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Solve the two equations:\n\\[ F_A'=0.846P,\\quad F_{NB}'=0.654P. \\]",
+      "key_point": "Final reactions."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.846P|0.654P"
+  }
+}
+

@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "# Regenerative Braking in a New Electric Vehicle A new electric vehicle can recover kinetic energy through a generator during braking. Assume the generator can be idealized as shown in Fig. 1: the magnetic field between two poles is approximately uniform with magnitude B. A rectangular coil with n turns has length a and width b, and the entire coil is inside the magnetic field. The rotation axis is the line connecting the trisection points on the two short sides (see Fig. 1). The coil is connected to a pure resistive load of resistance R, and the coil's own resistance is neglected. The vehicle mass is M. During braking, road friction and other resistive effects are negligible compared with the generator-induced resistance, so all kinetic energy is converted into electrical energy. In one braking mode: - At the start of braking, the coil plane is perpendicular to the magnetic field. - During the first full turn, the angular speed is omega_2. - After that, for each subsequent full turn, the angular speed is half of the previous turn. - The vehicle comes to a complete stop after exactly N full turns and before completing the (N+1)-th turn. Find the minimum and maximum possible initial speed of the vehicle. Directly write the maximum and minimum values as expressions, separated by a comma. If the answer has different forms, use the shortest form as the answer. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: `v_min,v_max`, with the two expressions separated by commas; do not include units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set flux for a rotating n-turn rectangle in uniform B and keep initial orientation at the perpendicular state.",
+      "key_point": "Phi = B*S*cos(theta), with S=a*b."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.163407,
+            0.182453,
+            0.684844,
+            0.6
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use e = n*dPhi/dt and P = e^2/R, then integrate over one full turn to get per-turn electric energy proportional to omega.",
+      "key_point": "Each full-turn energy is pi*n^2*B^2*a^2*b^2*omega/R."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rotation_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.26355,
+            0.201289,
+            0.64946,
+            0.52
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For k-th full turn, omega_k = omega_2/2^(k-1), so total from the first N turns is a geometric sum.",
+      "key_point": "W_N = 2*pi*n^2*B^2*a^2*b^2*omega_2*(1-2^(-N))/R."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_omega_halving.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.3,
+            0.83,
+            0.48
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.12,
+            0.72,
+            0.49,
+            0.2
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "On the (N+1)-th turn, omega is omega_2/2^N and stop angle satisfies 0<theta_1<pi/2, giving partial-turn energy window.",
+      "key_point": "0 < W_partial < pi*n^2*B^2*a^2*b^2*omega_2/(2^(N+2)*R)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_partial_turn_theta1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.244662,
+            0.126452,
+            0.587203,
+            0.540138
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Use 0.5*M*v_0^2 = W_N + W_partial to map the energy window to the velocity window, and denote bounds by vmin and vmax.",
+      "key_point": "vmin=sqrt((4*pi*n^2*B^2*a^2*b^2*omega_2/(M*R))*(1-2^(-N)));vmax=sqrt((4*pi*n^2*B^2*a^2*b^2*omega_2/(M*R))*(1-2^(-N)+2^(-N-3)))."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "vmin<v_0<vmax"
+  }
+}

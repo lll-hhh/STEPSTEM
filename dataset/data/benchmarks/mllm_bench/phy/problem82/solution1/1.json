@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "4. Phase contrast microscopy technology and optical path difference analysis The 1953 Nobel Prize in Physics was awarded to Dutch scientist Fritz Zelnick for his proposal of phase contrast microscopy technology. This technology can clearly distinguish two transparent media with similar refractive index. Now consider that a beam of light passes through a culture medium containing cells, producing three different light rays 1, 2 and 3. Among them, light 3 passes through the cell, and light 2 passes near the edge of the cell. Light rays 1 and 2 are coherent, and light rays 2 and 3 are coherent, as shown in Figure 4a. It is known that the refractive index of the culture medium is $n_0$ and that of the cells is $n$ ($n > n_0$). Due to the edge effect, the optical path of light 2 in the culture medium is increased by $n_0\\frac{\\lambda}{4}$ relative to that of light 1 ($\\lambda$ is the wavelength of light in the culture medium); in order to increase the contrast between the cells and the culture medium, after all the light passes through the culture medium, the phase compensation plate is used to increase the equivalent optical path of light 2 by $n_0\\frac{\\lambda}{4}$. Assume that the equivalent thickness of the cell is $d$. If the interference fringes of light 1 and 2 are dark fringes and the interference fringes of light 2 and 3 are bright fringes observed through the eyepiece, what may be the refractive index of the cell $n$?. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: an expression or admissible-value form for n; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the three-ray optical-path framework in the same observation direction.",
+      "key_point": "Use rays 1, 2, and 3 to compare phase relations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rays12.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.319967,
+            0.040095,
+            0.24,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Introduce the cell path and ray 3 crossing thickness d in medium n0 background.",
+      "key_point": "Ray 3 gains extra path from refractive-index difference."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_cell_ray3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.445432,
+            0.23141,
+            0.479201,
+            0.649881
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply edge effect and compensation plate on ray 2 so total added optical path is n0*lambda/2.",
+      "key_point": "Dark fringe for rays 1 and 2 fixes odd-half-wave offset."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_add_phase_plate.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.030124,
+            0.050412,
+            0.871547,
+            0.332067
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use bright fringe for rays 2 and 3: (n-n0)*d - n0*lambda/2 = k*n0*lambda.",
+      "key_point": "Solve n from integer-order constructive condition."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_focus_23.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.270723,
+            0.026184,
+            0.511148,
+            0.327791
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "n_0*(1+(2*k+1)*lambda/(2*d))"
+  }
+}

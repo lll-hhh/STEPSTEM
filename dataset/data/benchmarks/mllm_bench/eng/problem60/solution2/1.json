@@ -1,0 +1,101 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "MEMS Accelerometer: MEMS (microelectromechanical systems) accelerometers are widely used in automotive electronics, robotics, industrial automation, satellite navigation, and other fields. A capacitive accelerometer is a type of MEMS accelerometer. It forms a variable capacitor using fixed metal electrodes and a movable metal plate electrode. When the sensor undergoes accelerated motion, the relative position of the movable plate electrode changes with respect to the fixed electrodes, so the capacitance between electrodes changes accordingly. The acceleration magnitude can be obtained by measuring this capacitance variation with an interface circuit. For a pendulum-type differential capacitive accelerometer, as shown in Fig. 5b, two metal electrodes are fixed on an insulating substrate. The movable electrode is connected to the substrate through a rotation axis, forming two parallel-plate capacitors with the left and right electrodes, denoted by \\(C_1\\) and \\(C_2\\), respectively. When the system is at rest or in uniform linear motion, the movable electrode is parallel to the fixed electrodes. When the sensor accelerates in the direction perpendicular to the plate plane, the movable electrode rotates by a small angle \\(\\phi\\) about the axis, so it is no longer parallel to the two side electrodes. The distances from the rotation axis to the two fixed electrodes are both \\(d\\). The plate electrode is a square with side length \\(a\\). The vacuum permittivity is \\(\\varepsilon_0\\). Assume \\(\\phi \\ll d/a\\), and neglect edge (fringing) effects and substrate influence. Find the expression for the differential capacitance \\(\\Delta C = (C_1 - C_2)\\). Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: symmetric-strip pairing with first-order reciprocal-gap expansion. Pair equal-area strips above and below the axis instead of integrating the full logarithmic capacitance forms first.",
+      "key_point": "Use strip pairs so the differential part appears immediately at first order."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_marked_input_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.313614,
+            0.138784,
+            0.382258,
+            0.699474
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For a strip at height y, the left and right local gaps are shifted in opposite directions. The strip at +y and the strip at -y therefore produce opposite first-order changes in C1 and C2.",
+      "key_point": "Gap changes are antisymmetric with respect to the rotation axis."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_symmetric_strip_pair.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.159129,
+            0.134406,
+            0.278905,
+            0.694894
+          ],
+          "weight": 0.58
+        },
+        {
+          "bbox": [
+            0.57,
+            0.22,
+            0.31,
+            0.43
+          ],
+          "weight": 0.42
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Expand 1/(d+-y*phi) to first order because phi<<d/a. Each paired strip contributes a small differential term proportional to y*phi/d^2, while the zeroth-order pieces cancel in C1-C2.",
+      "key_point": "Only the odd first-order part survives in DeltaC."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_pair_accumulation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.06,
+            0.12,
+            0.36,
+            0.74
+          ],
+          "weight": 0.42
+        },
+        {
+          "bbox": [
+            0.51,
+            0.15,
+            0.42,
+            0.68
+          ],
+          "weight": 0.58
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Sum all strip-pair contributions from the axis to the plate edge and double the half-plate result. The total scales with epsilon_0, a^3, phi, and 1/d^2, giving exactly the same final expression as solution1.",
+      "key_point": "Accumulating strip pairs over the square plate yields the closed-form differential capacitance."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "epsilon_0*a^3*phi/d^2"
+  }
+}

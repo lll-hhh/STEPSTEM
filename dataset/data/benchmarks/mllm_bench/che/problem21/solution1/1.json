@@ -1,0 +1,81 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the metal-chlorine reaction system shown, use the magnetic behavior, composition percentages, and pressure-dependent coordination changes to determine which numbered conclusion is correct. Answer format: one integer chosen from {1,2,3,4}; write only the number, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "image",
+      "content": "step2_pressure_coordination_map.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.020846,
+            0.085586,
+            0.314698,
+            0.819592
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.340286,
+            0.060296,
+            0.326551,
+            0.85353
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.675134,
+            0.08746,
+            0.313513,
+            0.843946
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step5_add_pe_phi.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.203381,
+            0.353965,
+            0.620502,
+            0.31987
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step8_phi_zero_for_max.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.07,
+            0.84,
+            0.88
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "4"
+  }
+}

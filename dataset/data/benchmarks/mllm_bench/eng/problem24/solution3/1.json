@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For five equal-mass beads moving in one dimension with elastic collisions, determine the maximum possible number of collisions. Output exactly one integer in plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Map the five-bead 1D elastic system to ordered configuration space x1<=x2<=x3<=x4<=x5.",
+      "key_point": "Each binary collision is a reflection at hyperplane x_i=x_{i+1}."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_velocity_rank_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.047311,
+            0.269636,
+            0.539908,
+            0.307221
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.589992,
+            0.343159,
+            0.282897,
+            0.252079
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Unfold reflections by mirror extension so the trajectory is a straight line through mirrored chambers.",
+      "key_point": "Crossing one chamber wall corresponds to one physical collision."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_swap_vs_passthrough.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.541918,
+            0.28539,
+            0.370724,
+            0.385996
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.065801,
+            0.210555,
+            0.393837,
+            0.364989
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Maximum collisions occur when the line crosses every pair-ordering wall exactly once.",
+      "key_point": "This is equivalent to reaching complete order reversal."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_reverse_permutation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.116648,
+            0.10946,
+            0.754391,
+            0.23895
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.063952,
+            0.647754,
+            0.832974,
+            0.295405
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Count the number of distinct pair walls for n=5.",
+      "key_point": "The count equals C(5,2)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_pair_count_triangle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.211872,
+            0.202677,
+            0.390139,
+            0.417505
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "10"
+  }
+}

@@ -1,0 +1,63 @@
+﻿{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the overhanging simply supported beam model, find both the maximum bending normal stress and the maximum shear stress. Answer format: sigma_max/tau_max, in this order, with no explanatory text or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "First solve support reactions from global equilibrium: sum M_A = 0 gives FRB = 5 kN, then sum Fy = 0 gives FRA = 25 kN.",
+      "key_point": "Reactions are FRA = 25 kN and FRB = 5 kN."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.097656,
+            0.15625,
+            0.59375,
+            0.246094
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.136719,
+            0.546875,
+            0.553385,
+            0.175781
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Find maximum shear by checking only key jump sections (support and point-load locations): V(2-) = -10 kN, V(2+) = +15 kN, V(4+) = -5 kN. Therefore |V|max = 15 kN.",
+      "key_point": "Controlling shear is |V|max = 15 kN."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Find maximum bending moment by direct section moments at key sections: M(2) = -20 kN*m, M(4) = +10 kN*m, M(6) = 0. Hence |M|max = 20 kN*m at section near A.",
+      "key_point": "Controlling bending moment is |M|max = 20 kN*m."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute maximum bending normal stress with Wz = 141 cm^3: sigma_max = M_max/Wz = (20x10^3)/(141x10^-6) = 142 MPa.",
+      "key_point": "sigma_max = 142 MPa."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Compute maximum shear stress with Iz/S = 13.8 cm and d = 6 mm: tau_max = V_max/[d(Iz/S)] = (15x10^3)/(6x10^-3 x 13.8x10^-2) = 18.1 MPa. Therefore sigma_max/tau_max = 142MPa/18.1MPa.",
+      "key_point": "tau_max = 18.1 MPa and final pair is 142MPa/18.1MPa."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "142MPa/18.1MPa"
+  }
+}

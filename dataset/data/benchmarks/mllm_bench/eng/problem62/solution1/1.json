@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the tunnel-diode circuit shown, the diode has differential resistance -R_0 (R_0>0) while operating in the range V_min <= V_D <= V_max. The RFC passes DC and blocks AC, and I >> |i(t)|. Determine both the maximum possible average AC power on the diode and the corresponding DC source voltage V_0. Answer format: <Pmax_expr>|<V0_expr>; write the two results in this order, separated by |, with no units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Separate AC and DC paths: RFC blocks AC while passing DC, so AC oscillation is in the R-L-C-D loop.",
+      "key_point": "Use the diode small-signal model with negative differential resistance."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_ac_loop_i.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.205,
+            0.333,
+            0.19,
+            0.317
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For the AC part, v_ac = -R_0*i and the delivered average AC power magnitude is R_0*<i^2>.",
+      "key_point": "Power is maximized by maximizing admissible AC voltage swing on D."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_dc_branch.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.487304,
+            0.126842,
+            0.450307,
+            0.812835
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "The diode must stay inside V_min <= V_D <= V_max at all times, constraining the sinusoidal V_D(t).",
+      "key_point": "Amplitude is limited by distances from V_0 to both bounds."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_voltage_window.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.134077,
+            0.168421,
+            0.589891,
+            0.751312
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Maximum swing occurs at midpoint bias V_0=(V_max+V_min)/2, giving U_m,max=(V_max-V_min)/2 and P_max=U_m,max^2/(2*R_0).",
+      "key_point": "Return both targets in order: P_max first, then V_0."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_mid_bias_max_swing.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.197845,
+            0.16169,
+            0.720957,
+            0.7
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "((V_max-V_min)^2/(8*R_0))|((V_max+V_min)/2)"
+  }
+}

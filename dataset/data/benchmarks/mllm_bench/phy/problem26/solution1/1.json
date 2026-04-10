@@ -1,0 +1,134 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the pulley-lift system with the given piecewise rope tension T(t), compute the load speed magnitude at t=24 s. Output exactly one decimal number with 2 digits after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build the massless rope-pulley force relation on the moving load: upward resultant 2T and downward Mg.",
+      "key_point": "M*a = 2T - Mg."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_system_forces.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.33567,
+            0.730467,
+            0.14197,
+            0.204672
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.303953,
+            0.252677,
+            0.226742,
+            0.390372
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Read the piecewise T(t): constant 360 from 0 to 12 s, then linear rise to 600 at 24 s.",
+      "key_point": "a(t)=2*T(t)/M-g."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_T_t_graph.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.080143,
+            0.207728,
+            0.103348,
+            0.437755
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.433946,
+            0.331643,
+            0.136541,
+            0.616883
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Convert to acceleration segments and integrate over 0-12 and 12-24 separately.",
+      "key_point": "v(24)=integral(a dt), v(0)=0."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_a_t_segments.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.074258,
+            0.236559,
+            0.088947,
+            0.656058
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.469259,
+            0.703902,
+            0.077821,
+            0.258012
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Combine signed areas to obtain the final speed magnitude at 24 s.",
+      "key_point": "v(24)=16.44."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_velocity_accumulation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.648088,
+            0.161643,
+            0.239174,
+            0.147938
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.470143,
+            0.637972,
+            0.1534,
+            0.319074
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "16.44"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the pure-rolling wheel configuration, compute the inertial-frame velocity vector of point C at the shown instant. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Translation-plus-rotation method: first determine the wheel-center velocity from the no-slip condition at B, then add the rotational contribution from A to C.",
+      "key_point": "This route uses velocity superposition about the center A instead of the instantaneous center at B."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_no_slip_balance.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.305554,
+            0.228935,
+            0.436893,
+            0.491028
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At the ground contact B, pure rolling gives V_B=0. The spin part at B points along +i, so the center translation V_A must point along -i with the same magnitude.",
+      "key_point": "The no-slip condition is used to solve the center motion before touching point C."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_bottom_cancellation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.339674,
+            0.591299,
+            0.388627,
+            0.177243
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.463668,
+            0.214493,
+            0.246325,
+            0.321663
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Because |ω|=4 and the radius is 0.3, the spin speed at the rim is 4*0.3=1.2. Therefore V_A=-1.2*i.",
+      "key_point": "The bottom-point cancellation fixes the center speed immediately."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_top_vector_addition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.307219,
+            0.175106,
+            0.372816,
+            0.367615
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Now move to the top point C. The spin contribution there also points along -i, so V_C is the sum of two leftward vectors: the center translation and the top spin speed.",
+      "key_point": "At C, the two contributions add instead of canceling."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_top_velocity.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.223169,
+            0.186922,
+            0.467684,
+            0.340044
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Adding the two equal magnitudes gives 1.2+1.2=2.4 toward negative x, so the inertial-frame velocity vector of C is the required final expression.",
+      "key_point": "The final direction stays along -i."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-2.4*i"
+  }
+}

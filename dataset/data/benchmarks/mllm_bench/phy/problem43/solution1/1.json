@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the semicylindrical refractive geometry with parallel incident beam, compute the final angular-span expression requested by the problem. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build the semicylinder cross-section and the parallel incident-beam geometry on plane AB.",
+      "key_point": "The transmissive beam segment width d is set by rays entering from AB."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_i.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.183938,
+            0.301629,
+            0.32762,
+            0.600388
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Trace two boundary rays through C and C' to D and D' with refraction angle r, then impose the exit condition at the curved surface.",
+      "key_point": "At the boundary of escape, the surface-incidence angles reach i_2=i_2'=arcsin(1/n)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_refraction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.25,
+            0.14,
+            0.56,
+            0.33
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.24,
+            0.52,
+            0.57,
+            0.33
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_add_i2_critical.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.502288,
+            0.221775,
+            0.319817,
+            0.187403
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.480435,
+            0.506563,
+            0.370117,
+            0.188424
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.39,
+            0.23,
+            0.23,
+            0.54
+          ],
+          "weight": 0.1
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Use d=2*R*sin(arcsin(1/n))/cos(r), so d_min occurs at r=0 and d_max at r=arcsin(1/n) for grazing incidence.",
+      "key_point": "r grows with i, giving d_min=1.33R and d_max=1.79R when n=1.50."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7_phi_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.478229,
+            0.225881,
+            0.244311,
+            0.525107
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "From phi=i_20+r and phi'=i_20-r, the subtended angle theta is constant and independent of i.",
+      "key_point": "theta=2*i_20=2*arcsin(1/n)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*arcsin(1/n)"
+  }
+}

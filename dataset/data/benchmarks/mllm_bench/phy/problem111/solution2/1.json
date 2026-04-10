@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "As shown, the plate AB has mass M, the homogeneous disk has mass m and radius r, and the two springs have stiffnesses k_1 and k_2. The plate is in smooth contact with the horizontal surface, and the friction between the plate and the disk is large enough to prevent relative slipping. After the center of mass of plate AB is displaced horizontally from A and then released from rest, determine the motion law of the system. Answer format: a single algebraic expression for x_t; write only the expression, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Energy/Lagrange method: choose the plate translation x and the disk-center translation y as generalized coordinates, impose the no-slip constraint, and derive the one-degree-of-freedom oscillator from kinetic and potential energy.",
+      "key_point": "This route starts from L=T-V instead of building the ODE by equivalent inertia in the force-balance form."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_lagrange_coordinates.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.343836,
+            0.182123,
+            0.317938,
+            0.449876
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At the contact point A, the disk and plate have the same instantaneous horizontal velocity. With x for the plate, y for the disk center, and φ for disk rotation, the rolling constraint relates the three rates and leaves only two generalized velocities.",
+      "key_point": "The contact compatibility is enforced kinematically before writing any equation of motion."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rolling_constraint.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.276339,
+            0.158038,
+            0.429129,
+            0.439825
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "The Lagrangian contains plate translation, disk translation, disk rotation, and the spring potential (k_1+k_2)x^2/2. The coordinate y is cyclic, so ∂L/∂y_dot is conserved; with release from rest, that constant is zero and the disk-center speed becomes a fixed fraction of x_dot.",
+      "key_point": "The second coordinate is removed by the cyclic-coordinate conservation law rather than by solving force equations directly."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_energy_partition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.220942,
+            0.203217,
+            0.472179,
+            0.595522
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "After eliminating y_dot and φ_dot, the kinetic energy reduces to a single quadratic form in x_dot, so the system becomes one equivalent oscillator with generalized mass M+m/3 and stiffness k_1+k_2.",
+      "key_point": "The disk contributes through both translation and spin, producing the reduced single-coordinate inertia."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_equivalent_single_dof.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.277119,
+            0.368104,
+            0.395579,
+            0.354486
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "The reduced Lagrange equation is therefore the simple-harmonic form for x. Applying the released-from-rest initial condition gives the motion law x_t as a cosine response with the corresponding natural angular frequency.",
+      "key_point": "The final expression is the one-degree-of-freedom SHM law in x."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "x_t"
+  }
+}

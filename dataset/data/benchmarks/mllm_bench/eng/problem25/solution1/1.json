@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Determine the minimum number of identical balls required so that the incoming ball can be brought back to rest at its starting point under the stated elastic-collision construction. Output exactly one integer in plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct a symmetric four-ball geometry with one incoming ball and one rear stopper.",
+      "key_point": "Enable one symmetric multi-body collision followed by one head-on collision."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_v0.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.18,
+            0.38,
+            0.42,
+            0.24
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use a symmetric three-body elastic collision so the incoming ball reverses direction.",
+      "key_point": "In symmetric elastic collision, the incoming ball reverses direction."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_three_body_reverse.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.397022,
+            0.415653,
+            0.320956,
+            0.18
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Let the reversed ball collide elastically with the rear ball to stop at the start point.",
+      "key_point": "A second head-on elastic collision removes the remaining motion of the original ball."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step5_return_to_rear_ball.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.185008,
+            0.371401,
+            0.376231,
+            0.25
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "This construction is feasible with four identical balls when multi-body collision is allowed.",
+      "key_point": "The minimum number is reduced from 5 to 4."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_stop_at_origin.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.149101,
+            0.348575,
+            0.679692,
+            0.3
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "4"
+  }
+}

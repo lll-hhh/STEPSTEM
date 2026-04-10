@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Nitrogen at 25 C and 100 kPa is reversibly adiabatically compressed to 15000 kPa. Compute the final temperature using the provided real-gas model relations. Output exactly one integer, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text. Answer format: a single integer; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Apply entropy-balance equation for reversible adiabatic compression with the given Cp(T) and state equation form.",
+      "key_point": "Entropy-balance equation for reversible adiabatic compression with the given Cp(T)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.16,
+            0.433,
+            0.568,
+            0.567
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up governing relation for the final temperature using the provided real-gas model relations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.449957,
+            0.225348,
+            0.40201,
+            0.536943
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Solve the resulting nonlinear equation for final temperature.",
+      "key_point": "The resulting nonlinear equation for final temperature."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1163"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "From the orbital and shadow-cone geometry, compute the eclipse duration per orbit for the satellite. Output exactly one decimal number with 1 digit after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use a center-angle method: find the two orbit points where the satellite trajectory intersects the umbra boundary, then convert that angular span to time.",
+      "key_point": "Solve by orbit-shadow intersections, not by alpha-beta decomposition."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_shadow_cone_orbit.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.33802,
+            0.151296,
+            0.624591,
+            0.628762
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "From the orbital condition, use r = 6.62 R_E. With cone length nR_E, the upper boundary line is y = R_E - x/n. At eclipse entry/exit, the point is on both the orbit and boundary: x^2 + y^2 = r^2 and y = R_E - x/n.",
+      "key_point": "Intersection equations directly locate entry/exit points."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_center_angle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.410049,
+            0.147413,
+            0.542077,
+            0.64307
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Rewrite the boundary condition as sin(phi) + cos(phi)/n = R_E/r. Hence sqrt(1+1/n^2)*sin(phi+arctan(1/n)) = R_E/r, so the half eclipse angle is phi_0 = arcsin((R_E/r)/sqrt(1+1/n^2)) - arctan(1/n). Then the eclipse span is Delta phi = 2phi_0.",
+      "key_point": "The target angle comes from one compact trigonometric solve."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_angle_to_time.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.398736,
+            0.189812,
+            0.567845,
+            0.536535
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Convert angle to time with omega = 2pi/T and t = Delta phi/omega = T*Delta phi/(2pi). Substituting T = 24 h, n = 200, and r = 6.62 R_E gives t = 67.2 min.",
+      "key_point": "Angular fraction of one orbit gives eclipse duration."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "67.2"
+  }
+}

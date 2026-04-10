@@ -1,0 +1,161 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the block-spring-damper system on an incline with Coulomb friction, derive the equation of motion along the incline and write the residual expression obtained after moving all terms to the left-hand side. Answer format: a single algebraic expression. Use xdot and xddot for derivatives only; the friction-direction term must be written as xdot/abs(xdot); use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Define x along the incline and y normal to the incline for the single-DOF block motion.",
+      "key_point": "Origin is the spring natural-length position."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incline_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.501761,
+            0.462735,
+            0.182434,
+            0.234909
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.126741,
+            0.231926,
+            0.166331,
+            0.214953
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Assume xdot>0, then k*x, b*xdot, and friction oppose motion while m*g*sin(theta) drives along +x.",
+      "key_point": "Force directions follow the chosen x-sign convention."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_forces_on_block.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.412663,
+            0.230219,
+            0.286511,
+            0.336134
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.665062,
+            0.671116,
+            0.199715,
+            0.142064
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.531692,
+            0.659606,
+            0.116719,
+            0.17852
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use y-balance N=mg*cos(theta) and friction magnitude mu*N with direction opposite xdot.",
+      "key_point": "Friction term is mu*m*g*cos(theta)*xdot/abs(xdot)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_normal_and_friction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.569181,
+            0.35232,
+            0.123336,
+            0.300686
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.361734,
+            0.388096,
+            0.210117,
+            0.289854
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.541054,
+            0.666368,
+            0.287108,
+            0.144187
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Apply Newton law on x-direction and group inertia, damping, friction, spring, and gravity components.",
+      "key_point": "Move all terms to one expression form."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_dynamic_balance.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.51172,
+            0.276871,
+            0.162489,
+            0.418148
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.626824,
+            0.40698,
+            0.223807,
+            0.164625
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.564355,
+            0.691422,
+            0.238841,
+            0.155894
+          ],
+          "weight": 0.333333
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*xddot+b*xdot+mu*m*g*cos(theta)*xdot/abs(xdot)+k*x-m*g*sin(theta)"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the double-junction Coulomb-blockade model, derive the island electrostatic energy expression in terms of n and gate bias variables. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the double-junction structure as the base Coulomb-blockade model with island charge -ne.",
+      "key_point": "Represent the two junction charges and the island net-charge constraint together."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_fig3_overview.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1013,
+            0.0841,
+            0.2975,
+            0.1366
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write the island charge relation Q_2-Q_1=-ne and the electrostatic energy form.",
+      "key_point": "Keep only the n-dependent part for island energy."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_fig3_tunnel.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1319,
+            0.109,
+            0.2406,
+            0.0828
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Introduce gate coupling and equivalent charge q_0=C_G*V_G, then update U_n with C_Sigma.",
+      "key_point": "C_Sigma = C_S + C_D + C_G."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_fig3_loop.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.075,
+            0.0759,
+            0.35,
+            0.2897
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Map x=C_G*V_G/e and y=2*C_Sigma*U_n/e^2; each integer n produces a shifted parabola.",
+      "key_point": "The physically selected branch is the lower envelope."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_fig4_gate_circuit.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.5925,
+            0.0641,
+            0.3063,
+            0.1557
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Switching occurs at half-integers x=n+0.5, yielding interval boundaries for n=0..3.",
+      "key_point": "Boundaries are x=0.5, 1.5, and 2.5."
+    },
+    "step_10": {
+      "modality": "image",
+      "content": "step10_fig5_envelope.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.292535,
+            0.811224,
+            0.405911,
+            0.100318
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Mark the stable-charge intervals on the x-axis and match them to n=0,1,2,3.",
+      "key_point": "Read intervals from the envelope minima regions."
+    },
+    "step_12": {
+      "modality": "image",
+      "content": "step12_fig5_intervals.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3097,
+            0.8303,
+            0.3872,
+            0.0676
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(-ne+C_G*V_G)^2/(2*(C_S+C_D+C_G))"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the coupled cylinder-block system on the incline, compute the acceleration magnitude a from the dynamic equations. Output exactly one decimal number with 2 digits after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a decimal number rounded to two decimal places; write only the numerical value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Virtual-work / equivalent-mass method: use the common rope displacement s along the incline as the single generalized coordinate, then obtain acceleration from generalized driving work divided by generalized inertia.",
+      "key_point": "This route avoids writing separate translation and rotation equations for each body."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_virtual_coordinate.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.129655,
+            0.270948,
+            0.556307,
+            0.473961
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Because the connector is inextensible, the block and the cylinder center share the same speed along the incline. The whole motion can therefore be described by one coordinate s and one acceleration a=s_ddot.",
+      "key_point": "The coupled system is reduced to a single admissible virtual displacement."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rolling_kinematics.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.137659,
+            0.234187,
+            0.53894,
+            0.480758
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Rolling without slip gives the cylinder spin rate from the same coordinate s, so its rotational kinetic term can be rewritten as an added translational inertia I/r^2. Thus the generalized mass becomes m_2+m_1+I/r^2.",
+      "key_point": "Rotation is absorbed into one equivalent mass contribution rather than handled by a separate torque equation."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_energy_split.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.089863,
+            0.222371,
+            0.53368,
+            0.565864
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Project all external actions onto the same positive s direction. Gravity of both masses contributes +(m_1+m_2)g sin α, while the rough contact on m_2 contributes the opposing term μ m_2 g cos α.",
+      "key_point": "The generalized driving force is obtained directly from virtual work along the single coordinate."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "The whole system now behaves like one generalized coordinate with one generalized driving term and one equivalent inertia. Substitute I=m_1 r^2/2, then evaluate the resulting acceleration numerically.",
+      "key_point": "After replacing I/r^2 by m_1/2, the denominator reduces to 1.5m_1+m_2 before the final substitution."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3.25"
+  }
+}

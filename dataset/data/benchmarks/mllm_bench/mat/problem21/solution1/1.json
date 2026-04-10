@@ -1,0 +1,105 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In circle O, diameter AB intersects chord CD at point E. Arc AC equals twice arc BD. Connect AD. Through point B, draw the tangent of circle O, and let it meet the extension of AD at point F. The extension of CD meets the extension of BF at point G. If angle AFB = 70 degrees, find angle G. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Let the measure of arc BD be x. Since arc AC equals twice arc BD, arc AC = 2x.",
+      "key_point": "Introduce one arc variable and convert the given arc relation into AC = 2x."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_arc_relation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2092,
+            0.1289,
+            0.1714,
+            0.2526
+          ],
+          "weight": 0.58
+        },
+        {
+          "bbox": [
+            0.402,
+            0.5842,
+            0.1531,
+            0.1474
+          ],
+          "weight": 0.42
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At F, the tangent-secant theorem gives angle AFB = (arc AB - arc BD)/2. Because AB is a diameter, arc AB = 180 degrees, so 70 = (180 - x)/2 and x = 40.",
+      "key_point": "Use the tangent at B and the secant F-D-A to determine arc BD."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_tangent_secant_at_f.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2082,
+            0.1263,
+            0.2551,
+            0.5921
+          ],
+          "weight": 0.62
+        },
+        {
+          "bbox": [
+            0.5551,
+            0.6026,
+            0.2286,
+            0.1105
+          ],
+          "weight": 0.38
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Then arc AC = 80 degrees, so arc BC on the same semicircle is 180 - 80 = 100 degrees. At G, the tangent-secant theorem gives angle G = (arc BC - arc BD)/2 = (100 - 40)/2 = 30.",
+      "key_point": "Compute arc BC first, then apply the tangent-secant angle formula at G."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_target_angle_g.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2102,
+            0.3263,
+            0.2367,
+            0.3842
+          ],
+          "weight": 0.68
+        },
+        {
+          "bbox": [
+            0.5592,
+            0.6184,
+            0.3122,
+            0.1211
+          ],
+          "weight": 0.32
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "30"
+  }
+}

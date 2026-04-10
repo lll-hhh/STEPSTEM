@@ -1,0 +1,110 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the given optical and material parameters, compute the required total laser power that balances gravity in the shown prism setup. Output exactly one decimal number with 1 digit after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a numerical value rounded to one decimal place; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Extract three geometric elements from the figure: prism apex angle A=pi-2alpha, face inclination alpha, and the emergent deflection theta.",
+      "key_point": "Use the same prism geometry shown in the input image."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.128379,
+            0.145867,
+            0.217817,
+            0.233149
+          ],
+          "weight": 0.56
+        },
+        {
+          "bbox": [
+            0.513859,
+            0.573861,
+            0.13112,
+            0.151658
+          ],
+          "weight": 0.44
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply Snell law at the entry face and exit face to connect alpha, beta, and theta; this yields theta as a function of alpha and n.",
+      "key_point": "Two refractions determine the outgoing direction."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.532281,
+            0.102616,
+            0.253228,
+            0.108652
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.532281,
+            0.253521,
+            0.253228,
+            0.108652
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Convert upper/lower beam power imbalance into momentum-flux change: Fx depends on (PU+PL)(1-cos theta), Fy depends on (PU-PL)sin theta, then substitute y0=-h/2.",
+      "key_point": "Net force comes from photon momentum change and intensity asymmetry."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.229522,
+            0.129824,
+            0.159971,
+            0.185111
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.719491,
+            0.133953,
+            0.103898,
+            0.231199
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Set upward optical force equal to gravity and solve for total laser power using alpha=30deg, h=10um, n=1.5, w=1mm, rho=2.5g/cm^3, y0=-h/2.",
+      "key_point": "Balance condition Fy=mg gives the required wattage."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "74.5"
+  }
+}

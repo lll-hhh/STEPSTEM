@@ -1,0 +1,58 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the laser Doppler velocimetry setup described, write the expression for the photodetector output current. Answer format: a single algebraic expression in SingleExpr form. Use the symbols E_0, phi_1, phi_2, v, alpha, beta, and the other symbols defined in the problem; use ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: optical phase-accumulation method (path-rate method). Start from each beam's scattered phase at the moving particle and track Δφ(t) directly.",
+      "key_point": "Use phase-rate instead of first writing an interference beat template."
+    },
+    "step_2": {
+      "modality": "text",
+      "content": "Write φ_1(t)=ωt-\\mathbf{k}_1\\!\\cdot\\mathbf{r}(t)+φ_1 and φ_2(t)=ωt-\\mathbf{k}_2\\!\\cdot\\mathbf{r}(t)+φ_2, so the relative phase is Δφ(t)=(\\mathbf{k}_1-\\mathbf{k}_2)\\!\\cdot\\mathbf{r}(t)+φ_1-φ_2.",
+      "key_point": "Differentiating gives the Doppler angular shift ΔΩ=d(Δφ)/dt=(\\mathbf{k}_1-\\mathbf{k}_2)\\!\\cdot\\mathbf{v}."
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3_phase_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.23703,
+            0.112077,
+            0.667521,
+            0.673631
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "From the crossing-beam geometry, |Δ\\mathbf{k}|=2k\\sin(α/2) and Δ\\mathbf{k}\\!\\cdot\\mathbf{v}=|Δ\\mathbf{k}|v\\cosβ, therefore ΔΩ=2kv\\cosβ\\sin(α/2).",
+      "key_point": "This reaches the frequency shift through vector magnitude-angle decomposition."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "With equal field amplitude E_0, the detector current is proportional to |E_1+E_2|^2=2E_0^2\\left[1+\\cos\\big(ΔΩt+φ_1-φ_2\\big)\\right].",
+      "key_point": "Only the cross term carries the time-varying phase."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Insert ΔΩ and keep the dataset's output form and symbols for the final single-expression answer.",
+      "key_point": "Final expression stays text-only and exactly matches the required answer string."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*k*E_0^2*(1+cos(4*pi*v*cos(beta)*sin(alpha/2)*t/lambda+phi_1-phi_2))"
+  }
+}

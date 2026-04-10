@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-mass system linked by an inextensible string, determine the maximum possible separation AB. Output exactly one symbol token in plain ASCII only, no Chinese characters, no unit text, no sentence, no equation form, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Relative-coordinate / admissible-region method: describe the system by the single relative segment AB and study which positions of its endpoint are allowed by the inextensible string.",
+      "key_point": "The maximum separation is read from the boundary of the allowed relative-configuration region."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_relative_disk.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.21392,
+            0.320839,
+            0.458778,
+            0.300656
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Take A as the tail of the relative vector. Then B can only stay inside the disk of radius L centered at A, because any longer segment would stretch the string.",
+      "key_point": "The constraint is geometric: every admissible separation satisfies AB less than or equal to L."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_boundary_reach.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.273218,
+            0.211867,
+            0.294148,
+            0.397812
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "As the motion evolves, the endpoint of the relative vector may move inside the disk and can touch its boundary, but it can never cross outside that circle.",
+      "key_point": "So the largest reachable separation is exactly the outer radius of the admissible region."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_maximum_on_circle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.309109,
+            0.251255,
+            0.311313,
+            0.400438
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "On the boundary, the segment AB itself is a radius of the disk, so its length there is L. Therefore the maximum possible separation is L.",
+      "key_point": "The answer follows directly from the geometry of the allowed relative-position set, without using the periodic-motion argument of solution1."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "L"
+  }
+}

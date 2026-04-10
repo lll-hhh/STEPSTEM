@@ -1,0 +1,58 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Electrons emitted from cathode K (mass m, charge magnitude e, initial speed zero) are accelerated by electrode A, then pass through two parallel slits and form an interference pattern on the fluorescent screen shown in the accompanying image. Let the accelerating voltage be U and the slit spacing be d. Find only the angular position of the first bright fringe away from the center. Answer format: a single algebraic expression; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use acceleration voltage to obtain electron de Broglie wavelength.",
+      "key_point": "Central point O has zero path difference."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.415221,
+            0.305366,
+            0.53212,
+            0.386605
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply first-order bright-fringe condition for the first nonzero angle.",
+      "key_point": "Write compact single expression."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.465936,
+            0.254096,
+            0.415085,
+            0.364434
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "h/(d*sqrt(2*m*e*U))"
+  }
+}

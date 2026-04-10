@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "From the orbital and shadow-cone geometry, compute the eclipse duration per orbit for the satellite. Output exactly one decimal number with 1 digit after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a numerical value rounded to one decimal place; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set orbital geometry with R_E, r, and the shadow-axis length nR_E.",
+      "key_point": "Use r=R_E+h with n≈200 in shadow-cone geometry."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_draw_r_RE.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.293028,
+            0.227078,
+            0.4,
+            0.4
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "From circular-motion balance with T = 24 h, get r/R_E _TS 6.62, then h = (r - R_E) = 5.62R_E.",
+      "key_point": "The orbit-radius ratio fixes h in R_E units."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_alpha.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.329368,
+            0.279929,
+            0.32,
+            0.28
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use sin(alpha) = R_E/r and sin(beta) = 1/n, then theta = alpha - beta.",
+      "key_point": "The eclipse half-angle is theta."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step5_add_beta_nRE.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.528336,
+            0.318527,
+            0.414267,
+            0.277728
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Convert angular fraction to time: t = 24*60*(2*theta)/(2*pi), giving 67.2 min.",
+      "key_point": "Daily eclipse duration follows directly from orbit-angle fraction."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_theta_arc.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.339384,
+            0.392455,
+            0.371605,
+            0.212352
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "67.2"
+  }
+}

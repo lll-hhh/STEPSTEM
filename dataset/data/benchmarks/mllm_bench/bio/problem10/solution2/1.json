@@ -1,0 +1,104 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In tobacco, self-incompatibility is controlled by multiple S alleles. A pollen tube is rejected when its S allele matches either S allele in the pistil, so only non-matching pollen can complete fertilization. For a diploid hermaphroditic population with 15 S alleles (S1 to S15), determine the maximum number of distinct genotypes that can exist. Answer format: <num>. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: allele-pair edge-count method.",
+      "key_point": "Model each diploid genotype as one unordered edge connecting two distinct S alleles."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_allele_graph_overview.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.226868,
+            0.055286,
+            0.312055,
+            0.395361
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.568267,
+            0.109573,
+            0.186681,
+            0.332756
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.520192,
+            0.476644,
+            0.233507,
+            0.44922
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.232991,
+            0.484963,
+            0.260354,
+            0.418024
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Remove homozygous states SiSi because any matching S in pollen versus pistil triggers rejection.",
+      "key_point": "Only genotypes with i!=j remain in the viable state space."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_homozygote_vs_heterozygote.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.156821,
+            0.35394,
+            0.256608,
+            0.280763
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.583252,
+            0.384096,
+            0.274089,
+            0.240208
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Count unordered distinct pairs from 15 alleles: C(15,2).",
+      "key_point": "C(15,2) = 15 x 14 / 2."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Evaluate the pair count to obtain the maximum genotype number.",
+      "key_point": "Single integer output only: 105."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "105"
+  }
+}

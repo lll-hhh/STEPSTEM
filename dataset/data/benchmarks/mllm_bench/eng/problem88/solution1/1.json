@@ -1,0 +1,74 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A planar star-symmetric truss consists of five two-force members. Their upper ends meet at the same pin joint A, and their lower ends are connected to five collinear ground pins. Member 3 is vertical with length l. Moving from the center to both sides, adjacent members differ by the same angle alpha: members 2 and 4 make angle alpha with the vertical, and members 1 and 5 make angle 2*alpha with the vertical. All five members have axial rigidity EA. A vertical downward load F is applied at joint A. Find the vertical displacement of joint A. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "By symmetry: N1=N5 and N2=N4. Joint A has only vertical displacement Delta_A and no horizontal displacement. For member 3 (vertical), Delta_l3=Delta_A and N3=EA*Delta_A/l.",
+      "key_point": "Use symmetry and the single vertical DOF at A to reduce unknown member forces."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.116524,
+            0.058862,
+            0.608068,
+            0.657135
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For member 2: its length is l2=l/cos(alpha). Compatibility along member direction gives Delta_l2=Delta_A*cos(alpha). Using axial deformation Delta_l2=N2*l2/(EA), we get N2=EA*Delta_A*cos(alpha)^2/l. By symmetry N4=N2.",
+      "key_point": "Project Delta_A onto member 2 and combine compatibility with axial constitutive relation."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.249194,
+            0.202184,
+            0.359638,
+            0.589862
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.109371,
+            0.212908,
+            0.308912,
+            0.589862
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Similarly for member 1: l1=l/cos(2*alpha), Delta_l1=Delta_A*cos(2*alpha), so N1=EA*Delta_A*cos(2*alpha)^2/l and N5=N1. Vertical equilibrium at joint A: 2*(N1*cos(2*alpha)+N2*cos(alpha))+N3=F. Substitute N1, N2, N3: F=(EA*Delta_A/l)*[2*cos(2*alpha)^3+2*cos(alpha)^3+1]. Therefore Delta_A=F*l/(E*A*(1+2*cos(alpha)^3+2*cos(2*alpha)^3)).",
+      "key_point": "Substitute member-force expressions into vertical equilibrium to solve Delta_A in closed form."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Delta_A=F*l/(E*A*(1+2*cos(alpha)^3+2*cos(2*alpha)^3))"
+  }
+}

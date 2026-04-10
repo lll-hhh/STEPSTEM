@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For an infinitely long straight wire with uniform linear charge density lambda, write the electric-field magnitude E at a point P located distance r from the wire in vacuum. Use epsilon_0 for the vacuum permittivity. Answer format: a single algebraic expression. Preserve the ASCII notation style and variable naming used in the problem; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set cylindrical symmetry for an infinite line charge and use radial distance r from wire to field point P.",
+      "key_point": "Field is radial and depends only on r."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_wire_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.094313,
+            0.18105,
+            0.52414,
+            0.657075
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Take a charge element lambda*dz at coordinate z and project its contribution along radial direction.",
+      "key_point": "Use d and theta to express the projection factor."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_element_projection.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.198003,
+            0.199322,
+            0.441255,
+            0.382787
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.72,
+            0.45,
+            0.2,
+            0.1
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply substitution d=r/cos(theta), z=r*tan(theta), integrate theta from -pi/2 to pi/2, then use E=-dV/dr.",
+      "key_point": "Obtain E(r) then integrate radially for V."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_symmetric_resultant.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.70086,
+            0.457877,
+            0.2,
+            0.1
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.511102,
+            0.360226,
+            0.12982,
+            0.292779
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Integrate the radial field between reference radius r0 and radius r to get logarithmic potential form.",
+      "key_point": "Potential of infinite line uses finite reference radius instead of infinity."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_potential_path.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.398655,
+            0.418293,
+            0.517718,
+            0.209767
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "lambda/(2*pi*epsilon_0*r)"
+  }
+}

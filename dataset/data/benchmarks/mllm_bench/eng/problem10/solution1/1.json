@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the beam decomposed into p_0, R_D, and M_D subproblems, solve the right-end vertical reaction R_D using end displacement and rotation compatibility. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Split the beam into p_0, R_D, and M_D subproblems and superpose displacement and rotation at the right end.",
+      "key_point": "Use v(L)=0 and theta(L)=0 as compatibility equations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_udl_p0.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.199355,
+            0.208762,
+            0.358923,
+            0.504775
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Introduce end reaction force R_D as an independent load case on the same beam geometry.",
+      "key_point": "Compute deflection and slope contribution from R_D."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_end_force_RD.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.674995,
+            0.197825,
+            0.166113,
+            0.500807
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Introduce end moment M_D as the third load case and write total displacement and rotation sums.",
+      "key_point": "Solve unknown reactions from the two end constraints."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_end_moment_MD.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.643813,
+            0.173426,
+            0.212388,
+            0.449679
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Substitute solved constants and extract required support reaction expression.",
+      "key_point": "Substitute solved constants."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_superposition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.18,
+            0.14,
+            0.36,
+            0.34
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.63,
+            0.14,
+            0.22,
+            0.46
+          ],
+          "weight": 0.55
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-3*p_0*L/32"
+  }
+}

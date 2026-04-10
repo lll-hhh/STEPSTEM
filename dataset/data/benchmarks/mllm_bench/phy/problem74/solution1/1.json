@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "An alpha-particle ionization counter is modeled as a parallel-plate argon chamber with C=10 pF and plate spacing d=30 cm. Under U0=1.5*10^4 V, the electron drift speed is v^-=5 cm/us and the Ar+ drift speed is v^+=10 cm/ms. The mean ionization energy is 25 eV. A 5 MeV alpha particle enters parallel to the plates at distance x0=10 cm from the anode, loses all its energy, and all ionization charges are collected. Take e=1.6*10^-19 C and ignore trajectory deflection. The readout signal is the voltage across resistor R. After replacing R by 2*10^5 ohm and setting threshold epsilon=0.3 mV, find the over-threshold duration (time above threshold) with two significant digits in seconds. Answer format: a numerical value with two significant figures; do not include units, explanatory text, or an equals sign. Answer format: a numerical value with two significant figures; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Compute the ion-pair count from 5 MeV/25 eV and get total charge q=N*e.",
+      "key_point": "The pulse source is fixed by N and drift kinematics."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.364416,
+            0.12231,
+            0.303004,
+            0.80822
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.06,
+            0.16,
+            0.18,
+            0.7
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use t_e=x0/v^- and t_i=(d-x0)/v^+, with induced currents I_e=q*v^-/d and I_i=q*v^+/d.",
+      "key_point": "The current is piecewise: I_1=I_e+I_i, then I_2=I_i."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_piecewise_current.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.17,
+            0.22,
+            0.28,
+            0.56
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.49,
+            0.32,
+            0.34,
+            0.42
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Solve C*dV_R/dt + V_R/R = I(t) in each interval and match continuity at t_e.",
+      "key_point": "RC sets the rise and decay around the threshold."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_voltage_response.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.149658,
+            0.128705,
+            0.235118,
+            0.767872
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Find t_up from the rising branch and t_down from the post-t_e decay branch at V_R=epsilon.",
+      "key_point": "Over-threshold time is Delta t = t_down - t_up."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_threshold_window.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.062113,
+            0.115133,
+            0.360206,
+            0.814185
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3e-06"
+  }
+}

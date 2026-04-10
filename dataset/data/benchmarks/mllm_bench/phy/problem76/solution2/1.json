@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a Mach-Zehnder interferometer, the incident beam is split by a 50/50 beam splitter, reflected by two mirrors, and recombined at a second identical beam splitter. The lower output detector is tuned to zero intensity. The complex reflection and transmission coefficients are r~=r*exp(i*delta_r) and t~=t*exp(i*delta_t), with equal magnitudes r=|r~|=t=|t~|=sqrt(2)/2, and t~/r~=exp(i*phi). Find phi. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: the value or expression for phi; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: 2x2 scattering-matrix phasor-cancellation method.",
+      "key_point": "Represent the 50/50 beam splitter with complex r~ and t~, and define t~/r~=exp(iφ)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_split_paths.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.252235,
+            0.183599,
+            0.27116,
+            0.641799
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At the tuned dark port, the two recombined phasors have equal magnitude and opposite phase, so arg(t~^2/r~^2)=π (mod 2π).",
+      "key_point": "This gives 2φ=π (mod 2π) directly from cancellation geometry."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_recombine_detector.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.447279,
+            0.165111,
+            0.478692,
+            0.595249
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Solve the congruence to obtain φ=π/2+kπ.",
+      "key_point": "The phase quadrature branch for a symmetric 50/50 splitter is the principal one."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_dark_port_phasors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1339,
+            0.362867,
+            0.445391,
+            0.201057
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.353325,
+            0.303441,
+            0.521506,
+            0.302081
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Select the principal value requested by single-expression output.",
+      "key_point": "Use φ=pi/2."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_phase_quadrature.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.42944,
+            0.333154,
+            0.275917,
+            0.404096
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "pi/2"
+  }
+}

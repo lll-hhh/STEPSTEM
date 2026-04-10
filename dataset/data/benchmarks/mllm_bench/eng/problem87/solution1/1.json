@@ -1,0 +1,89 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A prismatic bar with rectangular cross-section is subjected to axial tension F along the horizontal axis. The cross-section dimensions are height h (vertical) and width b (out of plane). On the side surface, a broken line A-B-C is marked: points A and C are on the upper surface, and point B is on the lower surface. Segment AB is inclined downward from left to middle, and segment BC is inclined upward from middle to right. At point B, the included angle between AB and BC is 90 degrees. AB makes 60 degrees with the bar axis, and BC makes 30 degrees with the bar axis. Analyze the angle change of this broken line after uniaxial tension and find the elongation of segment BC. Answer format: Delta_angle_ABC;Delta_BC, separated by one semicolon, with no explanatory text or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "For uniaxial tension, sigma_x=F/(b*h), sigma_y=0, tau_xy=0. Plane-stress strain components are epsilon_x=sigma_x/E=F/(b*h*E), epsilon_y=-mu*epsilon_x=-mu*F/(b*h*E), gamma_xy=0.",
+      "key_point": "Write the in-plane strain components under uniaxial tension first."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.234579,
+            0.188381,
+            0.397157,
+            0.719017
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "For segment BC, let alpha=30 degrees (angle with x-axis). The vertical rise from B to C equals h, so l_BC*sin(alpha)=h, hence l_BC=h/sin(30 degrees)=2h.",
+      "key_point": "Determine the geometric length of BC before computing its elongation."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.024443,
+            0.193233,
+            0.273282,
+            0.64533
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.650822,
+            0.150211,
+            0.340952,
+            0.725638
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Normal strain along BC: epsilon_BC=epsilon_x*cos^2(alpha)+epsilon_y*sin^2(alpha)-gamma_xy*sin(2*alpha)/2. Substituting alpha=30 degrees and gamma_xy=0 gives epsilon_BC=F/(b*h*E)*(cos^2 30-mu*sin^2 30)=F/(b*h*E)*(3/4-mu/4)=F*(3-mu)/(4*b*h*E). Therefore Delta_BC=epsilon_BC*l_BC=F*(3-mu)/(4*b*h*E)*2h=F*(3-mu)/(2*b*E). The local shear-angle change for alpha=30 degrees is gamma_local=((epsilon_x-epsilon_y)/2)*sin(2*alpha)+(gamma_xy/2)*cos(2*alpha)=sqrt(3)*F*(1+mu)/(4*b*h*E). The included right-angle change at B is Delta_angle_ABC=2*gamma_local=sqrt(3)*F*(1+mu)/(2*b*h*E).",
+      "key_point": "Use strain transformation for BC and convert local shear-angle change to the included-angle change at B."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Delta_angle_ABC=sqrt(3)*F*(1+mu)/(2*b*h*E); Delta_BC=F*(3-mu)/(2*b*E)"
+  }
+}

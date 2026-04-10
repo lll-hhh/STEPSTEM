@@ -1,0 +1,179 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "From the arterial-pressure waveform, compare the peak-to-trough amplitudes in windows A, B, C, and D, then output the descending order expression of Psi values. Output exactly one order expression token sequence (for example X>Y>Z>W), plain ASCII only, no Chinese characters, no unit text, no equality sign, no chained equalities, no sentence, and no extra text. Answer format: a ranking expression such as A>B>C>D; write only the ranking itself, with no explanatory text, units, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the highlighted information in this step to derive the next relation needed for the final answer.",
+      "key_point": "Read peak and trough levels in windows A, B, C, and D."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_waveform_peaks.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1823,
+            0.125,
+            0.1146,
+            0.4346
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.332,
+            0.125,
+            0.1146,
+            0.4346
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.4753,
+            0.125,
+            0.1146,
+            0.4346
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.6022,
+            0.125,
+            0.1237,
+            0.4346
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use the highlighted information in this step to derive the next relation needed for the final answer.",
+      "key_point": "Define Psi_i as peak-to-trough amplitude for each window."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_extrema_segments.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.099616,
+            0.091036,
+            0.178844,
+            0.651285
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.333738,
+            0.094936,
+            0.089747,
+            0.66786
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.476163,
+            0.106636,
+            0.091048,
+            0.628861
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.612734,
+            0.092011,
+            0.082593,
+            0.647385
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the highlighted information in this step to derive the next relation needed for the final answer.",
+      "key_point": "Compute Psi_A, Psi_B, Psi_C, and Psi_D from the waveform."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_ratio_bars.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2103,
+            0.1172,
+            0.0495,
+            0.4365
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.3542,
+            0.1201,
+            0.0495,
+            0.4336
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.4941,
+            0.123,
+            0.0495,
+            0.4307
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.6243,
+            0.1211,
+            0.0495,
+            0.4316
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use the highlighted information in this step to derive the next relation needed for the final answer.",
+      "key_point": "Rank amplitudes in descending order to form the Psi ordering."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_order_expression.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.130832,
+            0.039362,
+            0.680256,
+            0.528438
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Psi_B>Psi_A>Psi_C>Psi_D"
+  }
+}

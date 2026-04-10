@@ -1,0 +1,105 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the three forced-expiration curves, rank Lambda for the lower, middle, and upper curves from largest to smallest based on the ratio FEV1/(FVC-FEV1). Output exactly one order expression token sequence (for example X>Y>Z), plain ASCII only, no Chinese characters, no unit text, no equality sign, no chained equalities, no sentence, and no extra text. Answer format: a ranking expression such as A>B>C; write only the ranking itself, with no explanatory text, units, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Read the three forced-expiration curves on the same time axis.",
+      "key_point": "Use the first-second drop and remaining drop on each curve."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_three_curves.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.072952,
+            0.118335,
+            0.264038,
+            0.166721
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.071001,
+            0.299681,
+            0.264038,
+            0.148197
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.093762,
+            0.582425,
+            0.224367,
+            0.239845
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Mark the t=1 slice to separate FEV1 and FVC-FEV1 geometrically.",
+      "key_point": "Lambda grows when the early drop proportion is larger."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_t1_slice.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.200418,
+            0.055937,
+            0.154131,
+            0.87943
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compare the three ratios FEV1/(FVC-FEV1) from top, middle, and bottom curves.",
+      "key_point": "Bottom curve has the largest ratio, top curve has the smallest."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_ratio_segments.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.082707,
+            0.566825,
+            0.233472,
+            0.265194
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.065148,
+            0.14271,
+            0.273143,
+            0.340267
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Lambda_down>Lambda_mid>Lambda_up"
+  }
+}

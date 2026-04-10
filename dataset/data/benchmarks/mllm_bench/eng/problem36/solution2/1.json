@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "From the hill-and-train geometry in the figure, compute the critical minimum speed required by the stated condition. Output exactly one decimal number with 1 decimal place, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text. Answer format: a decimal number rounded to one decimal place; write only the numerical value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Average-height / area method: treat the train as a uniform line distribution and compute the energy rise from the area of the hill profile covered by the train, instead of locating the center of mass directly.",
+      "key_point": "Potential-energy increase equals weight times the average vertical rise of the whole train."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_hill_geometry_area.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.26673,
+            0.408788,
+            0.579035,
+            0.493281
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "First read the hill geometry. The triangular profile has base l and height h, with left and right side lengths l1 and l2. These geometric data determine the total raised area of the profile.",
+      "key_point": "The hill is handled as a geometric area, not as a point-mass height problem."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_triangle_area_train.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.246763,
+            0.401674,
+            0.583028,
+            0.578656
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "At the critical instant, the full hill segment of length l1+l2 lies under the train. For a uniform train, the total gravitational rise is proportional to the triangular area under that segment.",
+      "key_point": "The raised mass fraction is converted into area under the height curve along the train length."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_average_height_strip.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.372554,
+            0.361357,
+            0.370383,
+            0.566798
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Replace the same triangular area by an equivalent rectangle of width L and average height y. Then Ly equals the hill area, so y is the average rise of the whole train. The minimum speed follows from equating the initial kinetic energy to Mg times this average rise.",
+      "key_point": "This route uses average height from area equivalence rather than the h/2 center-of-mass statement of solution1."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_energy_threshold.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.087029,
+            0.446733,
+            0.718802,
+            0.490909
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Using the geometric data gives h=48, then the average rise is y=h(l1+l2)/(2L). Substituting into the energy threshold yields the required critical minimum speed, rounded to one decimal place.",
+      "key_point": "After substitution, the numerical result is 11.5."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "11.5"
+  }
+}

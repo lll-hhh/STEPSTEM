@@ -1,0 +1,134 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-mass system rotating about point A, find the angular-momentum vector at the shown instant in the i1-j1-k1 basis. Answer format: a single vector expression. The variable names may only be Omega, phi, i1, j1, k1, m, and L; use ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the inertia-tensor method in the i1-j1-k1 basis instead of direct velocity cross-product expansion.",
+      "key_point": "Construct I_A first, then compute H by tensor projection."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_inertia_basis_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.411439,
+            0.056549,
+            0.1,
+            0.502751
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.348995,
+            0.243708,
+            0.475862,
+            0.346778
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Form inertia contributions of m1 and m2 about A, then assemble the combined inertia tensor with φ-dependent terms.",
+      "key_point": "Diagonal and coupling tensor terms are identified before multiplying by Ω."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_inertia_tensor_parts.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.128585,
+            0.238877,
+            0.468686,
+            0.43
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.565707,
+            0.248857,
+            0.3,
+            0.541213
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Project H = I_A*(Ω*k1) onto i1 and k1 to get component form directly.",
+      "key_point": "Tensor projection gives the same final vector without repeating r x (omega x r)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_H_vector_projection.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.259102,
+            0.049113,
+            0.281094,
+            0.50894
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.406783,
+            0.253687,
+            0.402378,
+            0.392931
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Check symmetry requirement by adding the mirrored mass about x1-z1 plane so the coupling cancellation condition is explicit.",
+      "key_point": "Symmetry check validates why only i1 and k1 components remain in the target expression."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_symmetry_completion.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.147848,
+            0.332557,
+            0.36,
+            0.39
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.43082,
+            0.242744,
+            0.36,
+            0.462502
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*L^2*Omega*(1+cos(phi)^2)*k1-m*L^2*Omega*sin(phi)*cos(phi)*i1"
+  }
+}

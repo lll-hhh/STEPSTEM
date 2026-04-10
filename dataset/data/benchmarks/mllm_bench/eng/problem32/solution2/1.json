@@ -1,0 +1,130 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the pressure-gap-induced couple model, derive the small rotation-angle expression alpha of the suspended plate. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Virtual-work / bifilar-suspension energy method: treat the gas action as an applied couple and obtain the string response from the gravitational rise caused by a small twist.",
+      "key_point": "This route uses energy storage of the suspension instead of direct force and torque balance on the two tensions."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_pressure_couple.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.077538,
+            0.318552,
+            0.423578,
+            0.445322
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.558536,
+            0.365953,
+            0.361997,
+            0.424116
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The coating changes one side pressure to p'=(1-q/2)p, so the side-face gap is Δp=qp/2. On the two half-faces of area bc, these equal opposite forces form a pure couple with magnitude M'=Δp·bc·b=q*b^2*c*p/2.",
+      "key_point": "The gas loading can be replaced by a couple M' without carrying the individual face forces any further."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_bifilar_rotation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.165749,
+            0.130194,
+            0.220527,
+            0.612474
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.453682,
+            0.505662,
+            0.406103,
+            0.348025
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "After a small plate rotation α, each lower attachment point shifts sideways by about aα while each string keeps its fixed length 2a, so the string tilt satisfies β≈α/2.",
+      "key_point": "The essential geometric effect is the necessary upward drift of the whole plate in a bifilar suspension."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_energy_rise.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.203197,
+            0.313562,
+            0.604161,
+            0.467775
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "From the tilted-string geometry, the center rises by h≈aβ^2≈aα^2/4. Therefore the gravitational energy increase is U≈mgh=(m*g*a/4)α^2, which gives the restoring couple M=dU/dα=(m*g*a/2)α.",
+      "key_point": "The suspension behaves like a torsional spring whose stiffness comes from gravity, not from a direct tension-moment calculation."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_virtual_work.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.149105,
+            0.571774,
+            0.474341,
+            0.207069
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.324694,
+            0.157637,
+            0.509293,
+            0.325572
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Virtual-work balance requires the applied couple and restoring couple to match: M'=M. Substituting the two expressions yields the required small-angle result.",
+      "key_point": "Hence α=q*b^2*c*p/(m*g*a)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "q*b^2*c*p/(m*g*a)"
+  }
+}

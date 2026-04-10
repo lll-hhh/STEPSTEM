@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the four integrals I_1, I_2, I_3, and I_4 over the square regions split by the two diagonals, determine which integral has the largest value. Output exactly one symbol token from {I_1,I_2,I_3,I_4} in plain ASCII only, no Chinese characters, no unit text, no sentence, no equation form, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use region symmetries in the square split by two diagonals and analyze signs of y*cos(x) in each region.",
+      "key_point": "Compare I_1, I_2, I_3, I_4 by symmetry instead of full integration."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_regions.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.282698,
+            0.193291,
+            0.419025,
+            0.644442
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "D_2 and D_4 are symmetric about x-axis while y*cos(x) is odd in y, so their integrals cancel to zero.",
+      "key_point": "I_2 = I_4 = 0."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_pair_24.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.269335,
+            0.194797,
+            0.278714,
+            0.63089
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.485052,
+            0.19028,
+            0.224307,
+            0.642936
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "D_1 and D_3 are symmetric about y-axis; cos(x) is even in x, and y is positive on D_1 but negative on D_3.",
+      "key_point": "I_1 > 0 and I_3 < 0."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_pair_13.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.312102,
+            0.193353,
+            0.3742,
+            0.394735
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.302828,
+            0.472975,
+            0.3908,
+            0.3368
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Combine signs and zero results: only I_1 is strictly positive among all four integrals.",
+      "key_point": "Maximum is attained at region D_1."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_max_region.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3133,
+            0.2158,
+            0.3742,
+            0.2658
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.27,
+            0.4763,
+            0.4675,
+            0.3592
+          ],
+          "weight": 0.3
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "I_1"
+  }
+}

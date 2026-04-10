@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A horizontal rigid straight bar AB is composed of three rigid segments of equal length l connected in series, with nodes A, C, D, B from left to right. End nodes A and B are pin-supported. Intermediate nodes C and D are connected vertically to the ground by spring 1 and spring 2, respectively, and both springs have stiffness k0. A horizontal compressive force F_cr is applied at the left end A along the bar axis. Analyze the buckling instability of this rigid-bar-spring system and determine the critical load F_cr. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Give a small perturbation displacement Delta. Then each spring force is F_s=k0*Delta for its corresponding mode amplitude. The system has two independent instability modes, shown by diagrams (b) and (c). Compute a critical load for each mode and take the smaller one.",
+      "key_point": "Use mode-by-mode instability conditions and choose the minimum critical load."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.093112,
+            0.086161,
+            0.857149,
+            0.42509
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.167251,
+            0.407904,
+            0.756346,
+            0.350992
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.050747,
+            0.058785,
+            0.929684,
+            0.494335
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.180852,
+            0.453052,
+            0.702316,
+            0.426289
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "For mode (b), instability condition from moment imbalance is F_cr*Delta >= F_s*l. At the critical state: F_cr*Delta=F_s*l=(k0*Delta)*l, so F_cr1=k0*l.",
+      "key_point": "Mode (b) gives the first candidate critical load k0*l."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.305789,
+            0.035902,
+            0.480115,
+            0.493201
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "For mode (c), instability condition is F_cr*Delta >= (F_s/3)*l. At the critical state: F_cr*Delta=(k0*Delta/3)*l, hence F_cr2=k0*l/3. Compare both candidates: F_cr=min(k0*l, k0*l/3)=k0*l/3.",
+      "key_point": "Mode (c) is more critical, so the system buckles first at k0*l/3."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.36698,
+            0.092033,
+            0.359288,
+            0.529746
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Therefore, the critical compressive load is F_cr=k0*l/3.",
+      "key_point": "Final critical load from the governing mode (c)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "k0*l/3"
+  }
+}

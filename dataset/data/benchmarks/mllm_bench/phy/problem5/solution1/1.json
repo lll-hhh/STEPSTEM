@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the rod chord ab inside the circular region with time-varying magnetic field, compute the induced emf magnitude across the rod. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the circle geometry and denote the rod chord ab, center O, distance h, and radius R.",
+      "key_point": "Use h as the perpendicular distance from O to the rod."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_chord.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.246907,
+            0.277681,
+            0.458093,
+            0.33725
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For a line element dl on the rod, E_k=(r/2)*(dB/dt) and only E_k*cos(theta) contributes along the rod.",
+      "key_point": "Project the induced electric field onto the rod direction."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_element_direction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.237725,
+            0.243939,
+            0.44647,
+            0.35655
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply Faraday law on loop Oab; contributions on Oa and Ob vanish because E_k is perpendicular to them.",
+      "key_point": "The loop emf equals the emf along ab."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_triangle_loop.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.242552,
+            0.26701,
+            0.448301,
+            0.395186
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use h=sqrt(R^2-(L/2)^2) and substitute into eps=(L*h/2)*(dB/dt).",
+      "key_point": "Convert the result to R and L only."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_right_triangle_relation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.293343,
+            0.288578,
+            0.353405,
+            0.508848
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "L*sqrt(R^2-(L/2)^2)*(dB/dt)/2"
+  }
+}

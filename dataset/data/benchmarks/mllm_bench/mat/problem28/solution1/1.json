@@ -1,0 +1,124 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "As shown in the figure, in triangle ABC, D is the midpoint of side BC. Two points E, F on the angle bisector of angle BAC satisfy angle AEB = angle AFC = 180^\\circ - angle BAC. The circumcircle of triangle AFB and the circumcircle of triangle AEC intersect at A and another point P. Find the degree of angle APD. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Because E and F lie on the angle bisector of angle BAC and angle AEB = angle AFC = 180 - angle BAC, triangles AEB and AFC have equal base angles. Hence AE = BE and AF = CF.",
+      "key_point": "The first reduction is that AEB and AFC are isosceles."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_bisector_points.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2577,
+            0.3092,
+            0.3309,
+            0.57
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.498039,
+            0.3092,
+            0.2832,
+            0.57
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Let the circumcircle of triangle AFB meet BC again at S, and let the circumcircle of triangle AEC meet BC again at T. The second common point of the two circles is P.",
+      "key_point": "Introduce S and T on BC so both circles can be compared on the same line."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_circles_with_st.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2541,
+            0.3044,
+            0.3381,
+            0.5798
+          ],
+          "weight": 0.4
+        },
+        {
+          "bbox": [
+            0.3241,
+            0.7841,
+            0.3863,
+            0.0829
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.4829,
+            0.3044,
+            0.2975,
+            0.5798
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Connect FS. Angle chasing in triangle SFC gives CS/CF = sin C / sin(A/2). Using AF = CF and the sine rule in triangle AFC, we obtain CS = 2bc/a. By the symmetric argument on the other circle, BT = 2bc/a, so BT = CS.",
+      "key_point": "The crucial metric conclusion is BT = CS."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Since D is the midpoint of BC, DB = DC. Combining this with BT = CS yields DS = DT. Therefore DB*DS = DC*DT, so D has equal power with respect to the two circles and lies on their radical axis.",
+      "key_point": "D is on the radical axis of the two circumcircles."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7_apd_collinear.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4699,
+            0.2995,
+            0.1259,
+            0.5895
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.3241,
+            0.7841,
+            0.3863,
+            0.0829
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "The radical axis passes through the two common points A and P, so it is line AP. Hence A, P, D are collinear, and angle APD is a straight angle.",
+      "key_point": "A, P, D are collinear."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "180"
+  }
+}

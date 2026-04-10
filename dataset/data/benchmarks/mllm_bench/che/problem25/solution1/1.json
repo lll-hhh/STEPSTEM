@@ -1,0 +1,58 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Given that J and K are in tautomeric equilibrium and both form six-membered intramolecular hydrogen bonds, determine only the hydrogen-bond expression for K, which is of X-H...X type. Answer format: one bond expression for K; write only the expression, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the tautomeric relationship together with the six-membered intramolecular hydrogen-bond constraint to determine the hydrogen-bond type in K.",
+      "key_point": "For K, the donor-acceptor pattern must be of X-H...X type."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_j_hbond_pattern.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.372696,
+            0.391629,
+            0.249286,
+            0.22413
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Read the highlighted K structure and map it to the required symbolic hydrogen-bond form.",
+      "key_point": "Return only the K bond expression X-H...X."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_k_hbond_pattern.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.36093,
+            0.380543,
+            0.278998,
+            0.258772
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "X-H...X"
+  }
+}

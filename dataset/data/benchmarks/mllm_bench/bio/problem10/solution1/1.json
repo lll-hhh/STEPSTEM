@@ -1,0 +1,110 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In tobacco, self-incompatibility is controlled by multiple S alleles. A pollen tube is rejected when its S allele matches either S allele in the pistil, so only non-matching pollen can complete fertilization. For a diploid hermaphroditic population with 15 S alleles (S1 to S15), determine the maximum number of distinct genotypes that can exist. Answer format: <num>. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the incompatibility rule: pollen tube growth is blocked when pollen S allele matches either pistil allele.",
+      "key_point": "Matching S alleles are incompatible; non-matching S alleles are compatible."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_compatible_cross.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4,
+            0.08,
+            0.2,
+            0.18
+          ],
+          "weight": 0.35
+        },
+        {
+          "bbox": [
+            0.41,
+            0.28,
+            0.18,
+            0.6
+          ],
+          "weight": 0.65
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "In S1S2 selfing, both pollen types (S1 and S2) are blocked, so self-fertilization cannot produce offspring.",
+      "key_point": "Selfing under this mechanism does not create genotypes in the next generation."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_self_cross_blocked.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.388772,
+            0.014575,
+            0.208839,
+            0.258256
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.42437,
+            0.521358,
+            0.16,
+            0.337845
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_selective_growth.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4,
+            0.08,
+            0.2,
+            0.18
+          ],
+          "weight": 0.384615
+        },
+        {
+          "bbox": [
+            0.446296,
+            0.37695,
+            0.106363,
+            0.308706
+          ],
+          "weight": 0.615385
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Therefore viable zygotes always combine two different S alleles, so only heterozygous genotypes are possible.",
+      "key_point": "Count unordered pairs of distinct alleles from 15 options."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The maximum genotype count is the number of 2-combinations from 15 alleles.",
+      "key_point": "Single-number output: 105."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "105"
+  }
+}

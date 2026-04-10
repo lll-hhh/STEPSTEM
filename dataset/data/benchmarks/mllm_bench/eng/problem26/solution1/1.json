@@ -1,0 +1,105 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-mass system linked by an inextensible string, determine the maximum possible separation AB. Output exactly one symbol token in plain ASCII only, no Chinese characters, no unit text, no sentence, no equation form, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the center-of-mass motion and the inextensible-string constraint.",
+      "key_point": "For all time, AB cannot exceed L."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_v0.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.62,
+            0.31,
+            0.18,
+            0.34
+          ],
+          "weight": 0.65
+        },
+        {
+          "bbox": [
+            0.24,
+            0.52,
+            0.5,
+            0.12
+          ],
+          "weight": 0.35
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "As the rope is pulled tight, the relative radial motion reaches a turning point.",
+      "key_point": "Maximum separation occurs at the taut instant."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_taut_turning.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.321664,
+            0.622918,
+            0.146165,
+            0.295634
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.673377,
+            0.373438,
+            0.156449,
+            0.269439
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "The later motion is periodic under the same length constraint.",
+      "key_point": "The separation is bounded above by L in every cycle."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_periodic_bound.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.272267,
+            0.279882,
+            0.247157,
+            0.37422
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.477815,
+            0.422086,
+            0.261304,
+            0.389189
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "L"
+  }
+}

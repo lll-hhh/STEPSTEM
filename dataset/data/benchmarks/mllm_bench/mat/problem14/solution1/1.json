@@ -1,0 +1,96 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the figure, AB is a diameter of circle O, point C lies on circle O, and segment AC is drawn. Construct rhombus ACDE with side AC. Line CD intersects circle O again at point F, and AB is perpendicular to CD with foot G. Connect AD, which intersects circle O again at point H, and connect EH. Given AG=12 and GF=5, find the length of DF. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set G as origin with AB vertical and CD horizontal. From AG=12 and GF=5, take A(0,12), G(0,0), F(5,0), and by circle symmetry C(-5,0).",
+      "key_point": "AB is a diameter line through center O, so C and F are symmetric on CD."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_base_circle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3125,
+            0.2917,
+            0.0938,
+            0.3889
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.2448,
+            0.5583,
+            0.2188,
+            0.0903
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute AC=sqrt((12)^2+(5)^2)=13. Since ACDE is a rhombus, CD=AC=13, and C,F,D are collinear on CD.",
+      "key_point": "CF=10 from C(-5,0) to F(5,0), then DF=CD-CF."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rhombus_constructed.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.25,
+            0.5625,
+            0.2812,
+            0.1042
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.3385,
+            0.2639,
+            0.2708,
+            0.1319
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "DF=13-10=3.",
+      "key_point": "Subtract the known chord segment CF from rhombus side CD."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_df_target.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4323,
+            0.5625,
+            0.0885,
+            0.0806
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3"
+  }
+}

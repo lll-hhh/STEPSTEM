@@ -1,0 +1,148 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the capillary water column, derive the criterion expression for the lower-interface curvature term 1/R_B as a function of h and the given parameters. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: gauge-pressure profile method with interface-curvature sign convention.",
+      "key_point": "Track p(z) through the column first, then attach curvature jumps at A and B."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_pressure_levels.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.297612,
+            0.670556,
+            0.409519,
+            0.184814
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.296427,
+            0.158795,
+            0.407741,
+            0.151522
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Move from upper level to lower level by hydrostatic rise p_B-p_A=ρgh.",
+      "key_point": "The vertical pressure increment is determined only by ρ, g, and h."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_hydrostatic_profile.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.156562,
+            0.132474,
+            0.710584,
+            0.216826
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.141746,
+            0.612508,
+            0.709992,
+            0.25396
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply Young-Laplace jump at each interface using the same normal convention, then isolate κ_B=1/R_B.",
+      "key_point": "This route reaches the criterion term directly without the original step ordering."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_curvature_signs.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.246645,
+            0.114974,
+            0.510862,
+            0.232619
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.292279,
+            0.631715,
+            0.449227,
+            0.240728
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Evaluate κ_B sign for h=2 cm, 2.98 cm, and 4 cm to classify the lower interface geometry.",
+      "key_point": "Negative, zero, and positive κ_B map to concave, plane, and convex respectively."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_case_map.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.185009,
+            0.605394,
+            0.22165,
+            0.158778
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.430365,
+            0.614784,
+            0.176609,
+            0.151522
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.644311,
+            0.607528,
+            0.193796,
+            0.1639
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Return the requested criterion as one SingleExpr output.",
+      "key_point": "Keep output strictly as the required expression token sequence."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(rho*g*h)/(2*sigma)-1/R_A"
+  }
+}

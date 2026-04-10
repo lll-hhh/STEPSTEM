@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the symmetric two-ray geometry around the white dwarf, compute the white-dwarf mass from the given lensing-angle and distance data. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single mass expression or numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: Einstein-ring lens-equation method under symmetric source-lens-observer distances.",
+      "key_point": "Use ?=0 lens mapping instead of eliminating a trajectory parameter."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_axis_OE.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.318948,
+            0.411804,
+            0.541087,
+            0.20922
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Let ?_E be the one-sided Einstein angle at Earth. The observed split is the two-ray span, so ?_s=2?_E.",
+      "key_point": "Measured ?_s is a separation angle between the symmetric images."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_rays_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.475312,
+            0.402735,
+            0.385909,
+            0.20707
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_add_rm.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.298732,
+            0.32729,
+            0.587379,
+            0.345281
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Apply ?_E^2=(4GM/c^2)*(D_ls/(D_l*D_s)). With D_l=d, D_ls=d, D_s=2d, obtain ?_E^2=2GM/(c^2*d).",
+      "key_point": "Symmetry collapses distance factors to one scalar d."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7_add_d.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.274741,
+            0.357308,
+            0.6,
+            0.33
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Substitute ?_E=?_s/2 to get M=(?_s^2*c^2*d)/(8*G). Using ?_s=1.80e-7 and d=3.787e17 gives M?2.07e30.",
+      "key_point": "Direct numeric substitution yields the required mass token."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2.07*10^30"
+  }
+}

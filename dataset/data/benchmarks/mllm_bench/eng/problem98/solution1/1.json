@@ -1,0 +1,122 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the MOSFET common-source amplifier, find the voltage gain A_v. Answer format: a single numerical value or algebraic expression. If the result naturally simplifies to a single number, give the number; otherwise give the expression for A_v. Do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "From divider bias:\n\\[V_{GSQ}=\\frac{R_{g2}}{R_{g1}+R_{g2}}V_{DD}=\\frac{60}{180+60}\\times10=2.5\\,\\mathrm{V}.\\]",
+      "key_point": "Get the gate quiescent voltage first."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.114426,
+            0.341421,
+            0.589441,
+            0.604367
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.29711,
+            0.097996,
+            0.640821,
+            0.632907
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.160198,
+            0.061787,
+            0.597505,
+            0.498763
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.124999,
+            0.532701,
+            0.640499,
+            0.365699
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "DC output load line:\n\\[v_{DS}=V_{DD}-i_DR_d=10-10i_D\\]\n(\\(v_{DS}\\) in V, \\(i_D\\) in mA).",
+      "key_point": "DC load-line slope is \\(-1/R_d\\)."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "On the \\(v_{GS}=2.5\\,\\mathrm{V}\\) curve, intersecting the DC load line gives:\n\\[I_{DQ}\\approx0.51\\,\\mathrm{mA},\\quad V_{DSQ}\\approx5.0\\,\\mathrm{V}.\\]",
+      "key_point": "Read the Q-point graphically."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Compute AC equivalent load:\n\\[R_L'=R_d\\parallel R_L=\\frac{10\\times20}{10+20}\\,\\mathrm{k}\\Omega=6.67\\,\\mathrm{k}\\Omega.\\]",
+      "key_point": "AC load-line slope is \\(-1/R_L'\\)."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "AC load line through \\(Q\\):\n\\[v_{DS}=V_{DSQ}-(i_D-I_{DQ})R_L'.\\]",
+      "key_point": "The AC line passes through Q."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "At \\(i_D=0\\), AC load-line x-intercept is\n\\[v_{DS}\\approx V_{DSQ}+I_{DQ}R_L'\\approx5.0+0.51\\times6.67\\approx8.4\\,\\mathrm{V}.\\]",
+      "key_point": "Find the AC-line intercept near 8.4 V."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Input gives\n\\[v_{GS}=V_{GSQ}+v_i=(2.5+0.5\\sin\\omega t)\\,\\mathrm{V}.\\]",
+      "key_point": "Gate signal swings around 2.5 V."
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "From AC-load intersections \\(Q'\\) and \\(Q''\\), output amplitude is about\n\\[V_{om}\\approx1.6\\,\\mathrm{V}.\\]",
+      "key_point": "Read output swing from the graph."
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "So the output is approximately\n\\[v_o\\approx1.6\\sin\\omega t\\,\\mathrm{V}.\\]",
+      "key_point": "Write the output waveform."
+    },
+    "step_12": {
+      "modality": "text",
+      "content": "Common-source stage is inverted, therefore\n\\[A_v=-\\frac{V_{om}}{V_{im}}=-\\frac{1.6}{0.5}=-3.2.\\]",
+      "key_point": "Gain is negative because of phase inversion."
+    },
+    "step_13": {
+      "modality": "text",
+      "content": "Thus the quiescent point is near\n\\[(V_{DSQ},I_{DQ})=(5.0\\,\\mathrm{V},0.51\\,\\mathrm{mA}).\\]",
+      "key_point": "Q-point supports near-linear amplification."
+    },
+    "step_14": {
+      "modality": "text",
+      "content": "Final graphical result: DC and AC load lines are established, and the amplifier outputs an inverted sine with gain magnitude about 3.2.",
+      "key_point": "Final result: \\(A_v\\approx-3.2\\)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-3.2"
+  }
+}

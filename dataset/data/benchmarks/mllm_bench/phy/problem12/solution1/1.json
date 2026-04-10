@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the projectile setup with the given launch speed and angle, compute the unknown geometric height parameter h from the landing constraints. Output exactly one decimal number with 2 digits after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set O as origin, x as horizontal axis, and y as vertical axis for the projectile model.",
+      "key_point": "Use initial speed 80 and launch angle 60."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_axes_launch.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.094273,
+            0.352502,
+            0.3,
+            0.4
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply landing constraints: x=55+h and y=-h at point P.",
+      "key_point": "Unknown h links horizontal and vertical equations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_constraints_h.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.674317,
+            0.515285,
+            0.24,
+            0.38
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use component equations x=40*t and y=-0.5*g*t^2+80*sin(60)*t with g=32.17.",
+      "key_point": "Substitute h=40*t-55 into y=-h to solve t."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_velocity_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.107636,
+            0.2727,
+            0.32,
+            0.44
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.482189,
+            0.163177,
+            0.083041,
+            0.353841
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Take the physical root t2.971, then compute h=40*t-55.",
+      "key_point": "t≈2.97 => h≈63.85, and x=55+h."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_distance.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.711909,
+            0.557217,
+            0.16,
+            0.31
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "63.85"
+  }
+}

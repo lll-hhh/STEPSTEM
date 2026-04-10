@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the FET amplifier, use the transfer characteristic to find Q point and then compute Au, Ri, and Ro. Output exactly six comma-separated values in the order UGSQ_V,IDQ_mA,UDSQ_V,Au,Ri,Ro_kOhm; use INF for infinity when needed; plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Read IDQ from transfer curve at the given gate-source bias and compute UDSQ from load relation.",
+      "key_point": "IDQ from transfer curve at the given gate-source bias."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.164,
+            0.388,
+            0.567,
+            0.567
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up the governing relation for Au."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.485229,
+            0.230477,
+            0.331977,
+            0.724812
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute gm and then Au, Ri, Ro; output with INF where applicable.",
+      "key_point": "From gm, compute Au, Ri, and Ro."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3.00,1.00,8.00,-20.00,INF,10.00"
+  }
+}

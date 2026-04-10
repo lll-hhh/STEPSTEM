@@ -1,0 +1,76 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "As shown, the plate AB has mass M, the homogeneous disk has mass m and radius r, and the two springs have stiffnesses k_1 and k_2. The plate is in smooth contact with the horizontal surface, and the friction between the plate and the disk is large enough to prevent relative slipping. After the center of mass of plate AB is displaced horizontally from A and then released from rest, determine the motion law of the system. Answer format: a single algebraic expression for x_t; write only the expression, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build coupled kinematics of translating plate and rolling disk without relative slip.",
+      "key_point": "Equivalent inertia and spring restoring force define the ODE."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.025884,
+            0.321994,
+            0.358908,
+            0.242494
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.316911,
+            0.198668,
+            0.355787,
+            0.328406
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.589213,
+            0.321994,
+            0.371391,
+            0.263279
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Solve motion law for released-from-rest initial condition.",
+      "key_point": "Return one compact expression."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.305988,
+            0.468876,
+            0.411183,
+            0.307621
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "x_t"
+  }
+}

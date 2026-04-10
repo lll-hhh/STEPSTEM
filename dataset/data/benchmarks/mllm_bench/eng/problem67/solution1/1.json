@@ -1,0 +1,170 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a Hohmann-transfer rendezvous setup, target A and chaser c initially move counterclockwise on the same circular orbit of radius r_0 with speed v_0. At t=0, A is at theta_0 and c is at 0. The chaser performs an impulsive burn and moves on an ellipse whose major-axis direction is rotated clockwise by phi from the polar axis through the ignition point. The orbit is described by r(theta)=R/(1+epsilon*cos(theta)) in the aligned frame. For meeting at the first-class rendezvous point, let n_A be the number of passes of A through that point and n_c be the number of passes of c through that point (excluding the initial instant). Express n_A using n_c, theta_0, epsilon, and phi. Answer format: a single integer; do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "At theta_c=0, r_0=R/(1+epsilon*cos(phi)), so R=r_0*(1+epsilon*cos(phi)) and a=R/(1-epsilon^2).",
+      "key_point": "Transfer semimajor axis is determined by r_0, epsilon, and phi."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2,
+            0.22,
+            0.18,
+            0.18
+          ],
+          "weight": 0.35
+        },
+        {
+          "bbox": [
+            0.74,
+            0.43,
+            0.14,
+            0.13
+          ],
+          "weight": 0.35
+        },
+        {
+          "bbox": [
+            0.4,
+            0.38,
+            0.2,
+            0.2
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The first-class rendezvous point is the ignition point (theta=0), so c reaches it every transfer period T_c.",
+      "key_point": "Meeting time is t=n_c*T_c."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_transfer_orbit.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.6,
+            0.56,
+            0.22,
+            0.22
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.45,
+            0.3,
+            0.22,
+            0.22
+          ],
+          "weight": 0.3
+        },
+        {
+          "bbox": [
+            0.16,
+            0.18,
+            0.26,
+            0.26
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_pass_count.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.64,
+            0.4,
+            0.23,
+            0.22
+          ],
+          "weight": 0.4
+        },
+        {
+          "bbox": [
+            0.18,
+            0.18,
+            0.28,
+            0.24
+          ],
+          "weight": 0.35
+        },
+        {
+          "bbox": [
+            0.24,
+            0.72,
+            0.22,
+            0.18
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Target angle evolution gives theta_0+omega_0*t=2*pi*n_A at the first-class point.",
+      "key_point": "n_A = theta_0/(2*pi) + t/T_0."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Kepler scaling gives T_c/T_0=(a/r_0)^(3/2)=((1+epsilon*cos(phi))/(1-epsilon^2))^(3/2), then substitute t=n_c*T_c.",
+      "key_point": "Substitute period ratio into n_A expression."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_period_ratio.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.52,
+            0.4,
+            0.29,
+            0.2
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.46,
+            0.62,
+            0.21,
+            0.18
+          ],
+          "weight": 0.35
+        },
+        {
+          "bbox": [
+            0.33,
+            0.24,
+            0.11,
+            0.11
+          ],
+          "weight": 0.2
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "n_c*((1+epsilon*cos(phi))/(1-epsilon^2))^(3/2)+theta_0/(2*pi)"
+  }
+}

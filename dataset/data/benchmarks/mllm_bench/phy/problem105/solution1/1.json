@@ -1,0 +1,76 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the glass-hemisphere imaging system described, the two visible images of the luminous strip just touch end to end. Find the distance from the far end A_1 of the strip to the center O of the hemisphere. Answer format: a single numerical value or algebraic expression; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build axial imaging relations for the hemispherical glass body and two visible weak image branches.",
+      "key_point": "Head-to-tail touching of two images provides the closure condition."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2578,
+            0.4028,
+            0.0352,
+            0.1944
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.4453,
+            0.1944,
+            0.1797,
+            0.2222
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.4453,
+            0.5833,
+            0.1797,
+            0.2222
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Substitute given A2 location and source length to solve A1 distance from O.",
+      "key_point": "Return one distance expression."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.234987,
+            0.349708,
+            0.603121,
+            0.313164
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "a_1"
+  }
+}

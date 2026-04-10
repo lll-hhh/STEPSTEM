@@ -1,0 +1,76 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Find the bridge-balance condition and the branch-current relation at balance. Answer format: balance_condition,current_relation in that order; write only the final results, with no units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set galvanometer current to zero so the two bridge middle nodes are equipotential.",
+      "key_point": "Balance uses bridge-arm ratio between left and right paths."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_bridge_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.091444,
+            0.256605,
+            0.248989,
+            0.503512
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.292633,
+            0.205589,
+            0.485137,
+            0.544547
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply KCL to labeled currents on split and merge nodes: branch current through upper and lower side paths is equal.",
+      "key_point": "Current relation gives i2=i3, and the bridge condition gives R1/R6=(R2+R3)/R4."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_current_split.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.022241,
+            0.224443,
+            0.453746,
+            0.652126
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.336866,
+            0.086919,
+            0.603567,
+            0.674307
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "R1*R4/(R6*(R2+R3))"
+  }
+}

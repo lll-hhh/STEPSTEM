@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For an infinitely long straight wire carrying current I along the z-axis, write the magnetic-field vector B at a point whose cylindrical radial distance from the wire is r. Use mu_0 for the vacuum permeability and keep the azimuthal unit-vector notation in ASCII form, such as hat(theta). Answer format: a single algebraic expression. Preserve the ASCII notation style used in the problem, including forms such as hat(theta); do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct the pseudo-3D cylindrical geometry around a straight z-axis wire with radial distance r.",
+      "key_point": "Magnetic field is azimuthal by symmetry."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_axes_wire_loop.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.411189,
+            0.094022,
+            0.05664,
+            0.396183
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.246207,
+            0.513837,
+            0.436324,
+            0.198249
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use Ampere loop around the wire so B is tangential and constant on the circle.",
+      "key_point": "B*2*pi*r=mu_0*I."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rhat_thetahat_B.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.103685,
+            0.645926,
+            0.27843,
+            0.186948
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Map B direction to thetahat and then set curl(A)=B using only Az(r) by axisymmetry.",
+      "key_point": "-dAz/dr=mu_0*I/(2*pi*r)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_ampere_loop.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.177007,
+            0.599048,
+            0.247549,
+            0.198377
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.571851,
+            0.476477,
+            0.154723,
+            0.154209
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Integrate with respect to r to obtain logarithmic Az and choose reference constant by gauge.",
+      "key_point": "Az(r) is proportional to -ln(r)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_vector_potential_Az.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.422028,
+            0.176123,
+            0.067,
+            0.355
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.217161,
+            0.549285,
+            0.233192,
+            0.179837
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "mu_0*I/(2*pi*r)*hat(theta)"
+  }
+}

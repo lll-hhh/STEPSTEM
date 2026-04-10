@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For five equal-mass beads moving in one dimension with elastic collisions, determine the maximum possible number of collisions. Output exactly one integer in plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: inversion-count method via pass-through equivalence for equal masses.",
+      "key_point": "Count maximum label-order inversions instead of counting line intersections."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_velocity_rank_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.124969,
+            0.318213,
+            0.458552,
+            0.231072
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.587218,
+            0.33922,
+            0.261633,
+            0.241576
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Replace each elastic collision by straight pass-through while exchanging labels at crossing.",
+      "key_point": "Physical trajectories are equivalent to free pass-through plus permutation updates."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_swap_vs_passthrough.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.553936,
+            0.3169,
+            0.354083,
+            0.330853
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.090762,
+            0.221058,
+            0.35963,
+            0.347921
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Maximum collisions occur when final order is the complete reverse permutation of initial labels.",
+      "key_point": "Each collision changes inversion count by one, so total collisions equal total inversions."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_reverse_permutation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.089838,
+            0.098957,
+            0.778428,
+            0.347921
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.093536,
+            0.641189,
+            0.779353,
+            0.252079
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For five beads, the number of inversions in reverse order is the number of unordered pairs.",
+      "key_point": "Pair count for n=5 gives the maximum collision count."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_pair_count_triangle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.207249,
+            0.186922,
+            0.374422,
+            0.468709
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "10"
+  }
+}

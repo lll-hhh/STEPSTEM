@@ -1,0 +1,92 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the accelerating crate, determine the maximum admissible acceleration that avoids both sliding and tipping. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Abstract the crate as a rigid block in the x-y frame with corner A as tipping reference.",
+      "key_point": "Use geometric parameters b and h from A to center C."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_xy_block_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.356671,
+            0.375449,
+            0.28,
+            0.4
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply force balance in x and y for the no-sliding condition with friction limit.",
+      "key_point": "Sliding threshold is a<=mu_s*g."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_xy_sliding_limit.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.36,
+            0.28,
+            0.28,
+            0.48
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.418322,
+            0.651007,
+            0.22,
+            0.13
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Take moments about A for the no-tipping condition using mg and inertial ma.",
+      "key_point": "Tipping threshold is a<=g*b/h."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_xy_tipping_limit.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.326664,
+            0.490197,
+            0.255173,
+            0.294099
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Compare sliding and tipping limits and keep the smaller admissible acceleration.",
+      "key_point": "a_max=min(mu_s*g,g*b/h)=min(0.3g,0.1g)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.1*g"
+  }
+}

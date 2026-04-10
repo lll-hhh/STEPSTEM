@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In right triangle ABC with angle A=90 deg, the perpendicular bisector of BC meets AC at D and AC is extended to E with CE=AB. Find only tan(angle ABC) under the condition AD=(1/3)BD. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Fix the base geometric configuration and identify invariant relations.",
+      "key_point": "Start from fixed points, fixed lengths, and fixed right/parallel constraints."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_construct.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.111947,
+            0.208456,
+            0.44,
+            0.62
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add the dynamic or transformed elements required by the problem condition.",
+      "key_point": "Turn textual conditions into explicit segments, points, and angle relations."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_relations.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.083161,
+            0.343848,
+            0.456114,
+            0.306564
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the added relations to lock the decisive constraint chain for the target quantity.",
+      "key_point": "Collapse multiple relations into one computable path."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_lock_constraint.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.089118,
+            0.401473,
+            0.485099,
+            0.246089
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.165898,
+            0.171552,
+            0.239601,
+            0.383373
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Move to the extremal or terminal configuration and keep only the target expression.",
+      "key_point": "Discard all non-target outputs."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_config.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.068386,
+            0.380998,
+            0.504833,
+            0.289367
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(2)"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a Zeeman-slower setup, a collimated beam of 40K atoms moves opposite to a counter-propagating single-frequency laser. Resonant scattering provides deceleration, but the Doppler shift would break resonance as the atoms slow down. The atomic transition frequency shifts linearly with magnetic field with coefficient beta -1.00e10 Hz/T, and the field starts at zero at the entrance where atoms have initial speed. Derive the magnetic-field profile that maintains resonance until near rest, using atom mass 40*u. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set up opposite beam directions and track resonance while atoms slow.",
+      "key_point": "Magnetic field is adjusted to keep scattering effective."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_counterprop_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.18,
+            0.3,
+            0.7,
+            0.38
+          ],
+          "weight": 0.68
+        },
+        {
+          "bbox": [
+            0.06,
+            0.04,
+            0.46,
+            0.2
+          ],
+          "weight": 0.32
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use entrance conditions to remove the offset and connect field change with speed change.",
+      "key_point": "The required field grows as the atoms lose speed."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_resonance_compensation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.28,
+            0.78,
+            0.4
+          ],
+          "weight": 0.58
+        },
+        {
+          "bbox": [
+            0.1,
+            0.05,
+            0.72,
+            0.26
+          ],
+          "weight": 0.42
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use near-constant resonant braking to build a speed profile versus distance.",
+      "key_point": "Speed decreases progressively along the slower length."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_velocity_profile.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.2,
+            0.78,
+            0.62
+          ],
+          "weight": 0.72
+        },
+        {
+          "bbox": [
+            0.52,
+            0.04,
+            0.38,
+            0.18
+          ],
+          "weight": 0.28
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Combine the speed profile with resonance compensation into one compact field profile.",
+      "key_point": "Field rises from the entrance and maintains resonance while slowing."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_field_profile.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.2,
+            0.78,
+            0.62
+          ],
+          "weight": 0.72
+        },
+        {
+          "bbox": [
+            0.44,
+            0.04,
+            0.44,
+            0.18
+          ],
+          "weight": 0.28
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "nu*(sqrt(v_0^2-2*h*nu*Gamma_max*z/(40*u*c))-v_0)/(beta*c)"
+  }
+}

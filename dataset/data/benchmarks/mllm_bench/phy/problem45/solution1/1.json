@@ -1,0 +1,52 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Introduce auxiliary isothermal and adiabatic reference curves, identify area regions, and write W_AB, DeltaU_AB, and Q_AB as area expressions. Output exactly one ASCII line with three semicolon-separated fields in the form W_AB:...;DeltaU_AB:...;Q_AB:...; do not use '=' or any equation form, no Chinese characters, no prose sentence, and no extra text. Answer format: `W_AB:...;DeltaU_AB:...;Q_AB:...`; write only the field labels and values, with no explanatory text, units, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Introduce auxiliary isothermal and adiabatic reference curves and identify area regions.",
+      "key_point": "Introduce auxiliary isothermal."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "input.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.415047,
+            0.262633,
+            0.280282,
+            0.232018
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.31755,
+            0.624875,
+            0.42,
+            0.18
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Map each thermodynamic quantity to the corresponding signed area expression.",
+      "key_point": "Each thermodynamic quantity to the corresponding signed area expression."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "W_AB:A_ABGEA;DeltaU_AB:-A_CBGFC;Q_AB:A_ABGEA-A_CBGFC"
+  }
+}

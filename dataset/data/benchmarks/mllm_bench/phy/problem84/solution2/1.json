@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "3. (60 points) Rolling of a homogeneous rigid thin ring. A homogeneous rigid thin ring has radius $R$ and mass $M$, and rolls on a horizontal ground plane (the $x$-$y$ coordinate plane). Assume the friction coefficient is large enough so that there is no slipping between the ring and the ground at all times. At time $t$, let the angle between the ring plane and the vertical direction (the $z$ direction) be $\\theta(t)$, and let the angle between the line of intersection of the ring plane with the ground and the $x$ direction be $\\phi(t)$. The instantaneous contact point between the ring and the ground has Cartesian coordinates $(x(t), y(t), 0)$, as shown in Fig. 3a. The gravitational acceleration magnitude is $g$. Suppose the ring performs uniform circular motion: the contact point traces a circle of radius $r$ around the $z$ axis at constant speed, with $\\theta(t) = \\theta_0$ (a constant), and $\\phi(t)$ a linear function of time $t$. In the laboratory frame $\\Sigma$, without loss of generality, set $$ \\begin{pmatrix} x(t) \\\\ y(t) \\end{pmatrix} = r \\begin{pmatrix} -\\sin(\\omega t) \\\\ \\cos(\\omega t) \\end{pmatrix} $$ where $\\omega$ is the angular speed to be determined. In the rotating frame $\\Sigma'$ that rotates uniformly about the $z$ axis with angular speed $\\omega$, both $\\theta$ and $\\phi$ are constants, and the ring undergoes fixed-axis rotation about its central axis perpendicular to the ring plane. In frame $\\Sigma'$, each mass element of the ring experiences centrifugal and Coriolis forces. Treat the ring as a collection of infinitesimal elements, and find the net torque about the ring's center of mass due to the centrifugal force, $\\boldsymbol{\\tau}_{\\text{centrifugal}}$, and due to the Coriolis force, $\\boldsymbol{\\tau}_{\\text{Coriolis}}$ (the result may contain the still-undetermined $\\omega$). Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Direct ring-element integration method: write the force on each ring element in Σ', integrate the elemental torque around the whole ring, and add the two resulting collinear totals.",
+      "key_point": "This route avoids the inertia-tensor identity used in solution1 and works directly with the ring element dm and its lever arm ρ."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_element_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.485305,
+            0.168405,
+            0.337864,
+            0.623124
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Choose the ring center O as torque origin. For every element dm, the position vector is ρ in the tilted ring plane, while Ω=ωe_z and the symmetry axis is n. By symmetry, the net torque can only point along e_z×n.",
+      "key_point": "The whole integral reduces to the single axial direction e_z×n before evaluating any force contribution."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_centrifugal_pair_sum.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.511934,
+            0.180575,
+            0.302913,
+            0.61217
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For centrifugal force, the part coming from the center-of-mass position has zero torque about O. Only the Ω action on the element offset ρ survives, and opposite elements cancel all components except the e_z×n part. The ring integral gives τ_cf=(M*R^2*ω^2/2)*sin(θ_0)*cos(θ_0).",
+      "key_point": "The factor 1/2 comes from averaging the squared in-plane projection around the complete ring."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_coriolis_element_sum.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.511102,
+            0.178141,
+            0.325381,
+            0.572008
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For Coriolis force, each element has v from the ring spin in Σ'. Using the no-slip spin magnitude |ω_s|=r*ω/R, the integral of dτ_cor=ρ×[-2dm(Ω×v)] again leaves only the e_z×n component and gives τ_cor=M*R*r*ω^2*cos(θ_0).",
+      "key_point": "This contribution comes from the circulating tangential velocity field rather than from the static geometry term."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_collinear_sum.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.51776,
+            0.179358,
+            0.331207,
+            0.640162
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "The two total torques are collinear, so they add directly: τ_total=τ_cor+τ_cf. Factoring M*R*ω^2*cos(θ_0) gives the required compact result.",
+      "key_point": "The final bracket is r+R*sin(θ_0)/2."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "M*R*omega^2*cos(theta_0)*(r+R*sin(theta_0)/2)"
+  }
+}

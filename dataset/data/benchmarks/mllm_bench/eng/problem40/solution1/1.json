@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the same cycle with compressor and expander efficiencies both equal to 0.85, compute expander theoretical specific work for no-regeneration and regeneration cases. Output exactly two decimal numbers separated by one comma as no_regen,regen, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Apply efficiency-adjusted expansion states for both configurations.",
+      "key_point": "Efficiency-adjusted expansion states for both configurations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.16,
+            0.383,
+            0.567,
+            0.568
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up relation for expander specific work in no-regen and regen cases."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.221,
+            0.221,
+            0.567,
+            0.567
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute and output the two expander specific-work values.",
+      "key_point": "Compute expander work for no-regen and regen."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "67.42,41.80"
+  }
+}

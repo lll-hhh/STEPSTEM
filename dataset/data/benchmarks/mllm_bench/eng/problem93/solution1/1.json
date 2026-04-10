@@ -1,0 +1,74 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Find the diode DC operating-point voltage V_DQ and the RMS AC current I_rms. Answer format: V_DQ,I_rms in that order; write only the final results, with no units, explanatory text, or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "For DC bias (u_i=0), use KVL in the resistor-source-diode loop. With diode voltage u_D and current i_D (mA), the load line is\n\nu_D = 2 - 500 i_D(A) = 2 - 0.5 i_D(mA).\n\nSo the intercepts are: when u_D=0, i_D=4 mA; when i_D=0, u_D=2 V.",
+      "key_point": "Build the DC load-line equation from the 2 V source and 500 ohm resistor."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.383314,
+            0.176001,
+            0.583072,
+            0.626645
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.095119,
+            0.219983,
+            0.347667,
+            0.620451
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Plot the load line together with the diode i-v curve and read the intersection Q. From the given graph, the operating point is approximately\n\nU_DQ ≈ 0.70 V,\nI_DQ ≈ 2.6 mA.",
+      "key_point": "The DC operating point is the intersection of the load line and the diode characteristic."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.145224,
+            0.19725,
+            0.373861,
+            0.585046
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "At room temperature U_T ≈ 26 mV, so the diode small-signal resistance at Q is\n\nr_d = U_T / I_DQ = 26 mV / 2.6 mA = 10 ohm.\n\nSince C is an AC short, the diode small-signal voltage RMS equals u_i=10 mV. Therefore\n\nI_d(rms) = u_i / r_d = 10 mV / 10 ohm = 1.0 mA.",
+      "key_point": "Use r_d=U_T/I_DQ, then divide the AC voltage RMS by r_d to get diode AC current RMS."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.70,1.00"
+  }
+}

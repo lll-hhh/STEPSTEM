@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "As shown in the figure, in triangle ABC, AB > AC. Two points X and Y inside triangle ABC both lie on the angle bisector of angle BAC, and satisfy angle ABX = angle ACY. Let the extension of BX intersect segment CY at point P. The circumcircle omega_1 of triangle BPY and the circumcircle omega_2 of triangle CPX intersect at P and another point Q. Find the measure of angle APQ. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "In this construction, Q is taken on the extension of AP, so A, P, and Q are collinear.",
+      "key_point": "Once A, P, and Q lie on one line, the target angle is a straight-angle check at P."
+    },
+    "step_2": {
+      "modality": "text",
+      "content": "At vertex P, angle APQ is formed by ray PA and ray PQ.",
+      "key_point": "Because A, P, and Q are collinear, ray PA and ray PQ are opposite rays on line AQ."
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3_add_A_X_Y.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.362142,
+            0.090277,
+            0.312899,
+            0.713514
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "An angle formed by a pair of opposite rays is a straight angle.",
+      "key_point": "Every straight angle measures 180 degrees."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_add_P.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.402087,
+            0.241213,
+            0.265465,
+            0.386694
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Therefore angle APQ = 180 deg.",
+      "key_point": "So the final answer is 180."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7_angle_APQ.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.467587,
+            0.298753,
+            0.189146,
+            0.347865
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "180"
+  }
+}

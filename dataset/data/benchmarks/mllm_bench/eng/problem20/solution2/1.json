@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the moving square observed from frame S, derive the expression of angle ABC in terms of phi and beta. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: direction-vector Lorentz mapping with dot-product angle extraction.",
+      "key_point": "Map two orthogonal edge directions from S' to S, then recover ∠ABC from vector angle."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_basis_in_sprime.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.396819,
+            0.232848,
+            0.412841,
+            0.576244
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Keep Δy unchanged and scale only Δx by sqrt(1-β^2) at equal time in frame S.",
+      "key_point": "Both edge directions are transformed by the same anisotropic axis scaling."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_mapped_vectors_in_s.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.426166,
+            0.238298,
+            0.270891,
+            0.622573
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the mapped vectors u and w to compute the included angle directly from the dot-product definition.",
+      "key_point": "This avoids the α+β split and solves the target angle in one vector-angle step."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_dot_product_angle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.352136,
+            0.557999,
+            0.448041,
+            0.266533
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.228865,
+            0.228307,
+            0.353811,
+            0.409617
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Rewrite directional slopes from (φ,β) and convert the vector-angle result into the canonical arctan output form.",
+      "key_point": "Algebraic conversion gives the same required SingleExpr in phi and beta variables."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_angle_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.314081,
+            0.258146,
+            0.402533,
+            0.489675
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Return only one expression token sequence as the final answer.",
+      "key_point": "No extra text, no equality sign, and no multi-result output."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "arctan(tan(phi)/sqrt(1-beta^2))+arctan(cot(phi)/sqrt(1-beta^2))"
+  }
+}

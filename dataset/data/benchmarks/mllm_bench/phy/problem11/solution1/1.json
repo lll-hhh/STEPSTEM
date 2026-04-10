@@ -1,0 +1,109 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-car sticking collision, compute the kinetic-energy change DeltaT of the system under the stated data. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use momentum conservation for the two-car system in the ground inertial frame.",
+      "key_point": "Total momentum remains unchanged before and after sticking collision."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_ground_momentum.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1417,
+            0.1684,
+            0.235,
+            0.1737
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.5667,
+            0.1553,
+            0.2625,
+            0.1868
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.297503,
+            0.597326,
+            0.275,
+            0.2316
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute kinetic energies before and after sticking to obtain the ground-frame energy change.",
+      "key_point": "Inelastic collision causes kinetic-energy loss."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Transform to the train inertial frame moving with m1 and recompute relative velocities.",
+      "key_point": "Momentum conservation is still valid in this inertial frame."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step6_train_frame.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2,
+            0.1711,
+            0.1,
+            0.2184
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.5333,
+            0.1553,
+            0.2958,
+            0.1868
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.2333,
+            0.5921,
+            0.3417,
+            0.2342
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Compute train-frame values v2* = v2-v1 = -50 m/s and vg* = vg-v1 = -100/3 m/s, then evaluate deltaT*.",
+      "key_point": "deltaT* = (1/2)(m1+m2)vg*^2 - (1/2)m2(v2*)^2 = -2500000/3."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Ground frame and train frame give the same kinetic-energy loss.",
+      "key_point": "deltaT_ground = deltaT_train = -2500000/3."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-2500000/3"
+  }
+}

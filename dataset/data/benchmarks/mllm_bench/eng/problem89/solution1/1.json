@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Build the following structural model: a horizontal rigid beam is supported by two vertical steel rods of length l at points A and C on the beam, with AC=a and CB=a, so C is the midpoint of AB. A third vertical steel rod is above the right end B; its upper end is fixed to a rigid top plate, but this rod is shorter than the first two by delta, so after initial assembly there is a vertical gap delta between its lower end and point B of the beam. An axial strain gauge is attached on rod 3. After assembly, the gauge reading is epsilon1. Then a downward vertical load F is applied at B, so rod 3 contacts the beam and carries force; the gauge reading becomes epsilon2. All three rods are linear elastic, with elastic modulus E and cross-sectional area A. Determine delta and F from the two strain readings. Answer format: delta|F, in this order, separated by |, with no explanatory text or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Stage I (no external F): equilibrium gives N1=N3, N2=2N1. Compatibility is (delta-Delta_l3)+Delta_l1=2(Delta_l1+Delta_l2). With Delta_li=Ni*l/(E*A), get N1+2N2+N3=delta*E*A/l.",
+      "key_point": "Stage I uses equilibrium + compatibility."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.717182,
+            0.103657,
+            0.26903,
+            0.587672
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.142767,
+            0.501311,
+            0.808544,
+            0.335992
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.72,
+            0.18,
+            0.22,
+            0.755531
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Stage I equilibrium of the rigid beam: from moments, N1=N3 and N2=2N1.",
+      "key_point": "Preload stage force relation: N1:N2:N3 = 1:2:1."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute N2=2N1 and N3=N1 into N1+2N2+N3=delta*E*A/l: 6N3=delta*E*A/l, so N3=delta*E*A/(6l).",
+      "key_point": "N3=delta*E*A/(6l)."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "From epsilon1=N3/(E*A), substitute N3=delta*E*A/(6l), then delta=6*l/epsilon1 (using the given convention).",
+      "key_point": "delta=6*l/epsilon1."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Stage II: equilibrium gives N3'=5F/6, and strain gives N3'=E*A*(2*epsilon2-epsilon1).",
+      "key_point": "Two expressions for N3'."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Set 5F/6=E*A*(2*epsilon2-epsilon1), then F=6*E*A*(2*epsilon2-epsilon1)/5. Final: delta=6*l/epsilon1, F=6*E*A*(2*epsilon2-epsilon1)/5.",
+      "key_point": "Final delta and F."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "6*l/epsilon1|6*E*A*(2*epsilon2-epsilon1)/5"
+  }
+}

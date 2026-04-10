@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the ray entering the semicylindrical medium, determine the allowed range of incident-angle parameter phi that satisfies the refraction-exit condition. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Reverse escape-cone method: fix the internal ray direction first, then build the whole fan of curved-surface normals that still allow transmission.",
+      "key_point": "This route starts from the exit-side admissible normal fan instead of forward-tracing the boundary hit."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_entry_reference.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.167022,
+            0.144276,
+            0.521006,
+            0.557443
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The entry face fixes one internal reference direction. That direction is then held fixed while the exit point moves along the curved boundary.",
+      "key_point": "Only the local surface normal changes from one boundary point to another."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_escape_cone_fan.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.41,
+            0.37,
+            0.3,
+            0.42
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "At the transmission limit, the incidence angle equals the critical angle, so the two limiting normals sit on the two edges of the 45° escape cone around the internal ray.",
+      "key_point": "Every transmitting exit point must lie between those two limiting normals."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_radial_normal_window.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4,
+            0.37,
+            0.29,
+            0.42
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For a circular boundary, each outward normal is radial. Therefore the admissible normal fan and the admissible boundary arc are the same angular window, read directly by the surface parameter φ.",
+      "key_point": "The highlighted arc is the complete set of allowed exit positions."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_phi_interval_window.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.373552,
+            0.368227,
+            0.336439,
+            0.456057
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Reading the lower and upper edges of that boundary window in the problem's φ notation gives the final interval.",
+      "key_point": "The admissible φ range is exactly the transmissive arc written as angle bounds."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "75<phi<165"
+  }
+}

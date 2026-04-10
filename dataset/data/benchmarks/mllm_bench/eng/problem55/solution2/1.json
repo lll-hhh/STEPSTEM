@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Split the figure into stages and derive overall gain and equivalent resistances for the multi-stage amplifier. Output exactly one ASCII line with three semicolon-separated fields in the form Au:...;Ri:...;Ro:...; do not use '=' or any equation form, no Chinese characters, no prose sentence, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: signal-path tracing plus test-source method for R_i and R_o.",
+      "key_point": "Use one forward gain channel and two independent port tests."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_signal_path_trace.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.088303,
+            0.168405,
+            0.313654,
+            0.576876
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.436287,
+            0.223171,
+            0.397919,
+            0.355375
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Trace only the incremental forward route from differential input to output emitter follower to define A_u.",
+      "key_point": "Gain extraction is done by path tracing, not by upper/lower panel lookup."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_input_test_source.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.21158,
+            0.287674,
+            0.489987,
+            0.419879
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply an input test source and read R_i from the symmetric two-branch current split at the entrance node.",
+      "key_point": "Symmetry gives the input equivalent without reusing the panel-2 template."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_output_test_source.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.536157,
+            0.256031,
+            0.209103,
+            0.657201
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Set v_i to zero, inject output test current, then map the β-controlled branch to R_o and keep the required token order.",
+      "key_point": "Port test at output provides R_o directly in the target format."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_metric_merge_map.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.042269,
+            0.253597,
+            0.220806,
+            0.443002
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.275559,
+            0.128242,
+            0.420546,
+            0.58783
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.709369,
+            0.156234,
+            0.259818,
+            0.623124
+          ],
+          "weight": 0.333333
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Au:Au1*Au2*Au3;Ri:2*rbe1;Ro:(rbe4+R4)/(1+beta4)"
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "## 5.1 Structure and Properties of Ice As shown in Fig. 5.1(a), early studies considered the lattice parameters of ice to be $a=0.782\\ \\mathrm{nm}$ and $c=0.736\\ \\mathrm{nm}$. However, with the development of scientific techniques, neutron diffraction results for natural ice confirmed a certain degree of disorder in the hydrogen distribution. The actual structure of natural ice is shown in Fig. 5.1(b). It can be seen that hydrogen atoms are distributed tetrahedrally around oxygen atoms, but each of these positions has an occupancy of $1/2$, which means water molecules can adopt different orientations. Natural ice still belongs to the hexagonal crystal system, with lattice parameters $a=0.451\\ \\mathrm{nm}$ and $c=0.736\\ \\mathrm{nm}$. In the ice structure shown in Fig. 5.1, how many possible orientations can a single water molecule have?. Answer format: a single integer; do not include units, explanatory text, or an equals sign. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: ordered-pair counting method on tetrahedral bond directions.",
+      "key_point": "Count ordered placements first, then remove swap duplicates."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_bond_directions.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.229834,
+            0.197689,
+            0.594389,
+            0.671115
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Choose the first proton direction: there are 4 possible tetrahedral bonds.",
+      "key_point": "First choice count = 4."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_ordered_pairs.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.077262,
+            0.331342,
+            0.169795,
+            0.253392
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.461278,
+            0.34841,
+            0.157943,
+            0.228446
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.768086,
+            0.372043,
+            0.065356,
+            0.36105
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For each first choice, the second proton can occupy any of the other 3 bonds, so ordered assignments are 4 脳 3 = 12. Swapping the two identical protons does not create a new molecular orientation, so divide by 2.",
+      "key_point": "Unique orientations = (4 脳 3) / 2 = 6."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_unique_orientations.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.065431,
+            0.598468,
+            0.15621,
+            0.129373
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.31332,
+            0.631999,
+            0.10711,
+            0.158862
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.613774,
+            0.62806,
+            0.078971,
+            0.169365
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.075499,
+            0.168541,
+            0.093495,
+            0.17593
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.357798,
+            0.165916,
+            0.12708,
+            0.177243
+          ],
+          "weight": 0.166667
+        },
+        {
+          "bbox": [
+            0.602882,
+            0.164603,
+            0.066263,
+            0.245514
+          ],
+          "weight": 0.166667
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "6"
+  }
+}

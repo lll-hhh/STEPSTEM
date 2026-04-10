@@ -1,0 +1,101 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For synchrotron radiation observed along the tangent direction, compute the observed pulse duration DeltaT for the given numerical parameters. Output exactly one scientific-notation expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a scientific-notation number; write only the value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: beam-sweep timing with arrival-time compression. Track how the narrow radiation cone sweeps across the tangent observer instead of starting from arc-length subtraction.",
+      "key_point": "Use beam-window sweep plus flight-time compression."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_beam_window.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.775851,
+            0.196755,
+            0.214574,
+            0.258284
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.246054,
+            0.172456,
+            0.260767,
+            0.342229
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The observer receives light only while the line of sight stays inside the beaming window. That window has angular width about 2/γ around the instantaneous velocity direction.",
+      "key_point": "The pulse starts and ends when the beam axis enters and leaves the tangent line."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_angular_sweep.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.169174,
+            0.2176,
+            0.39869,
+            0.465265
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "The beam axis rotates with orbital angular speed ω=βc/R, so the source emission interval is the sweep angle divided by that speed: Δt_emit=(2/γ)/ω=2R/(βγc).",
+      "key_point": "Turn the beaming angle directly into a source-time interval."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_arrival_compression.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.121403,
+            0.320157,
+            0.304718,
+            0.330699
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.453663,
+            0.310302,
+            0.468797,
+            0.477434
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The later photon starts closer to the distant observer by x, so the arrival interval is shorter than the emission interval: ΔT=Δt_emit-x/c. With x≈2R/γ and β≈1, this reduces to ΔT=R/(cγ^3), then the given E and B values give the same numerical result as solution1.",
+      "key_point": "Arrival compression converts the sweep time into the observed pulse width."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "9.51*10^-20"
+  }
+}

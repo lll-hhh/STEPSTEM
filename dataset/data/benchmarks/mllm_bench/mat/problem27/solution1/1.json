@@ -1,0 +1,101 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "As shown in the figure, in the isosceles triangle ABC, AB = BC. Let I be the incenter, M be the midpoint of BI, and P be a point on side AC satisfying AP = 3PC. A point H on the extension of PI satisfies MH perpendicular PH. Let Q be the midpoint of the minor arc AB on the circumcircle of triangle ABC. Find the degree of angle BHQ. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Let N be the midpoint of AC. Since AP = 3PC, point P is the midpoint of NC. In the isosceles triangle, B, I, N are collinear and CN is perpendicular to BI. Because Q is the midpoint of the minor arc AB, points C, I, Q are collinear and QI = QB.",
+      "key_point": "Convert the given ratio and arc-midpoint condition into midpoint and perpendicular facts."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_arc_midpoint_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1002,
+            0.0918,
+            0.3979,
+            0.4732
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.5732,
+            0.455,
+            0.072,
+            0.4708
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "As M is the midpoint of BI and QI = QB, line QM is the perpendicular bisector of BI, so QM is perpendicular to BI. Since CN is also perpendicular to BI, we get QM parallel to CN.",
+      "key_point": "The key structural relation is QM parallel to CN."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Compare triangles HMQ and HIB. Because H, I, P are collinear and MH is perpendicular to PH, angle HMQ equals angle HIB. Also angle IHM equals angle INP equals 90 degrees, and HM/HI = NP/NI = MQ/IB from P being the midpoint of NC together with QM parallel to CN.",
+      "key_point": "These angle and ratio relations give triangle HMQ similar to triangle HIB."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_similarity_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2532,
+            0.0993,
+            0.1605,
+            0.4582
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.1062,
+            0.3509,
+            0.3859,
+            0.2066
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "From the similarity, angle HQM equals angle HBI, so H, M, B, Q are concyclic. Since B, M, I are collinear and QM is perpendicular to BI, angle BMQ = 90 degrees. Therefore angle BHQ = 90 degrees.",
+      "key_point": "The cyclic quadrilateral transfers the right angle at M to the target angle at H."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7_right_angle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0982,
+            0.0893,
+            0.3234,
+            0.4782
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "90"
+  }
+}

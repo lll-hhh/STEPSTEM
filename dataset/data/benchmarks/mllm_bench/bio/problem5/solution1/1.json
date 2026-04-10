@@ -1,0 +1,96 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "The chromophore of green fluorescent protein is formed from intramolecular cyclization, dehydration, and oxidation of amino-acid residues. When tyrosine is mutated to histidine, the absorption peak blue-shifts. Draw the corresponding chromophore skeletal structure (stereochemistry not required). Answer format: one final result only, in the form required by the problem; do not include any extra explanatory text. Answer format: one structural diagram only, with no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify the unmutated chromophore scaffold and isolate the side aromatic unit subject to substitution.",
+      "key_point": "The imidazolinone core and methine bridge are preserved."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_tyr_chromophore.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.22,
+            0.3,
+            0.52
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.46,
+            0.2,
+            0.32,
+            0.55
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Replace the tyrosine phenyl unit with a histidine imidazole unit while preserving conjugation.",
+      "key_point": "Only the left aromatic fragment changes from phenyl to imidazole."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_histidine_substitution.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.24,
+            0.26,
+            0.48
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.46,
+            0.2,
+            0.32,
+            0.55
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Finalize the histidine-mutated GFP chromophore skeletal structure.",
+      "key_point": "Target structure is the imidazole-substituted chromophore."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_final_histidine_chromophore.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.2,
+            0.66,
+            0.54
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

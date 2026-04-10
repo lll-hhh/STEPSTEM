@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Model the iron sphere as an equivalent dipole and derive the far-field magnetic-induction vector at observation angle phi. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: magnetic scalar-potential gradient method for the equivalent dipole.",
+      "key_point": "Derive B_i from potential derivatives instead of inverse-square component expansion."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_dipole_axis.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.171269,
+            0.457864,
+            0.243691,
+            0.294386
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use spherical coordinates at the observer, with polar angle ? measured from the dipole axis and far-field condition d >> a.",
+      "key_point": "Keep only dipole-order terms that scale as d^(-3)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_observation_direction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.281268,
+            0.332928,
+            0.57818,
+            0.325697
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Write dipole potential ?_m proportional to cos(?)/d^2, then compute B_r and B_? via the spherical gradient operator.",
+      "key_point": "The gradient directly produces radial and polar components."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_a_decomposition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.135109,
+            0.446282,
+            0.389492,
+            0.302108
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Insert the source scaling with K_i and B_e, giving B_r proportional to 2*cos(?) and B_? proportional to sin(?).",
+      "key_point": "Both terms share the common prefactor B_e*m*K_i/d^3."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_component_vectors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.637479,
+            0.122896,
+            0.3,
+            0.3
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Assemble the vector in the (e_r, e_?) basis to obtain the far-field induction expression.",
+      "key_point": "Vector superposition in spherical basis yields the final B_i."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "B_e*m*K_i*(2*cos(phi)*e_r+sin(phi)*e_phi)/d^3"
+  }
+}

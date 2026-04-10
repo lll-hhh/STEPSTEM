@@ -1,0 +1,121 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For Compton scattering, find the expression for the maximum kinetic energy of the recoil electron in terms of h, nu, m_0, and c. Answer format: a single algebraic expression. The variable names may only be h, nu, m_0, and c; use ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct the momentum-vector geometry step by step: incident momentum p, scattered-photon momentum p', and recoil-electron momentum p_e.",
+      "key_point": "Build the geometric relation among p, p', and p_e."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_p.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.125192,
+            0.400737,
+            0.43,
+            0.2
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add p' and p_e to obtain the vector relation p = p' + p_e with angle phi.",
+      "key_point": "Momentum conservation in vector form: p = p' + p_e."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_pprime.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.512671,
+            0.16782,
+            0.37404,
+            0.290202
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.07,
+            0.42,
+            0.41,
+            0.2
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_add_pe_phi.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.505559,
+            0.104167,
+            0.336703,
+            0.349768
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.485034,
+            0.522765,
+            0.359599,
+            0.322626
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Use energy conservation h*nu + m_0*c^2 = h*nu' + m_0*c^2 + E_k, together with p_e^2 = (E_k^2 + 2*E_k*m_0*c^2)/c^2 and the momentum equations, then solve jointly for E_k.",
+      "key_point": "Combine energy conservation, momentum conservation, and relativistic relation."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "After algebra, E_k = [2((h*nu)^2/(m_0*c^2))*cos^2(phi)] / [(1 + h*nu/(m_0*c^2))^2 - (h*nu/(m_0*c^2))^2*cos^2(phi)].",
+      "key_point": "Closed-form expression for E_k."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_phi_zero_for_max.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.435184,
+            0.400303,
+            0.47,
+            0.25
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Set phi = 0 so cos(phi) = 1. Then E_k reaches its maximum value: (E_k)_max = 2(h*nu)^2 / (m_0*c^2 + 2*h*nu).",
+      "key_point": "Set phi = 0 so cos(phi) = 1. Then E_k reaches its maximum value: (E_k)_max = 2(h*nu)^2 / (m_0*c^2 + 2*h*nu)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*(h*nu)^2/(m_0*c^2+2*h*nu)"
+  }
+}

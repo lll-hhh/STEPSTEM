@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the moving observer and fixed source geometry, derive the accumulated-heard-cycles function N(t). Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: retarded-emission-time mapping for phase counting.",
+      "key_point": "Count heard cycles from source phase at emission time τ(t), not from instantaneous Doppler projection."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_receive_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.414367,
+            0.178708,
+            0.306994,
+            0.433009
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use arrival-time relation t = τ + r(t)/u with r(t)=sqrt(L^2+v^2*t^2).",
+      "key_point": "The receive time is emission time plus propagation delay."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_time_mapping.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.353458,
+            0.350529,
+            0.348081,
+            0.438761
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Cycles emitted up to τ are ν₀·τ, so heard-cycle increment is N(t)=ν₀·(τ(t)-τ(0)).",
+      "key_point": "Set N(0)=0 by subtracting the initial retarded phase."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_phase_count_map.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.279622,
+            0.236387,
+            0.478758,
+            0.560637
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "With τ(t)=t-r(t)/u and τ(0)=-L/u, obtain N(t)=ν₀·(t-(r(t)-L)/u).",
+      "key_point": "Substitute r(t)=sqrt(L^2+v^2*t^2) to reach the required closed form."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_path_term_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.270353,
+            0.687096,
+            0.355591,
+            0.14657
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.209902,
+            0.2767,
+            0.529238,
+            0.309053
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Return only the SingleExpr form of N(t).",
+      "key_point": "Keep one expression with no additional text."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(t-(sqrt(L^2+v^2*t^2)-L)/u)*nu_0"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a free-electron laser, electrons move through an undulator with period Lambda = 1 mm and emit X-ray laser with wavelength lambda = 4.00 A along +z. Given m_e = 9.11*10^-31 kg and e = 1.60*10^-19 C, find the accelerator voltage U. Express the answer in scientific notation with two decimal places. Answer format: a scientific-notation number rounded to two decimal places; do not include units, explanatory text, or an equals sign. Answer format: a scientific-notation number rounded to two decimal places; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the undulator-period and radiation-wavelength relation to place v0 very close to c.",
+      "key_point": "v0/c is obtained from Λ and λ."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_lambda_ratio.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.160028,
+            0.172682,
+            0.772989,
+            0.485163
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply relativistic kinetic-energy relation eU = (γ-1)m_e c^2.",
+      "key_point": "Use the v0/c result to evaluate γ."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_v0_near_c.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.680034,
+            0.371102,
+            0.238835,
+            0.335392
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_energy_balance.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.167573,
+            0.296099,
+            0.695541,
+            0.304366
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Substitute constants and compute the voltage magnitude.",
+      "key_point": "Final result is around 5.73e8."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step8_final_u.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.390014,
+            0.248649,
+            0.24,
+            0.56
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "5.73e8"
+  }
+}

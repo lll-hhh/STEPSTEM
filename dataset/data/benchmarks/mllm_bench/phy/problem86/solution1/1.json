@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "# Gravitational Lensing and Einstein Ring According to general relativity, when light passes near a massive spherically symmetric celestial body, it bends slightly toward the body by an angle epsilon. The angle epsilon is the deflection angle between the outgoing ray and the incoming ray. Given epsilon=R/r, where R=4*G*M/c^2, r is the closest approach distance from the light ray to the body center, G is the gravitational constant, M is the mass of the body, and c is the speed of light in vacuum. Physical constants and units: - c=3*10^8 m*s^-1 - G=6.67*10^-11 N*m^2*kg^-2 - 1 pc=3.09*10^16 m - 1 mas=10^-3*(2*pi/(360*3600)) rad As shown in Figure 2a, when the background source, lens center, and telescope are exactly collinear, the telescope observes an Einstein ring. It is known that the observed Einstein-ring angular radius is theta_E=31.53 mas, the lens distance is d_L=5.52 pc, and the source distance is d_S=2*10^3 pc. Find the mass of the nearby white dwarf. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single mass expression or numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the aligned Einstein-ring geometry with source, lens, and observer on one line.",
+      "key_point": "Use beta=0 and thin-lens approximation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_aligned_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4,
+            0.37,
+            0.2,
+            0.26
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use epsilon=R/r and R=4*G*M/c^2 with r=d_L*theta_E.",
+      "key_point": "Express deflection by M and theta_E."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_single_deflected_ray.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.43,
+            0.31,
+            0.45,
+            0.34
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply lens equation for beta=0 and obtain theta_E^2=4*G*M*(d_S-d_L)/(c^2*d_S*d_L).",
+      "key_point": "Solve directly for M."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_symmetric_rays.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.42,
+            0.24,
+            0.47,
+            0.52
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Substitute theta_E=31.53 mas, d_L=5.52 pc, d_S=2*10^3 pc, c and G in SI.",
+      "key_point": "Convert mas and parsec to radians and meters before calculation."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_ring_configuration.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.38,
+            0.31,
+            0.27,
+            0.38
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Compute one terminal value and denote the white-dwarf mass by mwd.",
+      "key_point": "mwd=1.348193e30."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "mwd"
+  }
+}

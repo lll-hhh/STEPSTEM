@@ -1,0 +1,57 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For an infinitely long straight wire with uniform linear charge density lambda, write the electric-field magnitude E at a point P located distance r from the wire in vacuum. Use epsilon_0 for the vacuum permittivity. Answer format: a single algebraic expression. Preserve the ASCII notation style and variable naming used in the problem; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use cylindrical symmetry and choose a coaxial Gaussian cylinder of radius r and length L around the infinite line charge.",
+      "key_point": "On the curved surface, E is constant and radial."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_wire_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.09751,
+            0.168541,
+            0.162275,
+            0.689278
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.367968,
+            0.336594,
+            0.535922,
+            0.334792
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply Gauss's law: E*(2*pi*r*L) = (lambda*L)/epsilon_0, because enclosed charge is lambda*L and flux through end caps is zero.",
+      "key_point": "Only the curved cylindrical area contributes to flux."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Cancel L and solve for the field magnitude to get E = lambda/(2*pi*epsilon_0*r).",
+      "key_point": "Final expression matches the required ASCII variable notation."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "lambda/(2*pi*epsilon_0*r)"
+  }
+}

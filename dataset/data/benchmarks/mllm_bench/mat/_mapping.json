@@ -1,0 +1,152 @@
+[
+  {
+    "new_id": "mat/problem0",
+    "old_path": "data/benchmarks/mllm_bench/math1/1",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem0"
+  },
+  {
+    "new_id": "mat/problem1",
+    "old_path": "data/benchmarks/mllm_bench/math1/2",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem1"
+  },
+  {
+    "new_id": "mat/problem2",
+    "old_path": "data/benchmarks/mllm_bench/math1/3",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem2"
+  },
+  {
+    "new_id": "mat/problem3",
+    "old_path": "data/benchmarks/mllm_bench/math1/4",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem3"
+  },
+  {
+    "new_id": "mat/problem4",
+    "old_path": "data/benchmarks/mllm_bench/math1/5",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem4"
+  },
+  {
+    "new_id": "mat/problem5",
+    "old_path": "data/benchmarks/mllm_bench/math1/6",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem5"
+  },
+  {
+    "new_id": "mat/problem6",
+    "old_path": "data/benchmarks/mllm_bench/math1/7",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem6"
+  },
+  {
+    "new_id": "mat/problem7",
+    "old_path": "data/benchmarks/mllm_bench/math1/8",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem7"
+  },
+  {
+    "new_id": "mat/problem8",
+    "old_path": "data/benchmarks/mllm_bench/math1/9",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem8"
+  },
+  {
+    "new_id": "mat/problem9",
+    "old_path": "data/benchmarks/mllm_bench/math1/10",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem9"
+  },
+  {
+    "new_id": "mat/problem10",
+    "old_path": "data/benchmarks/mllm_bench/mathbyzyk/p1",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem10"
+  },
+  {
+    "new_id": "mat/problem11",
+    "old_path": "data/benchmarks/mllm_bench/mathbyzyk/p2",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem11"
+  },
+  {
+    "new_id": "mat/problem12",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/141",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem12"
+  },
+  {
+    "new_id": "mat/problem13",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/142",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem13"
+  },
+  {
+    "new_id": "mat/problem14",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/144",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem14"
+  },
+  {
+    "new_id": "mat/problem15",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/145",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem15"
+  },
+  {
+    "new_id": "mat/problem16",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/146",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem16"
+  },
+  {
+    "new_id": "mat/problem17",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/147",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem17"
+  },
+  {
+    "new_id": "mat/problem18",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/148",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem18"
+  },
+  {
+    "new_id": "mat/problem19",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/149",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem19"
+  },
+  {
+    "new_id": "mat/problem20",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/150",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem20"
+  },
+  {
+    "new_id": "mat/problem21",
+    "old_path": "data/benchmarks/mllm_bench/mathcjt/151",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem21"
+  },
+  {
+    "new_id": "mat/problem22",
+    "old_path": "data/benchmarks/mllm_bench/mathytr/problem1",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem22"
+  },
+  {
+    "new_id": "mat/problem23",
+    "old_path": "data/benchmarks/mllm_bench/mathytr/problem2",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem23"
+  },
+  {
+    "new_id": "mat/problem24",
+    "old_path": "data/benchmarks/mllm_bench/mathytr/problem3",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem24"
+  },
+  {
+    "new_id": "mat/problem25",
+    "old_path": "data/benchmarks/mllm_bench/mathytr/problem4",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem25"
+  },
+  {
+    "new_id": "mat/problem26",
+    "old_path": "data/benchmarks/mllm_bench/mathytr/problem5",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem26"
+  },
+  {
+    "new_id": "mat/problem27",
+    "old_path": "data/benchmarks/mllm_bench/mathytr/problem6",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem27"
+  },
+  {
+    "new_id": "mat/problem28",
+    "old_path": "data/benchmarks/mllm_bench/mathytr/problem7",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem28"
+  },
+  {
+    "new_id": "mat/problem29",
+    "old_path": "data/benchmarks/mllm_bench/mathytr/problem8",
+    "new_path": "data/benchmarks/mllm_bench/mat/problem29"
+  }
+]

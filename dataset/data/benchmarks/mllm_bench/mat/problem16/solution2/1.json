@@ -1,0 +1,105 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In triangle ABC, AB=AC and point D lies on side BC with D not equal to B or C. Rotate segment AD counterclockwise around A by alpha to get segment AE, and connect DE. For alpha=angle BAC=90 degrees and BD<CD, draw DG perpendicular to BC through D and let DG meet the extension of CA at G. Connect BG. Point F is the midpoint of DE, and point H is the midpoint of BG. Connect FH and CF. Express the quantitative relation between FH and CF. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the complex-plane method. Put A=i, B=-1, and C=1, so triangle ABC is an isosceles right triangle and every 90-degree rotation is multiplication by i.",
+      "key_point": "Encode the 90-degree rotation by complex multiplication instead of using Cartesian coordinates for every point."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_complex_frame.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1354,
+            0.1278,
+            0.6042,
+            0.7056
+          ],
+          "weight": 0.56
+        },
+        {
+          "bbox": [
+            0.3229,
+            0.2778,
+            0.4146,
+            0.5528
+          ],
+          "weight": 0.44
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write D=d with -1<d<1. The 90-degree rotation about A sends D to E by e=i+i(d-i)=1+(d+1)i. Since G lies on the extension of CA, whose line is y=1-x, and DG is vertical, g=d+(1-d)i.",
+      "key_point": "Obtain E from the rotation formula and G from the line equation of CA."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_midpoint_vectors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3208,
+            0.275,
+            0.4188,
+            0.5583
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.1354,
+            0.275,
+            0.2271,
+            0.5583
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Midpoints give f=(d+e)/2=((d+1)(1+i))/2 and h=(-1+g)/2=((d-1)+(1-d)i)/2. Then |f-c|^2=((d-1)^2+(d+1)^2)/4=(1+d^2)/2, while |h-f|^2=|-1-di|^2=1+d^2.",
+      "key_point": "Compare the two squared moduli directly from midpoint formulas."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_modulus_relation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.5115,
+            0.5292,
+            0.226,
+            0.3014
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.2302,
+            0.5292,
+            0.3187,
+            0.05
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(2)*CF"
+  }
+}

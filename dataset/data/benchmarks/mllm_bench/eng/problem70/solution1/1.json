@@ -1,0 +1,78 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Draw the final shear-force and bending-moment diagrams for the beam. Answer format: one final image only, with no extra text."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use whole-beam equilibrium to find reactions.\n\n\\(\\sum M_A=0\\):\n\\(3\\times0.6+3.6-(10\\times1.2)\\times1.2+F_{RB}\\times1.8=0\\),\nso \\(F_{RB}=5\\,\\text{kN}\\).\n\n\\(\\sum F_y=0\\):\n\\(F_{RA}+F_{RB}-3-10\\times1.2=0\\),\nthus \\(F_{RA}=10\\,\\text{kN}\\).",
+      "key_point": "First solve support reactions from global force and moment balance."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.025652,
+            0.082595,
+            0.286277,
+            0.558425
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.368622,
+            0.115988,
+            0.552998,
+            0.685514
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "On CA (0.6 m), there is no distributed load, so shear is constant: \\(F_s=-3\\,\\text{kN}\\).",
+      "key_point": "No distributed load implies constant shear on CA."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "At A, the reaction \\(+10\\,\\text{kN}\\) causes a shear jump: \\(-3\\to+7\\,\\text{kN}\\). On AD (0.6 m), shear stays \\(+7\\,\\text{kN}\\).",
+      "key_point": "Shear jumps at concentrated force and stays constant between jumps."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "On DB, let \\(\\xi=x-1.2\\), \\(0\\le\\xi\\le1.2\\). With \\(q=10\\,\\text{kN/m}\\), \\(F_s(\\xi)=7-10\\xi\\).",
+      "key_point": "UDL makes shear a linear function on DB."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "At B-: \\(F_s=7-10\\times1.2=-5\\,\\text{kN}\\). After adding \\(F_{RB}=5\\,\\text{kN}\\), shear returns to 0 at B. Zero shear occurs at \\(\\xi=0.7\\,\\text{m}\\).",
+      "key_point": "The \\(F_s=0\\) position gives the moment extremum location."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use \\(dM/dx=F_s\\). \\(M_C=0\\), \\(M_A=-3\\times0.6=-1.8\\,\\text{kN*m}\\), \\(M_{D^-}=M_A+7\\times0.6=2.4\\,\\text{kN*m}\\).",
+      "key_point": "Moment on CA and AD is obtained by integrating constant shear."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "At D, the applied couple gives a jump: \\(M_{D^+}=2.4-3.6=-1.2\\,\\text{kN*m}\\). On DB: \\(M(\\xi)=-1.2+7\\xi-5\\xi^2\\).",
+      "key_point": "Applied couple causes finite moment jump; DB moment is parabolic."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Check key values: \\(M_B=M(1.2)=0\\), \\(M_E=M(0.7)=1.25\\,\\text{kN*m}\\). Final ordinates are \\(F_{s,CA}=-3\\), \\(F_{s,AD}=+7\\), \\(F_{s,B^-}=-5\\), \\(M_C=0\\), \\(M_A=-1.8\\), \\(M_{D^-}=2.4\\), \\(M_{D^+}=-1.2\\), \\(M_E=1.25\\), \\(M_B=0\\).",
+      "key_point": "Use these ordinates to plot the final shear and moment diagrams."
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

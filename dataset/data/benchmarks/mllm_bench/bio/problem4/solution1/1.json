@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a Drosophila gene A insertion design, a P-element cassette containing GAL4, GFP, and FRT sites is inserted into exon 2. After crossing with a FLP-expressing line, which recombination site mediates the excision of the GFP segment in selected cells?. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Reconstruct the insertion architecture in exon 2 and mark the module order around GFP.",
+      "key_point": "The GFP block is positioned between two identical recombination symbols."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_insertion_layout.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.28,
+            0.2,
+            0.45,
+            0.22
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply FLP to the paired recombination symbols to determine which site pair is recognized.",
+      "key_point": "FLP acts on FRT-FRT pairs and drives site-specific recombination."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_flp_frt_recombination.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.35,
+            0.039074,
+            0.34,
+            0.380926
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Track the product after recombination: the GFP-containing fragment is excised, and one site remains at the locus.",
+      "key_point": "The removed loop corresponds to the region between the two FRT sites."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_gfp_excised.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.67758,
+            0.081554,
+            0.2,
+            0.354434
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.326241,
+            0.216834,
+            0.302629,
+            0.212129
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Identify the recombination-site name associated with FLP in this construct.",
+      "key_point": "The required single-expression output is the site symbol itself."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_frt_site_identity.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.424121,
+            0.598096,
+            0.147909,
+            0.303886
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "FRT"
+  }
+}

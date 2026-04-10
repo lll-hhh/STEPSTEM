@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Build the following structural model: a rigid horizontal plate is supported below by three equal-length, equal-section vertical circular bars, all pin-connected at both ends. The three lower ends are fixed to the same horizontal base, and the upper ends connect to the left, middle, and right points of the rigid plate. The spacing from left bar 3 to middle bar 2 is l/3, and from middle bar 2 to right bar 1 is 2l/3. A counterclockwise couple M_e is applied to the rigid plate, causing a small rotation so that right bar 1 is in tension while left bars 2 and 3 are in compression. Since the bars are slender compression members, the more highly compressed one buckles first as load increases. Given identical material with elastic modulus E, bar diameter d, and bar length l, determine the critical couple M_e at initial instability. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Let the axial forces in bars 1, 2, 3 be F_N1, F_N2, F_N3. From rigid-body vertical force equilibrium and moment equilibrium of the top plate: F_N1=F_N2+F_N3, and F_N2*(2l/3)+F_N3*l=M_e.",
+      "key_point": "Write the static equations for the rigid plate under the applied couple."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0564,
+            0.054582,
+            0.881892,
+            0.427222
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.114124,
+            0.673784,
+            0.811341,
+            0.271746
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.045467,
+            0.537547,
+            0.931201,
+            0.344758
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.101218,
+            0.063354,
+            0.810658,
+            0.457258
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Compatibility from rigid rotation gives (Delta_l1+Delta_l2)/(Delta_l1+Delta_l3)=2/3. Using Delta_li=F_Ni*l/(E*A), this becomes F_N1+3F_N2-2F_N3=0. Solving with equilibrium: F_N1=(15/14)*(M_e/l), F_N2=(3/14)*(M_e/l), F_N3=(6/7)*(M_e/l). Thus among compressed bars, F_N3>F_N2, so bar 3 buckles first.",
+      "key_point": "Combine compatibility and constitutive relations to solve axial-force distribution and identify the controlling compression bar."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.14,
+            0.24,
+            0.75,
+            0.34
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "At first instability, bar 3 reaches Euler buckling: F_cr3=pi^2*E*I/l^2, with I=pi*d^4/64 for a circular section. Set F_N3=F_cr3: (6/7)*(M_e/l)=pi^2*E*(pi*d^4/64)/l^2=pi^3*E*d^4/(64*l^2). Therefore M_e=7*pi^3*E*d^4/(384*l).",
+      "key_point": "Use Euler buckling of bar 3 as the critical condition and equate it to F_N3."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.07,
+            0.2,
+            0.18,
+            0.56
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Hence the critical couple at initial instability is M_e=7*pi^3*E*d^4/(384*l).",
+      "key_point": "Final critical couple expression."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "7*pi^3*E*d^4/(384*l)"
+  }
+}

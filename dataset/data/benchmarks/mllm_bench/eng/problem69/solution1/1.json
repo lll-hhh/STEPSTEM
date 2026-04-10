@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A vertical square column has a fixed base at A and a free top at C, with total height l and cross-section side length a. The material unit weight is r. A concentrated downward axial load F is applied at point B on the column axis, where AB=3l/4 and BC=l/4. Take the positive x direction downward along the column axis. Considering self-weight, determine the axial-force distribution along the column and present the final axial-force diagram. Answer format: one final image only, with no extra text."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Let the cross-sectional area be A=a^2. With x measured downward from the top C, the self-weight per unit length is q_g=Ar=a^2r. The axial force N(x) is taken as positive in compression.",
+      "key_point": "Use q_g=a^2r as the uniform distributed axial body-force intensity."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.39873,
+            0.107369,
+            0.2027,
+            0.5617
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.328979,
+            0.06645,
+            0.542501,
+            0.5957
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.296322,
+            0.722625,
+            0.4904,
+            0.2441
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "On segment CB (0<=x<=l/4), only self-weight above the section is included:\nN(x)=q_gx=a^2rx.\nAt B from the upper side:\nN_{B^-}=a^2r\\frac{l}{4}.",
+      "key_point": "For CB, N(x) increases linearly from 0 with slope a^2r."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2041,
+            0.117242,
+            0.293,
+            0.393517
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.180541,
+            0.142667,
+            0.574262,
+            0.196403
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "At B, the concentrated force F causes a jump:\nN_{B^+}=N_{B^-}+F=F+a^2r\\frac{l}{4}.\nOn segment BA (l/4<=x<=l):\nN(x)=F+q_gx=F+a^2rx.\nAt the base A (x=l):\nN_A=F+a^2rl.\nSo the axial-force diagram is piecewise linear with slope a^2r everywhere and a positive jump of magnitude F at x=l/4.",
+      "key_point": "Across B, N jumps by F; elsewhere N varies linearly with slope a^2r."
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

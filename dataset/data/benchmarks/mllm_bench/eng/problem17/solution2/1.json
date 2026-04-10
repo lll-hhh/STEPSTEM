@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "An object moves with constant speed v_0 along the spiral r=r_0*theta/pi. Find the large-K approximation for the average normal force after K turns. Answer format: a single algebraic expression. Use the variable names from the problem, including K, v_0, r_0, theta, and pi; use ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: local-curvature averaging method.",
+      "key_point": "Average N by integrating pointwise curvature κ along the spiral arc, not by turning-angle impulse accumulation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_spiral_curvature_frame.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.193204,
+            0.345995,
+            0.276289,
+            0.425364
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Set a=r_0/pi and Θ=2*pi*K. For r=aθ, use ds=a*sqrt(1+θ^2)dθ and κ(θ)=(θ^2+2)/(a*(1+θ^2)^(3/2)).",
+      "key_point": "This derives the local force field N(θ)=m*v_0^2*κ(θ) directly from geometry."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_osculating_radius.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.229834,
+            0.594228,
+            0.381962,
+            0.321802
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute the time average as N_bar=(integral N dt)/(integral dt)=m*v_0^2*(integral_0^Θ κ ds)/(integral_0^Θ ds).",
+      "key_point": "After substitution, the numerator kernel becomes (θ^2+2)/(1+θ^2), giving integral_0^Θ[(θ^2+2)/(1+θ^2)]dθ=Θ+arctan(Θ)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_integral_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.074209,
+            0.43955,
+            0.368655,
+            0.279418
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.546054,
+            0.120215,
+            0.314563,
+            0.649896
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use large-Θ asymptotics: Θ+arctan(Θ)~Θ and integral_0^Θ sqrt(1+θ^2)dθ~Θ^2/2, so N_bar~m*v_0^2*(2/Θ)*(pi/r_0).",
+      "key_point": "With Θ=2*pi*K, this reduces to the required 1/K form."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_largeK_decay.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.167448,
+            0.288614,
+            0.669036,
+            0.498961
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Output only the single-expression large-K approximation.",
+      "key_point": "Keep the answer exactly in dataset format."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*v_0^2/(K*r_0)"
+  }
+}

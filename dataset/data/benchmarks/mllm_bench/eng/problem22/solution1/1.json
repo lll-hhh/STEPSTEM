@@ -1,0 +1,152 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the elastic collision setup, determine the post-collision angular velocity omega_1 of the first body under the stated rightward-positive convention. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set rightward as positive and model the collision through horizontal impulse and angular momentum transfer.",
+      "key_point": "Use N, N_1, N_2 impulses with moment equations about suspension points."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_p.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.241531,
+            0.356563,
+            0.520904,
+            0.26564
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.087329,
+            0.070602,
+            0.177952,
+            0.253553
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write impulse-momentum and angular-momentum equations to connect omega_1, omega_2, and omega_0.",
+      "key_point": "Eliminate unknown support impulses to get 19*omega_2 = 9*(omega_0-omega_1)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_impulses.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.265242,
+            0.317165,
+            0.403137,
+            0.313589
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.082055,
+            0.081222,
+            0.246268,
+            0.260035
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.633583,
+            0.191905,
+            0.30475,
+            0.146908
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply elastic-collision energy conservation with rigid-body inertias I_1 and I_2.",
+      "key_point": "Obtain 19*omega_2^2 = 6*(omega_0^2-omega_1^2)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_post_collision_omegas.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.070228,
+            0.088924,
+            0.24,
+            0.23
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.715652,
+            0.223273,
+            0.227567,
+            0.2609
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Solve the two relations to get omega_1=-11*omega_0/65 and omega_2=36*omega_0/65.",
+      "key_point": "omega_1=-11*omega_0/65 and omega_2=36*omega_0/65."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_sign_convention.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.645798,
+            0.797785,
+            0.349946,
+            0.170106
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.084886,
+            0.064494,
+            0.24,
+            0.298749
+          ],
+          "weight": 0.4
+        },
+        {
+          "bbox": [
+            0.708323,
+            0.201286,
+            0.237339,
+            0.296324
+          ],
+          "weight": 0.35
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-11*omega_0/65"
+  }
+}

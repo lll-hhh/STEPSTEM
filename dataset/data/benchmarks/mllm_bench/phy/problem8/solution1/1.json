@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For infinite wire AB carrying current I1 and finite segment CD carrying current I2, compute the magnetic-force magnitude on CD due to AB. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set AB as an infinite straight current-carrying wire and CD as a finite segment perpendicular to AB.",
+      "key_point": "Use CD as x-axis and the perpendicular direction as y-axis."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_setup_ab_cd.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.146608,
+            0.332656,
+            0.714841,
+            0.638074
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At position x on CD, B=mu_0*I_1/(2*pi*x), and dF=I_2*B*dx.",
+      "key_point": "The differential force direction is the same along CD."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_field_element.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.328572,
+            0.330197,
+            0.517898,
+            0.343815
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.14,
+            0.1,
+            0.18,
+            0.75
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate from x=a to x=a+l: F=integral_a^(a+l) mu_0*I_1*I_2/(2*pi*x) dx.",
+      "key_point": "The integrand is proportional to 1/x."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_integral_span.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.165749,
+            0.344245,
+            0.689043,
+            0.419045
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Complete the integral to get a logarithmic dependence on the two limits.",
+      "key_point": "The final magnitude scales with ln((a+l)/a)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_force_direction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.174902,
+            0.295893,
+            0.763939,
+            0.468709
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "mu_0*I_1*I_2*ln((a+l)/a)/(2*pi)"
+  }
+}

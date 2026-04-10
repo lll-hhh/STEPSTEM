@@ -1,0 +1,100 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a Michelson interferometer, the center is bright and the outermost ring is bright with 20 bright rings total. When one mirror is translated, the center changes 23 intensity cycles while the outermost ring changes 20 cycles. A flat quartz empty cell is inserted in one arm; changing its tilt by theta=5.00 degrees causes 10 center cycles. After filling the cell with an unknown transparent liquid, tilting back to normal causes 17 center cycles. Given lambda=633 nm, inner spacing t=2.00 mm, and n_air=1.00, find the liquid refractive index n. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use two compact channels: mirror-shift counting and tilt-induced counting.",
+      "key_point": "Mirror counts set the cycle scale; tilt-count difference isolates n directly."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_mirror_rings.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.042553,
+            0.055556,
+            0.585106,
+            0.888889
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.674887,
+            0.599636,
+            0.265957,
+            0.388889
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step4_counter_split.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.030612,
+            0.082192,
+            0.540816,
+            0.821918
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.591837,
+            0.054795,
+            0.367347,
+            0.890411
+          ],
+          "weight": 0.55
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step6_tilt_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.041237,
+            0.051282,
+            0.412371,
+            0.897436
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.546392,
+            0.051282,
+            0.412371,
+            0.897436
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply N1*lambda = C(theta), N2*lambda = C(theta) + t*theta^2*(n-1)/n with N1=10 and N2=17; substitute lambda=633e-9, t=2.00e-3, theta=5*pi/180 to get n=1.41.",
+      "key_point": "Compact chain: (N2-N1)=7 -> solve (n-1)/n -> n=1.41."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1.41"
+  }
+}

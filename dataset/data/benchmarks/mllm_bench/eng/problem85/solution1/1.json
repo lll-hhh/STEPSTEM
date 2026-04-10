@@ -1,0 +1,74 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Build a mechanical model of a straight circular bar under axial tension. The bar has radius R and a vertical axis, and equal and opposite axial tensile forces F are applied at the two ends. The cross-section remains plane during loading. The material is radially non-uniform ideal elastoplastic: the elastic modulus varies only with radius r, increasing linearly from E0 at the center to 1.2E0 at the outer surface r=R. Treat the bar as an axisymmetric circular tension member with radially graded modulus, and determine the axial tensile force when yielding first starts at the outer surface and when yielding first starts at the center. Answer format: F_outer_yield;F_center_yield, separated by one semicolon, with no explanatory text or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "The elastic modulus is linear in r: E(r)=E0+(1.2E0-E0)(r/R)=E0(1+0.2r/R). Under the plane-section assumption, axial strain is uniform, so sigma(r)=E(r)epsilon=E0(1+0.2r/R)epsilon.",
+      "key_point": "Set up the radial constitutive relation and uniform axial strain first."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.290714,
+            0.184939,
+            0.506014,
+            0.302842
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Outer surface first yield: sigma(R)=sigma_s. Then epsilon=sigma_s/(1.2E0)=5sigma_s/(6E0). Substitute into sigma(r): sigma(r)=E0(1+0.2r/R)*(5sigma_s/(6E0))=(sigma_s/6)(5+r/R). The axial force is F=integral_0^R[sigma(r)*2pi r dr]=(sigma_s/6)*2pi*integral_0^R(5r+r^2/R)dr=(sigma_s/6)*2pi*(5R^2/2+R^2/3)=(sigma_s/6)*2pi*(17R^2/6)=(17/18)pi R^2 sigma_s.",
+      "key_point": "Use sigma(R)=sigma_s to get epsilon, then integrate sigma(r) over the circular section."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4746,
+            0.343121,
+            0.335777,
+            0.196904
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.422927,
+            0.34393,
+            0.384525,
+            0.307737
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Center first yield: sigma(0)=sigma_s. For the ideal elastoplastic model used here, this corresponds to the section reaching the yield stress resultant, so F=integral_A sigma_s dA=sigma_s*pi R^2.",
+      "key_point": "At center-yield onset in this idealized treatment, the section force equals pi R^2 sigma_s."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "F_outer_yield=17*pi*R^2*sigma_s/18; F_center_yield=pi*R^2*sigma_s"
+  }
+}

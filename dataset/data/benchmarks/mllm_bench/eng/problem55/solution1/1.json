@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Split the figure into stages and derive overall gain and equivalent resistances for the multi-stage amplifier. Output exactly one ASCII line with three semicolon-separated fields in the form Au:...;Ri:...;Ro:...; do not use '=' or any equation form, no Chinese characters, no prose sentence, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Split the figure into upper original transistor circuit and lower AC equivalent, then solve stage-wise.",
+      "key_point": "Split the figure into upper original transistor circuit."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.39,
+            0.2,
+            0.5,
+            0.72
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze the upper circuit to identify differential input stage, voltage-gain stage, and complementary output stage, giving the gain chain Au:Au1*Au2*Au3.",
+      "key_point": "Stage decomposition gives gain chain Au = Au1*Au2*Au3."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.03,
+            0.78,
+            0.62
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the lower AC equivalent to read resistance expressions and finalize Ri and Ro.",
+      "key_point": "The lower AC equivalent to read resistance expressions."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Au:Au1*Au2*Au3;Ri:2*rbe1;Ro:(rbe4+R4)/(1+beta4)"
+  }
+}

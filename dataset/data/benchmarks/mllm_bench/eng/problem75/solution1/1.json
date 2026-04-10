@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the given simply supported beam, determine the selected I-beam model from the strength check. Answer format: a single final model designation; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the model variables and sign convention first: upward reactions \\(F_{R,A},F_{R,B}\\), downward loads \\(q\\) and two concentrated loads \\(F\\). The loading is symmetric with respect to the span center.",
+      "key_point": "Symmetry allows equal-reaction simplification before detailed section checks."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.105469,
+            0.14466,
+            0.777157,
+            0.23887
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.060595,
+            0.388404,
+            0.900721,
+            0.320768
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use \\(\\sum M_A=0\\): \\(F_{R,B}L=Fa+F(L-a)+qL\\cdot\\frac{L}{2}\\). Solve to get \\(F_{R,B}=210\\,\\text{kN}\\).",
+      "key_point": "Moment equilibrium gives the right support reaction."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Use \\(\\sum F_y=0\\): \\(F_{R,A}+F_{R,B}=2F+qL\\). Substitute \\(F_{R,B}=210\\,\\text{kN}\\), so \\(F_{R,A}=210\\,\\text{kN}\\).",
+      "key_point": "Force equilibrium gives the left support reaction."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Draw the shear diagram from left to right using reaction jumps and the UDL slope. Then integrate shear to obtain the bending-moment diagram.",
+      "key_point": "The peak of M-diagram gives \\(M_{max}\\)."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "From the bending diagram, take \\(M_{max}=45\\,\\text{kN*m}\\). Compute required section modulus: \\(W_x=\\frac{M_{max}}{[\\sigma]}=\\frac{45\\times10^3}{160\\times10^6}=281\\,\\text{cm}^3\\).",
+      "key_point": "Bending requirement: \\(W_x\\ge 281\\,\\text{cm}^3\\)."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Choose 22a as a preliminary section because \\(W_x=309\\,\\text{cm}^3>281\\,\\text{cm}^3\\).",
+      "key_point": "22a passes bending-strength check."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Check shear for 22a: \\(\\tau_{max}=\\frac{210\\times10^3}{18.9\\times10^{-2}\\times0.75\\times10^{-2}}=148\\,\\text{MPa}>100\\,\\text{MPa}\\).",
+      "key_point": "22a fails shear."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Try 25b: \\(\\tau_{max}=\\frac{210\\times10^3}{21.3\\times10^{-2}\\times1.0\\times10^{-2}}=98.6\\,\\text{MPa}<100\\,\\text{MPa}\\).",
+      "key_point": "25b passes shear."
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "Final selection: 25b. It satisfies both bending and shear checks.",
+      "key_point": "Selected I-beam section is 25b."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "25b"
+  }
+}

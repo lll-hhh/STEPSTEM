@@ -1,0 +1,48 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For a point charge Q on the axis of a circular disk at distance b, determine the disk radius R that gives the required extremum condition. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the solid-angle form directly: Phi=(Q/(4*pi*epsilon_0))*Omega for flux from a point charge through an open surface.",
+      "key_point": "This bypasses ring-by-ring integration."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_solid_angle_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.22,
+            0.16,
+            0.56,
+            0.68
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For a disk of radius R viewed from axial distance b, the subtended solid angle is Omega=2*pi*(1-b/sqrt(b^2+R^2)).",
+      "key_point": "Axis symmetry gives a closed-form Omega."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Impose the required condition Phi=Q/(4*epsilon_0), so Omega=pi. Then 2*pi*(1-b/sqrt(b^2+R^2))=pi => R^2=3*b^2 => R=sqrt(3)*b.",
+      "key_point": "Take the positive root because radius is nonnegative."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(3)*b"
+  }
+}

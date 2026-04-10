@@ -1,0 +1,58 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "As shown, a homogeneous sphere of radius r and refractive index n is placed in vacuum, where n_0 is the refractive index of vacuum and n > n_0. A narrow laser beam of frequency nu travels along the straight line BC in vacuum, and the distance from line BC to the sphere center O is l with l < r. The beam enters the sphere at point C by refraction, propagates through the sphere, and exits into vacuum again at point D by refraction. Assume that the frequency of the laser beam remains unchanged after both refractions. Determine the magnitude of the average force exerted on the sphere by a single photon during the two refraction processes. Answer format: a single algebraic expression for F_avg; write only the expression, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use photon momentum change at two refractions on the spherical dielectric interface.",
+      "key_point": "Force equals momentum-transfer rate to the sphere."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.270097,
+            0.316451,
+            0.440832,
+            0.385219
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Combine entry and exit refraction contributions for one photon path and average.",
+      "key_point": "Provide one force expression."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.340318,
+            0.363565,
+            0.342523,
+            0.331178
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "F_avg"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the triangular surface near the straight current-carrying wire, compute the magnetic flux through the surface. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build coordinates with the straight wire as y-axis and OA along x-axis.",
+      "key_point": "Use B=mu_0*I/(2*pi*x) and area element from triangle geometry."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_triangle_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.311337,
+            0.495665,
+            0.340761,
+            0.482951
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At position x, take a thin strip with dS=y*dx and y=(x-a)*tan(theta).",
+      "key_point": "Then dPhi = B*dS = mu_0*I/(2*pi*x)*(x-a)*tan(theta)*dx."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_strip_element.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.303701,
+            0.445471,
+            0.352215,
+            0.522292
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.426833,
+            0.583844,
+            0.093542,
+            0.392058
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate from x=a to x=a+b.",
+      "key_point": "Integrate (x-a)/x on [a,a+b]"
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_integral_bounds.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.308474,
+            0.672024,
+            0.340761,
+            0.280817
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Combine terms to obtain the total flux through triangle ABC.",
+      "key_point": "Combine terms to obtain the total flux through triangle ABC."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_flux_result.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.317064,
+            0.488882,
+            0.320716,
+            0.373066
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "mu_0*I*tan(theta)/(2*pi)*(b-a*ln((a+b)/a))"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the figure, circle O is the circumcircle of pentagon ABCDE, and BD is a diameter of circle O. Draw AC, BE, and CE, and suppose angle AEC equals angle ACF. If CE = CB and angle CBE = 60 degrees, find angle BCE. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Since CE equals CB, triangle CBE is isosceles with base BE, so the base angles at B and E are equal.",
+      "key_point": "Use CE=CB to identify equal base angles in triangle CBE."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_isosceles_triangle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3312,
+            0.4667,
+            0.1229,
+            0.1639
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.525,
+            0.4667,
+            0.1229,
+            0.1639
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The given angle CBE is 60 degrees, so the equal base angle BEC is also 60 degrees.",
+      "key_point": "Transfer the known 60-degree base angle to the other base angle."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_equal_base_angles.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.6552,
+            0.2972,
+            0.0792,
+            0.0944
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.2448,
+            0.2972,
+            0.0792,
+            0.0944
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Then angle BCE equals 180-60-60, so triangle CBE is equilateral and angle BCE is 60 degrees.",
+      "key_point": "Finish with the angle sum of triangle CBE."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_target_angle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3729,
+            0.6222,
+            0.2333,
+            0.1917
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "60"
+  }
+}

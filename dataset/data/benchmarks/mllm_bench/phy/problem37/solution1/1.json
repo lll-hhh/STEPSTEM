@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the right-side modified resistor network (with added diagonal branches) and all segment resistances equal to r, compute the equivalent resistance between its two external terminals. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify the left network (original) and the right network (with three added diagonal resistors), all segment resistances are r.",
+      "key_point": "The second configuration introduces exactly three extra diagonal branches."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.067769,
+            0.122581,
+            0.342149,
+            0.451613
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use symmetry and equivalent transformation on the original network and then on the augmented network.",
+      "key_point": "Equivalent reduction is performed on graph structure, not on rewritten text cards."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.586777,
+            0.135484,
+            0.342149,
+            0.445161
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For the network with added diagonals (Figure 2), the equivalent resistance between A and B simplifies to 2r/3.",
+      "key_point": "Final simplified equivalent for Figure 2 is 2r/3."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*r/3"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the air-compression refrigeration cycle with the given state data, compute compressor theoretical specific work for both no-regeneration and regeneration cases under constant-specific-heat ideal-gas assumptions. Output exactly two decimal numbers separated by one comma as no_regen,regen, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the two cycle cases and compute compressor work from the corresponding temperature rise.",
+      "key_point": "Set the two cycle cases."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.241206,
+            0.38735,
+            0.164867,
+            0.564941
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.461029,
+            0.206457,
+            0.324098,
+            0.744442
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.019974,
+            0.184194,
+            0.817291,
+            0.470321
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up the relation for compressor specific work in both cases."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.246059,
+            0.604421,
+            0.250121,
+            0.350579
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Report both specific-work values in the required order.",
+      "key_point": "Report both specific-work values in the required order."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "97.45,67.31"
+  }
+}

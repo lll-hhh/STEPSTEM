@@ -1,0 +1,129 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Model the body as a uniform slender rod AB with length l and mass m. Initially, the lower end B is at the corner of a horizontal floor and a smooth vertical wall, and the upper end A leans on the wall. The rod makes an angle theta with the vertical direction. Both wall and floor are smooth and frictionless. After a small disturbance, the rod moves in the vertical plane; after end B loses wall contact, the rod undergoes general plane motion. Let C be the mass center, and decompose the motion into translation of C and rotation about C with angular velocity omega. Determine the rod state at the instant it reaches the ground, and solve for the impact-time center speed v_C and angular velocity omega. Answer format: v_C|omega, in this order, separated by |, with no units, explanatory text, or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use three views: initial geometry (a), force/motion sketch after release (b), and velocity decomposition at landing (c). For the rod after losing wall contact, write kinematics with center C and angular speed omega.",
+      "key_point": "Treat the rod as general plane motion of center translation plus rotation about C."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.042208,
+            0.270636,
+            0.679734,
+            0.324949
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.303974,
+            0.238993,
+            0.632835,
+            0.371197
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.363675,
+            0.239474,
+            0.277003,
+            0.5527
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "After B separates from the wall, \\sum F_x=0, so the x-component of center velocity is conserved:\n\\[ v_{Cx}=(v_{C1})_x=\\frac{l}{2}\\omega_1\\cos\\theta_1=\\frac{1}{3}\\sqrt{gl}. \\]\nAt landing, from velocity decomposition in view (c):\n\\[ \\vec v_C=\\vec v_B+\\vec v_{CB},\\qquad v_{Cy}=v_{CB}=\\frac{l}{2}\\omega. \\]",
+      "key_point": "Use horizontal-component conservation and center-velocity decomposition together."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.296916,
+            0.208567,
+            0.572238,
+            0.429181
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Apply energy from release to landing:\n\\[ T_2-T_1=\\sum W,\\quad T_1=0,\\quad T_2=\\sum W. \\]\nThus\n\\[ \\frac{1}{2}m\\left(v_{Cx}^2+v_{Cy}^2\\right)+\\frac{1}{2}J_C\\omega^2=mg\\frac{l}{2},\\qquad J_C=\\frac{1}{12}ml^2. \\]\nSubstitute \\(v_{Cx}=\\frac{1}{3}\\sqrt{gl}\\) and \\(v_{Cy}=\\frac{l}{2}\\omega\\), then solve:\n\\[ \\omega=\\sqrt{\\frac{8g}{3l}}. \\]",
+      "key_point": "Energy equation with translational and rotational kinetic terms gives omega directly."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.336633,
+            0.301313,
+            0.359901,
+            0.381889
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Compute the center vertical component and resultant speed:\n\\[ v_{Cy}=\\frac{l}{2}\\omega=\\frac{l}{2}\\sqrt{\\frac{8g}{3l}}=\\sqrt{\\frac{2gl}{3}}. \\]\n\\[ v_C=\\sqrt{v_{Cx}^2+v_{Cy}^2}=\\sqrt{\\left(\\frac{1}{3}\\sqrt{gl}\\right)^2+\\left(\\sqrt{\\frac{2gl}{3}}\\right)^2}=\\frac{1}{3}\\sqrt{7gl}. \\]",
+      "key_point": "Combine the conserved horizontal component and solved vertical component."
+    },
+    "step_10": {
+      "modality": "image",
+      "content": "step10.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.099934,
+            0.20637,
+            0.594102,
+            0.355138
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Therefore, at the instant the rod reaches the ground:\n\\[ v_C=\\frac{1}{3}\\sqrt{7gl},\\qquad \\omega=\\sqrt{\\frac{8g}{3l}}. \\]",
+      "key_point": "Final pair is center speed and angular speed at impact."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(7*g*l)/3|sqrt(8*g/(3*l))"
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the planar equilibrium system shown, bodies I, II, III, and IV are connected by smooth hinges A, B, and C. O and E are fixed supports, and rods are attached at D, F, G, and H. The dimensions satisfy b/a = 1.5. Body II is acted on by a couple of magnitude M. All forces lie in the plane, self-weight is neglected, and the internal force in rod O_3G is nonzero. Find the force ratio in rods O_4H and O_5H. Answer format: a single ratio expression such as F_O4H/F_O5H; write only the ratio, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set equilibrium equations on each linked rigid body and hinge force transfer constraints.",
+      "key_point": "Given nonzero internal force branch fixes force-flow path."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1328,
+            0.3472,
+            0.1875,
+            0.3056
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.377343,
+            0.304214,
+            0.2188,
+            0.2778
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.681263,
+            0.302829,
+            0.1719,
+            0.5
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Solve the ratio of forces in rods O4H and O5H from geometry and balance.",
+      "key_point": "Output a single ratio expression."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.353931,
+            0.156957,
+            0.233721,
+            0.426931
+          ],
+          "weight": 0.507463
+        },
+        {
+          "bbox": [
+            0.664098,
+            0.2458,
+            0.192736,
+            0.583354
+          ],
+          "weight": 0.492537
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "F_O4H/F_O5H"
+  }
+}

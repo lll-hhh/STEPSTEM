@@ -1,0 +1,76 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the synthesis route shown, write the chemical equation of reaction 4. Answer format: one chemical equation written in ASCII, using '->' between reactants and products; write only the equation, with no explanatory text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify the transformation in reaction 4 as phenolic hydroxyl conversion by methyl chloroformate.",
+      "key_point": "The hydroxyl hydrogen is replaced by the methoxycarbonyl group."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_reactants_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4042,
+            0.5833,
+            0.1208,
+            0.1278
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.48278,
+            0.425,
+            0.456894,
+            0.1278
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write product F as the corresponding aryl carbonate and include hydrogen chloride as the by-product.",
+      "key_point": "Reaction equation must be kept as one concise expression."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_products_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.333465,
+            0.555586,
+            0.269177,
+            0.189041
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.597712,
+            0.416686,
+            0.23045,
+            0.1278
+          ],
+          "weight": 0.3
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "ArOH+ClCOOCH3->ArOCOOCH3+HCl"
+  }
+}

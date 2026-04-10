@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the circular arc L with radius R and central angle 2*alpha, compute the line second-moment integral I about the x-axis in the form integral_L y^2 ds. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Segment-area method: use x as the running coordinate on the upper half of the arc, then double the result by symmetry about the x-axis.",
+      "key_point": "This route avoids parameterizing the arc by θ."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_upper_half_strip.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.22,
+            0.12,
+            0.35,
+            0.62
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The upper and lower halves contribute equally. For the upper half, the circle gives y=sqrt(R^2-x^2), while the projected strip starts at Q where x=R*cos(α) and ends at P where x=R.",
+      "key_point": "Only the upper arc from A to P is needed once the final factor 2 is kept."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_segment_region.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.295845,
+            0.281996,
+            0.294928,
+            0.381633
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Along the circle, ds=(R/y)dx, so y^2 ds becomes R*y dx. Therefore I equals 2R times the shaded area under the upper arc between Q and P.",
+      "key_point": "The line second moment is converted into a planar area problem."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_sector_minus_triangle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.295683,
+            0.280869,
+            0.3,
+            0.369452
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "That shaded area is the sector OPA minus the right triangle OAQ. The sector contributes R^2*α/2, the triangle contributes R^2*sin(α)*cos(α)/2, and multiplying their difference by 2R gives the required expression.",
+      "key_point": "Sector area minus triangle area replaces the direct trigonometric integral."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "R^3*(alpha-sin(alpha)*cos(alpha))"
+  }
+}

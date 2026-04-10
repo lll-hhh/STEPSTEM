@@ -1,0 +1,130 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the given pressure-temperature graph and the total-pressure decomposition into hydrogen partial pressure plus saturated-water-vapor pressure, compute the mass increase Delta m of evaporated water between the two marked states. Output exactly one decimal number with 2 digits after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a decimal number rounded to two decimal places; write only the numerical value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build the pressure decomposition with temperature: p = p_H + p_w, where p_H is the hydrogen partial pressure and p_w is the saturated-water-vapor pressure.",
+      "key_point": "Total pressure is the sum of two partial pressures."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_hydrogen_partial_pressure.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.463271,
+            0.270873,
+            0.5,
+            0.32
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Overlay p_w(T) and p(T)=p_H+p_w, then read intersections at p_1=17 and p_2=26 to obtain T_1=380 K and T_2=440 K.",
+      "key_point": "Read T_1 and T_2 from the combined pressure-temperature graph."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_water_and_total.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.477112,
+            0.092692,
+            0.42,
+            0.36
+          ],
+          "weight": 0.65
+        },
+        {
+          "bbox": [
+            0.454816,
+            0.503639,
+            0.443148,
+            0.496361
+          ],
+          "weight": 0.35
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use p_w1 = p_1 - p_H(T_1) and p_w2 = p_2 - p_H(T_2). This gives p_w1=1.23*10^5 Pa and p_w2=7.74*10^5 Pa.",
+      "key_point": "Subtract hydrogen partial pressure to get water-vapor partial pressure at each state."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_extract_pw1_pw2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.477629,
+            0.351782,
+            0.11,
+            0.21
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.741118,
+            0.099004,
+            0.11,
+            0.37
+          ],
+          "weight": 0.55
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Apply the ideal-gas relation for water vapor amount change: Delta m = (mu*V/R)*(p_w2/T_2 - p_w1/T_1). Substituting T_1, T_2, p_w1, and p_w2 yields 6.23 g.",
+      "key_point": "Compute evaporation mass from the difference of water-vapor states."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_delta_m_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.483631,
+            0.800953,
+            0.1,
+            0.16
+          ],
+          "weight": 0.35
+        },
+        {
+          "bbox": [
+            0.62045,
+            0.583728,
+            0.349817,
+            0.408433
+          ],
+          "weight": 0.65
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "The single-expression output keeps only the final Delta m value.",
+      "key_point": "Delta m is obtained from total-pressure decomposition."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "6.23"
+  }
+}

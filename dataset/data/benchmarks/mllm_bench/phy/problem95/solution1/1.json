@@ -1,0 +1,92 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a one-dimensional quantum electromagnetic-field model with one polarization mode, three parallel ideal conducting plates A, B, and C are placed in vacuum with AB=a and AC=L (L>>a). For a mode of angular frequency omega, the effective zero-point contribution is (1/2)*hbar*omega*f(omega/(pi*Lambda)), where f(0)=1 and |f(x)| decays faster than 1/x as x->infinity. Find the force on plate B in the limits L->infinity and Lambda->infinity. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the three-plate one-dimensional cavity geometry with AB=a and AC=L.",
+      "key_point": "Plate B is acted on by vacuum modes from both sides."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_plate_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.14,
+            0.34,
+            0.76
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use node boundary conditions on conductors to quantize modes in AB: k_n=n*pi/a and w_n=n*pi*c/a.",
+      "key_point": "Only standing-wave frequencies satisfying node-node boundaries are allowed."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_standing_modes_ab.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.11,
+            0.18,
+            0.34,
+            0.68
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply weighted zero-point energy (1/2)*hbar*w*f(w/(pi*Lambda)) and separate the finite a-dependent term as Lambda->infinity.",
+      "key_point": "The finite term is regulator-shape independent when f(0)=1 and f decays faster than 1/x."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_cutoff_weighting.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.15,
+            0.16,
+            0.4,
+            0.67
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.45,
+            0.18,
+            0.34,
+            0.64
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Take L->infinity so the right cavity gives no finite a-dependent force on B, then differentiate the finite AB energy with respect to a.",
+      "key_point": "The remaining force is the attractive one-dimensional Casimir result."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-pi*hbar*c/(24*a^2)"
+  }
+}

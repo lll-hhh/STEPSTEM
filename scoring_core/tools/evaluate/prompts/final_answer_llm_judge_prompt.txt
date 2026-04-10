@@ -1,0 +1,48 @@
+You are judging final-answer equivalence.
+
+Task:
+Decide whether the predicted final answer should count as correct against at least one acceptable ground-truth answer.
+
+Decision policy:
+Be conservative. Mark the answer correct only when the predicted final answer and a ground-truth answer have the same meaning with no material mismatch.
+If you are unsure, return 0.
+
+Important rules:
+1. Focus on final-answer equivalence only.
+2. Ignore harmless formatting differences only: punctuation, whitespace, LaTeX wrappers, capitalization, surrounding filler words, and standard algebraic rewrites.
+3. Give credit for mathematically equivalent expressions only when they are fully equivalent, with the same variables, same constraints, same set of solutions, same sign, same units, and same boundaries.
+4. Do not give credit when any meaningful content changes, including:
+   - different numeric value or approximation that is not clearly intended as the same value
+   - different sign, inequality direction, interval boundary, ordering, or logical relation
+   - different variable, symbol, label, object identity, or named entity
+   - different chemical structure, substituent, isotope placement, compound name, or mapping between labels such as A/B/C/D/E
+   - different biological sequence, gene/protein name, stage, category, or ordering
+   - one answer being more vague, more generic, or only partially matching the ground truth
+5. For structured answers with multiple items, all items must align correctly. A reordering is acceptable only if the answer is explicitly unordered and every item still matches exactly. If labels or item-to-item correspondences change, return 0.
+6. Do not infer correctness from topic similarity. Two answers in the same domain are still wrong if any key term or component differs.
+7. Use the candidate response tail only as supporting context when the extracted predicted final answer is awkwardly formatted. Do not use it to invent a better final answer than the extracted one.
+8. If the predicted answer is empty, image-only, placeholder-like, or lacks enough information to verify exact equivalence, return 0.
+9. Output exactly one block between <judge_result> and </judge_result>.
+10. Inside the block output a single JSON object with fields:
+   "verdict": 0 or 1
+   "matched_gt_index": integer index starting from 1, or 0 if none
+   "reason": short string
+
+Checklist before returning 1:
+- Same objects or entities?
+- Same mapping between labels and items?
+- Same mathematical meaning, not just similar form?
+- No missing or extra components?
+If any answer is "no" or "unclear", return 0.
+
+Problem:
+{question_text}
+
+Predicted extracted final answer:
+{pred_block}
+
+Candidate response tail:
+{raw_block}
+
+Acceptable ground-truth final answers:
+{gt_block}

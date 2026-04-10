@@ -1,0 +1,92 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A thin glass tube with uniform cross-section and closed ends is bent into a vertical semicircle of radius r. A frictionless piston of mass m fits tightly in the tube and its angular position relative to the vertical is θ. On both sides of the piston there are n moles of ideal gas, and the gas temperature is always equal to the ambient absolute temperature T. Take gravity as g and the gas constant as R, and treat all gas-state changes as quasi-static isothermal processes. When T > Tc, θ=0 is a stable equilibrium; when T < Tc, the piston starts near θ=0 with negligible initial speed and moves away. Find the angular-speed magnitude at a reachable angle θ. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Define the coordinate θ on the semicircle and split both gas columns around the piston.",
+      "key_point": "Track left and right arc lengths from the same center O."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_lengths.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.124262,
+            0.405219,
+            0.268966,
+            0.409242
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compare pressure effects on both sides and project all forces to the tangential direction.",
+      "key_point": "Gas effect and gravity jointly control motion away from θ=0."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_force_work.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.075035,
+            0.365293,
+            0.312485,
+            0.431423
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Accumulate tangential work from 0 to θ to obtain kinetic energy at the target state.",
+      "key_point": "Use energy mapping between the start state and reachable state."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_energy_reachable.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.580148,
+            0.630358,
+            0.36742,
+            0.182994
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.10928,
+            0.480635,
+            0.231867,
+            0.338262
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Convert kinetic energy to angular speed and keep the positive branch.",
+      "key_point": "Report only the speed magnitude at angle θ."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt((2*(m*g*r*(1-cos(theta))+n*R*T*ln(1-4*theta^2/pi^2)))/(m*r^2))"
+  }
+}

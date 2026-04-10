@@ -1,0 +1,88 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "From the given MOSFET output-characteristic family and load line, determine the full set of DC and AC quantities used in the solution: V_DD, V_GSQ, I_DQ, V_DSQ, R_g2, R_d, R_L, and V_om. Answer format: V_DD;V_GSQ;I_DQ;V_DSQ;R_g2;R_d;R_L;V_om, separated by semicolons, with no explanatory text or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Read Q: \\(V_{DD}=12\\,\\mathrm{V}\\), \\(V_{GSQ}=2\\,\\mathrm{V}\\), \\(I_{DQ}=0.3\\,\\mathrm{mA}\\), \\(V_{DSQ}=7.5\\,\\mathrm{V}\\).",
+      "key_point": "Get DC values."
+    },
+    "step_2": {
+      "modality": "text",
+      "content": "From \\(V_{GSQ}=V_{DD}\\frac{R_{g2}}{R_{g1}+R_{g2}}\\) and \\(R_{g1}=200\\,\\mathrm{k}\\Omega\\), get \\(R_{g2}=40\\,\\mathrm{k}\\Omega\\).",
+      "key_point": "Find \\(R_{g2}\\)."
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.164944,
+            0.211457,
+            0.62013,
+            0.621538
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "\\(R_d=\\frac{V_{DD}-V_{DSQ}}{I_{DQ}}=15\\,\\mathrm{k}\\Omega\\).",
+      "key_point": "Get \\(R_d\\) from DC line."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "From AC intercept \\(v_{DS}=10\\,\\mathrm{V}\\): \\(R_L'=\\frac{10-V_{DSQ}}{I_{DQ}}=8.33\\,\\mathrm{k}\\Omega\\).",
+      "key_point": "Get \\(R_L'\\) from AC line."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.094413,
+            0.426429,
+            0.836338,
+            0.407541
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use \\(R_L'=R_d\\parallel R_L\\): \\(R_L=18.75\\,\\mathrm{k}\\Omega\\). Then \\(V_{om}=I_{DQ}R_L'=2.5\\,\\mathrm{V}\\).",
+      "key_point": "Get \\(R_L\\) and \\(V_{om}\\)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.128231,
+            0.430328,
+            0.78366,
+            0.406566
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "V_DD = 12 V, V_GSQ = 2 V, I_DQ = 0.3 mA, V_DSQ = 7.5 V; R_g2 = 40 kOhm; R_d = 15 kOhm; R_L = 18.75 kOhm; V_om = 2.5 V."
+  }
+}

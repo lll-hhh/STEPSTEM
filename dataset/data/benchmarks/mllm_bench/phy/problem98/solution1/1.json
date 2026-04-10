@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a simplified Stern-Gerlach setup for a hydrogen atom beam, only the magnetic effect from the electron orbital ring current is considered. The hydrogen-atom mass is m_H, the electron mass is m_e with m_e << m_H, the electron charge magnitude is e, hbar = h/(2*pi), and vacuum permittivity is epsilon_0. Gravity is neglected. The beam enters a magnetic-field region of width d with speed v_0, where the field component along x has a uniform gradient along z. After leaving the field, the atoms travel an additional distance D to a vertical screen. Assume the magnetic field remains perpendicular to the ring-current plane. Determine the z-direction separation z_n between atoms with clockwise and counterclockwise ring-current directions on the screen. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model the orbiting electron as a loop current in a z-gradient magnetic field and compare clockwise versus counterclockwise current directions.",
+      "key_point": "Opposite current directions give opposite magnetic moments and opposite F_z."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_opposite_magnetic_force.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.09,
+            0.17,
+            0.28,
+            0.56
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.620804,
+            0.168687,
+            0.28,
+            0.56
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For one orientation, use F_z = mu_n*(dB_dz), with acceleration a_z = F_z/m_H, then apply piecewise motion across field width d and drift length D.",
+      "key_point": "Single-atom deflection is proportional to mu_n*(dB_dz)*d*(D+d/2)/(m_H*v_0^2)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_split_trajectory.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.18,
+            0.26,
+            0.728051,
+            0.42
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Using Bohr circular motion for level n gives mu_n = n*e*h/(4*pi*m_e). The two opposite current directions produce symmetric up/down deflections.",
+      "key_point": "Screen separation equals two times the single-atom deflection magnitude."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_time_segment_kinematics.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.24,
+            0.25,
+            0.578176,
+            0.476528
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Substitute mu_n and combine both signs into one positive separation expression for z_n.",
+      "key_point": "Keep one compact symbolic expression only."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_screen_separation_zn.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.160755,
+            0.266871,
+            0.770326,
+            0.34
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "n*e*h*dB_dz*d*(D+d/2)/(2*pi*m_e*m_H*v_0^2)"
+  }
+}

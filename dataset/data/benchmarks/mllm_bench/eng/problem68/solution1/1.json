@@ -1,0 +1,88 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A water-delivery system consists of an open water tank, a suction pipe, a pump, and a discharge pipe. Take the free surface in the tank as section 1 and the outlet as section 2; both sections are open to the atmosphere. Water is pumped from the tank: the suction-pipe inlet is below the free surface, the pump raises the water, and the flow is discharged from the upper outlet pipe. Section 2 is at the same elevation as the pump axis. Establish the steady-flow energy equation from section 1 to section 2, including major loss and all local losses, and give both the general pump-head expression and the corresponding numerical value for the given data. Answer format: H_p_expr;H_p_value, separated by one semicolon, with no units or extra text."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Write Bernoulli with pump head from section 1 to section 2:\n\\[ \\frac{p_1}{\\gamma}+z_1+\\alpha_1\\frac{V_1^2}{2g}+H_p=\\frac{p_2}{\\gamma}+z_2+\\alpha_2\\frac{V_2^2}{2g}+h_L. \\]",
+      "key_point": "Start from the energy equation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.310326,
+            0.456653,
+            0.390204,
+            0.233995
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.54835,
+            0.020838,
+            0.36354,
+            0.429965
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Both section 1 and section 2 are open to atmosphere, so \\(p_1=p_2\\).",
+      "key_point": "Pressure terms cancel."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "At the tank free surface, \\(V_1\\approx 0\\).",
+      "key_point": "Free-surface velocity is negligible."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Then Bernoulli reduces to:\n\\[ H_p=(z_2-z_1)+\\alpha_2\\frac{V_2^2}{2g}+h_L. \\]",
+      "key_point": "Pump head equals elevation + velocity head + loss."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Split total loss into major and local parts:\n\\[ h_L=h_f+h_{loc}. \\]",
+      "key_point": "Separate loss components."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Major loss form:\n\\[ h_f=\\sum_j\\lambda_j\\frac{L_j}{d_j}\\frac{V_j^2}{2g}. \\]",
+      "key_point": "Use Darcy-Weisbach form."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Local loss form:\n\\[ h_{loc}=\\sum_k\\zeta_k\\frac{V_k^2}{2g}. \\]",
+      "key_point": "Use local-loss coefficient form."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "So the general required pump head is:\n\\[ H_p=(z_2-z_1)+\\alpha_2\\frac{V_2^2}{2g}+\\sum_j\\lambda_j\\frac{L_j}{d_j}\\frac{V_j^2}{2g}+\\sum_k\\zeta_k\\frac{V_k^2}{2g}. \\]",
+      "key_point": "Final symbolic head equation."
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "For the given example values, \\(h_L=47.8\\,\\text{m}\\), and\n\\[ H_p=5+\\frac{3.18^2}{2\\times 9.8}+47.8. \\]",
+      "key_point": "Substitute numerical data."
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Compute:\n\\[ H_p=53.3\\,\\text{m}. \\]",
+      "key_point": "Numerical pump head."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "H_p=(z_2-z_1)+alpha_2*V_2^2/(2g)+sum(lambda_j*L_j/d_j*V_j^2/(2g))+sum(zeta_k*V_k^2/(2g)); for the given example data, H_p=53.3 m."
+  }
+}

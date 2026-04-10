@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For projectile motion on an inclined plane, compute the maximum range along the slope for the given launch speed and angle parameters. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Rotated-axis method: choose the s-axis along the incline and the n-axis normal to it, so the landing condition is simply the return to n=0.",
+      "key_point": "This route avoids the horizontal-vertical elimination used in solution1."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rotated_axes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.075035,
+            0.01526,
+            0.388633,
+            0.502876
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Let β=α+θ be the launch angle measured from the slope. Then the initial velocity components are v0*cos(β) along s and v0*sin(β) along n, while gravity contributes g*sin(θ) along s and g*cos(θ) toward the plane.",
+      "key_point": "Tangential and normal motions separate cleanly in the rotated frame."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_tangent_normal_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.090818,
+            0.022682,
+            0.358703,
+            0.526639
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.6,
+            0.29,
+            0.23,
+            0.39
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "The projectile hits the slope again when the normal displacement returns to zero, so the nonzero flight time is t=2*v0*sin(β)/(g*cos(θ)). Substituting this into the tangential displacement gives L=2*v0^2*sin(β)*cos(β-θ)/(g*cos(θ)^2).",
+      "key_point": "The slope range is obtained directly from the tangential motion after the normal-return time is known."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_slope_range.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.101692,
+            0.034054,
+            0.613294,
+            0.75851
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use 2*sin(β)*cos(β-θ)=sin(2*β-θ)+sin(θ). Therefore L is maximal when sin(2*β-θ)=1, which gives β=45°+θ/2 and hence α=45°-θ/2.",
+      "key_point": "The optimum launch direction is found by maximizing a single sine factor in the rotated-frame formula."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_optimum_family.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.126644,
+            0.136362,
+            0.59,
+            0.59
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Substitute the given parameters into the maximum-range expression obtained above.",
+      "key_point": "L_max=255.1*(1+sqrt(3)/2)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "255.1*(1+sqrt(3)/2)"
+  }
+}

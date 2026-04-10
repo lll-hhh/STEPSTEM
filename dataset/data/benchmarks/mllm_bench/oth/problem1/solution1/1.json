@@ -1,0 +1,96 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Compute the value of the given line integral along curve C, where C is the intersection of the cylinder and plane and the direction is clockwise when viewed from +z. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build the spatial geometry of the cylinder and the cutting plane.",
+      "key_point": "The target curve is their intersection."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_cylinder_axes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.335,
+            0.2211,
+            0.3633,
+            0.2333
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.3358,
+            0.5278,
+            0.3608,
+            0.2933
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Parameterize the curve by x=cos(t), y=sin(t), z=2-cos(t)+sin(t).",
+      "key_point": "Clockwise orientation corresponds to decreasing t."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_plane.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.321065,
+            0.058548,
+            0.296663,
+            0.346417
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.318503,
+            0.404253,
+            0.402311,
+            0.419015
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute into the differential form and simplify to the integrand 1-4*cos(t)^2.",
+      "key_point": "Integrate on t in [0,2*pi] with the orientation sign."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_curve_orientation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.313732,
+            0.06719,
+            0.416627,
+            0.770251
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-2*pi"
+  }
+}

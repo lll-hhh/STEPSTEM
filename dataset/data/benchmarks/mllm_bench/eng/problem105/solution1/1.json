@@ -1,0 +1,76 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Given the FET circuit and output characteristic curves, identify key operating points and obtain the equivalent resistance in the variable-resistance region when ui=10V. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Read the circuit topology: source is grounded, drain has load resistor R4 to +15V, and output is drain voltage.",
+      "key_point": "Use drain current and load relation to map ui to operating point."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_circuit_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.110009,
+            0.479526,
+            0.405217,
+            0.238302
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.434607,
+            0.095792,
+            0.448751,
+            0.472458
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "From the 10V characteristic, the variable-resistance segment is near-linear through origin, so rds uses UDS/ID on that line.",
+      "key_point": "Using points around (3V,1mA) or (6V,2mA) gives rds=3000Ω."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_curve_points.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1429,
+            0.191171,
+            0.248901,
+            0.619929
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.317604,
+            0.136827,
+            0.522949,
+            0.206285
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3000"
+  }
+}

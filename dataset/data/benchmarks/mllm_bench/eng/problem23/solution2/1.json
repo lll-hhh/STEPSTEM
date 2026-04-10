@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the three-particle momentum-closure model, identify the geometric locus of point P corresponding to all allowed kinetic-energy partitions. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Triangle-inequality / Heron method: recast momentum closure as the existence condition for a side-length triangle built from sqrt(E_k1), sqrt(E_k2), sqrt(E_k3).",
+      "key_point": "The new route works with a symmetric quadratic constraint, not with a polar bound on r."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_height_partition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.267406,
+            0.359716,
+            0.473377,
+            0.517706
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Because p_i=sqrt(2mE_ki), the vector equation p1+p2+p3=0 is equivalent to the existence of a triangle whose three side lengths are sqrt(E_k1), sqrt(E_k2), sqrt(E_k3).",
+      "key_point": "Momentum closure is enforced through the triangle side-length criterion."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_heron_triangle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.291407,
+            0.236223,
+            0.515118,
+            0.541372
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply Heron's nonnegative-area condition: 2(E_k1E_k2+E_k2E_k3+E_k3E_k1) >= E_k1^2+E_k2^2+E_k3^2. With E_k1+E_k2+E_k3=E_k, this reduces to E_k1^2+E_k2^2+E_k3^2 <= E_k^2/2.",
+      "key_point": "The admissible set is now a centered quadratic region in the height coordinates."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_quadratic_center.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.379618,
+            0.33851,
+            0.321221,
+            0.565073
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For the equilateral height model, E_k1^2+E_k2^2+E_k3^2 = E_k^2/3 + 3OP^2/2. Substituting the quadratic bound gives OP <= E_k/3, which is exactly the inradius of A1A2A3.",
+      "key_point": "Therefore the full locus of admissible points is precisely the incircle."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_incircle_locus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.369632,
+            0.350984,
+            0.339528,
+            0.528898
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "incircle(A1A2A3)"
+  }
+}

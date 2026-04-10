@@ -1,0 +1,92 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "The plot shows how nutritional condition (Fulton's K) relates to upper thermal tolerance for juvenile and adult fish across seasons. Determine which life stage tolerates higher temperature in warm seasons versus cold season based on the fitted trends. Compare the objects in the format name(cold or warm), and connect them from largest to smallest using the greater-than sign (>). Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Extract the seasonal comparison structure from the scatter categories and fitted trends.",
+      "key_point": "Use trend positions to compare juvenile and adult thermal limits by season."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_marker_layout.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.080618,
+            0.522259,
+            0.187507,
+            0.318963
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Overlay the juvenile dashed trend and the adult solid trend across all seasonal panels.",
+      "key_point": "Relative line height indicates which life stage tolerates higher temperature."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_trend_overlay.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.63927,
+            0.360036,
+            0.251608,
+            0.183218
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.390618,
+            0.588104,
+            0.24,
+            0.18
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Read the seasonal shift where the juvenile trend dominates in warm periods while adults overtake in the cold period.",
+      "key_point": "Warm-season advantage favors juveniles; cold-season comparison favors adults."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_cold_warm_contrast.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.410449,
+            0.500995,
+            0.24,
+            0.31
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Encode the seasonal comparison in a single canonical expression.",
+      "key_point": "Output one compact expression only."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "juvenile(warm)>adult(warm)>adult(cold)>juvenile(cold)"
+  }
+}

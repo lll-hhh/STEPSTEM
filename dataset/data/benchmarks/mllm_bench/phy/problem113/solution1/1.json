@@ -1,0 +1,58 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A square loop abcd slides on a smooth incline with angle θ through two magnetic regions I and II, where the magnetic fields have equal magnitude and are perpendicular to the incline plane. When side cd enters region I, the loop speed is v and remains v until side ab leaves region I. Determine the potential difference across side cd at the instant when side cd enters region I. Answer format: a single algebraic expression; write only the expression, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "At the entry instant of region I, only side cd cuts magnetic field lines, so the motional emf magnitude is E=Blv.",
+      "key_point": "Use the local emf on side cd at entry."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_cd_entry_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.417051,
+            0.060604,
+            0.544978,
+            0.694728
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The loop is uniform, so each side resistance is R/4. Current is I=E/R, and terminal voltage across cd is U_cd=E-I*(R/4).",
+      "key_point": "U_cd equals source emf minus internal drop of side cd."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_cd_terminal_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.424176,
+            0.051689,
+            0.44877,
+            0.42008
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3*B*l*v/4"
+  }
+}

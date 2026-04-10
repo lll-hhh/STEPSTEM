@@ -1,0 +1,121 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the moving observer and fixed source geometry, derive the accumulated-heard-cycles function N(t). Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set geometric variables with y=vt and the right triangle formed by L and y between source S and rider position B_t.",
+      "key_point": "Build the observation-angle geometry for Doppler projection."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_sb_v.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.1,
+            0.57,
+            0.5
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "From the triangle, cos(phi_B)=y/sqrt(L^2+y^2) with y=vt, then use moving-observer Doppler relation nu(t)=((u-v*cos(phi_B))/u)*nu_0.",
+      "key_point": "Project v onto propagation direction and substitute y=vt."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_bt_phi.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4,
+            0.16,
+            0.32,
+            0.3
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.13,
+            0.39,
+            0.58,
+            0.24
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute cos(phi_B)=vt/sqrt(L^2+v^2*t^2): nu(t)=(1-(v/u)*(v*t/sqrt(L^2+v^2*t^2)))*nu_0.",
+      "key_point": "Obtain explicit frequency function of time."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_projection_component.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.39,
+            0.16,
+            0.34,
+            0.26
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.13,
+            0.39,
+            0.58,
+            0.24
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use dN=nu(t)dt and integrate from 0 to t, equivalently N(t)*lambda=ut-(sqrt(L^2+v^2*t^2)-L) with lambda=u/nu_0.",
+      "key_point": "Convert frequency-time relation to accumulated cycles."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_path_difference.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.1,
+            0.6,
+            0.52
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "The canonical single-expression output keeps only N(t).",
+      "key_point": "Write N(t) as the accumulated-cycle expression."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(t-(sqrt(L^2+v^2*t^2)-L)/u)*nu_0"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the ray entering the semicylindrical medium, determine the allowed range of incident-angle parameter phi that satisfies the refraction-exit condition. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use refraction at the flat face to fix the internal ray direction.",
+      "key_point": "Refraction at flat face fixes the internal ray angle."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incident_45.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.18,
+            0.168504,
+            0.28,
+            0.35
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Draw the refracted path from the entry point to the curved boundary.",
+      "key_point": "This ray sets the incidence geometry at the cylindrical surface."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_refracted_30.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4,
+            0.47,
+            0.24,
+            0.25
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply the critical-angle condition at the curved boundary.",
+      "key_point": "Transmission requires incidence below the critical angle."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_critical_condition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.490133,
+            0.663895,
+            0.23,
+            0.26
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Translate the incidence condition into a bound on the surface-position angle phi.",
+      "key_point": "The transmissive boundary segment gives the allowed phi interval."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_exit_region_phi.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.543012,
+            0.371077,
+            0.135033,
+            0.460158
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "75<phi<165"
+  }
+}

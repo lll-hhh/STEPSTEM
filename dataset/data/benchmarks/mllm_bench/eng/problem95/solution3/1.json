@@ -1,0 +1,53 @@
+﻿{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the non-ideal equivalent model of the operational amplifier, draw the final output-transfer characteristic relating v_o to the differential input. Answer format: one final image only, with no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build a two-block equivalent: a controlled source G followed by a limiter S. For the source block, define v_lin(v_d)=Avo*v_d.",
+      "key_point": "Pre-limiter output is v_lin=Avo*v_d."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Define the limiter as S(x)=max(-Vom,min(x,+Vom)). The overall transfer is the function composition v_o(v_d)=S(v_lin(v_d))=S(Avo*v_d).",
+      "key_point": "Complete module mapping: v_o(v_d)=max(-Vom,min(Avo*v_d,+Vom))."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Find region boundaries from the limiter entry condition Avo*v_d=+/-Vom, so v_d=+/-Vom/Avo. With Vom=14 V and Avo=2x10^5, the two thresholds are v_d=+/-70 uV.",
+      "key_point": "Thresholds on v_d are -70 uV and +70 uV."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Expand the composite map into piecewise form: v_o=-14 V (v_d<=-70 uV), v_o=Avo*v_d (-70 uV<v_d<70 uV), v_o=+14 V (v_d>=70 uV). Plot these three analytic branches to obtain the final transfer characteristic.",
+      "key_point": "Final piecewise transfer is a clipped linear law with three branches."
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

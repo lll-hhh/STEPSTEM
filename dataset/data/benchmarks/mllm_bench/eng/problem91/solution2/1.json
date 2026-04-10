@@ -1,0 +1,54 @@
+﻿{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Build the following structural model: a rigid horizontal plate is supported below by three equal-length, equal-section vertical circular bars, all pin-connected at both ends. The three lower ends are fixed to the same horizontal base, and the upper ends connect to the left, middle, and right points of the rigid plate. The spacing from left bar 3 to middle bar 2 is l/3, and from middle bar 2 to right bar 1 is 2l/3. A counterclockwise couple M_e is applied to the rigid plate, causing a small rotation so that right bar 1 is in tension while left bars 2 and 3 are in compression. Since the bars are slender compression members, the more highly compressed one buckles first as load increases. Given identical material with elastic modulus E, bar diameter d, and bar length l, determine the critical couple M_e at initial instability. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Choose two generalized coordinates for the rigid top plate: vertical translation y and small rotation phi.",
+      "key_point": "The plate configuration is fully described by one translation and one rotation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.12,
+            0.84,
+            0.72
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Express bar axial deformations as linear functions of y and phi at the three connection points, then use N_i = (E*A/l)*Delta_i for i=1,2,3.",
+      "key_point": "Convert plate motion directly into three bar forces through linear stiffness laws."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Substitute these N_i into rigid-plate force and moment equilibrium to build a 2x2 linear system in y and phi; solving gives N1=(15/14)*(M_e/l), N2=(3/14)*(M_e/l), N3=(6/7)*(M_e/l).",
+      "key_point": "The equilibrium-stiffness system gives the bar-force distribution versus M_e."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Among compression bars, N3 > N2, so bar 3 reaches instability first. Apply Euler condition to bar 3: N3 = pi^2*E*I/l^2, with I = pi*d^4/64.",
+      "key_point": "Bar 3 is the controlling buckling member."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Set (6/7)*(M_e/l) = pi^2*E*(pi*d^4/64)/l^2 and solve for the critical couple: M_e = 7*pi^3*E*d^4/(384*l).",
+      "key_point": "Critical couple is obtained by combining force distribution with Euler buckling."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "7*pi^3*E*d^4/(384*l)"
+  }
+}

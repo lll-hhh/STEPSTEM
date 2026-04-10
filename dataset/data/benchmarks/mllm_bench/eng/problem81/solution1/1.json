@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "The structure consists of two beams. The lower main beam AB is a simply supported beam with span l, with a pin support at A and a roller support at B. The upper auxiliary beam CD is also simply supported, and its two ends are supported at points C and D on the main beam, symmetrically arranged about the midspan of AB. The auxiliary beam length is a, and the distances from C and D to the adjacent main supports are both (l-a)/2. A downward concentrated load F acts at the midpoint of CD. This load is first carried by CD, then transferred to AB as two equal downward concentrated forces F/2 at C and D. Build the beam models for CD (midpoint concentrated load) and AB (two symmetric concentrated loads), and determine the reasonable auxiliary-beam length a by requiring both beams to reach bending strength simultaneously. Answer format: a single numerical value or algebraic expression; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build two simplified beam models from the figure: (1) auxiliary beam CD as a simply supported beam with a midpoint load F; (2) main beam AB as a simply supported beam carrying two symmetric concentrated loads F/2 at C and D.",
+      "key_point": "The load path is F on CD, then two F/2 transfers to AB."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.123698,
+            0.527344,
+            0.735677,
+            0.292969
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.24204,
+            0.080311,
+            0.480602,
+            0.334417
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For the auxiliary beam CD with a midpoint load F:\nR_C=R_D=\\frac{F}{2}.",
+      "key_point": "The midpoint point load on a simply supported beam gives equal end reactions."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Maximum bending moments:\nM_{\\text{aux,max}}=\\frac{Fa}{4},\\qquad M_{\\text{main,max}}=\\frac{F(l-a)}{4}.",
+      "key_point": "Use standard max-moment results for a midpoint load and a symmetric two-point load."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Set the two beams to reach bending strength at the same time:\n\\sigma_1=\\sigma_2,\n\\frac{M_{\\text{main,max}}}{W_1}=\\frac{M_{\\text{aux,max}}}{W_2}.",
+      "key_point": "The design condition is equal maximum bending stress."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Substitute moments and solve:\n\\frac{F(l-a)}{4W_1}=\\frac{Fa}{4W_2}\n\\Rightarrow W_2(l-a)=W_1a\n\\Rightarrow W_2l=(W_1+W_2)a\n\\Rightarrow a=\\frac{W_2l}{W_1+W_2}.",
+      "key_point": "Final result: a is determined by section moduli ratio."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "W2*l/(W1+W2)"
+  }
+}

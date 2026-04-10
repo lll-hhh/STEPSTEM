@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using axial symmetry and Ampere-law analysis, derive the magnetic flux-density magnitude B at radial distance r in the specified region. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use axial symmetry and Ampere loop relation H*2*pi*r = enclosed_current.",
+      "key_point": "The magnetic field is circumferential around the axis."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_cross_section_regions.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.271435,
+            0.362852,
+            0.277947,
+            0.27046
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Get H(r): linear in conductor r<R1 and proportional to 1/r for r>R1.",
+      "key_point": "H is continuous at R1 and unchanged at R2."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_H_r_curve.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.299834,
+            0.528796,
+            0.15,
+            0.351342
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.57,
+            0.545077,
+            0.08,
+            0.341627
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use B=mu*H in each region: mu0 inside conductor, mu0*mu_r in shell, and mu0 outside.",
+      "key_point": "B has jumps at R1 and R2 because permeability changes."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_B_r_curve.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.35,
+            0.36,
+            0.06,
+            0.5569
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.58,
+            0.518687,
+            0.06,
+            0.379833
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Mark three loop radii to represent r<R1, R1<r<R2, and r>R2 regions.",
+      "key_point": "Same right-hand circulation direction applies in all regions."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_three_region_loops.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.384611,
+            0.324778,
+            0.257975,
+            0.291466
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "mu0*mu_r*I/(2*pi*r)"
+  }
+}

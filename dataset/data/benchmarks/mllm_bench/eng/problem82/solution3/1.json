@@ -1,0 +1,49 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Model the body as a uniform slender rod AB with length l and mass m. Initially, the lower end B is at the corner of a horizontal floor and a smooth vertical wall, and the upper end A leans on the wall. The rod makes an angle theta with the vertical direction. Both wall and floor are smooth and frictionless. After a small disturbance, the rod moves in the vertical plane; after end B loses wall contact, the rod undergoes general plane motion. Let C be the mass center, and decompose the motion into translation of C and rotation about C with angular velocity omega. Determine the rod state at the instant it reaches the ground, and solve for the impact-time center speed v_C and angular velocity omega. Answer format: v_C|omega, in this order, separated by |, with no units, explanatory text, or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Choose generalized coordinate theta after wall separation and write rod kinetic and potential energies.",
+      "key_point": "Use Lagrange formulation as the main dynamic framework."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.192791,
+            0.226822,
+            0.602906,
+            0.36998
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Combine horizontal momentum constancy of the center with kinematic relation v_Cy=(l/2)*omega at the impact instant.",
+      "key_point": "This provides v_Cx constant and couples translation with rotation."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Use the energy first integral in theta-form between release and ground-contact states to solve omega at impact.",
+      "key_point": "Lagrangian energy route yields impact angular speed directly."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute omega into center-velocity components and compute v_C magnitude, then output v_C|omega.",
+      "key_point": "Return pair in required order with one separator."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(7*g*l)/3|sqrt(8*g/(3*l))"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the circular cross-section beam, provide the extreme normal bending-stress formula in terms of internal moment M and diameter d. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Form global equilibrium and identify one redundant reaction for the three-support beam.",
+      "key_point": "Unknown reactions exceed independent equilibrium equations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_m0.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.230708,
+            0.318872,
+            0.218933,
+            0.083019
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.555702,
+            0.3222,
+            0.238579,
+            0.086346
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.400624,
+            0.386673,
+            0.185749,
+            0.239249
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Build M(x) piecewise and apply EI*v''(x)=M(x), then integrate to _TS(x) and v(x).",
+      "key_point": "Use zero deflection and continuity conditions at supports."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_reaction_model.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.16,
+            0.283364,
+            0.09859,
+            0.330358
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.456275,
+            0.263383,
+            0.100754,
+            0.370302
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.784391,
+            0.271165,
+            0.097299,
+            0.365847
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.250676,
+            0.327726,
+            0.215822,
+            0.094128
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.565057,
+            0.32329,
+            0.205499,
+            0.093019
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Solve support reactions and evaluate internal force at x=a/2 for stress computation.",
+      "key_point": "Combine reaction solution with section stress relations."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_curvature_conditions.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.148845,
+            0.448928,
+            0.283314,
+            0.083833
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.438158,
+            0.505545,
+            0.143845,
+            0.125921
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.590666,
+            0.44451,
+            0.284781,
+            0.070505
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.229459,
+            0.302237,
+            0.240161,
+            0.111855
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.552581,
+            0.302237,
+            0.223595,
+            0.110746
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For circular section use I=pi*d^4/64 and y=d/2 to obtain extreme normal stress expression.",
+      "key_point": "For circular section use I=pi*d^4/64 and y=d/2 to obtain extreme normal stress expression."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_stress_section.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.671894,
+            0.172237,
+            0.12,
+            0.2
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.4,
+            0.39,
+            0.107081,
+            0.239249
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.475036,
+            0.253401,
+            0.08,
+            0.238324
+          ],
+          "weight": 0.333333
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "32*M/(pi*d^3)"
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-mass system rotating about point A, find the angular-momentum vector at the shown instant in the i1-j1-k1 basis. Answer format: a single vector expression. The variable names may only be Omega, phi, i1, j1, k1, m, and L; use ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build the 3D rotating geometry at A with x y z and coincident x1 y1 z1 bases.",
+      "key_point": "At this instant, rotating and inertial bases are aligned."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_frames.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.159205,
+            0.37842,
+            0.585056,
+            0.353127
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.440022,
+            0.310336,
+            0.051108,
+            0.40867
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use omega along z1 and compute r x (omega x r) contributions for m1 and m2.",
+      "key_point": "Angular momentum has coupled i1 and k1 components when phi is nonzero."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_cross_product_direction.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.324126,
+            0.0,
+            0.233763,
+            0.805226
+          ],
+          "weight": 0.65
+        },
+        {
+          "bbox": [
+            0.527563,
+            0.397475,
+            0.2433,
+            0.2355
+          ],
+          "weight": 0.35
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Differentiate H in the inertial frame and map components onto i1 j1 k1.",
+      "key_point": "The j1 term scales with Omega^2 and i1 k1 terms scale with Omega_dot."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_dH_torque_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.226947,
+            0.672366,
+            0.395667,
+            0.147379
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.401527,
+            0.38103,
+            0.15802,
+            0.322935
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For torque only along z1, add a symmetric counter-mass mirrored in z1 to cancel cross coupling.",
+      "key_point": "Make x1 y1 and x1 z1 symmetry planes so the chosen basis becomes principal."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_balance_symmetric_addition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.160001,
+            0.41255,
+            0.347773,
+            0.392753
+          ],
+          "weight": 0.65
+        },
+        {
+          "bbox": [
+            0.465946,
+            0.431649,
+            0.262355,
+            0.495708
+          ],
+          "weight": 0.35
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*L^2*Omega*(1+cos(phi)^2)*k1-m*L^2*Omega*sin(phi)*cos(phi)*i1"
+  }
+}

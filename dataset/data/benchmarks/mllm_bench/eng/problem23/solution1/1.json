@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the three-particle momentum-closure model, identify the geometric locus of point P corresponding to all allowed kinetic-energy partitions. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Map the kinetic-energy partition to an equilateral-triangle height model with interior point P.",
+      "key_point": "E_k1, E_k2, E_k3 are represented by three distances from P to the sides."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_energy_heights.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.318488,
+            0.346528,
+            0.360714,
+            0.421088
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use E_ki=p_i^2/(2m) and p1+p2+p3=0 to convert the geometry into momentum-closure constraints.",
+      "key_point": "The allowed set is determined by the momentum triangle condition."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_momentum_closure.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.27,
+            0.22,
+            0.39,
+            0.42
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Parameterize P by polar variables (r,phi) around the incenter and reduce the inequality to a bound on r only.",
+      "key_point": "The extremal radius is independent of phi."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_radial_bound_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.422497,
+            0.391185,
+            0.309965,
+            0.304082
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "The reduced bound is r<=E_k/3, so admissible points are exactly those inside the incircle.",
+      "key_point": "Allowed region equals the incircle of A1A2A3."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_incircle_region.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.459861,
+            0.372349,
+            0.28,
+            0.38
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "incircle(A1A2A3)"
+  }
+}

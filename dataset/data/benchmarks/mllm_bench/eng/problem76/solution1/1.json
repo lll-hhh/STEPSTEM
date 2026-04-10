@@ -1,0 +1,141 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the cast-iron I-section beam with unequal top and bottom flange widths, use the beam geometry and loading given in the accompanying image. The second moment of area about the centroidal z-axis is \\(I_z = 235 \\times 10^6\\,\\text{mm}^4\\), with \\(y_1=119\\,\\text{mm}\\) and \\(y_2=181\\,\\text{mm}\\). The allowable tensile stress is \\([\\sigma_t]=40\\,\\text{MPa}\\), and the allowable compressive stress is \\([\\sigma_c]=120\\,\\text{MPa}\\). Determine the allowable distributed load \\([q]\\), keeping two decimal places. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "step2.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use two base figures in sequence: the beam loading diagram and the unequal I-section diagram. For the beam model, write equilibrium for the whole beam: \\(\\sum M_A=0\\Rightarrow 4F_{RB}-\\frac{1}{2}(5q)4^2-8q=0\\), and \\(\\sum F_y=0\\Rightarrow F_{RA}+F_{RB}+4\\cdot5q=0\\). Solving gives \\(F_{RA}=8q\\) and \\(F_{RB}=12q\\).",
+      "key_point": "Support reactions are \\(F_{RA}=8q\\) and \\(F_{RB}=12q\\)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.086055,
+            0.287982,
+            0.608587,
+            0.280794
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.093568,
+            0.189509,
+            0.810376,
+            0.253494
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1155,
+            0.1611,
+            0.7343,
+            0.4736
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "From the bending-moment diagram, \\(M_{\\max}=6.4q\\) and \\(M_{\\min}=-8q\\). Apply the bending stress condition \\(\\sigma=\\frac{My}{I_z}\\le[\\sigma]\\) at the relevant fibers to obtain candidate allowable loads.",
+      "key_point": "Use both positive and negative moment sections with different \\(y_1, y_2\\)."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.077468,
+            0.201209,
+            0.841503,
+            0.22912
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.078541,
+            0.193409,
+            0.237209,
+            0.384141
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.443479,
+            0.190484,
+            0.29517,
+            0.380241
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.023526,
+            0.054962,
+            0.637984,
+            0.492364
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.607531,
+            0.368905,
+            0.275744,
+            0.424115
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "At section D: \\([q_1]\\le\\frac{[\\sigma_t]I_z}{6.4y_2}=\\frac{40\\times10^6\\times235\\times10^{-6}}{6.4\\times0.181}=8.11\\,\\text{kN/m}\\), and \\([q_2]\\le\\frac{[\\sigma_c]I_z}{6.4y_1}=\\frac{120\\times10^6\\times235\\times10^{-6}}{6.4\\times0.119}=37.0\\,\\text{kN/m}\\). On segment BC: \\([q_3]\\le\\frac{[\\sigma_t]I_z}{8y_1}=\\frac{40\\times10^6\\times235\\times10^{-6}}{8\\times0.119}=9.87\\,\\text{kN/m}\\), and \\([q_4]\\le\\frac{[\\sigma_c]I_z}{8y_2}=\\frac{120\\times10^6\\times235\\times10^{-6}}{8\\times0.181}=195\\,\\text{kN/m}\\). Therefore, \\([q]=\\min(q_1,q_2,q_3,q_4)=8.11\\,\\text{kN/m}\\).",
+      "key_point": "The governing constraint is \\(q_1\\), so the allowable load is 8.11 kN/m."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "8.11"
+  }
+}

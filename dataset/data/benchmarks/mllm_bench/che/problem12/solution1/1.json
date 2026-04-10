@@ -1,0 +1,78 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "COF-1 is formed by condensation of diboronic acid building blocks into a periodic covalent framework. Based on the illustrated framework topology, determine how many boron atoms are contained in one conventional unit cell. Answer format: a single integer; do not include units, explanatory text, or an equals sign. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Represent the COF-1 topology as a periodic boroxine-linked network and identify the repeating motif.",
+      "key_point": "Count boron atoms from one repeatable conventional cell only."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_framework_topology.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.247987,
+            0.154252,
+            0.52,
+            0.72
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Select a conventional cell that captures the repeating arrangement without overlap ambiguity.",
+      "key_point": "Use a single explicit cell boundary for counting."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_select_unit_cell.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.35599,
+            0.224489,
+            0.290108,
+            0.454426
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Inside the selected cell, the highlighted boron sites sum to six effective boron atoms.",
+      "key_point": "Total boron count in one conventional unit cell equals six."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_boron_count_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.363977,
+            0.247173,
+            0.271139,
+            0.418916
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "6"
+  }
+}

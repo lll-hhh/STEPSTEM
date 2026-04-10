@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Now consider another scenario: atoms are distributed on a square lattice in the two-dimensional $x$-$y$ plane with lattice constant $a$, and the atomic magnetic moments can rotate within the plane. As shown in Fig. 5d, in a planar region of size $L$ ($L \\gg a$), the magnetic-moment distribution is indicated by arrows at each lattice point. Due to the \"molecular field\" effect, there is relatively strong interaction among magnetic moments, and this interaction is significant only between nearest-neighbor molecules. Let the angle between the spin angular momentum $\\boldsymbol{S}_i$ at the $i$-th lattice site in this plane and the $x$ axis be $\\theta_i \\in [0,2\\pi]$. The magnetic energy of the system can be written as $$ \\begin{aligned} E(\\{\\theta_i\\}) &= -J' \\sum_{\\langle i,j\\rangle} \\boldsymbol{S}_i \\cdot \\boldsymbol{S}_j \\\\ &= -J \\sum_{\\langle i,j\\rangle} \\cos(\\theta_i - \\theta_j) \\end{aligned} $$ where $J'$ and $J$ ($J'$, $J > 0$) are constants, $\\langle i,j\\rangle$ denotes all nearest-neighbor lattice sites $i$ and $j$ (a lattice site generally has four nearest neighbors), and the system configuration is given by $\\{\\theta_i\\}$. Assume the system reaches thermal equilibrium with the environment and the system volume is unchanged. At this time, the Helmholtz free energy is $F = E - TS$, where $E$ is the internal energy of the system and $S$ is the system entropy. Possible vortex configurations in the system are shown in Fig. 5e. Traversing one loop along a closed path around the vortex center, the sum of orientation-angle differences of magnetic moments between nearest-neighbor lattice sites $(i,j)$ on this closed path is $$ \\sum_{\\langle i,j\\rangle} (\\theta_i - \\theta_j) = 2\\pi l $$ Here, $l$ is a positive integer related to the vortex structure; the case $l=1$ is shown in Fig. 5e. For convenience, consider a closed path (circle) centered at the vortex center with a relatively large radius $r$, and find the average orientation-angle difference between adjacent lattice sites on the circle $\\langle \\theta_i - \\theta_j \\rangle$. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Take a circular closed loop of radius r centered at the vortex core, and treat nearest-neighbor spacing on the loop as a.",
+      "key_point": "The loop is discretized into nearest-neighbor links on the lattice."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_lattice_loop.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.24,
+            0.214362,
+            0.54,
+            0.62
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.459507,
+            0.432945,
+            0.435229,
+            0.194085
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For a vortex with winding number l, the total angle increment around one closed loop is sum(theta_i-theta_j)=2*pi*l.",
+      "key_point": "Total phase winding is fixed by topology."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_vortex_winding_l.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.24647,
+            0.246624,
+            0.51595,
+            0.571165
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.39959,
+            0.405219,
+            0.192233,
+            0.239556
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "If N is the number of nearest-neighbor links on the loop, then N is approximately 2*pi*r/a, so <theta_i-theta_j>=(2*pi*l)/N.",
+      "key_point": "Average nearest-neighbor difference equals total winding divided by link count."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_neighbor_delta_theta.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.397926,
+            0.218897,
+            0.41276,
+            0.405915
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Substitute N approximately 2*pi*r/a into (2*pi*l)/N to obtain <theta_i-theta_j>=l*a/r.",
+      "key_point": "The mean angle difference scales as inverse radius."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_average_relation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.462836,
+            0.432945,
+            0.30957,
+            0.210721
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "l*a/r"
+  }
+}

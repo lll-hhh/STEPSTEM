@@ -1,0 +1,157 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "As shown in the figure, let O be the circumcenter of triangle ABC. Take a point D on side AB, and extend OD to point E such that A, O, B, E are concyclic. Given that OD = 2, AD = 3, BD = 4, CD = 5, find the ratio of the perimeters of triangle ABE and triangle CDE. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the intersecting chords at D to relate the unknown segment DE to the known lengths.",
+      "key_point": "AD*BD=OD*DE."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_base_chords.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.29,
+            0.28,
+            0.09
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.38,
+            0.29,
+            0.32,
+            0.09
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.36,
+            0.08,
+            0.08,
+            0.28
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.31,
+            0.31,
+            0.1,
+            0.52
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Compute DE from 3*4=2*DE, so DE=6 and then OE=OD+DE=8.",
+      "key_point": "DE=6 and OE=8."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_AE.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.11,
+            0.07,
+            0.33,
+            0.3
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.13,
+            0.29,
+            0.3,
+            0.54
+          ],
+          "weight": 0.55
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "From OA=OB and the cyclic angles, triangles OAD and OEA are similar; hence OA^2=OD*OE=16, so OA=4 and AE=6.",
+      "key_point": "OA=4 and AE=6."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_add_BE.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.37,
+            0.07,
+            0.36,
+            0.3
+          ],
+          "weight": 0.45
+        },
+        {
+          "bbox": [
+            0.31,
+            0.29,
+            0.41,
+            0.54
+          ],
+          "weight": 0.55
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Apply the same angle chase to triangles ODB and OEB to get BE=2BD=8.",
+      "key_point": "BE=8."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_add_C_triangle.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.37,
+            0.07,
+            0.53,
+            0.3
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.31,
+            0.31,
+            0.59,
+            0.5
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Because OA=OC and OA^2=OD*OE, triangles OCD and OEC are similar, so EC/CD=OC/OD=2 and EC=10. With AB=AD+BD=7, the two perimeters are 7+6+8=21 and 5+6+10=21, hence their ratio is 1.",
+      "key_point": "The two perimeters are equal, so the ratio is 1."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1"
+  }
+}

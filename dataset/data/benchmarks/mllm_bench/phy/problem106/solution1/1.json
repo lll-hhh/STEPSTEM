@@ -1,0 +1,94 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the coaxial three-lens system described, the object point P is imaged to Q and satisfies PO_2 = O_2Q. Find the distance from P to lens L_1. Answer format: a single numerical value or algebraic expression. If the result naturally simplifies to a single number, give the number; otherwise give the target expression. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Write sequential thin-lens equations for convex-concave-convex coaxial system.",
+      "key_point": "Condition PO2=O2Q closes unknown intermediate distances."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.224063,
+            0.227768,
+            0.138882,
+            0.568129
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.437847,
+            0.219454,
+            0.176333,
+            0.581986
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.653192,
+            0.219454,
+            0.152146,
+            0.6
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Eliminate internal image positions and solve object distance to L1.",
+      "key_point": "Answer as one expression."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.060214,
+            0.247167,
+            0.344863,
+            0.557044
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.359044,
+            0.226382,
+            0.286346,
+            0.6
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.627445,
+            0.212526,
+            0.305852,
+            0.593072
+          ],
+          "weight": 0.333333
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "PO_1"
+  }
+}

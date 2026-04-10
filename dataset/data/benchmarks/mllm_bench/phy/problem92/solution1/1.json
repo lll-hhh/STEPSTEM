@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A molecule/atom is modeled as one electron spin magnetic moment mu = (-e/m)S with Sz = +/-hbar/2. Above the Curie temperature, the susceptibility follows chi = C/(T-theta), and the molecular field is Hm = gamma*M. Express gamma in terms of theta and known constants, then derive Hm when all magnetic moments are fully aligned. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: `gamma,Hm`, with the two expressions separated by commas; do not include units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set |mu| = e*hbar/(2*m) and start from mean-field relation M = (C/T)*(H + Hm) with Hm = gamma*M.",
+      "key_point": "Connect Curie-Weiss law to mean-field susceptibility."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_spin_states.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.23,
+            0.15,
+            0.54,
+            0.72
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Solve M = (C/T)*(H + gamma*M) to get chi = C/(T - gamma*C). Matching chi = C/(T-theta) gives gamma = theta/C.",
+      "key_point": "gamma equals theta divided by Curie constant C."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_field_combination.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.07,
+            0.24,
+            0.78,
+            0.42
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For spin-1/2 moments, C = n*mu^2/k_B, so gamma = k_B*theta/(n*mu^2) = 4*m^2*k_B*theta/(n*e^2*hbar^2).",
+      "key_point": "Use mu = e*hbar/(2*m) to rewrite gamma explicitly."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_full_alignment.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.095839,
+            0.128649,
+            0.8,
+            0.74
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "With full alignment M = n*mu, hence Hm = gamma*M = k_B*theta/mu = 2*m*k_B*theta/(e*hbar).",
+      "key_point": "Final molecular field under complete parallel ordering."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*m*k_B*theta/(e*hbar)"
+  }
+}

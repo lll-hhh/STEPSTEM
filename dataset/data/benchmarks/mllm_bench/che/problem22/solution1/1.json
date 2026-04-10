@@ -1,0 +1,76 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Compound A undergoes acid hydrolysis and forms one carboxylic acid together with ethanol. Write the structural formula of that carboxylic acid. Answer format: one condensed structural formula in ASCII; write only the formula, with no explanatory text, spaces, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify A as a diethyl diester and select the hydrolyzable ester groups under acidic conditions.",
+      "key_point": "Both ester groups convert to carboxyl groups after hydrolysis."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_ester_groups.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2208,
+            0.2643,
+            0.2167,
+            0.4143
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.5792,
+            0.2643,
+            0.2167,
+            0.4143
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Replace each OEt fragment with OH while keeping the carbon skeleton unchanged.",
+      "key_point": "The product acid skeleton is HOOC-CH2-COOH."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_hydrolysis_product.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2042,
+            0.2643,
+            0.2042,
+            0.4071
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.6042,
+            0.2643,
+            0.2042,
+            0.4071
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "HOOCCH2COOH"
+  }
+}

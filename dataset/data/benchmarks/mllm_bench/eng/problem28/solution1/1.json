@@ -1,0 +1,111 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "From the piecewise acceleration-altitude model of the rising balloon, determine the maximum altitude H. Output exactly one integer in plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Build a piecewise a-h model: constant acceleration before full expansion, then decreasing acceleration, then negative acceleration.",
+      "key_point": "Three altitude intervals are split by h_1 and h_2."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_constant_a0.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.125152,
+            0.11166,
+            0.284471,
+            0.38109
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use h_1 = 316.6 m for full-volume onset and h_2 = 603 m for force balance, then append the descending positive-acceleration segment.",
+      "key_point": "The graph connects from (h_1, a_0) to (h_2, 0)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_to_h2_zero.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.283631,
+            0.116974,
+            0.3,
+            0.36
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_to_H_negative.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.48963,
+            0.323114,
+            0.459894,
+            0.580125
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Extend to maximum height H = 1120 m where velocity reaches zero; the endpoint acceleration is negative.",
+      "key_point": "Key coordinates are (0, a_0), (h_1, a_0), (h_2, 0), (H, a_H)."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step8_key_points.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.77173,
+            0.32956,
+            0.165941,
+            0.54145
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.468888,
+            0.251267,
+            0.131568,
+            0.29525
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.09552,
+            0.076758,
+            0.320622,
+            0.15753
+          ],
+          "weight": 0.333333
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1120"
+  }
+}

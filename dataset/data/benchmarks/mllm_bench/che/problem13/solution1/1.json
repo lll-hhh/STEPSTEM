@@ -1,0 +1,87 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "## 5.1 Structure and Properties of Ice As shown in Fig. 5.1(a), early studies considered the lattice parameters of ice to be $a=0.782\\ \\mathrm{nm}$ and $c=0.736\\ \\mathrm{nm}$. However, with the development of scientific techniques, neutron diffraction results for natural ice confirmed a certain degree of disorder in the hydrogen distribution. The actual structure of natural ice is shown in Fig. 5.1(b). It can be seen that hydrogen atoms are distributed tetrahedrally around oxygen atoms, but each of these positions has an occupancy of $1/2$, which means water molecules can adopt different orientations. Natural ice still belongs to the hexagonal crystal system, with lattice parameters $a=0.451\\ \\mathrm{nm}$ and $c=0.736\\ \\mathrm{nm}$. In the ice structure shown in Fig. 5.1, how many possible orientations can a single water molecule have?. Answer format: a single integer; do not include units, explanatory text, or an equals sign. Answer format: a single integer; write only the number itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model one water molecule by four tetrahedral candidate proton sites around one oxygen center.",
+      "key_point": "There are 4 candidate sites."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_tetra_sites.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.14293,
+            0.176594,
+            0.7,
+            0.7
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "A valid orientation occupies exactly two of the four candidate sites.",
+      "key_point": "Count combinations C(4,2)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_choose_two_sites.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.433503,
+            0.133038,
+            0.41,
+            0.41
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Enumerate all distinct two-site occupancy choices to get the number of possible orientations.",
+      "key_point": "Total orientations = 6."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_all_orientations.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.07,
+            0.06,
+            0.86,
+            0.38
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.07,
+            0.54,
+            0.86,
+            0.39
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "6"
+  }
+}

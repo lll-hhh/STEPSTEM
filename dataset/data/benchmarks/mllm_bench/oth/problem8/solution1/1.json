@@ -1,0 +1,134 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Solve the Sudoku variant under the stated gray-cell inequality rule and provide the completed final board. Answer format: one final image only, with no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct the 9x9 board with the given digits.",
+      "key_point": "Use the fixed clues as anchors for the variant constraints."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_grid_givens.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.43,
+            0.03,
+            0.52,
+            0.22
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.02,
+            0.73,
+            0.55,
+            0.24
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Mark all gray cells that must be greater than adjacent white cells.",
+      "key_point": "Gray-versus-white neighborhood relation defines inequality direction."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_gray_regions.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.05,
+            0.05,
+            0.62,
+            0.3
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.33,
+            0.34,
+            0.52,
+            0.58
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply inequality symbols around representative gray cells.",
+      "key_point": "Each marker encodes gray cell value greater than the touching white cell."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_local_inequalities.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.27,
+            0.24,
+            0.45,
+            0.48
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.58,
+            0.3,
+            0.25,
+            0.5
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Assemble the complete gray-cell and inequality relation map.",
+      "key_point": "Use all local greater-than constraints simultaneously."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_full_constraints.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.06,
+            0.09,
+            0.63,
+            0.28
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.3,
+            0.3,
+            0.54,
+            0.57
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "MEMS Accelerometer: MEMS (microelectromechanical systems) accelerometers are widely used in automotive electronics, robotics, industrial automation, satellite navigation, and other fields. A capacitive accelerometer is a type of MEMS accelerometer. It forms a variable capacitor using fixed metal electrodes and a movable metal plate electrode. When the sensor undergoes accelerated motion, the relative position of the movable plate electrode changes with respect to the fixed electrodes, so the capacitance between electrodes changes accordingly. The acceleration magnitude can be obtained by measuring this capacitance variation with an interface circuit. For a comb-like differential capacitive structure, as shown in Fig. 5a, two metal electrodes are fixed on an insulating substrate. A movable electrode is mounted on an insulated proof mass, forming two parallel-plate capacitors with the left and right plates, denoted by \\(C_1\\) and \\(C_2\\), respectively. When the sensor accelerates in the direction perpendicular to the plate plane, the proof mass translates in that direction (with the plates remaining parallel). The initial gaps between the movable electrode and the two side metal plates are both \\(d_0\\). The overlapping area of each plate pair is a square with side length \\(a\\). The vacuum permittivity is \\(\\varepsilon_0\\). Neglect fringing effects and substrate influence. If the distance between the movable electrode and the left metal plate decreases by \\(\\Delta d\\), find the expression for the differential capacitance \\(\\Delta C = (C_1 - C_2)\\). If the answer has different forms, use the shortest form as the answer. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model the sensor as two parallel-plate capacitors sharing one movable middle plate.",
+      "key_point": "At rest, both gaps are d_0 so C_1=C_2."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_balanced_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.049557,
+            0.086771,
+            0.585271,
+            0.82
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.722541,
+            0.143864,
+            0.223428,
+            0.697072
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "After translation toward the left by Delta_d, the gaps become d_0-Delta_d and d_0+Delta_d.",
+      "key_point": "Use C=epsilon_0*a^2/d for each side because overlap area remains a^2."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_shifted_gap_and_formula.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.02707,
+            0.159376,
+            0.430695,
+            0.736724
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.549766,
+            0.157298,
+            0.398477,
+            0.689992
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute C_1 and C_2 into DeltaC=C_1-C_2 and combine the two fractions over one denominator.",
+      "key_point": "The numerator becomes (d_0+Delta_d)-(d_0-Delta_d)=2*Delta_d."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_differential_capacitance_algebra.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.007146,
+            0.091031,
+            0.375025,
+            0.84
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.366936,
+            0.048947,
+            0.352769,
+            0.865933
+          ],
+          "weight": 0.333333
+        },
+        {
+          "bbox": [
+            0.690991,
+            0.040122,
+            0.23557,
+            0.856005
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Finalize DeltaC and check behavior versus displacement: the expression is odd in Delta_d and nonlinear for large shifts.",
+      "key_point": "For |Delta_d|<<d_0, DeltaC is approximately linear in Delta_d."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_nonlinear_response_and_linear_region.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.080472,
+            0.085423,
+            0.430029,
+            0.837762
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.604259,
+            0.032429,
+            0.377964,
+            0.921883
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*epsilon_0*a^2*Delta_d/(d_0^2-Delta_d^2)"
+  }
+}

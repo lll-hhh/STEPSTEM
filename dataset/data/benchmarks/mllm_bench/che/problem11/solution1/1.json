@@ -1,0 +1,52 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "From the calorimetry temperature-time curve, use back extrapolation of the cooling segment to the reaction start time to obtain the corrected temperature rise DeltaT. Output exactly one decimal number with 2 decimal places, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text. Answer format: a decimal number rounded to two decimal places; write only the numerical value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Mark the reaction start time and extrapolate the post-peak cooling line back to that time.",
+      "key_point": "Mark the reaction start time."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "input.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.292951,
+            0.547326,
+            0.186909,
+            0.333443
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.503901,
+            0.149827,
+            0.16998,
+            0.734841
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use the extrapolated temperature difference to get DeltaT.",
+      "key_point": "The extrapolated temperature difference to get DeltaT."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "12.00"
+  }
+}

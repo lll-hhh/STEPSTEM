@@ -1,0 +1,121 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the ideal symmetric differential amplifier, estimate emitter quiescent current and dynamic metrics. Output exactly five comma-separated values in the order IEQ_mA,Ad,Ac,Ri_kOhm,Ro_kOhm; keep IEQ_mA to three digits after the decimal point and keep Ad, Ac, Ri_kOhm, Ro_kOhm to one digit after the decimal point; plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: odd/even-mode decomposition with clamp-free small-signal equivalent blocks.",
+      "key_point": "Extract IEQ first, then split odd-mode and even-mode paths for Ad and Ac."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_mode_split_topology.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.09,
+            0.06,
+            0.411116,
+            0.302523
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.225665,
+            0.404741,
+            0.109847,
+            0.377399
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use DC bias branch to get IEQ and then map to gₘ and rπ for incremental analysis.",
+      "key_point": "Parameter extraction is separated from gain derivation."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_odd_mode_equivalent.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.237316,
+            0.464869,
+            0.198058,
+            0.479744
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute Ad and Ri from the odd-mode half-circuit, then switch to even-mode for Ac and Ro.",
+      "key_point": "Different excitations are solved in separate reduced circuits."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_even_mode_equivalent.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.003474,
+            0.151436,
+            0.543412,
+            0.45032
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Assemble Ad, Ac, Ri, Ro in the required output order after rounding rules.",
+      "key_point": "Keep IEQ to three decimals and remaining metrics to one decimal."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_metric_pipeline.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.182392,
+            0.452076,
+            0.237171,
+            0.433689
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.457011,
+            0.216681,
+            0.395284,
+            0.528358
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Output one comma-separated 5-value token list only.",
+      "key_point": "No units and no extra text."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.517,-32.4,0.0,16.4,20.0"
+  }
+}

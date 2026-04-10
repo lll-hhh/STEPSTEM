@@ -1,0 +1,49 @@
+﻿{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Model the body as a uniform slender rod AB with length l and mass m. Initially, the lower end B is at the corner of a horizontal floor and a smooth vertical wall, and the upper end A leans on the wall. The rod makes an angle theta with the vertical direction. Both wall and floor are smooth and frictionless. After a small disturbance, the rod moves in the vertical plane; after end B loses wall contact, the rod undergoes general plane motion. Let C be the mass center, and decompose the motion into translation of C and rotation about C with angular velocity omega. Determine the rod state at the instant it reaches the ground, and solve for the impact-time center speed v_C and angular velocity omega. Answer format: v_C|omega, in this order, separated by |, with no units, explanatory text, or equals signs."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "At the key instant (just before ground contact), locate the instantaneous center I of the rod by intersecting lines perpendicular to the known velocity directions of two points.",
+      "key_point": "Use the instantaneous-center method to reduce general plane motion to pure rotation about I at that instant."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.43,
+            0.24,
+            0.24,
+            0.3
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply velocity proportionality with the instantaneous center: speeds are proportional to distances from I. Combine this with rigid-body kinematics to write v_Cx = (1/3)*sqrt(g*l) (constant after separation) and v_Cy = (l/2)*omega.",
+      "key_point": "Link endpoint speed, center speed, and angular speed through the same instantaneous-center geometry."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Use energy from release to impact: (1/2)*m*(v_Cx^2+v_Cy^2) + (1/2)*J_C*omega^2 = m*g*(l/2), with J_C = (1/12)*m*l^2. Substituting v_Cx and v_Cy gives omega = sqrt(8*g/(3*l)).",
+      "key_point": "Energy closes the system and gives omega directly."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Then v_Cy = (l/2)*omega = sqrt(2*g*l/3), and v_C = sqrt(v_Cx^2+v_Cy^2) = sqrt(7*g*l)/3. Therefore the requested pair is v_C|omega = sqrt(7*g*l)/3|sqrt(8*g/(3*l)).",
+      "key_point": "Compute the target pair in the required order: v_C first, omega second."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(7*g*l)/3|sqrt(8*g/(3*l))"
+  }
+}

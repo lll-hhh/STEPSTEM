@@ -1,0 +1,116 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For projectile motion on an inclined plane, compute the maximum range along the slope for the given launch speed and angle parameters. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set planar coordinates with O as origin and model the slope as y=-x*tan(theta).",
+      "key_point": "The slope equation gives the landing-point constraint."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_slope_axes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.1,
+            0.5,
+            0.62
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write projectile equations x=v0*t*cos(alpha), y=v0*t*sin(alpha)-g*t^2/2 and eliminate t with y=-x*tan(theta).",
+      "key_point": "Eliminating time gives the slope-distance function in alpha."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_v0_alpha.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.14,
+            0.3,
+            0.3
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Obtain L(alpha)=2*v0^2*sin(theta+alpha)*cos(alpha)/(g*cos(theta)^2).",
+      "key_point": "Project horizontal displacement onto the slope direction to get L."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_trajectory_and_L.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.16,
+            0.14,
+            0.4,
+            0.36
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.141938,
+            0.268464,
+            0.330449,
+            0.705463
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Rewrite as L(alpha)=v0^2*(sin(theta+2*alpha)+sin(theta))/(g*cos(theta)^2), and maximize with sin(theta+2*alpha)=1.",
+      "key_point": "The extremum gives alpha=(90-theta)/2, then substitute for L_max."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_optimal_alpha.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.12,
+            0.34,
+            0.34
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.159908,
+            0.306944,
+            0.335441,
+            0.67981
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "255.1*(1+sqrt(3)/2)"
+  }
+}

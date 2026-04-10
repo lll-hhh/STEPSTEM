@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a Mach-Zehnder interferometer, the incident beam is split by a 50/50 beam splitter, reflected by two mirrors, and recombined at a second identical beam splitter. The lower output detector is tuned to zero intensity. The complex reflection and transmission coefficients are r~=r*exp(i*delta_r) and t~=t*exp(i*delta_t), with equal magnitudes r=|r~|=t=|t~|=sqrt(2)/2, and t~/r~=exp(i*phi). Find phi. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: the value or expression for phi; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Write the beam-splitter amplitudes with complex coefficients and equal magnitudes.",
+      "key_point": "Use r=|r~|=t=|t~|=sqrt(2)/2 and t~/r~=exp(i*phi)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_split_paths.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.123791,
+            0.196474,
+            0.418632,
+            0.340708
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.110114,
+            0.412388,
+            0.448959,
+            0.383297
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At the lower output port of the second beam splitter, two paths superpose with amplitudes proportional to r~^2 and t~^2.",
+      "key_point": "Dark-port condition gives r~^2+t~^2=0."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_recombine_detector.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.437765,
+            0.224206,
+            0.497126,
+            0.537804
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.088112,
+            0.252929,
+            0.400793,
+            0.495216
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Divide by r~^2 and use t~/r~=exp(i*phi), then exp(i*2*phi)=-1.",
+      "key_point": "So 2*phi=(2k+1)*pi and the principal phase difference is pi/2."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_dark_port_phasors.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1339,
+            0.362867,
+            0.445391,
+            0.201057
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.353325,
+            0.303441,
+            0.521506,
+            0.302081
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For the 50/50 lossless beam splitter, choose the principal quadrature relation between transmission and reflection phases.",
+      "key_point": "Take phi=pi/2 as the single-expression output."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_phase_quadrature.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.428614,
+            0.319799,
+            0.274958,
+            0.406556
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "pi/2"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the overhanging beam shown, two concentrated loads F_1 = F and F_2 = F act on the beam. F_1 may act only on the overhang (0 <= x_1 <= l/4), while F_2 may move between the supports (0 <= x_2 <= l). Require that, for any position of F_2 between the supports, the bending moment of the beam does not exceed the allowable moment [M]. Determine only the maximum common load F_max. Answer format: a single symbol or algebraic expression for F_max; write only the result, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct moment envelopes for overhang plus span under two movable concentrated loads.",
+      "key_point": "Worst-case moment must stay within allowable [M]."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.130471,
+            0.134743,
+            0.542227,
+            0.371547
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Optimize x1 location to maximize admissible common load F.",
+      "key_point": "Return maximum-load expression only."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.136713,
+            0.515445,
+            0.715439,
+            0.19454
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "F_max"
+  }
+}

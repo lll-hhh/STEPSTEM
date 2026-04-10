@@ -1,0 +1,134 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the propped cantilever with fixed end A, support at B, and end couple M_0, solve A_y, B_y, and M_A. Output exactly one tuple token in the order (A_y,B_y,M_A), plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: (A_y,B_y,M_A)."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the propped cantilever geometry with fixed end A, support at B, and end couple M_0 at x=L.",
+      "key_point": "Unknowns are A_y, B_y, and M_A."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.044146,
+            0.06922,
+            0.464644,
+            0.507297
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.548079,
+            0.106199,
+            0.4169,
+            0.54144
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use global equilibrium: M_A-B_y*L-M_0=0 and A_y=-B_y.",
+      "key_point": "Need one compatibility equation from deflection."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_unknowns.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.03262,
+            0.25012,
+            0.207126,
+            0.419813
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.721768,
+            0.243238,
+            0.231943,
+            0.433578
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "From E*I*v''(x)=M(x), integrate with v(0)=0 and v'(0)=0, then apply v(L)=0 at support B.",
+      "key_point": "Compatibility closes the redundant system."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_boundary.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.065073,
+            0.238076,
+            0.184218,
+            0.359594
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.704587,
+            0.226032,
+            0.278714,
+            0.383682
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Substitute compatibility into equilibrium to solve A_y, B_y, M_A.",
+      "key_point": "Keep the final result as one compact expression."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_cut.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.059361,
+            0.198839,
+            0.402512,
+            0.459884
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.485406,
+            0.247361,
+            0.390555,
+            0.379432
+          ],
+          "weight": 0.25
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(3*M_0/(2*L),-3*M_0/(2*L),-M_0/2)"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-stage collision sequence, compute the final velocity vector of body B in the inertial x direction. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use horizontal momentum conservation for each event and keep the same inertial x-axis throughout.",
+      "key_point": "Initial total horizontal momentum is zero."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_state.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.349264,
+            0.592085,
+            0.061,
+            0.186
+          ],
+          "weight": 0.507463
+        },
+        {
+          "bbox": [
+            0.564857,
+            0.65173,
+            0.209271,
+            0.163567
+          ],
+          "weight": 0.492537
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For the jump-off event: m_C*(v_A+3)+m_A*v_A=0, with m_C=75 and m_A=50.",
+      "key_point": "v_A=-1.8*i."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_jump_from_A.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.458659,
+            0.569171,
+            0.210918,
+            0.175456
+          ],
+          "weight": 0.507463
+        },
+        {
+          "bbox": [
+            0.223,
+            0.692,
+            0.153,
+            0.083
+          ],
+          "weight": 0.492537
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For landing on cart B: (m_C+m_B)*v_B+m_A*v_A=0 with m_B=50 and v_A=-1.8*i.",
+      "key_point": "v_B=0.72*i."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_land_on_B.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.602,
+            0.581,
+            0.286043,
+            0.207969
+          ],
+          "weight": 0.507463
+        },
+        {
+          "bbox": [
+            0.262,
+            0.694,
+            0.111,
+            0.078
+          ],
+          "weight": 0.492537
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.72*i"
+  }
+}

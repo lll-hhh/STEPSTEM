@@ -1,0 +1,101 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the translating-and-rotating rod AB with endpoint mass m, compute the reaction force vector at pivot A at the shown instant. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set inertial frame x-y-z at A and rotating frame i1-j1-z1 for rod AB with r_B/A=e*i1.",
+      "key_point": "A has translational acceleration a_A=xddot*i."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_frames_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.319252,
+            0.427634,
+            0.228609,
+            0.345639
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use a_B/O = a_A/O + omega x (omega x r_B/A), with zero relative and Coriolis terms.",
+      "key_point": "a_B/O = xddot*i - e*theta_dot^2*i1."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_acceleration_composition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2829,
+            0.470629,
+            0.172893,
+            0.255179
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.504889,
+            0.427241,
+            0.199798,
+            0.201204
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply Newton second law on mass m with forces F_rod and Mg, then use action-reaction at pivot A.",
+      "key_point": "F_A = -F_rod."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_force_balance.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.464044,
+            0.213915,
+            0.241424,
+            0.553273
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.312835,
+            0.652786,
+            0.1,
+            0.319384
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Convert i1 to inertial basis i1=cos(theta)*i+sin(theta)*j and collect i-j components.",
+      "key_point": "Use components to write F_rod and its magnitude-direction."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*(xddot-e*theta_dot^2*cos(theta))*i+m*(g-e*theta_dot^2*sin(theta))*j"
+  }
+}

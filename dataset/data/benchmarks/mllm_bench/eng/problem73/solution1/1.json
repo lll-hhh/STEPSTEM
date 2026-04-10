@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Build the following structural model: the clamping plate is simplified as a simply supported beam with a right overhang under planar bending. The distance between left support A and middle support B is 2a, and the overhang segment BC on the right is a, so the total length is AC=3a. A vertical upward concentrated force F is applied at free end C. The beam cross-section is a channel-type section with outer size 30 mm x 20 mm, and a central rectangular slot of width 14 mm is removed. Perform bending-moment analysis for this loading model and determine the maximum allowable load F from the bending-strength criterion. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "For the overhanging beam, write equilibrium first. Taking moments about A: R_B*(2a)-F*(3a)=0, so R_B=3F/2. Vertical force equilibrium: R_A+F-R_B=0 gives R_A=F/2. The critical bending section is at support B, and M_max=M_B=R_A*(2a)=F*a.",
+      "key_point": "Compute reactions and identify that the maximum bending moment is M_max=F*a at B."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0,
+            0.147857,
+            0.39499,
+            0.686512
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.484209,
+            0.037227,
+            0.466171,
+            0.872143
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Use the bending strength condition sigma_max=M_max/W <= [sigma]. From the given data in the original problem: 3a=150 mm, so a=50 mm; allowable bending stress [sigma]=140 MPa.",
+      "key_point": "Substitute the known a and allowable stress into M/W <= [sigma]."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.43,
+            0.3,
+            0.28,
+            0.46
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Section modulus of the channel section: I=(30*20^3-14*20^3)/12=1.0667e4 mm^4. With c=20/2=10 mm, W=I/c=1.0667e3 mm^3=1.07 cm^3.",
+      "key_point": "Compute I and W from the outer rectangle minus the central slot."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.08,
+            0.8,
+            0.72
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Apply M_max=F*a and M_max/W <= [sigma]: F <= W*[sigma]/a = (1.0667e3 mm^3*140 N/mm^2)/(50 mm)=2.99e3 N=2.99 kN. Therefore the maximum allowable load is about 3.0 kN.",
+      "key_point": "Final allowable load from the bending-strength inequality."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the wheel on an incline with static friction coefficient mu_s, derive the limiting incline-angle expression for no-slip rolling. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct wheel-on-incline geometry and choose x along the slope with contact point B and center C.",
+      "key_point": "Pure rolling uses coupled translation and rotation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incline_release.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.465187,
+            0.297768,
+            0.347995,
+            0.263334
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.223329,
+            0.680576,
+            0.242836,
+            0.151546
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write force and moment equations for pure rolling, then use IzzC=m*k_G^2 and IzzB=IzzC+m*R^2.",
+      "key_point": "Link acceleration by xddot=R*phiddot."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_force_fbd.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.586755,
+            0.12954,
+            0.165679,
+            0.583859
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.22,
+            0.73,
+            0.24,
+            0.11
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Compute friction demand f from translational dynamics and compare with static-friction bound f<=mu_s*N.",
+      "key_point": "N=mg*cos(theta) gives the limiting inequality for theta."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_rolling_constraint.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.582474,
+            0.269396,
+            0.179113,
+            0.299583
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Solve the inequality tan(theta)<=mu_s*(k_G^2+R^2)/k_G^2 and take the maximum allowable angle.",
+      "key_point": "theta_max is the inverse tangent of the right-hand side."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_friction_limit.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.61,
+            0.14,
+            0.12,
+            0.26
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.65,
+            0.4,
+            0.11,
+            0.3
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.8,
+            0.37,
+            0.16,
+            0.12
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.22,
+            0.73,
+            0.24,
+            0.11
+          ],
+          "weight": 0.25
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "atan(mu_s*(k_G^2+R^2)/k_G^2)"
+  }
+}

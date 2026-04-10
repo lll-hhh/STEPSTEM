@@ -1,0 +1,103 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the BJT amplifier, find UCQ, output RMS voltage at 10 mV input RMS, first distortion type, and maximum undistorted output RMS voltage Uom. Use distortion code 1 for saturation-first and 2 for cutoff-first. Output exactly four comma-separated values as UCQ,Uo_rms,distortion_code,Uom_rms; UCQ has 2 decimals, Uo_rms has 3 decimals, distortion_code is integer 1 or 2, Uom_rms has 3 decimals; plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text. Answer format: UCQ,Uo_rms,distortion_code,Uom_rms in that order; write only the final results, with no units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Solve the quiescent point and small-signal gain, then inspect load-line headroom for clipping order.",
+      "key_point": "The quiescent point."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.107,
+            0.105,
+            0.527871,
+            0.864837
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 4 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up the governing relation for UCQ."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.217,
+            0.158,
+            0.569,
+            0.566
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Analyze panel 2 of 4 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Transform the relation and isolate UCQ."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "panel_3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.093365,
+            0.113784,
+            0.571745,
+            0.554039
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Analyze panel 3 of 4 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Substitute required values/constants to obtain UCQ."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "panel_4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.200092,
+            0.052,
+            0.697908,
+            0.666115
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Output UCQ, Uo_rms, distortion code, and Uom_rms in order.",
+      "key_point": "Obtain UCQ, Uo_rms, distortion code, and Uom_rms."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1.60,0.465,1,0.707"
+  }
+}

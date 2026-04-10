@@ -1,0 +1,88 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "4. Phase contrast microscopy technology and optical path difference analysis The 1953 Nobel Prize in Physics was awarded to Dutch scientist Fritz Zelnick for his proposal of phase contrast microscopy technology. This technology can clearly distinguish two transparent media with similar refractive index. Now consider that a beam of light passes through a culture medium containing cells, producing three different light rays 1, 2 and 3. Among them, light 3 passes through the cell, and light 2 passes near the edge of the cell. Light rays 1 and 2 are coherent, and light rays 2 and 3 are coherent, as shown in Figure 4a. It is known that the refractive index of the culture medium is $n_0$ and that of the cells is $n$ ($n > n_0$). Due to the edge effect, the optical path of light 2 in the culture medium is increased by $n_0\\frac{\\lambda}{4}$ relative to that of light 1 ($\\lambda$ is the wavelength of light in the culture medium); in order to increase the contrast between the cells and the culture medium, after all the light passes through the culture medium, the phase compensation plate is used to increase the equivalent optical path of light 2 by $n_0\\frac{\\lambda}{4}$. Assume that the equivalent thickness of the cell is $d$. If the interference fringes of light 1 and 2 are dark fringes and the interference fringes of light 2 and 3 are bright fringes observed through the eyepiece, what may be the refractive index of the cell $n$?. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: an expression or admissible-value form for n; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: phase-angle congruence (phasor) method. Express every optical-path modification as a phase increment relative to ray 1.",
+      "key_point": "Use Δφ = 2πΔOP/(n₀λ) and handle fringe conditions with modulo-2π phase relations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_phase_reference.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.09,
+            0.13,
+            0.84,
+            0.74
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Ray 2 gets two quarter-wave optical-path additions (edge effect + phase plate), so φ₂−φ₁ = π.",
+      "key_point": "A π phase gap directly encodes the dark fringe between rays 1 and 2."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_quarterwave_blocks.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.14,
+            0.22,
+            0.66,
+            0.6
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For ray 3, only the refractive-index excess inside the cell contributes extra phase: φ₃−φ₁ = 2π(n−n₀)d/(n₀λ).",
+      "key_point": "The medium baseline n₀ cancels, leaving only (n−n₀)d in the numerator."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_phasor_constraints.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.09,
+            0.14,
+            0.83,
+            0.71
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Bright fringe for rays 2 and 3 means φ₃−φ₂ = 2πk. Substitute φ₃−φ₂ = (φ₃−φ₁)−(φ₂−φ₁) to get 2π(n−n₀)d/(n₀λ)−π = 2πk.",
+      "key_point": "Isolate n from the phase equation and convert back to the dataset expression form."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "From 2π(n−n₀)d/(n₀λ)−π = 2πk, get (n−n₀)d/(n₀λ)=k+1/2 and then n = n₀(1+(2k+1)λ/(2d)).",
+      "key_point": "The phase-angle route closes the derivation algebraically, while keeping the same dataset final expression."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "n_0*(1+(2*k+1)*lambda/(2*d))"
+  }
+}

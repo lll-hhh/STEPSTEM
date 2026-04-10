@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "MEMS Accelerometer: MEMS (microelectromechanical systems) accelerometers are widely used in automotive electronics, robotics, industrial automation, satellite navigation, and other fields. A capacitive accelerometer is a type of MEMS accelerometer. It forms a variable capacitor using fixed metal electrodes and a movable metal plate electrode. When the sensor undergoes accelerated motion, the relative position of the movable plate electrode changes with respect to the fixed electrodes, so the capacitance between electrodes changes accordingly. The acceleration magnitude can be obtained by measuring this capacitance variation with an interface circuit. For a pendulum-type differential capacitive accelerometer, as shown in Fig. 5b, two metal electrodes are fixed on an insulating substrate. The movable electrode is connected to the substrate through a rotation axis, forming two parallel-plate capacitors with the left and right electrodes, denoted by \\(C_1\\) and \\(C_2\\), respectively. When the system is at rest or in uniform linear motion, the movable electrode is parallel to the fixed electrodes. When the sensor accelerates in the direction perpendicular to the plate plane, the movable electrode rotates by a small angle \\(\\phi\\) about the axis, so it is no longer parallel to the two side electrodes. The distances from the rotation axis to the two fixed electrodes are both \\(d\\). The plate electrode is a square with side length \\(a\\). The vacuum permittivity is \\(\\varepsilon_0\\). Assume \\(\\phi \\ll d/a\\), and neglect edge (fringing) effects and substrate influence. Find the expression for the differential capacitance \\(\\Delta C = (C_1 - C_2)\\). Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the plate geometry and express local gaps as d-y*phi and d+y*phi.",
+      "key_point": "Gap variation along y creates C1 and C2 asymmetry."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rest_parallel.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.22,
+            0.22,
+            0.28,
+            0.63
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.5,
+            0.22,
+            0.28,
+            0.63
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Integrate strip capacitance along y to obtain C1 and C2 logarithmic forms.",
+      "key_point": "Use C=epsilon_0*a*integral(dy/g(y)) for each side."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_tilt_phi.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.45,
+            0.16,
+            0.1,
+            0.2
+          ],
+          "weight": 0.4
+        },
+        {
+          "bbox": [
+            0.4,
+            0.23,
+            0.2,
+            0.58
+          ],
+          "weight": 0.6
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply phi<<d/a and keep first-order terms after subtraction DeltaC=C1-C2.",
+      "key_point": "The result is linear in phi."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_gap_profile.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.28,
+            0.58,
+            0.44,
+            0.24
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.28,
+            0.36,
+            0.44,
+            0.2
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "After linearization, DeltaC scales with epsilon_0, a^3, phi and inverse d^2.",
+      "key_point": "Single-expression final form is used."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_small_phi_model.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.38,
+            0.2,
+            0.24,
+            0.64
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "epsilon_0*a^3*phi/d^2"
+  }
+}

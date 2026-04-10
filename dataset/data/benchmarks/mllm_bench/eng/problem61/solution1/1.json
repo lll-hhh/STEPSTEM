@@ -1,0 +1,102 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "MEMS acceleration sensor Microelectromechanical systems (MEMS) acceleration sensors have been widely used in automotive electronics, robotics, industrial automation, satellite navigation and other fields. Capacitive accelerometer is a MEMS acceleration sensor that consists of a fixed metal electrode and a movable metal plate electrode forming a variable capacitor. When the sensor accelerates, the position of the movable thin plate electrode relative to the fixed electrode changes, so the capacitance between the electrodes also changes. The magnitude of acceleration can be obtained by measuring the capacitance change using the interface circuit. Diode \"T\"-shaped bridge circuit and square wave drive The interface circuit of the differential capacitive acceleration sensor often adopts a diode double \"T-shaped\" bridge structure, as shown in Figure 5c. It consists of diodes \\(D_1\\), \\(D_2\\), capacitors \\(C_1\\), \\(C_2\\), resistors \\(R_1\\), \\(R_2\\), load resistor \\(R_L\\), and periodic square wave signal source \\(u\\). Assume that \\(D_1\\) and \\(D_2\\) are both ideal diodes, the internal resistance of the square wave signal source \\(u\\) is 0, the voltage amplitudes are \\(+U\\) and \\(-U\\), and the period \\(T\\) is much larger than the time constant of capacitor charge and discharge. As shown in Figure 5d, at time \\(t = t_0\\), the square wave output transitions to \\(+U\\). Find the expression \\(V(t)\\) for the voltage across the load resistor \\(R_L\\) in time \\((t_0, t_0 + \\frac{T}{2})\\). Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    },
+    {
+      "modality": "image",
+      "content": "input_figure5d.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the long half-period condition to set the pre-switch state at t0- with u=-U and D1 forward.",
+      "key_point": "V1 is clamped by D1 before switching."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_pre_t0_minusU.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.09,
+            0.12,
+            0.72,
+            0.76
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At t0+ the source flips to +U, D2 becomes forward and fixes the C2 node at +U.",
+      "key_point": "The active interval is governed by V1-V-R1-R2-RL with C1 dynamics."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_switch_to_plusU.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.09,
+            0.22,
+            0.72,
+            0.66
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Write KCL at node V and node V1 to obtain a first-order linear response.",
+      "key_point": "Vo equals an affine function of V1, so Vo has the same exponential time constant."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_equivalent_network.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.16,
+            0.12,
+            0.68,
+            0.76
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use V(t0+) from pre-switch initial condition and V(inf) from +U steady state, then assemble Vo(t).",
+      "key_point": "Vo(t)=Vinf+(V0-Vinf)exp(-(t-t0)/tau)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_v_response.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.12,
+            0.18,
+            0.78,
+            0.66
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "U*R_L/(R_2+R_L)+(U*R_L*(R_1-R_2)/(R_1*R_2+R_1*R_L+R_2*R_L)-U*R_L/(R_2+R_L))*exp(-(t-t_0)*(R_2+R_L)/(C_1*(R_1*R_2+R_1*R_L+R_2*R_L)))"
+  }
+}

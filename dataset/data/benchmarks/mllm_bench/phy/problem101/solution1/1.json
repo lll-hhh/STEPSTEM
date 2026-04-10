@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In the rail-and-rod setup shown in the accompanying image, a metal rod on the lower rails slides rightward after the switch is closed, enters the semicircular track, just passes the highest point, and then reaches the upper rails, where it interacts with the rod already on the upper rails. Assume the rails are long enough and rail resistance is negligible. During the interval from the moment the moving rod enters the upper rails to the final common-speed state, find only the amount of electric energy in the upper-rail loop that is converted into internal energy. Answer format: a single numerical value or algebraic expression; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the original apparatus image and mark only the key conductive elements and field direction.",
+      "key_point": "Identify ST, AB, and magnetic field direction before dynamic analysis."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_setup.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.392269,
+            0.096886,
+            0.427274,
+            0.701009
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Mark the highest-point passing condition with tangential direction and radius constraint on the right arc.",
+      "key_point": "The pass condition at the top gives the key speed relation."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_top_pass_condition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.597776,
+            0.105661,
+            0.347932,
+            0.583037
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "After AB reaches the upper rails, indicate current direction in the upper loop with both rods involved.",
+      "key_point": "Relative motion in B induces loop current across the two-rod circuit."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_upper_loop_current.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.426086,
+            0.044237,
+            0.417519,
+            0.741958
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use momentum and energy to obtain the common terminal state and internal-energy increment.",
+      "key_point": "Both rods finally share one speed on the upper rails."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_common_speed.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.167901,
+            0.026687,
+            0.712773,
+            0.447515
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "m*g*R/4"
+  }
+}

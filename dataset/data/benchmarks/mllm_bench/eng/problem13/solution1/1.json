@@ -1,0 +1,233 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the fixed-fixed beam problem, determine the internal shear-force expression value at the target section used in the final step. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set piecewise beam model and unknown end reactions/moments for fixed-fixed support conditions.",
+      "key_point": "Apply statics and compatibility together."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_w0.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.136243,
+            0.253272,
+            0.24,
+            0.22
+          ],
+          "weight": 0.3
+        },
+        {
+          "bbox": [
+            0.383767,
+            0.269834,
+            0.1,
+            0.06
+          ],
+          "weight": 0.2
+        },
+        {
+          "bbox": [
+            0.441821,
+            0.322089,
+            0.34,
+            0.09
+          ],
+          "weight": 0.3
+        },
+        {
+          "bbox": [
+            0.812529,
+            0.273327,
+            0.09,
+            0.41581
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use EI*v''(x)=M(x) in each segment and solve constants from boundary and continuity conditions.",
+      "key_point": "Obtain R_A, R_C, M_A, M_C from integration constants."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_reaction_results.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.24,
+            0.280338,
+            0.228435
+          ],
+          "weight": 0.216216
+        },
+        {
+          "bbox": [
+            0.133746,
+            0.436673,
+            0.067403,
+            0.119378
+          ],
+          "weight": 0.175676
+        },
+        {
+          "bbox": [
+            0.758814,
+            0.238891,
+            0.132242,
+            0.18
+          ],
+          "weight": 0.216216
+        },
+        {
+          "bbox": [
+            0.788783,
+            0.4278,
+            0.094157,
+            0.157086
+          ],
+          "weight": 0.175676
+        },
+        {
+          "bbox": [
+            0.388751,
+            0.258854,
+            0.328735,
+            0.168546
+          ],
+          "weight": 0.216216
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Build shear and moment functions, then identify internal-force values at x=a/2.",
+      "key_point": "Stress depends on section force at target location."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_internal_VM.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.13,
+            0.22,
+            0.24,
+            0.22
+          ],
+          "weight": 0.207059
+        },
+        {
+          "bbox": [
+            0.1,
+            0.66,
+            0.34,
+            0.16
+          ],
+          "weight": 0.225882
+        },
+        {
+          "bbox": [
+            0.53,
+            0.66,
+            0.38,
+            0.14
+          ],
+          "weight": 0.225882
+        },
+        {
+          "bbox": [
+            0.39,
+            0.24,
+            0.1,
+            0.08
+          ],
+          "weight": 0.141176
+        },
+        {
+          "bbox": [
+            0.803647,
+            0.326476,
+            0.105515,
+            0.348244
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Use circular-section relations to evaluate extreme normal stress and shear stress.",
+      "key_point": "Circular-section relations to evaluate extreme normal stress."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_stress_xa2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.24,
+            0.08,
+            0.18
+          ],
+          "weight": 0.197674
+        },
+        {
+          "bbox": [
+            0.196254,
+            0.312218,
+            0.194074,
+            0.100764
+          ],
+          "weight": 0.174419
+        },
+        {
+          "bbox": [
+            0.807544,
+            0.28658,
+            0.08,
+            0.370395
+          ],
+          "weight": 0.197674
+        },
+        {
+          "bbox": [
+            0.704974,
+            0.189963,
+            0.11,
+            0.18
+          ],
+          "weight": 0.255814
+        },
+        {
+          "bbox": [
+            0.13,
+            0.44,
+            0.22474,
+            0.130468
+          ],
+          "weight": 0.174419
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "13*w_0*L/32"
+  }
+}

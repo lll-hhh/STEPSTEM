@@ -1,0 +1,87 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For a three-layer slab waveguide with refractive indices n_2, n_1, and n_0, determine the cutoff-wavelength expression under total-reflection boundary conditions. Answer format: a single algebraic expression using the symbols defined in the problem; write only the expression, with no explanatory text or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the three-layer geometry and the internal zigzag propagation path in the guiding layer.",
+      "key_point": "Use n_2 / n_1 / n_0 layered interfaces with thickness d."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_incoming_ray.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.17,
+            0.24,
+            0.32,
+            0.52
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add the reflected segment at the lower interface and keep incidence-angle consistency.",
+      "key_point": "The internal reflection angle remains θ_i1 at each bounce."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_reflected_ray.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.45,
+            0.21,
+            0.24,
+            0.42
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Include transmitted components and the critical-direction branch, then apply phase-shift terms.",
+      "key_point": "Use θ_t2 and φ with the reflection-phase contributions in the mode condition."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_add_transmitted_and_phi.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.62,
+            0.02,
+            0.23,
+            0.28
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.43,
+            0.67,
+            0.43,
+            0.13
+          ],
+          "weight": 0.45
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*pi*d*sqrt(1-n_0^2/n_1^2)/arctan(sqrt((n_0^2-n_2^2)/(n_1^2-n_0^2)))"
+  }
+}

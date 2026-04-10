@@ -1,0 +1,125 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A stable hydride of Mg2Fe belongs to the cubic crystal system with a face-centered cubic lattice, and the unit-cell parameter is $a = 644.58\\ \\mathrm{pm}$. The unit cell is shown in the accompanying image, with hydrogen atoms omitted. Assume that Fe atoms form a cubic close-packed arrangement, Mg atoms occupy all tetrahedral voids formed by this packing at their centers, and H atoms are orderly distributed around Fe in an octahedral coordination pattern. The shortest distance between H and Fe atoms is equal to $a/4$. Keep three significant figures throughout. Find only the ratio $R=\\rho/\\rho_0$, where $\\rho$ is the hydrogen density in the hydride and $\\rho_0$ is the density of hydrogen gas at standard conditions. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: formula-unit density method. Determine the cell stoichiometry first, then compute hydrogen mass density per unit cell and divide by ρ0.",
+      "key_point": "Route = stoichiometry -> H per cell -> ρ -> ρ/ρ0."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_fe_mg_counts.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.149924,
+            0.167229,
+            0.437526,
+            0.586871
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.227995,
+            0.30771,
+            0.279576,
+            0.347921
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "In one fcc unit cell there are 4 Fe atoms. All tetrahedral voids are occupied, giving 8 Mg atoms, so the framework composition is Mg2Fe.",
+      "key_point": "Per cell: Fe = 4, Mg = 8."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_feh6_octahedron.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.243033,
+            0.24291,
+            0.546403,
+            0.568957
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.410927,
+            0.415369,
+            0.161179,
+            0.228446
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Each Fe has octahedral coordination by 6 H at the specified shortest Fe-H distance a/4, so the local unit is FeH6 and the formula becomes Mg2FeH6.",
+      "key_point": "H count is 6 per Fe."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_formula_units.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.086324,
+            0.149099,
+            0.411263,
+            0.332248
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.592897,
+            0.18204,
+            0.362179,
+            0.254965
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "With 4 Fe per cell, there are Z = 4 formula units and thus 24 H atoms in one cell. Compute ρ = (24*M_H/N_A)/a^3 ~ 0.150 g/cm^3, use ρ0 ~ 9.00e-5 g/cm^3 for hydrogen gas at standard conditions, then R = ρ/ρ0.",
+      "key_point": "R ~ 1.67e3."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_a_over_4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.103141,
+            0.294014,
+            0.479719,
+            0.329319
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1.67e3"
+  }
+}

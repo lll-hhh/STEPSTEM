@@ -1,0 +1,81 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-stage direct-coupled BJT amplifier with beta1=beta2=100 and rbb=300 ohm, compute key Q-point values and overall small-signal metrics. Output exactly eight comma-separated numbers in the order IBQ1_uA,ICQ1_mA,UCEQ1_V,ICQ2_mA,UCEQ2_V,Av,Ri_kOhm,Ro_kOhm; keep IBQ1_uA to one digit after the decimal point, ICQ1_mA/UCEQ1_V/ICQ2_mA/UCEQ2_V/Ri_kOhm/Ro_kOhm to two digits after the decimal point, and Av as an integer; plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Perform sequential DC bias analysis for stage 1 and stage 2 due to direct coupling.",
+      "key_point": "Perform sequential DC bias analysis for stage 1 and stage 2 due to direct coupling."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0,
+            0.385,
+            0.563,
+            0.568
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.517893,
+            0.026612,
+            0.468039,
+            0.38258
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up the governing relation for key Q-point values and overall small-signal metrics."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.0,
+            0.327,
+            0.564,
+            0.569
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.592369,
+            0.042703,
+            0.393544,
+            0.923602
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use the small-signal model to compute Av, Ri, Ro and report all values.",
+      "key_point": "The small-signal model to compute Av, Ri, Ro."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "9.3,0.93,4.70,1.04,-3.49,8955,2.55,4.30"
+  }
+}

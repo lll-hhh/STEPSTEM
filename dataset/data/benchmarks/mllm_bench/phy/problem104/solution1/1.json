@@ -1,0 +1,66 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Two fixed +e charges are separated by 2b, and two -e charges of mass m stay at opposite ends of a circle of radius a about the midpoint. Build radial-force balance for one -e charge and obtain the angular-speed condition. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: an angular-velocity relation; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Resolve forces on one upper -e charge: two attractions from fixed +e charges and one repulsion from the opposite -e charge.",
+      "key_point": "Horizontal attraction components cancel and only radial components remain."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_force_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.4643,
+            0.1867,
+            0.0771,
+            0.0822
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.4286,
+            0.3556,
+            0.0643,
+            0.1222
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.5071,
+            0.3556,
+            0.0643,
+            0.1222
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write radial balance m*a*omega^2=Fplus-Fminus; setting omega=0 yields b=sqrt(3)*a for static equilibrium.",
+      "key_point": "Dynamic equilibrium directly gives omega expression and contains the static case."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Thus omega^2=(k*e^2/m)*(2/(a^2+b^2)^(3/2)-1/(4*a^3)).",
+      "key_point": "This is the required angular-speed condition from radial-force balance."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(k*e^2/m)*(2/(a^2+b^2)^(3/2)-1/(4*a^3))"
+  }
+}

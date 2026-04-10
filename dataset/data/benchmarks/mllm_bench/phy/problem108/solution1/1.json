@@ -1,0 +1,77 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Two thin parallel metal plates L and M form a capacitor with spacing d = 0.50 mm. The capacitor is enclosed by a conducting shield box K, and plate M is electrically connected to K. The top wall of K is d/2 = 0.25 mm above L, and the bottom wall is d/2 = 0.25 mm below M. The plate area is 30 x 40 mm^2, and edge effects are neglected. Find the ratio of the capacitance measured between L and M after shielding to the capacitance before shielding. Answer format: a single number or simplest expression; write only the result, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Before shielding, only plates L and M form the capacitor, so C0 = eps*A/d.",
+      "key_point": "Use C0 as the baseline capacitance."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_k_l_m.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.475987,
+            0.143481,
+            0.335315,
+            0.667653
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Since M is wired to shield K, all of K and M are equipotential. From L, there are two gaps to the same node: d and d/2.",
+      "key_point": "Two capacitance branches connect between the same two nodes, so they are parallel."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_upper_path.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.040077,
+            0.15679,
+            0.497979,
+            0.65878
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.433894,
+            0.262151,
+            0.493698,
+            0.510166
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Branch values are C_LM = eps*A/d = C0 and C_top = eps*A/(d/2) = 2*C0.",
+      "key_point": "The top branch contributes twice the baseline."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "So C_after = C_LM + C_top = C0 + 2*C0 = 3*C0, therefore C_after/C_before = 3.",
+      "key_point": "Required ratio is 3."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3"
+  }
+}

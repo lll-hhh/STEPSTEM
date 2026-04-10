@@ -1,0 +1,87 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the semicircular wire moving with speed v perpendicular to uniform magnetic field B, compute the induced emf between its two ends. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set coordinates for the moving semicircular wire with v perpendicular to B.",
+      "key_point": "Use dE = (vB)dl on the arc."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2887,
+            0.188225,
+            0.259161,
+            0.628454
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.575176,
+            0.585564,
+            0.24,
+            0.11
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At point M on the arc, take dl=R*dtheta and let theta be the angle between dl and vB.",
+      "key_point": "Then dE = v*B*R*cos(theta) dtheta."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_element.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.384011,
+            0.207807,
+            0.274642,
+            0.339372
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Integrate from theta=-pi/2 to theta=pi/2 along Q to P.",
+      "key_point": "E = integral(v*B*R*cos(theta) dtheta) = 2*v*B*R."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_orientation.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.311118,
+            0.193494,
+            0.256248,
+            0.403592
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "2*v*B*R"
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "A stable hydride of Mg2Fe belongs to the cubic crystal system with a face-centered cubic lattice, and the unit-cell parameter is $a = 644.58\\ \\mathrm{pm}$. The unit cell is shown in the accompanying image, with hydrogen atoms omitted. Assume that Fe atoms form a cubic close-packed arrangement, Mg atoms occupy all tetrahedral voids formed by this packing at their centers, and H atoms are orderly distributed around Fe in an octahedral coordination pattern. The shortest distance between H and Fe atoms is equal to $a/4$. Keep three significant figures throughout. Find only the ratio $R=\\rho/\\rho_0$, where $\\rho$ is the hydrogen density in the hydride and $\\rho_0$ is the density of hydrogen gas at standard conditions. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify the face-centered Fe framework and count atoms per unit cell.",
+      "key_point": "Fe forms fcc with 4 Fe in one unit cell."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_fe_fcc.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.139397,
+            0.118384,
+            0.746185,
+            0.257238
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Add all tetrahedral sites occupied by Mg, giving 8 Mg per unit cell.",
+      "key_point": "Mg:Fe = 8:4 = 2:1."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_mg_tetra.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3,
+            0.3,
+            0.38,
+            0.38
+          ],
+          "weight": 0.75
+        },
+        {
+          "bbox": [
+            0.155867,
+            0.16,
+            0.68,
+            0.68
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use octahedral coordination around Fe to count H and apply the shortest Fe-H distance a/4.",
+      "key_point": "Each Fe is coordinated by 6 H, so 24 H per unit cell."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_h_octa.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.36,
+            0.34,
+            0.32,
+            0.32
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Compute rho = m_H(cell)/a^3 and rho0 from standard-state H2, then form R = rho/rho0.",
+      "key_point": "rho = 0.150 g*cm^-3, rho0 = 9.00e-5 g*cm^-3, R = 1.67e3."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_fe_h_a4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.47,
+            0.47,
+            0.17,
+            0.06
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1.67e3"
+  }
+}

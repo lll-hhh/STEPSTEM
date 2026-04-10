@@ -1,0 +1,242 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the square cross-section beam, write the formula for the maximum transverse shear stress in terms of the shear force V and the area A. Answer format: a single algebraic expression. Use the variable names from the problem; write explicit multiplication signs * and denominator parentheses, for example 3*V/(2*A); use ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Write equilibrium equations and identify one redundant reaction for the propped cantilever system.",
+      "key_point": "Unknown reactions exceed independent static equations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_M0.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.135005,
+            0.318762,
+            0.26,
+            0.1
+          ],
+          "weight": 0.285714
+        },
+        {
+          "bbox": [
+            0.440583,
+            0.312107,
+            0.33,
+            0.1
+          ],
+          "weight": 0.285714
+        },
+        {
+          "bbox": [
+            0.337555,
+            0.410037,
+            0.139557,
+            0.213666
+          ],
+          "weight": 0.214286
+        },
+        {
+          "bbox": [
+            0.826889,
+            0.272218,
+            0.135967,
+            0.495663
+          ],
+          "weight": 0.214286
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use superposition with applied couple and support-reaction components to solve A and C reactions.",
+      "key_point": "Compatibility closes the statically indeterminate system."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_reaction_split.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.129355,
+            0.248872,
+            0.08,
+            0.364849
+          ],
+          "weight": 0.22
+        },
+        {
+          "bbox": [
+            0.807513,
+            0.245545,
+            0.09,
+            0.286106
+          ],
+          "weight": 0.22
+        },
+        {
+          "bbox": [
+            0.215099,
+            0.318946,
+            0.154625,
+            0.087382
+          ],
+          "weight": 0.18
+        },
+        {
+          "bbox": [
+            0.335057,
+            0.405601,
+            0.107716,
+            0.242502
+          ],
+          "weight": 0.18
+        },
+        {
+          "bbox": [
+            0.469984,
+            0.310277,
+            0.308689,
+            0.104923
+          ],
+          "weight": 0.2
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "After reactions are known, build shear-force and bending-moment distributions along the span.",
+      "key_point": "Determine critical section x=a/2 from V and M behavior."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_VM_diagrams.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.190749,
+            0.31451,
+            0.140889,
+            0.096254
+          ],
+          "weight": 0.18
+        },
+        {
+          "bbox": [
+            0.343174,
+            0.403383,
+            0.109589,
+            0.187049
+          ],
+          "weight": 0.17
+        },
+        {
+          "bbox": [
+            0.166181,
+            0.657782,
+            0.34,
+            0.16
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.553725,
+            0.623401,
+            0.38,
+            0.14
+          ],
+          "weight": 0.25
+        },
+        {
+          "bbox": [
+            0.529298,
+            0.315823,
+            0.195057,
+            0.102705
+          ],
+          "weight": 0.15
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For square section hh evaluate normal and shear stress expressions at critical section.",
+      "key_point": "Use section geometry together with internal forces."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_stress_square.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.11,
+            0.24,
+            0.088028,
+            0.308287
+          ],
+          "weight": 0.16
+        },
+        {
+          "bbox": [
+            0.832518,
+            0.249982,
+            0.056665,
+            0.302742
+          ],
+          "weight": 0.16
+        },
+        {
+          "bbox": [
+            0.477477,
+            0.284769,
+            0.271852,
+            0.158158
+          ],
+          "weight": 0.14
+        },
+        {
+          "bbox": [
+            0.21385,
+            0.284566,
+            0.121535,
+            0.13618
+          ],
+          "weight": 0.16
+        },
+        {
+          "bbox": [
+            0.345047,
+            0.400055,
+            0.120203,
+            0.249156
+          ],
+          "weight": 0.16
+        },
+        {
+          "bbox": [
+            0.704391,
+            0.204381,
+            0.12,
+            0.16
+          ],
+          "weight": 0.22
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "3*V/(2*A)"
+  }
+}

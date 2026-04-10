@@ -1,0 +1,123 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the non-ideal equivalent model of the operational amplifier, draw the final output-transfer characteristic relating v_o to the differential input. Answer format: one final image only, with no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use \\(v_o=A_{vo}(v_p-v_n)\\) for linear output, then apply saturation limits.",
+      "key_point": "Linear first, then clipping."
+    },
+    "step_2": {
+      "modality": "text",
+      "content": "For non-ideal case, \\(|A_{vo}v_d|=V_{om}\\Rightarrow |v_d|=70\\,\\mu V\\).",
+      "key_point": "Breakpoints at \\(v_d=\\pm70\\,\\mu V\\)."
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.318363,
+            0.087326,
+            0.623865,
+            0.500196
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "In \\(|v_d|<70\\,\\mu V\\), \\(v_o=A_{vo}v_d\\) with slope \\(A_{vo}=2\\times10^5\\).",
+      "key_point": "Middle segment is linear."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.268653,
+            0.108461,
+            0.497103,
+            0.675147
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Add lower saturation: if \\(v_d\\le-70\\,\\mu V\\), then \\(v_o=-14\\,V\\).",
+      "key_point": "Left saturation is -14 V."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.058626,
+            0.124899,
+            0.745655,
+            0.686888
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Ideal op-amp: \\(A_{vo}\\to\\infty\\), switch at \\(v_p-v_n=0\\), with \\(\\pm15\\,V\\) rails.",
+      "key_point": "Ideal transfer switches at zero input."
+    },
+    "step_9": {
+      "modality": "image",
+      "content": "step9.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.142166,
+            0.396201,
+            0.746136,
+            0.498981
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "Complete the ideal step curve: \\(v_p>0\\Rightarrow v_o=+15V\\), \\(v_p<0\\Rightarrow v_o=-15V\\).",
+      "key_point": "Only two saturation levels in ideal case."
+    },
+    "step_11": {
+      "modality": "image",
+      "content": "step11.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.173079,
+            0.117214,
+            0.772834,
+            0.728807
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

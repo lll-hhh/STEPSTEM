@@ -1,0 +1,59 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Draw the final shear-force and bending-moment diagrams for the beam. Answer format: one final image only, with no extra text."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Because the load is symmetric about midspan, the support reactions are equal: \\(F_{RA}=F_{RB}\\). The total load is\n\n\\(W=\\int_0^l q(x)dx=\\int_0^l 4q_0\\frac{x}{l}\\left(1-\\frac{x}{l}\\right)dx=\\frac{2}{3}q_0l\\).\n\nHence\n\\(F_{RA}=F_{RB}=W/2=\\frac{1}{3}q_0l\\).",
+      "key_point": "Use symmetry plus load integration to determine both reactions."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.024826,
+            0.071536,
+            0.941043,
+            0.514788
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For a section at distance x from A, shear is\n\n\\(V(x)=F_{RA}-\\int_0^x q(\\xi)d\\xi\\).\n\nSubstitute \\(q(\\xi)=4q_0(\\xi/l)(1-\\xi/l)\\):\n\\(V(x)=q_0\\left(\\frac{l}{3}-\\frac{2x^2}{l}+\\frac{4x^3}{3l^2}\\right)\\).",
+      "key_point": "Obtain the shear function by integrating the distributed load from 0 to x."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Check key shear ordinates:\n\\(V(0)=+\\frac{1}{3}q_0l\\), \\(V(l)=-\\frac{1}{3}q_0l\\).\nSet \\(V(x)=0\\) to locate the extremum of M: the symmetric root is \\(x=l/2\\).",
+      "key_point": "The zero-shear section is at midspan, where bending moment reaches an extremum."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use \\(M'(x)=V(x)\\) and \\(M(0)=0\\):\n\n\\(M(x)=\\int_0^x V(\\xi)d\\xi=q_0\\left(\\frac{lx}{3}-\\frac{2x^3}{3l}+\\frac{x^4}{3l^2}\\right)\\).",
+      "key_point": "Integrate shear once more to get the bending-moment function."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Evaluate moment values for plotting:\n\\(M(0)=0\\), \\(M(l)=0\\), and\n\\(M_{max}=M(l/2)=\\frac{5}{48}q_0l^2\\).\nTherefore M is positive and peaks at midspan.",
+      "key_point": "Boundary zeros plus midspan maximum define the M-diagram shape."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Final diagram features: shear starts at \\(+\\frac{1}{3}q_0l\\), decreases smoothly, crosses zero at midspan, and ends at \\(-\\frac{1}{3}q_0l\\). Moment starts from 0, rises to \\(\\frac{5}{48}q_0l^2\\) at \\(x=l/2\\), then decreases back to 0 at B.",
+      "key_point": "Use the computed ordinates and symmetry to draw the final V and M diagrams."
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

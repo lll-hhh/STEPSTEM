@@ -1,0 +1,130 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For synchrotron radiation observed along the tangent direction, compute the observed pulse duration DeltaT for the given numerical parameters. Output exactly one scientific-notation expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a scientific-notation number; write only the value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Construct circular-orbit geometry with emission point A, nearby point B, and a far tangent-direction observer P.",
+      "key_point": "Radiation duration comes from geometry of two nearby emission events."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_orbit_tangent.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.23,
+            0.2,
+            0.45,
+            0.44
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At relativistic speed, radiation is confined in a cone of half-angle 1/gamma around the instantaneous velocity, so the velocity-direction sweep from A to B is about 2/gamma.",
+      "key_point": "The relevant orbital sweep angle is 2/gamma."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_add_cone_edges.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.53,
+            0.17,
+            0.36,
+            0.37
+          ],
+          "weight": 0.68
+        },
+        {
+          "bbox": [
+            0.4,
+            0.22,
+            0.26,
+            0.24
+          ],
+          "weight": 0.32
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "The arc displacement during this sweep is x=2*R/gamma, hence emission-time gap t2-t1=x/(beta*c)=2*R/(beta*gamma*c).",
+      "key_point": "Use arc length and v=beta*c to get source-time gap."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_add_angle_2_over_gamma.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.33,
+            0.34,
+            0.23,
+            0.28
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.427402,
+            0.292657,
+            0.451005,
+            0.132391
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Arrival duration at the observer is DeltaT=(t2-t1)-t', with t'=(x/c). For beta->1, DeltaT=(2*R/(beta*gamma*c))*(1-beta), and using 2*(1-beta)/beta=1/gamma^2 gives DeltaT=R/(c*gamma^3).",
+      "key_point": "Retardation subtraction and gamma-beta relation lead to the compact formula."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_add_x_time_gap.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.421476,
+            0.305985,
+            0.445671,
+            0.173263
+          ],
+          "weight": 0.6
+        },
+        {
+          "bbox": [
+            0.406369,
+            0.279329,
+            0.186382,
+            0.353635
+          ],
+          "weight": 0.4
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Substitute E=3.50 GeV, m0*c^2=0.511 MeV, and B=1.27 T. Then gamma=E/(m0*c^2), R=E/(e*c*B), and DeltaT=R/(c*gamma^3) evaluates to 9.51*10^-20 s.",
+      "key_point": "Numerical result for the specified storage ring."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "9.51*10^-20"
+  }
+}

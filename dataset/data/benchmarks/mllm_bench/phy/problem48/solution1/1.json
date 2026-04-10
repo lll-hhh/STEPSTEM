@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the same reversible adiabatic nitrogen compression case, compute the minimum compression work using the real-gas enthalpy-change method. Output exactly one integer (negative value allowed), plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, and no extra text. Answer format: a single integer, which may be negative; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Compute total enthalpy change as temperature-dependent part plus pressure-dependent correction.",
+      "key_point": "Total enthalpy change as temperature-dependent part plus pressure-dependent correction."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.357714,
+            0.100532,
+            0.574404,
+            0.725755
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up governing relation for the minimum compression work using the real-gas enthalpy-change."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.41113,
+            0.114526,
+            0.532141,
+            0.688804
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use Wmin = -DeltaH and report the final value.",
+      "key_point": "Use Wmin = -DeltaH and report the final value."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-27238"
+  }
+}

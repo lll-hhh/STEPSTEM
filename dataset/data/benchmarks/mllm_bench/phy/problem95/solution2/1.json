@@ -1,0 +1,63 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In a one-dimensional quantum electromagnetic-field model with one polarization mode, three parallel ideal conducting plates A, B, and C are placed in vacuum with AB=a and AC=L (L>>a). For a mode of angular frequency omega, the effective zero-point contribution is (1/2)*hbar*omega*f(omega/(pi*Lambda)), where f(0)=1 and |f(x)| decays faster than 1/x as x->infinity. Find the force on plate B in the limits L->infinity and Lambda->infinity. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: mode-pressure difference method.",
+      "key_point": "Evaluate vacuum pressure from each side of plate B and subtract."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_plate_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.101671,
+            0.14,
+            0.349515,
+            0.782152
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For 1D conducting boundaries with regulator f(ω/(πΛ)), the finite part gives P(ℓ)=-π*hbar*c/(24*ℓ^2) as Λ->infinity.",
+      "key_point": "This finite term is regulator-shape independent under the given decay condition."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_standing_modes_ab.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.105007,
+            0.161619,
+            0.34,
+            0.68
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use ℓ=a on the left and ℓ=L-a on the right, then L->infinity makes right pressure vanish.",
+      "key_point": "So the force on B is -π*hbar*c/(24*a^2)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-pi*hbar*c/(24*a^2)"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "The figure is a voltage-to-current converter based on an ideal operational amplifier. The inverting input node is \\(v_n\\), the non-inverting input node is \\(v_p\\), and the output is \\(v_o\\). The source \\(v_s\\) drives node \\(v_n\\) through \\(R_1\\) with current \\(i_1\\), and \\(R_2\\) feeds back from \\(v_o\\) to \\(v_n\\) with current \\(i_2\\). The op-amp input currents are \\(i_n\\) and \\(i_p\\), both defined into the input terminals. From \\(v_o\\), resistor \\(R_3\\) connects to node \\(v_L\\) with current \\(i_3\\) downward. Node \\(v_L\\) is directly connected to the non-inverting input, so \\(v_p=v_L\\). From \\(v_L\\) to ground, one branch is \\(R_4\\) carrying \\(i_4\\), and the other branch is load impedance \\(Z_L\\) carrying \\(i_L\\), both downward. Derive \\(i_L/v_s\\) under \\(\\frac{R_2}{R_1R_3}=\\frac{1}{R_4}\\), and show that \\(i_L\\) is independent of \\(Z_L\\). Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Ideal op-amp: \\(i_n=i_p=0\\), \\(v_n=v_p\\).",
+      "key_point": "Use virtual short/open."
+    },
+    "step_2": {
+      "modality": "text",
+      "content": "Because \\(v_p=v_L=i_LZ_L\\), we get \\(v_n=i_LZ_L\\).",
+      "key_point": "Express node voltage by \\(i_LZ_L\\)."
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.351882,
+            0.042452,
+            0.615183,
+            0.92049
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "At inverting branch, \\(i_1=i_2\\): \\(\\frac{v_s-v_n}{R_1}=\\frac{v_n-v_o}{R_2}\\).",
+      "key_point": "Write KCL around \\(v_n\\)."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Substitute \\(v_n=i_LZ_L\\): \\(\\frac{v_s-i_LZ_L}{R_1}=\\frac{i_LZ_L-v_o}{R_2}\\) (2.3.8a).",
+      "key_point": "Get equation (2.3.8a)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.060278,
+            0.080221,
+            0.754651,
+            0.78607
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Rearrange (2.3.8a): \\(v_o-i_LZ_L=\\frac{R_2}{R_1}(i_LZ_L-v_s)\\) (A).",
+      "key_point": "Isolate \\(v_o-i_LZ_L\\)."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "At output branch, \\(i_3=i_4+i_L\\): \\(\\frac{v_o-v_L}{R_3}=i_L+\\frac{v_L}{R_4}\\).",
+      "key_point": "Write output-node KCL."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Substitute \\(v_L=i_LZ_L\\): \\(\\frac{v_o-i_LZ_L}{R_3}=i_L+\\frac{i_LZ_L}{R_4}\\) (2.3.8b).",
+      "key_point": "Get equation (2.3.8b)."
+    },
+    "step_10": {
+      "modality": "image",
+      "content": "step10.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.04983,
+            0.116544,
+            0.632505,
+            0.782386
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Substitute (A) into (2.3.8b): \\(\\frac{R_2}{R_1R_3}(i_LZ_L-v_s)=i_L+\\frac{i_LZ_L}{R_4}\\).",
+      "key_point": "Eliminate \\(v_o\\)."
+    },
+    "step_12": {
+      "modality": "text",
+      "content": "Collect \\(i_L\\): \\(i_L(\\frac{R_2Z_L}{R_1R_3}-1-\\frac{Z_L}{R_4})=v_s(\\frac{R_2}{R_1R_3})\\).",
+      "key_point": "Factor \\(i_L\\)."
+    },
+    "step_13": {
+      "modality": "image",
+      "content": "step13.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.098407,
+            0.210294,
+            0.812456,
+            0.635795
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_14": {
+      "modality": "text",
+      "content": "Use \\(\\frac{R_2}{R_1R_3}=\\frac{1}{R_4}\\): Z_L terms cancel, so \\(i_L=-\\frac{v_s}{R_4}\\), hence \\(\\frac{i_L}{v_s}=-\\frac{1}{R_4}\\).",
+      "key_point": "Final result is independent of \\(Z_L\\)."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "-1/R_4"
+  }
+}

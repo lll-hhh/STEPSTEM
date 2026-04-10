@@ -1,0 +1,114 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Using the y=100 baseline and the positions corresponding to ages 15, 30, and 85 in the original figure, write the values of the requested Q(a). Answer format: Q(15),Q(30),Q(85) in that order, separated by commas; write only the final results, with no units, explanatory text, or equals signs."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Mark the baseline y=100 and locate ages 15, 30, and 85 on the original chart so each Q(a) can be read as a vertical ratio.",
+      "key_point": "Numerator is the male-female vertical gap and denominator is the higher curve offset from 100."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.230552,
+            0.232626,
+            0.094,
+            0.384898
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.348196,
+            0.375001,
+            0.094,
+            0.265923
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.798405,
+            0.408879,
+            0.092024,
+            0.264846
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "At age 15, the separation between two curves is large while the higher curve is still only moderately above 100, so the ratio is the largest.",
+      "key_point": "Q(15) is maximal among the three target ages."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.218301,
+            0.3,
+            0.113,
+            0.29
+          ],
+          "weight": 0.62
+        },
+        {
+          "bbox": [
+            0.344,
+            0.358377,
+            0.104,
+            0.204548
+          ],
+          "weight": 0.38
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "At age 30, the curves are nearly coincident near 100 so the numerator is tiny; at age 85 the denominator magnitude is very small while a visible gap remains.",
+      "key_point": "Therefore Q(30) is smallest and Q(85) stays between Q(15) and Q(30)."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.789902,
+            0.413477,
+            0.116786,
+            0.148473
+          ],
+          "weight": 0.67
+        },
+        {
+          "bbox": [
+            0.345951,
+            0.363055,
+            0.104,
+            0.200845
+          ],
+          "weight": 0.33
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Q(15)>Q(85)>Q(30)"
+  }
+}

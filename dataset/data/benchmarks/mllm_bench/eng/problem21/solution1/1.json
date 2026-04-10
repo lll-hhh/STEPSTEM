@@ -1,0 +1,148 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the capillary water column, derive the criterion expression for the lower-interface curvature term 1/R_B as a function of h and the given parameters. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Model the capillary water column with Laplace pressure at upper and lower interfaces.",
+      "key_point": "Use pressure-jump signs with R_A and R_B."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_upper_RA.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.33,
+            0.1,
+            0.34,
+            0.17
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Define the lower-interface curvature radius R_B and keep its sign as the shape criterion.",
+      "key_point": "sign(R_B) decides concave or convex at the lower interface."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_lower_RB.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.34,
+            0.66,
+            0.32,
+            0.19
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.33,
+            0.1,
+            0.34,
+            0.17
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Apply p_B = p_A + rho*g*h with Laplace jumps to obtain the criterion expression for 1/R_B.",
+      "key_point": "1/R_B = rho*g*h/(2*sigma) - 1/R_A."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_h_link.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.506669,
+            0.206319,
+            0.1,
+            0.57
+          ],
+          "weight": 0.4
+        },
+        {
+          "bbox": [
+            0.345251,
+            0.131562,
+            0.293726,
+            0.174437
+          ],
+          "weight": 0.266667
+        },
+        {
+          "bbox": [
+            0.322504,
+            0.640933,
+            0.369219,
+            0.208543
+          ],
+          "weight": 0.333333
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Evaluate the sign of 1/R_B at h=2 cm, h=4 cm, and h=2.98 cm to classify lower-surface geometry.",
+      "key_point": "Negative gives inward-concave, positive gives outward-convex, zero gives plane."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_three_cases.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1,
+            0.69,
+            0.25,
+            0.18
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.39,
+            0.69,
+            0.23,
+            0.18
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.66,
+            0.69,
+            0.24,
+            0.18
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "So the lower interface is inward-concave at 2 cm, outward-convex at 4 cm, and plane at 2.98 cm.",
+      "key_point": "The sign check is consistent with all three requested cases."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "(rho*g*h)/(2*sigma)-1/R_A"
+  }
+}

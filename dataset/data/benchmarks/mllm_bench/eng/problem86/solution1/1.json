@@ -1,0 +1,94 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the two-span continuous beam with equal spans under a full-span uniformly distributed load, draw the final shear-force and bending-moment diagrams. Answer format: one final image only, with no extra text."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Take the middle-support reaction \\(R_C\\) as the redundant unknown, and release support C.",
+      "key_point": "Choose redundant and basic system first."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.042386,
+            0.244108,
+            0.926085,
+            0.334417
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For the released basic system (span \\(2l\\) under UDL \\(q\\) plus upward \\(R_C\\) at midspan), write compatibility at C:\n\\[ w_C=0,\\quad -\\frac{5q(2l)^4}{384EI}+\\frac{R_C(2l)^3}{48EI}=0. \\]",
+      "key_point": "Write displacement compatibility equation."
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "From compatibility:\n\\[ R_C=\\frac{5}{8}q(2l)=\\frac{5}{4}ql. \\]",
+      "key_point": "Get the middle reaction first."
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use symmetry:\n\\[ R_A=R_B. \\]",
+      "key_point": "Left and right support reactions are equal."
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Apply global vertical equilibrium:\n\\[ R_A+R_B+R_C=2ql. \\]\nSubstitute \\(R_C=\\frac{5}{4}ql\\):\n\\[ R_A=R_B=\\frac{3}{8}ql. \\]",
+      "key_point": "Solve end reactions by equilibrium."
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Left span \\((0\\le x<l)\\):\n\\[ V_1(x)=R_A-qx=\\frac{3}{8}ql-qx. \\]",
+      "key_point": "Write left-span shear function."
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Left-span key values:\n\\[ V(0^+)=\\frac{3}{8}ql,\\quad V(l^-)= -\\frac{5}{8}ql. \\]",
+      "key_point": "Get left-end and C-left shear ordinates."
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Right span \\((l<x\\le 2l)\\):\n\\[ V_2(x)=R_A+R_C-qx=\\frac{13}{8}ql-qx. \\]",
+      "key_point": "Write right-span shear function."
+    },
+    "step_10": {
+      "modality": "text",
+      "content": "Right-span key values:\n\\[ V(l^+)=\\frac{5}{8}ql,\\quad V(2l^-)= -\\frac{3}{8}ql,\\quad V(2l^+)=0. \\]",
+      "key_point": "Include jumps at C and B."
+    },
+    "step_11": {
+      "modality": "text",
+      "content": "Integrate left-span shear:\n\\[ M_1(x)=R_Ax-\\frac{q x^2}{2}=\\frac{3}{8}ql\\,x-\\frac{q x^2}{2}. \\]",
+      "key_point": "Get left-span moment function."
+    },
+    "step_12": {
+      "modality": "text",
+      "content": "At middle support and right span:\n\\[ M(l)=R_Al-\\frac{q l^2}{2}= -\\frac{1}{8}ql^2, \\]\n\\[ M_2(x)=R_Ax+R_C(x-l)-\\frac{q x^2}{2},\\quad l\\le x\\le 2l, \\]\n\\[ M(0)=0,\\; M(2l)=0. \\]",
+      "key_point": "Middle moment is negative; both end moments are zero."
+    },
+    "step_13": {
+      "modality": "text",
+      "content": "Set \\(V=0\\) to locate positive-moment extrema:\n\\[ x=\\frac{3}{8}l,\\quad x=\\frac{13}{8}l. \\]",
+      "key_point": "Find extreme-point locations first."
+    },
+    "step_14": {
+      "modality": "text",
+      "content": "Substitute into \\(M(x)\\):\n\\[ M_{\\max}=\\frac{9}{128}ql^2. \\]\nSo key ordinates are\n\\[ M_C=-\\frac{1}{8}ql^2,\\quad M_{\\max}=\\frac{9}{128}ql^2. \\]",
+      "key_point": "Finalize F and M diagram key values."
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "final.png"
+  }
+}

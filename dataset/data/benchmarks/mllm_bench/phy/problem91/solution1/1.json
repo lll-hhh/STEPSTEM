@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In vacuum, two infinitely long coaxial thin-walled cylinders have radii r1 and r2. For each unit axial length, both cylinders have mass m; the inner cylinder carries charge q (q>0), and the outer cylinder carries charge -q. Both can rotate freely about the common axis. Initially both are at rest. A torque is applied to the outer cylinder until its angular speed reaches Omega. Find the total mechanical angular momentum per unit length of the two cylinders along the axis. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Use ASCII characters only. Do not include units, explanatory text, or an equals sign. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set the coaxial-shell geometry and identify charged rotating bodies per unit length.",
+      "key_point": "Use r1, r2, m, q, -q with axisymmetric rotation."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_geometry_charges.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.23,
+            0.23,
+            0.56,
+            0.55
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "When the outer shell reaches Omega, its rotating charge generates axial magnetic field inside.",
+      "key_point": "B_out=mu_0*(-q)*Omega/(2*pi)."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_outer_rotating_B.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.63,
+            0.35,
+            0.19,
+            0.3
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use Faraday induction at r1 and rotational dynamics of the inner shell.",
+      "key_point": "m*r1^2*d(omega_1)/dt=-(q*r1^2/2)*d(B_out)/dt."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_induced_Ephi_inner.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.34,
+            0.29,
+            0.34,
+            0.38
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Integrate from rest to final state and sum the mechanical angular momenta.",
+      "key_point": "L=L1+L2 with L2=m*r2^2*Omega and L1=mu_0*q^2*r1^2*Omega/(4*pi)."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_Lsum.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.49,
+            0.3,
+            0.31,
+            0.36
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "Omega*(m*r2^2+mu_0*q^2*r1^2/(4*pi))"
+  }
+}

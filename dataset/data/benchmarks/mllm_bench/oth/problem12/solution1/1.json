@@ -1,0 +1,98 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Partition the 6x8 grid into connected regions so that each region contains exactly one number and its area equals that number. Output exactly one token SEE_STEP4, plain ASCII only, no Chinese characters, no sentence, and no extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Grow regions from constrained clues first and keep each region connected during expansion.",
+      "key_point": "Extract the key constraints before committing to the final choice."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_initial_growth.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Apply area bounds to stop overgrowth and force neighboring boundaries.",
+      "key_point": "Each region must keep exactly one clue cell."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_area_bounds.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use connectivity checks to resolve remaining ambiguous cells.",
+      "key_point": "Disconnected fragments are invalid and must be merged or rejected."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_connectivity.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Finalize all region borders so every clue-matching area is satisfied.",
+      "key_point": "The completed partition is shown in the last step figure."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_final_partition.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "image",
+    "content": "step8_final_partition.png"
+  }
+}

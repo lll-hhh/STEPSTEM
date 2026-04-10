@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Build the following structural model: a closed square rigid frame with side length a has identical flexural rigidity EI on all four sides. A uniform shear flow q of equal magnitude acts tangentially along each member axis and is continuously transferred around the closed boundary. Using left-right structural symmetry and load antisymmetry, cut the frame at the midpoint B of the top side and keep only one vertical cut shear F_SB at the cut. Analyze the right half frame along the path: half of the top side, full right vertical side, and half of the bottom side. Then apply a unit vertical virtual force at B; using virtual work and displacement compatibility at the cut, determine F_SB. Answer format: a single algebraic expression. Use the variable names specified in the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "By symmetry and antisymmetry, after cutting at B the only cut internal force is the vertical shear F_SB. For the force-method equation, apply a unit vertical virtual force at B and use Delta_BB'=0.",
+      "key_point": "Set up the single redundant F_SB and the virtual-work compatibility equation at the cut."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.322693,
+            0.071875,
+            0.599212,
+            0.413088
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.130866,
+            0.574168,
+            0.775218,
+            0.344468
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.135261,
+            0.610414,
+            0.752728,
+            0.299087
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.198351,
+            0.059259,
+            0.691814,
+            0.266435
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "On the three path segments of the right half, use coordinates x1, x2, x3 and write the virtual and real bending moments: m1(x1)=x1, M1(x1)=F_SB*x1, 0<=x1<=a/2; m2(x2)=a/2, M2(x2)=F_SB*(a/2)-(a/2)*q*x2, 0<=x2<=a; m3(x3)=a/2-x3, M3(x3)=F_SB*(a/2-x3)-(1/2)*q*a*a-q*a*x3, 0<=x3<=a/2.",
+      "key_point": "Write piecewise m and M expressions for top half-span, right side, and bottom half-span."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.096756,
+            0.015498,
+            0.704517,
+            0.319875
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "Virtual-work compatibility: Delta_BB'=(2/(E*I))*(integral_0^(a/2)[m1(x1)M1(x1)dx1]+integral_0^a[m2(x2)M2(x2)dx2]+integral_0^(a/2)[m3(x3)M3(x3)dx3])=0. After integration and simplification, F_SB=5*q*a/8.",
+      "key_point": "Substitute the three segment integrals into Delta_BB'=0 and solve for F_SB."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.22,
+            0.58,
+            0.6,
+            0.34
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_8": {
+      "modality": "text",
+      "content": "Therefore, the cut shear is F_SB=5*q*a/8.",
+      "key_point": "Final value of the cut shear force at B."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "5*q*a/8"
+  }
+}

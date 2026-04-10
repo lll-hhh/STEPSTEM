@@ -1,0 +1,85 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Lithium iron phosphate (LiFePO4) is an important cathode material for lithium-ion batteries. The crystal-cell structures relevant to this problem are given in the accompanying image. During charging, LiFePO4 releases part of its lithium and becomes Li(1-x)FePO4. Determine only the value of x. Answer format: a single numerical value; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Read the crystal occupancy pattern and compare Li-filled and Li-deficient structures.",
+      "key_point": "Unit counting and vacancy fraction determine x."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.1719,
+            0.2361,
+            0.1797,
+            0.2639
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.3906,
+            0.3889,
+            0.22358,
+            0.325242
+          ],
+          "weight": 0.33
+        },
+        {
+          "bbox": [
+            0.624998,
+            0.215315,
+            0.1797,
+            0.2639
+          ],
+          "weight": 0.33
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use LiFePO4 to Li1-xFePO4 occupancy change to solve x.",
+      "key_point": "Return one symbol/expression."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_rebuild.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.636091,
+            0.290301,
+            0.169247,
+            0.464026
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.131215,
+            0.202826,
+            0.69831,
+            0.602771
+          ],
+          "weight": 0.5
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "x"
+  }
+}

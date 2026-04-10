@@ -1,0 +1,83 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "AT and BC intersect at point E. Find the ratio BE:CE. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Start from E = AT ∩ BC and treat the goal as deriving BE:CE from angle-linked similar triangles on BC.",
+      "key_point": "The target ratio is BE/CE = 1."
+    },
+    "step_2": {
+      "modality": "text",
+      "content": "Use the right-side construction through A-D-K to set up angle correspondences linked back to line BC.",
+      "key_point": "The ADK branch provides the angle bridge from A,T-side geometry to B,C-side geometry."
+    },
+    "step_3": {
+      "modality": "image",
+      "content": "step3_add_adk.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.36,
+            0.08,
+            0.56,
+            0.82
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_4": {
+      "modality": "text",
+      "content": "Apply cyclic-angle relations from the two auxiliary circles to form one pair of similar triangles containing BE and CE as corresponding sides.",
+      "key_point": "Circle-based equal angles are the core reason the segment ratio on BC becomes constrained."
+    },
+    "step_5": {
+      "modality": "image",
+      "content": "step5_add_circles_m.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.117482,
+            0.102446,
+            0.47018,
+            0.834011
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_6": {
+      "modality": "text",
+      "content": "From the similarity result, obtain BE/CE = 1 directly, so E divides BC internally in the ratio 1:1.",
+      "key_point": "Therefore the required ratio is exactly 1."
+    },
+    "step_7": {
+      "modality": "image",
+      "content": "step7_ratio_focus.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.04,
+            0.3,
+            0.54,
+            0.2
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "1"
+  }
+}

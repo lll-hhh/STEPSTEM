@@ -1,0 +1,110 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Determine the products labeled A, B, C, D, and E for the three transformations (intramolecular lactonization, isotopic hydrolysis, and maltose hydrolysis/mutarotation). Output exactly one token sequence in the format A(...)*B(...)*C(...)*D(...)*E(...), plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify the three independent transformations: intramolecular lactonization, isotopic hydrolysis, and maltose hydrolysis mutarotation set.",
+      "key_point": "Map each subquestion to one canonical product set."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_A_lactone.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.424809,
+            0.467989,
+            0.224284,
+            0.381797
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "For (A), acid-catalyzed intramolecular esterification of the hydroxy acid gives the ethyl-substituted delta-lactone major product.",
+      "key_point": "Ring closure product is the dominant lactone."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_B_18O_acid.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.179118,
+            0.348274,
+            0.298261,
+            0.262106
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.586198,
+            0.319771,
+            0.208652,
+            0.356295
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "For (B), opening the lactone in excess H2O18 under acid gives 4-hydroxybutanoic acid with both carboxyl oxygens labeled as 18O after exchange.",
+      "key_point": "Both oxygen atoms in the carboxyl group are 18O."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_CDE_glucose_forms.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.053319,
+            0.31692,
+            0.225821,
+            0.356215
+          ],
+          "weight": 0.34
+        },
+        {
+          "bbox": [
+            0.387969,
+            0.356825,
+            0.230793,
+            0.280728
+          ],
+          "weight": 0.32
+        },
+        {
+          "bbox": [
+            0.709978,
+            0.302669,
+            0.265055,
+            0.370467
+          ],
+          "weight": 0.34
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "For (C), maltose hydrolysis yields D-glucose forms represented by alpha anomer, open-chain form, and beta anomer.",
+      "key_point": "Product set is alpha-D-glucose, open-chain D-glucose, beta-D-glucose."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "A(ethyl-delta-lactone)*B(18O2-4-hydroxybutanoic-acid)*C(alpha-D-glucose)*D(open-chain-D-glucose)*E(beta-D-glucose)"
+  }
+}

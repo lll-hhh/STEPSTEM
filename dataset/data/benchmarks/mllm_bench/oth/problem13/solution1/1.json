@@ -1,0 +1,107 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "At locations Jia and Yi, infer two blanks from the noon solar-image projections at equinoxes and solstices: (1) Jia relative direction from Yi; (2) annual-curve index of Delta_h. Answer format requirement: <dir>&<curve_index>, where dir is one of {southeast,northeast,northwest,southwest} and curve_index is one of {1,2,3,4}. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Identify hemisphere positions of Jia and Yi from the side of solar-image offsets across the four dates.",
+      "key_point": "Extract the key constraints before committing to the final choice."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_candidate_curve.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.063463,
+            0.068224,
+            0.905545,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Use equinox constraints to force Delta h to be zero at two annual points.",
+      "key_point": "Incorrect curves with nonzero equinox gap must be removed."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_hemisphere_inference.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.010602,
+            0.109823,
+            0.498566,
+            0.865673
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.525072,
+            0.03631,
+            0.445301,
+            0.91016
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Combine winter-solstice terminator orientation with equal UT sunset condition.",
+      "key_point": "The geometric relation gives Jia southeast of Yi."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_solstice_symmetry_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.02608,
+            0.118632,
+            0.968705,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Check symmetric solstice peaks and pick the matching option curve.",
+      "key_point": "Final pair is determined by consistency of both subquestions."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_solstice_symmetry_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.08,
+            0.08,
+            0.84,
+            0.84
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "southeast&3"
+  }
+}

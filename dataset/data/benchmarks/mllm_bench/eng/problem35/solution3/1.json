@@ -1,0 +1,112 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For projectile motion on an inclined plane, compute the maximum range along the slope for the given launch speed and angle parameters. Output exactly one expression token sequence in plain ASCII only, no Chinese characters, no unit text, no sentence, no equality sign, no chained equalities, and no extra text. Answer format: a single algebraic expression for the target quantity. Use the variable names from the problem and ASCII characters only; do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Use the trajectory-envelope method for fixed v0 and varying launch angle alpha.",
+      "key_point": "Maximum slope range occurs where the incline is tangent to the projectile envelope."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_rotated_axes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.078363,
+            0.026486,
+            0.386969,
+            0.479176
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Write y(x,alpha)=x*tan(alpha)-g*x^2/(2*v0^2*cos(alpha)^2) and eliminate alpha using dy/dalpha=0.",
+      "key_point": "Elimination gives envelope equation independent of alpha."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_tangent_normal_components.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.098308,
+            0.020187,
+            0.342059,
+            0.507928
+          ],
+          "weight": 0.7
+        },
+        {
+          "bbox": [
+            0.591678,
+            0.308711,
+            0.23,
+            0.39
+          ],
+          "weight": 0.3
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Impose tangency with y=-x*tan(theta) by requiring zero-discriminant intersection.",
+      "key_point": "Discriminant zero gives the limiting reachable point on the slope."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_slope_range.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.090874,
+            0.024075,
+            0.613294,
+            0.678677
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Convert that tangency point to along-slope distance L_max.",
+      "key_point": "This route avoids flight-time decomposition in rotated axes."
+    },
+    "step_8": {
+      "modality": "image",
+      "content": "step8_optimum_family.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.131637,
+            0.150083,
+            0.59,
+            0.59
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_9": {
+      "modality": "text",
+      "content": "Substitute given parameters and simplify to the required final expression.",
+      "key_point": "Output the single target expression token."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "255.1*(1+sqrt(3)/2)"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the steam-injected gas-turbine cycle with the given operating data, compute the thermal efficiency under reversible compression/expansion and air-like gas-property assumptions. Output exactly one decimal number with 4 decimal places, plain ASCII only, no Chinese characters, no percent sign, no fraction, no equation form, and no extra text. Answer format: a decimal number rounded to four decimal places; write only the numerical value itself, with no units, explanatory text, or equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Compute cycle net work and heat input using the provided thermodynamic property relations.",
+      "key_point": "Compute cycle net work and heat input using the provided thermodynamic property relations."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "panel_1.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.051,
+            0.439,
+            0.568,
+            0.561
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.471533,
+            0.037945,
+            0.463024,
+            0.495021
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Analyze panel 1 of 2 and record the intermediate relation needed before moving to the next panel.",
+      "key_point": "Set up thermal-efficiency relation under reversible compression and expansion."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "panel_2.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.277,
+            0.107,
+            0.567,
+            0.567
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Evaluate efficiency as eta = W_net / Q_in and format as a decimal fraction.",
+      "key_point": "eta = W_net / Q_in."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "0.5453"
+  }
+}

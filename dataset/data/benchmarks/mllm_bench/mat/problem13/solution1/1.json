@@ -1,0 +1,114 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "In quadrilateral ABCD, AB is parallel to CD, angle DAB is 90 degrees, F is the midpoint of CD, point E lies on AB, EF is parallel to AD, AB=3*AD, and CD=2*AD. Fold quadrilateral EFDA along EF to quadrilateral EFD'A' so that the dihedral angle between planes EFD'A' and EFCB is 60 degrees. Find the sine value of the dihedral angle between planes BCD' and EFD'A'. Answer format requirement: <expr>. Strictly forbidden: any extra text beyond this format."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Set coordinates with AD=1, A(0,0,0), D(0,1,0), AB parallel CD, AB=3, CD=2, then E and F are fixed by EF parallel AD and midpoint condition.",
+      "key_point": "A=(0,0,0), B=(3,0,0), C=(2,1,0), D=(0,1,0), E=(1,0,0), F=(1,1,0)."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_base_geometry.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.125,
+            0.75,
+            0.5417,
+            0.1111
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.125,
+            0.4583,
+            0.375,
+            0.1181
+          ],
+          "weight": 0.45
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "Fold EFDA around EF with dihedral angle 60 degree from plane EFCB, giving A'=(1/2,0,sqrt(3)/2) and D'=(1/2,1,sqrt(3)/2).",
+      "key_point": "EF is the rotation axis, so E and F stay fixed while A and D rotate by 60 degree."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_folded_structure.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.2812,
+            0.4583,
+            0.0729,
+            0.375
+          ],
+          "weight": 0.35
+        },
+        {
+          "bbox": [
+            0.4115,
+            0.3472,
+            0.1042,
+            0.3889
+          ],
+          "weight": 0.4
+        },
+        {
+          "bbox": [
+            0.3229,
+            0.625,
+            0.1771,
+            0.2222
+          ],
+          "weight": 0.25
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Use normals of planes BCD' and EFD'A': n1=(sqrt(3),sqrt(3),3), n2=(sqrt(3),0,1). Then cos(theta)=3/sqrt(15), so sin(theta)=sqrt(10)/5.",
+      "key_point": "The required dihedral sine equals the sine of the angle between plane normals."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_dihedral_planes.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.3698,
+            0.3194,
+            0.3125,
+            0.5486
+          ],
+          "weight": 0.55
+        },
+        {
+          "bbox": [
+            0.2604,
+            0.3472,
+            0.2604,
+            0.5
+          ],
+          "weight": 0.45
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "sqrt(10)/5"
+  }
+}

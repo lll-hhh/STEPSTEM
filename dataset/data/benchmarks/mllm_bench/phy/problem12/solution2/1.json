@@ -1,0 +1,92 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "For the projectile setup with the given launch speed and angle, compute the unknown geometric height parameter h from the landing constraints. Output exactly one decimal number with 2 digits after the decimal point, plain ASCII only, no Chinese characters, no unit text, no percent sign, no fraction, no equation form, no sentence, and no extra text. Answer format: one final result only. If the result naturally simplifies to a single value, give that value; otherwise give a single algebraic expression using the symbols defined in the problem. Do not include units, explanatory text, or an equals sign."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "text",
+      "content": "Method: trajectory-equation and line-intersection method.",
+      "key_point": "Eliminate time completely and solve by intersecting the projectile parabola with the 45° ramp line."
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_parabola_and_ramp.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.031345,
+            0.551911,
+            0.340182,
+            0.317724
+          ],
+          "weight": 0.5
+        },
+        {
+          "bbox": [
+            0.436287,
+            0.408804,
+            0.517295,
+            0.530416
+          ],
+          "weight": 0.5
+        }
+      ]
+    },
+    "step_3": {
+      "modality": "text",
+      "content": "The 45° ramp starts 55 ft to the right of the launch point, so every feasible landing point on the ramp satisfies equal rise and extra run. Therefore the target points lie on one straight line through the point where the ramp begins.",
+      "key_point": "This converts the unknown geometry into a line constraint in the x-y plane."
+    },
+    "step_4": {
+      "modality": "image",
+      "content": "step4_line_constraint.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.404044,
+            0.395317,
+            0.537834,
+            0.486134
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_5": {
+      "modality": "text",
+      "content": "Write the projectile as y=x*tan(60)-g*x^2/(2*v_0^2*cos^2(60)) with v_0=80 and g=32.17, then intersect that parabola with the ramp line. This gives the impact x-coordinate directly, without first solving for a flight time.",
+      "key_point": "The unknown h appears only after the geometric intersection has been found."
+    },
+    "step_6": {
+      "modality": "image",
+      "content": "step6_intersection_to_h.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.41288,
+            0.319526,
+            0.497009,
+            0.554048
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_7": {
+      "modality": "text",
+      "content": "Take the downstream intersection on the ramp and convert it back with h=x-55. Rounding to two decimal places gives the required height.",
+      "key_point": "The final step is a geometry conversion from the impact x-coordinate to h."
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "63.85"
+  }
+}

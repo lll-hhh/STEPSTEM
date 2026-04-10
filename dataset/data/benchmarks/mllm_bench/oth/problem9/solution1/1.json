@@ -1,0 +1,48 @@
+{
+  "question": [
+    {
+      "modality": "text",
+      "content": "Solve the 9x9 cage-sum Sudoku puzzle shown in the image and give the completed grid. Answer format: 9 row strings of 9 digits each, separated by '/'; write only the completed grid, with no spaces or extra text."
+    },
+    {
+      "modality": "image",
+      "content": "input.png"
+    }
+  ],
+  "solution": {
+    "step_1": {
+      "modality": "image",
+      "content": "step1_guides.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.223056,
+            0.141251,
+            0.680091,
+            0.710549
+          ],
+          "weight": 1.0
+        }
+      ]
+    },
+    "step_2": {
+      "modality": "image",
+      "content": "step2_flow.png",
+      "important_bbox": [
+        {
+          "bbox": [
+            0.154965,
+            0.129786,
+            0.722242,
+            0.700028
+          ],
+          "weight": 1.0
+        }
+      ]
+    }
+  },
+  "final_answer": {
+    "modality": "text",
+    "answer": "417856392/839421567/625739481/543982716/792163845/168547923/284675139/351294678/976318254"
+  }
+}
