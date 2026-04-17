@@ -5,183 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="StepSTEM project page">
   <title>StepSTEM | Project Page</title>
-
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
   <style>
     body { font-family: "Noto Sans", sans-serif; }
-    .publication-title {
-      font-family: "Google Sans", sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .publication-links { font-family: "Google Sans", sans-serif; }
-    .hero.is-stepstem {
-      background: linear-gradient(140deg, #fbfbfd 0%, #f5f8ff 45%, #f5fcf8 100%);
-    }
-    .section-soft {
-      background: linear-gradient(180deg, #fbfbfd 0%, #f4f6fb 100%);
-    }
-    .paper-figure {
-      border: 1px solid #e7ebf2;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(27, 39, 51, 0.06);
-      background: #fff;
-    }
-    .paper-figure img { width: 100%; height: auto; display: block; }
-    .paper-caption {
-      padding: 0.7rem 0.9rem;
-      font-size: 0.95rem;
-      color: #4a4a4a;
-      border-top: 1px solid #eef1f6;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .stats-item {
-      border: 1px solid #e8ebf2;
-      border-radius: 12px;
-      background: #fff;
-      padding: 16px;
-      text-align: center;
-      box-shadow: 0 6px 18px rgba(27, 39, 51, 0.05);
-    }
-    .stats-item .num {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #3457d5;
-      line-height: 1.1;
-    }
-    .stats-item .label {
-      margin-top: 0.4rem;
-      color: #5f6675;
-      font-size: 0.95rem;
-    }
-    pre {
-      border-radius: 10px;
-      padding: 1rem;
-      background: #0f172a;
-      color: #f8fafc;
-      overflow-x: auto;
-    }
-    @media (max-width: 900px) {
-      .stats-grid { grid-template-columns: 1fr; }
-    }
+    .publication-title { font-family: "Google Sans", sans-serif; font-weight: 700; letter-spacing: -0.02em; }
+    .hero.is-stepstem { background: linear-gradient(145deg, #fbfcff 0%, #f3f7ff 45%, #f3fbf7 100%); }
+    .sticky-nav { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid #ebeff5; }
+    .sticky-nav .tabs { margin-bottom: 0; }
+    .paper-figure { border: 1px solid #e7ebf2; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 8px 24px rgba(27,39,51,0.06); }
+    .paper-figure img { display: block; width: 100%; height: auto; }
+    .paper-caption { border-top: 1px solid #edf1f6; padding: 0.7rem 0.9rem; color: #586174; font-size: 0.95rem; }
+    .info-card { border: 1px solid #e8ebf2; border-radius: 12px; background: #fff; padding: 14px 16px; height: 100%; }
+    .info-card .k { color: #3344bb; font-size: 1.65rem; font-weight: 700; line-height: 1.1; }
+    .info-card .t { color: #5c6475; margin-top: 0.35rem; font-size: 0.95rem; }
+    .section-soft { background: linear-gradient(180deg, #fbfbfd 0%, #f5f7fb 100%); }
+    .table-wrap { overflow-x: auto; border: 1px solid #e7ebf2; border-radius: 12px; background: #fff; }
+    table.compact th, table.compact td { font-size: 0.88rem; white-space: nowrap; }
+    pre { border-radius: 10px; padding: 0.9rem; background: #0f172a; color: #f8fafc; overflow-x: auto; }
   </style>
 </head>
 <body>
 
 <section class="hero is-stepstem">
   <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">
-            Unveiling Fine-Grained Visual Traces:<br>
-            Evaluating MultiModal Interleaved Reasoning Chains in Multimodal STEM Tasks
-          </h1>
-
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <span class="link-block">
-                <a href="https://github.com/lll-hhh/STEPSTEM" target="_blank" rel="noopener noreferrer" class="button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="fab fa-github"></i></span>
-                  <span>Code</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/lll-hhh/STEPSTEM/tree/main/benchmark" target="_blank" rel="noopener noreferrer" class="button is-normal is-rounded is-info">
-                  <span class="icon"><i class="fa-solid fa-database"></i></span>
-                  <span>Dataset</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="https://github.com/lll-hhh/STEPSTEM/tree/main/scoring_core/tools/evaluate" target="_blank" rel="noopener noreferrer" class="button is-normal is-rounded is-link">
-                  <span class="icon"><i class="fa-solid fa-calculator"></i></span>
-                  <span>Evaluation</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href="#bibtex" class="button is-normal is-rounded is-success">
-                  <span class="icon"><i class="ai ai-arxiv"></i></span>
-                  <span>BibTeX</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
+    <div class="container is-max-desktop has-text-centered">
+      <h1 class="title is-1 publication-title">
+        Unveiling Fine-Grained Visual Traces:<br>
+        Evaluating MultiModal Interleaved Reasoning Chains in Multimodal STEM Tasks
+      </h1>
+      <div class="buttons is-centered" style="margin-top:1rem;">
+        <a class="button is-dark is-rounded" href="https://github.com/lll-hhh/STEPSTEM" target="_blank" rel="noopener noreferrer">
+          <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+        </a>
+        <a class="button is-info is-rounded" href="https://github.com/lll-hhh/STEPSTEM/tree/main/benchmark" target="_blank" rel="noopener noreferrer">
+          <span class="icon"><i class="fa-solid fa-database"></i></span><span>Dataset</span>
+        </a>
+        <a class="button is-link is-rounded" href="https://github.com/lll-hhh/STEPSTEM/tree/main/scoring_core/tools/evaluate" target="_blank" rel="noopener noreferrer">
+          <span class="icon"><i class="fa-solid fa-calculator"></i></span><span>Evaluation</span>
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<div class="sticky-nav">
+  <div class="container is-max-desktop">
+    <div class="tabs is-centered is-small">
+      <ul>
+        <li><a href="#abstract">Abstract</a></li>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#method">Method</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#analysis">Analysis</a></li>
+        <li><a href="#appendix">Appendix</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<section id="abstract" class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Abstract</h2>
-    <div class="content has-text-justified">
+    <div class="content">
       <p>
-        Multimodal large language models (MLLMs) show promising reasoning ability, but existing STEM benchmarks
-        often allow unimodal shortcuts and mostly evaluate final-answer accuracy. We introduce <strong>StepSTEM</strong>,
-        a graduate-level benchmark of 283 problems across engineering, physics, chemistry, biology, mathematics, and other domains,
-        with strict text-image complementarity and fine-grained process supervision.
+        We introduce <strong>StepSTEM</strong>, a graduate-level multimodal STEM benchmark (283 problems) for evaluating
+        interleaved reasoning chains beyond final-answer accuracy. The benchmark enforces text-image complementarity and
+        provides structured multi-step references with textual points and visual regions.
       </p>
       <p>
-        We further propose a step-level evaluation framework to score textual and visual intermediate reasoning steps,
-        align predicted trajectories with multiple reference solutions via dynamic programming, and evaluate local and global
-        reasoning quality. Experiments reveal substantial headroom for genuine cross-modal STEM reasoning.
+        We also propose a step-level evaluation framework that combines local step alignment, global trace coverage,
+        and multi-reference matching. Experiments show that current MLLMs still have a large gap in genuine cross-modal
+        STEM reasoning.
       </p>
     </div>
   </div>
 </section>
 
-<section class="section section-soft">
+<section id="overview" class="section section-soft">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Benchmark Overview</h2>
-    <div class="stats-grid">
-      <div class="stats-item"><div class="num">283</div><div class="label">Total Problems</div></div>
-      <div class="stats-item"><div class="num">269</div><div class="label">Text-final Problems</div></div>
-      <div class="stats-item"><div class="num">14</div><div class="label">Image-final Problems</div></div>
-    </div>
-    <div style="margin-top: 1rem;">
-      <span class="tag is-info is-light">Engineering</span>
-      <span class="tag is-info is-light">Physics</span>
-      <span class="tag is-info is-light">Chemistry</span>
-      <span class="tag is-info is-light">Biology</span>
-      <span class="tag is-info is-light">Mathematics</span>
-      <span class="tag is-info is-light">Other</span>
+    <div class="columns is-multiline">
+      <div class="column is-4"><div class="info-card"><div class="k">283</div><div class="t">Total problems</div></div></div>
+      <div class="column is-4"><div class="info-card"><div class="k">269</div><div class="t">Text-final problems</div></div></div>
+      <div class="column is-4"><div class="info-card"><div class="k">14</div><div class="t">Image-final problems</div></div></div>
+      <div class="column is-12">
+        <div class="paper-figure">
+          <img src="assets/123.png" alt="Data curation workflow">
+          <div class="paper-caption">Figure 1. Data curation workflow and multi-solution construction pipeline.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section id="method" class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Data Curation Pipeline</h2>
-    <div class="paper-figure">
-      <img src="assets/123.png" alt="Overview of StepSTEM construction workflow">
-      <div class="paper-caption">Figure 1. Overview of the StepSTEM construction workflow and multi-solution pipeline.</div>
+    <h2 class="title is-3">Methodology (Condensed)</h2>
+    <div class="content">
+      <p><strong>Data Curation:</strong> candidate collection, strict filtering for visual dependency, and expert-verified solution structuring with step-level text and bounding-box annotations.</p>
+      <p><strong>Local Evaluation:</strong> textual step matching via attention-rollout alignment; visual step matching via region-aware image similarity.</p>
+      <p><strong>Global Evaluation:</strong> LLM-judge based coverage over whole trace, for both textual key points and visual evidence.</p>
+      <p><strong>Fusion:</strong> integrate local/global as fused process score and take best-over-solutions for multi-path problems.</p>
+      <pre><code>S_fused = sqrt((w_s * S_local^2 + w_j * S_global^2) / (w_s + w_j))
+S_final = max_k S_fused(G_k, P)</code></pre>
     </div>
-  </div>
-</section>
-
-<section class="section section-soft">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Methodology</h2>
-    <div class="columns is-variable is-5">
+    <div class="columns">
       <div class="column">
         <div class="paper-figure">
-          <img src="assets/data_bintu.png" alt="Domain distribution of StepSTEM">
-          <div class="paper-caption">Figure 2. Domain distribution of StepSTEM.</div>
+          <img src="assets/data_bintu.png" alt="Domain distribution">
+          <div class="paper-caption">Figure 2. Domain distribution.</div>
         </div>
       </div>
       <div class="column">
         <div class="paper-figure">
-          <img src="assets/33.png" alt="Fine-grained evaluation protocol">
+          <img src="assets/33.png" alt="Evaluation protocol">
           <div class="paper-caption">Figure 3. Fine-grained evaluation protocol.</div>
         </div>
       </div>
@@ -189,51 +128,97 @@
   </div>
 </section>
 
-<section class="section">
+<section id="results" class="section section-soft">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Experiments & Analysis</h2>
-    <div class="columns is-variable is-5">
+    <h2 class="title is-3">Main Results</h2>
+    <div class="table-wrap">
+      <table class="table is-fullwidth is-striped compact">
+        <thead>
+          <tr>
+            <th>Model</th><th>Txt Acc</th><th>Img Acc</th><th>Fused</th><th>Local-T</th><th>Local-I</th><th>Local</th><th>Global-T</th><th>Global-I</th><th>Global</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Gemini 2.5 Flash Image</td><td>15.61</td><td>50.80</td><td>67.05</td><td>58.62</td><td>64.10</td><td>62.35</td><td>65.57</td><td>78.56</td><td>71.40</td></tr>
+          <tr><td>GPT-5.4 + GPT-Image</td><td>33.21</td><td>39.40</td><td>71.52</td><td>57.72</td><td>61.83</td><td>60.20</td><td>74.46</td><td>88.21</td><td>80.94</td></tr>
+          <tr><td>Bagel</td><td>4.83</td><td>0.00</td><td>47.38</td><td>30.64</td><td>54.15</td><td>44.63</td><td>50.34</td><td>48.70</td><td>49.76</td></tr>
+          <tr><td>Janus-Pro</td><td>0.37</td><td>0.00</td><td>40.99</td><td>24.20</td><td>53.20</td><td>49.52</td><td>38.72</td><td>19.16</td><td>30.11</td></tr>
+          <tr><td>OmniGen2</td><td>3.35</td><td>0.00</td><td>45.04</td><td>23.58</td><td>59.05</td><td>42.30</td><td>45.97</td><td>45.91</td><td>47.76</td></tr>
+          <tr><td>Showo2</td><td>1.86</td><td>0.00</td><td>42.17</td><td>35.39</td><td>54.13</td><td>47.44</td><td>41.58</td><td>28.33</td><td>36.13</td></tr>
+          <tr><td>Gemini 3.1 Pro</td><td>38.29</td><td>0.00</td><td>38.13</td><td>66.13</td><td>0.00</td><td>36.65</td><td>71.49</td><td>0.00</td><td>39.53</td></tr>
+          <tr><td>Claude Opus 4.6</td><td>38.29</td><td>0.00</td><td>37.87</td><td>61.38</td><td>0.00</td><td>34.15</td><td>74.98</td><td>0.00</td><td>41.25</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="content" style="margin-top:1rem;">
+      <ul>
+        <li>Unified models have best fused/global process scores, but final STEM accuracy still low.</li>
+        <li>Understanding-only models remain strong on textual reasoning but are structurally limited on visual generation tasks.</li>
+        <li>Interleaved generation alone is not enough without stable cross-modal integration.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="analysis" class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Analysis & Case Study</h2>
+    <div class="columns">
       <div class="column">
         <div class="paper-figure">
-          <img src="assets/GAP4.png" alt="Model architecture comparison">
-          <div class="paper-caption">Figure 4. Fused process score gaps across different model architectures.</div>
+          <img src="assets/GAP4.png" alt="Fused score gap">
+          <div class="paper-caption">Figure 4. Best-vs-worst solution and correct-vs-incorrect fused-score gaps.</div>
         </div>
       </div>
       <div class="column">
         <div class="paper-figure">
           <img src="assets/CASE3.png" alt="Case study">
-          <div class="paper-caption">Figure 5. Case study on multimodal reasoning trajectories.</div>
+          <div class="paper-caption">Figure 5. Case study with multi-solution matching behavior.</div>
         </div>
       </div>
     </div>
-    <div class="content" style="margin-top: 1rem;">
+    <div class="content" style="margin-top:1rem;">
       <p>
-        Additional high-resolution figure:
-        <a href="assets/solution_gap_models_fused_combined_uniform_tight_20260415.pdf" target="_blank" rel="noopener noreferrer">
-          solution_gap_models_fused_combined_uniform_tight_20260415.pdf
-        </a>
+        Step-level scores correlate strongly with final correctness, and multi-reference evaluation reduces unfair penalties
+        when models follow valid but different reasoning paths.
+      </p>
+      <p>
+        High-resolution fused-gap figure:
+        <a href="assets/solution_gap_models_fused_combined_uniform_tight_20260415.pdf" target="_blank" rel="noopener noreferrer">PDF</a>
       </p>
     </div>
   </div>
 </section>
 
-<section class="section section-soft" id="bibtex">
+<section id="appendix" class="section section-soft">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">BibTeX</h2>
-<pre><code>@misc{stepstem2026,
-  title={Unveiling Fine-Grained Visual Traces: Evaluating MultiModal Interleaved Reasoning Chains in Multimodal STEM Tasks},
-  author={StepSTEM Team},
-  year={2026},
-  howpublished={\url{https://github.com/lll-hhh/STEPSTEM}}
-}</code></pre>
+    <h2 class="title is-3">Appendix Highlights</h2>
+    <div class="content">
+      <p><strong>Implementation:</strong> zero-shot setting, unified interleaved output format, Qwen3.5-9B-based evaluators, equal local/global fusion weights.</p>
+      <p><strong>Baselines:</strong> closed-source unified models, open-source unified/interleaved generation models, and understanding-only models.</p>
+      <p><strong>Prompt templates:</strong> released for interleaved generation, final-answer judge, whole-trace judge, and text-matching scorer.</p>
+      <details>
+        <summary><strong>Prompt snippet (interleaved generation)</strong></summary>
+        <pre><code>Problem Understanding
+Textual Reasoning
+Visual Illustration
+Textual Reasoning
+Visual Illustration
+...
+Final Answer
+&lt;final_answer&gt;...&lt;/final_answer&gt;</code></pre>
+      </details>
+      <p style="margin-top:0.8rem;">
+        Source manuscript (for reference):
+        <a href="assets/paper_full.tex" target="_blank" rel="noopener noreferrer">paper_full.tex</a>
+      </p>
+    </div>
   </div>
 </section>
 
 <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>StepSTEM project page.</p>
-    </div>
+  <div class="container has-text-centered">
+    StepSTEM project page.
   </div>
 </footer>
 

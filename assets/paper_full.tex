@@ -1,0 +1,1110 @@
+
+
+% This must be in the first 5 lines to tell arXiv to use pdfLaTeX, which is strongly recommended.
+\pdfoutput=1
+% In particular, the hyperref package requires pdfLaTeX in order to break URLs across lines.
+
+\documentclass[11pt]{article}
+
+% Change this to \usepackage{acl} for the camera-ready version
+% \usepackage{EMNLP2023}
+\usepackage{EMNLP2023}
+
+% Standard package includes
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\tcbuselibrary{listings,breakable,skins}
+
+% =======================================================
+% Additional packages required for this paper
+% =======================================================
+\usepackage{graphicx}  % For figures
+\usepackage{booktabs}  % For professional tables (\toprule, \midrule, etc.)
+\usepackage{multirow}  % For multirow cells in tables
+\usepackage{amsmath}   % For mathematical equations and symbols
+\usepackage{amssymb}   % For math symbols
+
+\usepackage{subfig}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+
+% Custom commands
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+\newcommand{\xyg}[1]{\textcolor{red}{\textbf{[Yige: #1]}}}
+\newcommand{\bench}{{\textsc{StepSTEM}}}
+
+% =======================================================
+% Title and Authors
+% =======================================================
+\title{Unveiling Fine-Grained Visual Traces: Evaluating MultiModal Interleaved Reasoning Chains in Multimodal STEM Tasks}
+
+% Standard ACL author formatting for multiple authors and affiliations
+\author{
+  Jing Jin$^{1,2}$\thanks{\ \ Equal contribution.} \quad
+  Hao Liu$^1$\footnotemark[1] \quad
+  Yan Bai$^2$\footnotemark[1] \quad
+  Yihang Lou$^3$  \quad
+  Zhenke Wang$^1$\quad
+  Tianrun Yuan$^1$ \\
+  \textbf{Juntong Chen}$^1$ \quad
+  \textbf{Yongkang Zhu}$^1$ \quad
+  \textbf{Fanhu Zeng}$^4$ \quad
+  \textbf{Xuanyu Zhu}$^{2,3}$ \quad
+  \textbf{Yige Xu}$^5$\thanks{\ \ Corresponding author.} \\
+  \\
+  $^1$Central South University  \quad \quad
+  $^2$Meituan Inc  \quad \quad
+  $^3$Peking University \\
+  $^4$University of Chinese Academy of Sciences  \quad \quad
+  $^5$Nanyang Technological University \\
+  \texttt{\{jingjin, liuhaokix\}@csu.edu.cn} \quad \texttt{yanbai02@meituan.com} \quad \\
+  \texttt{xyzhu@stu.pku.edu.cn} \quad
+  \texttt{yige002@ntu.edu.sg}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+% \itshape
+    Multimodal large language models (MLLMs) have shown promising reasoning abilities, yet evaluating their performance in specialized domains remains challenging. STEM reasoning is a particularly valuable testbed because it provides highly verifiable feedback, but existing benchmarks often permit unimodal shortcuts due to modality redundancy and focus mainly on final-answer accuracy, overlooking the reasoning process itself. To address this challenge, we introduce \textbf{\bench}: a graduate-level benchmark of 283 problems across mathematics, physics, chemistry, biology, and engineering for fine-grained evaluation of cross-modal reasoning in MLLMs. \textbf{\bench} is constructed through a rigorous curation pipeline that enforces strict complementarity between textual and visual inputs. We further propose a general step-level evaluation framework for both text-only chain-of-thought and interleaved image-text reasoning, using dynamic programming to align predicted reasoning steps with multiple reference solutions. Experiments across a wide range of models show that current MLLMs still rely heavily on textual reasoning, with even Gemini 3.1 Pro and Claude Opus 4.6 achieving only 38.29\% accuracy. These results highlight substantial headroom for genuine cross-modal STEM reasoning and position \textbf{\bench} as a benchmark for fine-grained evaluation of multimodal reasoning. Source code is available at \url{https://github.com/lll-hhh/STEPSTEM}.
+\end{abstract}
+
+\section{Introduction}
+
+
+Recent advances in Multimodal Large Language Models (MLLMs)~\cite{internvl3,qwen2026qwen35,bagel,janus,emu3,longcat} have substantially expanded the scope of multimedia information processing. In addition to understand increasingly complex visual and textual inputs, MLLMs are capable of generating intermediate reasoning trajectories in text, image, or interleaved image-text formats, and derive the final answer based on these trajectories~\cite{thinkwithimage,zebra,thinkwithgenerateimage}. This emerging capability has made MLLMs a promising foundation for solving complex multimodal reasoning problems. Among existing multimodal reasoning scenarios, STEM tasks are particularly attractive because of their strong verifiability: the correctness of the final answer is often objectively checkable, which provides a natural basis for supervising and analyzing the reasoning process itself.
+
+Despite the growing attention to multimodal STEM (Science, Technology, Engineering, and Mathematical) reasoning, the field still faces several important challenges. (1) First, current MLLM reasoning often exhibit a form of {\it modality collapse}, in which they over-rely on textual cues while under-utilizing visual evidence, leading to weak visual grounding and degraded performance on tasks that require genuine visual reasoning~\cite{DBLP:conf/emnlp/ZhaoSCZSCZ25,DBLP:conf/acl/WuSWH25,yao2025rethinking}. In STEM reasoning, the modality collapse becomes more significant because of the detailed textual description on STEM benchmarks. (2) Second, the generation and understanding of structured STEM visuals remain limited. Prior work shows that scientific figures, diagrams, and plots are poorly covered by existing training data, while current image-generation pipelines are largely optimized for naturalistic imagery rather than structured, logically constrained visuals with precise layouts, symbols, and labels~\cite{DBLP:conf/acl/0039WXWFK024,DBLP:conf/cvpr/Wei0CW0GSYG25}. (3) Third, current evaluation and post-training practices still emphasize final-answer correctness more than intermediate-step quality. The broader reasoning literature has shown that chain-of-thought rationales are not always faithful to the model's actual reasoning process, while both LLM and MLLM studies suggest that step-wise supervision can better support reliable reasoning than outcome-only signals~\cite{DBLP:conf/nips/TurpinMPB23,DBLP:conf/iclr/LightmanKBEBLLS24,zhang2025r1}. As a result, it remains difficult to determine whether a model truly performs grounded cross-modal reasoning or merely reaches the correct answer through superficial shortcuts.
+
+To address these limitations, we introduce \textbf{\bench}, a new multimodal STEM benchmark with fine-grained reasoning step evaluation that includes engineering, physics, mathematics, chemistry, and biology subset. {\bench} contains graduate-level multimodal STEM problems that require both textual information and visual evidence to derive the correct solution, thereby discouraging unimodal shortcuts and encouraging genuine cross-modal reasoning. As illustrated in Figure~\ref{fig:overview}, during data construction, we deliberately curate problems whose solutions cannot be recovered from text alone or vision alone. More importantly, for each problem we provide one or more ground-truth solution trajectories that contain both textual intermediate steps and visual intermediate steps.
+
+Built upon {\bench}, we further introduce a \textit{step-level} evaluation framework for multimodal reasoning. Instead of evaluating only the final answer, our framework first measures the similarity between each predicted reasoning step and the annotated ground-truth solution steps, and then aligns the predicted trajectory with one or multiple reference ground truth trajectories through dynamic programming to obtain an overall step-level reasoning score. In this way, the proposed protocol captures not only whether a model reaches the correct answer, but also whether it follows a plausible, grounded, and interpretable multimodal reasoning path.
+
+We evaluate a broad range of representative MLLMs on {\bench}. Experimental results show that {\bench} remains highly challenging for existing models, revealing substantial room for improvement in genuine multimodal STEM reasoning. Moreover, the proposed step-level scores provide a much more fine-grained view of model behavior than answer-only evaluation, enabling us to identify differences in reasoning quality, modality usage, and grounding ability that are otherwise obscured by final accuracy alone.
+
+In summary, our contributions are three-fold:
+
+\noindent {\bf (1) A new multimodal STEM reasoning benchmark that requires cross-modality reasoning}: We introduce \textbf{\bench}, consisting of 283 carefully curated problems that enforce strict complementarity to prevent unimodal shortcuts.
+
+\noindent {\bf (2) A fine-grained evaluation framework for intermediate reasoning step evaluation}: We propose a \textbf{step-level evaluation framework} for systematically assessing intermediate multimodal reasoning steps beyond final-answer accuracy.
+
+\noindent {\bf (3) A comprehensive empirical analysis}: We evaluate representative MLLMs on \textbf{\bench} and provide empirical insights into their capabilities and limitations in cross-modal STEM reasoning. We further show that step-level scores strongly correlate with final-answer accuracy, highlighting the importance of evaluating reasoning processes in addition to final outcomes.
+
+\section{Related Works}
+
+\begin{figure*}[t]
+    \centering
+    \hspace*{-0.7cm}\includegraphics[width=\linewidth]{figure/123.png}
+    \caption{Overview of the {\bench} construction workflow. The left panel illustrates the data curation pipeline. The right panel illustrates the multi-solution construction pipeline.}
+    \label{fig:overview}
+\end{figure*}
+
+
+\subsection{Multimodal Chain-of-Thought Reasoning}
+
+Traditional Chain-of-Thought (CoT) techniques have achieved remarkable success in pure text logical deduction; however, when confronted with complex scenarios highly dependent on spatial perception and geometric intuition, pure text derivations often lack cognitively meaningful physical anchors. Consequently, multimodal interleaved CoT has emerged, with the core objective of decoupling the complex problem-solving process into a series of intermediate steps where textual deduction and visual evidence are deeply interwoven.
+
+Current explicit multimodal CoT methods primarily evolve along two technical trajectories. The first entails tool-augmented designs \cite{toolused1,toolused2,toolused3,toolused4,zhu-vtc,liyuying}, which leverage external visual modules or code interpreters to assist reasoning; nevertheless, the interleaving process of such methods often exhibits high fragility and low flexibility. The second trajectory focuses on intrinsic visual CoT (Intrinsic VCoT) under unified model architectures. For instance, THINKMORPH~\cite{thinkmorph} reveals advanced reasoning characteristics that emerge under the multimodal interleaved training paradigm, while MathCanvas~\cite{mathcanvas} constructs an intrinsic VCoT framework specifically designed for mathematical reasoning. However, existing mainstream text-to-image models are predominantly pre-trained on general open-domain scenes, such as natural landscapes, daily scenarios, and virtual characters. As a result, their training objectives are largely centered on general-purpose visual generation rather than task-oriented image generation for downstream reasoning, which limits their effectiveness in reasoning-focused applications.
+
+\subsection{Multimodal Reasoning Dataset}
+
+In parallel with the limitations of current generation models, another critical challenge lies in the scarcity of high-quality multimodal reasoning data tailored for downstream tasks. Early efforts in multimodal reasoning primarily focus on visual understanding and perception, where the core objective is to interpret visual inputs and map them into textual answers. Representative benchmarks include MMMU~\cite{mmmu}, MathVista~\cite{mathvista}, ScienceQA~\cite{scienceqa}, and MathVerse~\cite{mathverse}. While these datasets have significantly advanced the evaluation of multimodal models, their solution processes are predominantly text-centric. Unified benchmarks like Uni-MMMU \cite{uni-mmmu}, RealUnify \cite{realunify} and others \cite{quantifying,mmdeepresearch} evaluate both perception and generation but typically focus on foundational tasks. They lack the graduate-level depth and systematic protocols required to audit intermediate reasoning steps, leaving the logical coherence of cross-modal processes unverified.
+
+Recent work has explored multimodal reasoning with visual generation, such as Zebra-CoT \cite{zebra} and THINKMORPH \cite{thinkmorph}, which emphasize reasoning within the visual modality. However, existing STEM benchmarks still suffer from \emph{modality redundancy}: models can often rely on textual shortcuts without genuinely using visual evidence. In addition, many current datasets are not sufficiently challenging to rigorously evaluate state-of-the-art models on deep, multi-step reasoning.
+
+\begin{table*}[t]
+\centering\tabcolsep 2pt
+\begin{tabular}{@{}lccccccc@{}}
+\toprule
+\multirow{2}{*}{\textbf{Domain}} & \multirow{2}{*}{\textbf{\# Questions}} & \multicolumn{2}{c}{\textbf{Multi-Solution Samples}} & \multicolumn{4}{c}{\textbf{Average Steps per Solution}} \\ \cmidrule(lr){3-4} \cmidrule(l){5-8}
+ &  & \textbf{Has 2$^{\text{nd}}$ Sol.} & \textbf{Has 3$^{\text{rd}}$ Sol.} & \textbf{Total Steps} & \textbf{Text Steps} & \textbf{Image Steps} & \textbf{BBoxes} \\ \midrule
+Engineering & 111 & 34 & 14 & 7.6 & 4.4 & 3.2 & 5.1 \\
+Physics     & 94  & 30 & 0  & 7.0 & 3.7 & 3.3 & 4.6 \\
+Chemistry   & 25  & 3  & 0  & 6.2 & 3.2 & 3.0 & 6.1 \\
+Mathematics & 30  & 1  & 0  & 6.9 & 3.6 & 3.3 & 4.9 \\
+Other   & 23  & 4  & 0  & 7.0 & 3.6 & 3.4 & 5.7 \\ \midrule
+\textbf{Overall} & \textbf{283} & \textbf{72} & \textbf{14} & \textbf{7.2} & \textbf{4.0} & \textbf{3.3} & \textbf{5.0} \\ \bottomrule
+\end{tabular}
+\caption{Detailed statistics of the {\bench}. The table presents the distribution of problems across various domains, the availability of multi-path solutions (the 2$^{\text{nd}}$ Solution and the 3$^{\text{rd}}$ Solution), and the average number of total, textual, visual steps, and bounding boxes per reference solution.}
+\label{tab:dataset_statistics}
+\end{table*}
+
+\subsection{Fine-Grained Evaluation and Supervision of Reasoning Processes}
+
+Traditional evaluation protocols overly rely on final-answer accuracy, thereby neglecting the faithfulness and logical coherence of the reasoning path. To overcome this limitation, the academic community is accelerating the transition toward a process-oriented monitoring paradigm. Research on Process Reward Models (PRMs), such as PRM800K \cite{prm800k} and DREAM-PRM \cite{dreamprm}, compellingly demonstrates the critical role of step-level feedback in mitigating logical hallucinations. Within automated evaluation systems, the ``LLM-as-a-Judge'' paradigm (e.g., MT-Bench \cite{mtbench}, JudgeLM \cite{judgelm}, and Prometheus \cite{prometheus}) has been established as the mainstream approach for evaluating open-ended complex logic. Concurrently, relevant works in the multimodal domain, such as T2I-CoReBench \cite{T2I-CoReBench}, and Science-T2I \cite{sciencet2i}, have also begun attempting to conduct fine-grained quantification of the quality of intermediate generated content. Our work builds on this trend but focuses on interleaved STEM reasoning, where both local step alignment and global trace coverage are needed to evaluate whether a model followed a valid cross-modal solution path.
+
+
+
+
+\section{Methodology}
+
+\subsection{Overview}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figure/data_bintu.png}
+    \caption{Domain distributions of {\bench}.}
+    \label{fig:bintu}
+\end{figure}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figure/33.png}
+    \caption{Illustration of fine-grained evaluation protocol for {\bench}.}
+    \label{fig:evaluation-protocal}
+\end{figure*}
+
+Our {\bench} consists of two core components: the rigorous curation of a multimodal dataset (detailed in Section \ref{sec:data_curation}) and a fine-grained evaluation protocol: (1) For the dataset, we carefully choose 283 graduate-level multimodal STEM reasoning problems and provide one or more ground truth reference solutions. The overall dataset construction workflow is illustrated in Figure~\ref{fig:overview}, and the domain distributions of {\bench} is shown in Figure~\ref{fig:bintu}. (2) For the evaluation phase, our framework assesses both final-answer correctness and intermediate reasoning quality. We evaluate answer correctness, local and global reasoning quality, and their fusion, selecting the best score across multiple ground-truth solutions by comparing each one separately.
+
+\subsection{Data Curation}
+\label{sec:data_curation}
+
+To construct a multimodal STEM benchmark tailored for process-level evaluation, we specifically curate two categories of problems characterized by substantial visual dependency: (1) \textit{strongly dependent} problems, where reasoning cannot proceed reliably without the accompanying images, and (2) \textit{reasoning-simplifying} problems, where visual information significantly compresses the reasoning chain and reduces semantic ambiguity. The overall curation pipeline comprises data collection, data filtering, and solution structuring. This rigorous process was conducted by eight experts with interdisciplinary backgrounds, who transformed raw multimodal data into structured reasoning chains suitable for fine-grained process evaluation. The detailed statistical distributions of the dataset are presented in Table~\ref{tab:dataset_statistics}.
+
+
+\subsubsection{\textbf{Data Collection}}
+During the collection phase, experts gathered potential samples from public competitions, undergraduate textbooks, and other open educational resources. For each candidate problem, we recorded the problem statement, reference image, ground-truth answer, and a standard solution trajectory detailing key intermediate steps. We adopted a task-attribute-first principle to assess visual dependency: problems were retained only if their resolution strictly required the geometric structure, spatial relations, or local details of the image, or if the image explicitly shortened the reasoning path. Notably, to elevate the evaluation dimensionality, we specifically included 14 drawing tasks where the \textbf{final output is required to be an image}. This inclusion fundamentally extends the evaluation paradigm from standard ``image-text understanding to text generation'' to the more challenging ``iage-text understanding to image generation''.
+
+\subsubsection{\textbf{Data Filtering}}
+To ensure data quality and evaluation operability, we established rigorous exclusion criteria. We discarded samples where: (1) the image is purely decorative or highly redundant with the text; (2) the problem is ambiguous or solely tests OCR capabilities; or (3) the image quality is too low to support stable annotation. Furthermore, we implemented an objective two-ended truncation filter for problem difficulty. We removed ``overly simple'' problems that experts universally agreed required no explicit intermediate reasoning, thereby preventing the task from degrading into basic visual recognition. Conversely, we excluded ``overly difficult'' problems where experts could not reach a stable consensus or formulate a verifiable step-level standard process. This dual filtering ensures that the retained samples maintain high consistency in both verifiable reasoning and moderate difficulty.
+
+It is worth noting that the distribution of test instances varies across domains, reflecting the varying degrees of intrinsic visual dependency across scientific disciplines. To prevent unimodal shortcuts, we exclusively retained problems where the solution strictly necessitates the interpretation of spatial relations or geometric structures. Engineering and Physics naturally offer a higher density of such visually-indispensable tasks at the graduate level , whereas many candidate problems in Mathematics or Biology were excluded for being solvable via pure textual logic.
+
+
+
+
+
+\subsubsection{\textbf{Solution Structuring}}
+Following the filtering phase, the expert-verified reference solutions were unified into an interleaved image-text step structure suitable for multimodal evaluation. To enhance structural efficiency and standardization, we utilized GPT-5.4 Codex with fixed prompts for the initial step-level decomposition and modality tag assignment. It is important to note that GPT-5.4 Codex was strictly limited to formatting the expert-provided reference solutions and was not used to independently generate new answers. This automated structuralization was followed by rigorous manual review and correction to ensure each step constitutes an independent and verifiable reasoning unit.
+
+For visual steps, experts further annotated the local visual evidence supporting the current reasoning utilizing bounding boxes (BBoxes). When a single step relied on multiple dispersed regions, multiple BBoxes were permitted. This design allows visual steps to pinpoint the specific local evidence actively participating in the reasoning process, providing fine-grained supervision for subsequent step-level image alignment evaluation.
+
+Additionally, to construct alternative valid reasoning paths (Solution 2 and Solution 3) for samples exhibiting multi-path solution characteristics, we introduced a combined mechanism of \textbf{expert manual exploration} and \textbf{LLM-inspired generation}. Specifically, experts actively explored diverse problem-solving strategies based on their domain backgrounds. Simultaneously, we input the problems into advanced multimodal models such as Gemini 3.1 Pro and Claude Opus 4.6 to detect whether there were significantly different solution strategies from the primary reference solution. For novel solutions independently proposed by experts, as well as those generated by models that were rigorously reviewed by experts to be logically consistent, correct, and substantially different, we standardized them into additional alternative reference solutions. Therefore, these multiple solutions represent distinct and valid deductive paths rather than mere linguistic paraphrases, providing critical support for the subsequent \textit{best-over-solutions} evaluation.
+
+Through this comprehensive pipeline, we ultimately constructed a dataset comprising 283 problems across six domains: Engineering, Physics, Chemistry, Biology, Mathematics, and Other.
+
+
+
+\subsection{Evaluation Protocol}
+\label{sec:eval_protocol}
+
+To rigorously assess the quality of multimodal reasoning, we propose a fine-grained evaluation framework that decouples the interleaved reasoning traces into explicit local step-level alignment and implicit global logic coverage. For textual steps, we further annotate key points to support fine-grained evaluation of semantic correctness and reasoning completeness, while the evaluation emphasizes semantic consistency with the reference solution as well as coverage of annotated key points. For visual steps, we annotate one or more important bounding boxes to specify the regions that should be attended to or referenced by the model at each stage.
+
+To establish a unified cross-modal computation, we first define a shared notation system: let $\mathcal{G}^T$ and $\mathcal{G}^I$ denote the sets of ground-truth (GT) textual and visual steps, respectively; similarly, let $\mathcal{P}^T$ and $\mathcal{P}^I$ denote the predicted textual and visual steps. The complete protocol consists of modality-specific local alignments, large language model (LLM) based global judgements, and a final metric fusion mechanism designed to handle problem-solving diversity.
+
+\subsubsection{\textbf{Textual Reasoning Steps Evaluation}}
+\label{sec:eval_text}
+
+For textual reasoning steps, we prioritize semantic process coverage over generic string similarity. We treat the textual reasoning trace as a strict logical chain. To compute the pairwise similarity between a GT text step $g_i \in \mathcal{G}^T$ and a predicted text step $p_j \in \mathcal{P}^T$, following \citet{DBLP:conf/acl/AbnarZ20}, we utilize the attention rollout mechanism of Qwen3.5-9B~\cite{qwen2026qwen35}, which effectively captures token-level causal dependencies across deep network layers.
+
+Let $W^{(l,h)}$ denote the attention weight matrix of the $h$-th head in the $l$-th transformer layer. To prevent the dilution of attention signals in deep networks, we incorporate residual connections and compute the global attention rollout matrix $\bar{A}$ by multiplying the averaged attention matrices across all layers:
+\begin{equation}
+\bar{A} = \prod_{l=1}^{L} \left( \frac{1}{H} \sum_{h=1}^{H} W^{(l,h)} + I \right),
+\end{equation}
+where $H$ and $L$ are the total number of attention heads and network layers, respectively, and $I$ is the identity matrix representing the residual connection.
+
+Instead of relying on coarse sentence embeddings, we extract fine-grained dependency weights directly from $\bar{A}$. For the $i$-th GT text step $g_i$ and the $j$-th predicted text step $p_j$, the confidence-weighted similarity score $M^T[i,j]$ is calculated as follows: for each reference token $u \in g_i$, we identify its maximum attention weight from the predicted tokens $v \in p_j$, and then average these maximum weights across all tokens in $g_i$.
+\begin{equation}
+M^T[i,j] = \frac{1}{|g_i|} \sum_{u \in g_i} \max_{v \in p_j} \bar{A}_{u,v}.
+\end{equation}
+
+Given the computed similarity matrix $M^T$, we apply dynamic programming to find the optimal monotonic matching path $M^*$. This dynamic programming approach naturally allows for skipped intermediate steps---acknowledging that models may condense trivial derivations---while strictly forbidding crossed logic sequences that would violate causality. The textual local score $S_{\text{local}}^{\text{text}}$ is defined as the average score along this optimal path.
+
+\subsubsection{\textbf{Image Reasoning Steps Evaluation}}
+\label{sec:eval_image}
+
+For visual reasoning steps, such as intermediate geometric plots or state diagrams, we employ a Many-to-Many (M2M) alignment strategy based on deep visual features. This strategy maintains strict mathematical symmetry with the textual token alignment.
+
+We utilize a visual encoder $\phi(\cdot)$ to extract feature maps. A GT image step $g_i \in \mathcal{G}^I$ is typically anchored by an expert-annotated local bounding box (BBox), and its core visual feature is represented as $\phi(g_i)$. To search for corresponding visual evidence within an unannotated predicted image step $p_j \in \mathcal{P}^I$, we define a set of sliding-window patches $W(p_j)$, where $w$ is a single sliding-window patch. The element of the image step alignment matrix $M^I[i,j]$ is calculated by finding the maximum cosine similarity between the GT feature and all window features of the predicted image:
+\begin{equation}
+M^I[i,j] = \max_{w \in W(p_j)} \frac{\phi(g_i) \cdot \phi(w)}{\|\phi(g_i)\| \|\phi(w)\|}.
+\end{equation}
+
+However, this naive matching approach is susceptible to a degenerate loophole where a model generates a single generic image to mistakenly satisfy all GT visual steps during the $\max$ operation. To explicitly penalize predictions that fail to generate distinct visual evidence for different reasoning steps, we introduce a diversity ratio $D_{\text{img}}$. The visual local score $S_{\text{local}}^{\text{img}}$ is computed by scaling the maximum coverage $C_{\text{img}}$ with a diversity penalty hyperparameter $\lambda$. Ultimately, the text and image scores are combined based on their respective step proportions to form the unified local score $S_{\text{local}}$.
+
+\subsubsection{\textbf{Global Logic Coverage Evaluation}}
+\label{sec:eval_global}
+
+While local step-level alignment captures explicit step-by-step logic, models may successfully arrive at correct deductions via valid but unstructured alternative paths. To accommodate this flexibility, we introduce an LLM-based global judge to assess whole-trace coverage.
+
+This evaluation operates from a macro perspective. The entire raw predicted trajectory is fed into the judge alongside the GT reference points, encompassing both textual key points and visual regions. Acting as a generous evaluator, the judge determines whether each critical GT proposition is semantically entailed or mathematically represented in the candidate's trajectory. It outputs a binary decision of 1 for covered and 0 for missing for each reference point. The global coverage score $S_{\text{global}}$ is then calculated as the average of these binary decisions across all references.
+
+\subsubsection{\textbf{Final Evaluation and Metric Fusion}}
+\label{sec:eval_fusion}
+
+Independent of the intermediate process evaluation, we rigorously assess the final answer correctness. If the GT final answer is textual, we employ Qwen3.5 9B as an LLM judge for the final determination. For drawing tasks where the final answer is visually required, the evaluation method is identical to the aforementioned image reasoning steps evaluation.
+
+For process evaluation, we combine the Local and Global scores into a single fused process score $S_{\text{fused}}$.This is achieved via a weighted Root Mean Square (RMS):
+\begin{equation}
+S_{\text{fused}} = \sqrt{\frac{w_s S_{\text{local}}^2 + w_j S_{\text{global}}^2}{w_s + w_j}},\label{eq:fused-score}
+\end{equation}
+where $w_s$ and $w_j$ are the weights for the local score and global score, respectively (both set to 0.5 by default).
+
+
+\begin{table*}[t]
+  \centering\tabcolsep 4pt
+  \small
+  \begin{tabular}{l|ccc|ccc|ccc}
+    \toprule
+    Model & Txt. Acc. & Img. Acc. & Fused & Local-T & Local-I & Local & Global-T & Global-I & Global \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Unified Models}} \\
+    \midrule
+    Gemini 2.5 Flash Image & 15.61 & {\bf 50.80} & 67.05 & 58.62 & {\bf 64.10} & {\bf 62.35} & 65.57 & 78.56 & 71.40 \\
+    GPT-5.4 + GPT-Image & 33.21 & 39.40 & {\bf 71.52} & 57.72 & 61.83 & 60.20 & 74.46 & {\bf 88.21} & {\bf 80.94} \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Interleaved Generation Models}} \\
+    \midrule
+    Bagel & 4.83 & 0.00 & 47.38 & 30.64 & 54.15 & 44.63 & 50.34 & 48.70 & 49.76 \\
+    Janus-Pro & 0.37 & 0.00 & 40.99 & 24.20 & 53.20 & 49.52 & 38.72 & 19.16 & 30.11 \\
+    OmniGen2 & 3.35 & 0.00 & 45.04 & 23.58 & 59.05 & 42.30 & 45.97 & 45.91 & 47.76 \\
+    Showo2 & 1.86 & 0.00 & 42.17 & 35.39 & 54.13 & 47.44 & 41.58 & 28.33 & 36.13 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Understanding-only Models}} \\
+    \midrule
+    Gemini 3.1 Pro & {\bf 38.29} & 0.00 & 38.13 & {\bf 66.13} & 0.00 & 36.65 & 71.49 & 0.00 & 39.53 \\
+    Claude Opus 4.6 & {\bf 38.29} & 0.00 & 37.87 & 61.38 & 0.00 & 34.15 & {\bf 74.98} & 0.00 & 41.25 \\
+    Qwen3.5-122B & 34.94 & 0.00 & 36.55 & 64.72 & 0.00 & 35.45 & 68.78 & 0.00 & 37.43 \\
+    Qwen3.5-Plus & 29.00 & 0.00 & 35.01 & 56.62 & 0.00 & 31.05 & 70.46 & 0.00 & 38.46 \\
+    Qwen3-VL-235B & 23.42 & 0.00 & 33.18 & 64.65 & 0.00 & 34.26 & 58.61 & 0.00 & 32.05\\
+    \bottomrule
+  \end{tabular}
+  \caption{Overall results on 269 problems with textual final answer, and 14 problems with image-based final answer. \textbf{Txt./Img. Acc.} evaluates the correctness of textual final answers or image-based final answers. \textbf{Local (T/I) }evaluates fine-grained alignment of intermediate textual and visual reasoning steps $S_{\text{local}}$. \textbf{Global (T/I)} assesses semantic coverage of reference key points and visual regions across the entire trace $S_{\text{global}}$. \textbf{Fused }is the integrated process score combining local and global metrics $S_{\text{fused}}$.}
+  \label{tab:main_results}
+\end{table*}
+
+
+Furthermore, considering that STEM problems often possess multiple valid reasoning paths $\mathbb{G} = \{\mathcal{G}_1, \dots, \mathcal{G}_n\}$, our framework independently evaluates the predicted trajectory against each candidate solution $\mathcal{G}_k$. We directly select the highest score among all paths as the definitive final process score $S_{\text{final}}$:
+\begin{equation}
+S_{\text{final}} = \max_{\mathcal{G}_k \in \mathbb{G}} S_{\text{fused}}(\mathcal{G}_k, \mathcal{P}).
+\end{equation}
+This multi-solution resolution ensures that the evaluation reflects a single, coherent logical path.
+
+\section{Experiments}
+\label{sec:experiments}
+
+
+
+\subsection{Baselines}
+\label{sec:baselines}
+
+\begin{table*}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{2pt}
+  \begin{tabular}{l|c|c|c|c|c|c|c}
+    \toprule
+    Model & Fused & Local-T & Local-I & Local & Global-T & Global-I & Global \\
+    \midrule
+    \multicolumn{8}{c}{\textit{Unified Models}} \\
+    \midrule
+    Gemini 2.5 Flash Image  & 81.43 / 64.73 & 60.46 / 58.29 & 68.74 / 63.79 & 65.21 / 61.59 & 88.29 / 62.14 & 100.00 / 75.70 & 95.21 / 68.11 \\
+    GPT-5.4 + GPT-Image & 78.41 / 68.81 & 63.34 / 54.79 & 68.28 / 58.60 & 62.78 / 58.92 & 87.21 / 68.84 & 95.69 / 87.69 & 91.13 / 77.58 \\
+    \midrule
+    \multicolumn{8}{c}{\textit{Interleaved Generation Models}} \\
+    \midrule
+    Bagel & 65.84 / 47.46 & 32.35 / 30.98 & 67.25 / 54.26 & 51.80 / 45.00 & 76.92 / 49.79 & 80.13 / 49.38 & 77.29 / 49.94 \\
+    Janus-Pro & 78.88 / 40.82 & 49.58 / 24.69 & 53.94 / 53.09 & 50.37 / 49.52 & 100.00 / 38.18 & 100.00 / 18.18 & 100.00 / 29.42 \\
+    OmniGen2 & 52.17 / 44.80 & 26.32 / 22.85 & 58.77 / 59.34 & 45.17 / 43.45 & 63.89 / 43.50 & 50.00 / 45.54 & 58.07 / 46.04 \\
+    Showo2 & 45.15 / 43.07 & 49.95 / 35.87 & 48.32 / 55.17 & 51.00 / 48.32 & 46.67 / 40.23 & 20.00 / 29.40 & 38.33 / 37.15 \\
+    \midrule
+    \multicolumn{8}{c}{\textit{Understanding-only Models}} \\
+    \midrule
+    Gemini 3.1 Pro & 42.86 / 35.33 & 71.26 / 63.54 & 0.00 / 0.00 & 38.42 / 35.71 & 87.27 / 61.74 & 0.00 / 0.00 & 46.97 / 34.37 \\
+    Claude Opus 4.6 & 41.25 / 35.98 & 67.43 / 59.15 & 0.00 / 0.00 & 36.02 / 33.49 & 86.80 / 68.53 & 0.00 / 0.00 & 46.44 / 38.39 \\
+    Qwen3.5-122B & 42.39 / 33.63 & 70.21 / 62.29 & 0.00 / 0.00 & 36.85 / 34.78 & 89.88 / 57.89 & 0.00 / 0.00 & 47.33 / 32.34 \\
+    Qwen3.5-Plus & 41.72 / 31.00 & 68.74 / 51.91 & 0.00 / 0.00 & 36.24 / 28.98 & 88.27 / 60.94 & 0.00 / 0.00 & 46.45 / 34.13 \\
+    Qwen3-VL-235B & 41.43 / 31.02 & 70.60 / 62.72 & 0.00 / 0.00 & 37.53 / 33.26 & 86.08 / 50.60 & 0.00 / 0.00 & 45.07 / 28.17 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Overall results under the split of correctness. For example, ``81.43 / 64.73'' indicates the averaged fused score for correct testing examples is 81.43, while the fused score for the incorrect testing examples is 64.73.}
+  \label{tab:correct_wrong_split}
+\end{table*}
+
+To comprehensively evaluate the multimodal reasoning capabilities of current Large Vision-Language Models, we select a diverse set of representative baselines. As outlined in Table~\ref{tab:main_results}, these models are categorized into three distinct groups based on their architectural capabilities and accessibility:
+\begin{itemize}
+    \item \textbf{Open-Source Unified Models:} This group represents the frontier of open-weight models capable of both understanding and generating interleaved text and images. The complete list and detailed configurations available in Appendix~\ref{sec:appendix_models}.
+    \item \textbf{Closed-source Unified Models:} This group represents the current state-of-the-art commercial systems capable of native multimodal generation. We evaluate Gemini 2.5 Flash Image \cite{google_gemini25_flash_image_2025} and a pipeline approach combining GPT-5.4 with GPT-image \cite{openai_gpt54_2026,openai_gpt_image_1}.
+    \item \textbf{Understanding-only Models:} To demonstrate the necessity of unified generation, we also evaluate powerful models restricted to textual output, including Claude Opus 4.6 \cite{anthropic_claude_opus46_2026}, Gemini 3.1 Pro \cite{google_gemini31_pro_2026}, and various scales of the Qwen family.
+\end{itemize}
+
+\subsection{Main Results}
+\label{sec:main_results}
+
+
+Table~\ref{tab:main_results} summarizes the overall performance on 269 problems with textual final answers and 14 problems with image-based final answers. For clarity, we group the evaluated MLLMs into three categories according to their reasoning paradigm: unified models, interleaved generation models, and understanding-only models.
+
+\paragraph{The benchmark is highly challenging.}
+Overall, the results indicate that our benchmark remains difficult even for the strongest contemporary MLLMs. On the 269 problems with textual final answers, the best accuracy is only 38.29\%, achieved by Gemini 3.1 Pro and Claude Opus 4.6. On the 14 problems requiring image-based final answers, the highest accuracy is 50.80\%, achieved by Gemini 2.5 Flash Image. Taken together, these results suggest that current MLLMs are still far from reliably solving graduate-level multimodal STEM reasoning tasks.
+
+\paragraph{Vision-text-to-text models exhibit a fundamental limitation.}
+Understanding-only models, such as Claude Opus 4.6 and Gemini 3.1 Pro, achieve relatively strong scores on text-related process metrics, particularly on Local-T and Global-T. However, all such models obtain zero scores on Img. Acc., Local-I, and Global-I. This pattern reveals a fundamental limitation of vision-text-to-text models: while they can process multimodal inputs and produce textual reasoning traces, they cannot handle tasks that require explicit visual generation as part of the reasoning process. Therefore, evaluating only the final answer is insufficient for complex multimodal STEM reasoning, since it fails to capture whether a model can produce and leverage image-based intermediate derivations.
+
+\paragraph{Unified models achieve the strongest multimodal process scores, but still struggle on final problem solving.}
+The unified models outperform the other categories on fused and global process metrics. GPT-5.4 + GPT-Image achieves the best Fused score (71.52) and the highest Global score (80.94), while Gemini 2.5 Flash Image attains the best Img. Acc. (50.80\%) and a strong Local-I score (64.10). Nevertheless, their final-answer accuracy remains limited, especially on the text-answer subset, where GPT-5.4 + GPT-Image reaches 33.21\% and Gemini 2.5 Flash Image reaches only 15.61\%. These findings suggest that, although current unified models are capable of generating plausible intermediate visual structures, they still struggle to fully exploit the generated visual information to solve challenging STEM reasoning problems.
+
+\paragraph{Interleaved generation alone is insufficient for effective multimodal reasoning.}
+Interleaved generation models obtain non-trivial scores on image-related process metrics, indicating a limited ability to produce intermediate visual content. For example, OmniGen2 achieves 59.05 on Local-I, and Bagel reaches 48.70 on Global-I. However, both fail to generate correct image-based final answers, yielding 0\% accuracy on the image-answer subset. This suggests that interleaving image generation into the reasoning chain alone is insufficient. Effective multimodal STEM reasoning requires not only generating intermediate visual evidence, but also integrating it coherently into the reasoning process to arrive at correct final solutions.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figure/solution_gap_models_fused_combined_uniform_tight_20260415.pdf}
+    \caption{Comparison of the fused process score $S_{\text{fused}}$ across different model architectures. The red lines represent the gap between the best-matched and worst-matched ground truth solutions. The blue lines indicate the score difference between trajectories with correct and incorrect final answers.\label{fig:solution_gap_models_fused}}
+\end{figure*}
+
+
+\subsection{Analysis and Case Study}
+\label{sec:analysis}
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figure/CASE3.png}
+    \caption{A qualitative case study demonstrating the model's predicted reasoning trajectory versus the ground-truth solutions. Our protocol successfully leverages the multi-solution mechanism and penalizes text-only derivations that lack essential geometric evidence.}
+    \label{fig:case_study_eng_problem1}
+\end{figure*}
+
+\subsubsection{Analysis of Step-Level Evaluation Scores}
+
+\paragraph{Step-level process scores are strongly associated with final-answer correctness.}
+As shown by the blue intervals in Figure~\ref{fig:solution_gap_models_fused}, trajectories that lead to correct final answers consistently receive higher fused process scores than those ending with incorrect answers. This pattern is further confirmed by the correctness split in Table~\ref{tab:correct_wrong_split}. For example, the fused score increases from 64.73 to 81.43 for Gemini~2.5~Flash, from 68.81 to 78.41 for GPT-5.4 + GPT-Image, from 47.46 to 65.84 for Bagel, and from 35.33 to 42.86 for Gemini~3.1~Pro when moving from incorrect to correct cases. The consistency of this trend across unified models, interleaved generation models, and understanding-only models suggests that the proposed process score captures meaningful variation in reasoning quality rather than incidental overlap with the reference solutions.
+
+\paragraph{Higher-performing models tend to obtain higher process scores.}
+Beyond the correctness split, we also observe that models with stronger multimodal reasoning ability generally achieve higher absolute process scores. In Table~\ref{tab:main_results}, the two unified models obtain the highest fused scores overall, indicating that stronger reasoning performance is accompanied by better intermediate trajectories. A similar trend is visible in Figure~\ref{fig:solution_gap_models_fused}, where better-performing models are generally located farther to the right on the fused-score axis. This observation provides further evidence for the validity of our step-level evaluation framework: stronger models do not merely produce more correct final answers, but also exhibit higher-quality reasoning processes.
+
+\paragraph{The correct--incorrect gap is itself informative.}
+The magnitude of the blue gap in Figure~\ref{fig:solution_gap_models_fused} also reveals differences in model behavior. Models such as Bagel and Janus-Pro show relatively large separations between correct and incorrect cases, indicating that successful predictions are supported by substantially better reasoning trajectories. In contrast, weaker models such as Showo2 and OmniGen2 exhibit much smaller gaps, suggesting that their intermediate trajectories remain of limited quality regardless of whether the final answer happens to be correct. This result highlights an important advantage of step-level evaluation: it can distinguish between models that occasionally reach the correct answer and models that more consistently follow a plausible reasoning process.
+
+Overall, these results demonstrate the necessity of evaluating multimodal reasoning at the step level. Final-answer accuracy only indicates whether a model reaches the correct endpoint, but does not reveal whether the model follows a coherent cross-modal solution path. In contrast, our step-level evaluation scores provide a finer-grained diagnostic signal for assessing the quality of intermediate reasoning trajectories. This is particularly important for challenging multimodal STEM problems, where success depends not only on the final prediction, but also on whether the model can sustain a logically consistent reasoning chain across textual and visual steps.
+
+
+\subsubsection{Analysis of Multiple Ground-Truth Solutions}
+
+For problems with multiple valid solution strategies, we compute the process score against each ground-truth solution and examine the resulting distribution. As shown by the red intervals in Figure~\ref{fig:solution_gap_models_fused}, the same model trajectory can receive substantially different scores under different references. This variation does not necessarily indicate unstable model behavior; rather, it reflects the fact that complex multimodal STEM problems often admit multiple legitimate reasoning paths. A model may therefore follow a correct and coherent solution strategy while still obtaining a low score against one particular annotated reference.
+
+This observation highlights a limitation of single-reference process evaluation. When only one ground-truth solution is available, the metric may unfairly penalize trajectories that are valid but structurally different from the chosen annotation. To mitigate this issue, we provide multiple ground-truth solutions whenever alternative solving strategies exist. With this design, a model can obtain a high process score as long as its reasoning is close to at least one valid reference path. This improves both the stability and the fairness of the evaluation framework by reducing spurious low scores caused by annotation incompleteness.
+
+Moreover, the gap between the best-matched and worst-matched references is itself informative. A larger gap suggests greater diversity in valid solution trajectories and indicates that multi-reference evaluation is particularly important for such problems. Overall, these results show that multiple ground-truth solutions are essential for reliable step-level evaluation of multimodal reasoning.
+
+\subsubsection{Case Study}
+
+Figure~\ref{fig:case_study_eng_problem1} presents a representative example involving a two-mass system rotating about point~$A$, where the goal is to derive the angular-momentum vector in the $\mathbf{i}_1$-$\mathbf{j}_1$-$\mathbf{k}_1$ basis. This problem admits two valid ground-truth solution trajectories with the same final answer. The first solution follows a direct vector-based derivation by explicitly computing $\mathbf{r}\times(\boldsymbol{\Omega}\times\mathbf{r})$ for each mass, while the second solution reformulates the problem through the inertia tensor and derives $\mathbf{H}$ via $\mathbf{I}_A(\Omega \mathbf{k}_1)$. This example highlights a key challenge of step-level trajectory evaluation: even when two reasoning chains are both correct, they may differ substantially in their intermediate structure.
+
+Our framework correctly recognizes such alternative reasoning paths. GPT-5.4 + GPT-Image is matched to Solution~1 and obtains a matched-solution score of 0.6453, together with a perfect final-answer score. By contrast, Gemini~3.1~Pro is matched to Solution~2 with a matched-solution score of 0.7009, again producing the correct final answer. Importantly, the two models are not required to mimic the same sequence of intermediate steps. Instead, each model is rewarded because its reasoning remains semantically close to at least one valid reference trajectory. This result demonstrates that the proposed evaluation framework is able to accommodate diverse but valid solution strategies, rather than overfitting to a single annotated chain of thought.
+
+The example also illustrates the diagnostic value of step-level evaluation when the final prediction is incorrect. Qwen3.5-122B receives a relatively high score on problem understanding of 0.7271, suggesting that it correctly identifies the task setting and the relevant physical quantities. It also shows partial alignment with Solution~2 during intermediate reasoning. However, the model ultimately produces an incorrect final expression and therefore receives a zero score on the final-answer step, resulting in a substantially lower matched-solution score of 0.3635. A closer inspection suggests that the model captures part of the desired decomposition, but fails to recover the complete $k_1$ component in the final angular-momentum vector. Such fine-grained failure patterns would be invisible under final-answer accuracy alone.
+
+Overall, this case study demonstrates two important properties of our benchmark. First, multi-reference annotation is necessary for fair process evaluation, since a single reference would incorrectly penalize valid reasoning paths that differ in form but not in substance. Second, step-level scoring provides a more informative diagnosis of model behavior by revealing whether an error arises from misunderstanding the problem, from a flawed intermediate derivation, or only at the final composition stage. These observations further support the need for fine-grained, multi-reference evaluation in multimodal STEM reasoning.
+
+
+
+\section{Conclusions}
+
+We introduced {\bench}, a benchmark and evaluation framework for interleaved multimodal STEM reasoning. By combining expert-curated problems, step-level textual and visual annotations, and multi-solution trajectory matching, {\bench} enables evaluation of not only whether a model reaches the correct final answer, but also how it reasons across modalities. Experiments show that current state-of-the-art MLLMs still exhibit a substantial gap between answer correctness and reasoning trajectories quality: to-text MLLMs cannot generate vision intermediate steps, whereas unified generative models better expose multimodal reasoning behavior but remain far from reliable. We hope {\bench} will support future research on multimodal process supervision, reasoning-oriented data construction, and more faithful evaluation of cross-modal reasoning systems.
+
+\bibliography{custom}
+\bibliographystyle{acl_natbib}
+
+\appendix
+\section*{Appendix}
+\section{Implementation Details}
+\label{sec:imp_details}
+
+To ensure complete reproducibility of our evaluation pipeline, we provide the detail of the hyperparameters and configuration settings used throughout the experiments.
+
+\subsection{Model Inference Configuration}
+
+All baseline models are evaluated under a strict zero-shot setting. The generation temperature is set to $0.2$ with a top-p of $0.9$, which approximates greedy decoding, and the maximum generation limit is capped at $32\text{k}$ tokens. We apply a unified system prompt enforcing a structured, interleaved output format.
+
+\subsection{Local Evaluator Configuration}
+
+For textual step alignment, we deploy a local Qwen3.5-9B model and aggregate the attention weights. The temperature parameter $\tau$ for attention normalization is set to $0.3$. For image step alignment, we utilize a pre-trained ResNet-50~\cite{DBLP:conf/cvpr/HeZRS16} encoder. The diversity penalty hyperparameter $\lambda$ is set to $0.2$.
+
+\subsection{Global Judge and Metric Fusion}
+
+The LLM-based global judge for assessing whole-trace coverage is also powered by Qwen3.5-9B. To ensure stable and deterministic judgments, we configure it with a temperature of $0.0$, a top-p of $1.0$, and a maximum token length of $512$. In the calculation of the fused process score $S_{\text{fused}}$, the Local and Global scores are assigned equal importance ($w_s = 0.5$ and $w_j = 0.5$).
+
+\section{Baseline MLLMs}
+\label{sec:appendix_models}
+
+\subsection{Closed-source Unified Models}
+
+\paragraph{GPT-5.4 + GPT-Image}~\cite{openai_gpt54_2026,openai_gpt_image_1} A pipeline approach that explicitly couples OpenAI's advanced large language model (GPT-5.4) with its image generation counterpart (GPT-Image) to handle complex interleaved text-and-image reasoning tasks.
+
+\paragraph{Gemini 2.5 Flash Image}~\cite{google_gemini25_flash_image_2025} A leading commercial multimodal model from Google designed with native capabilities to seamlessly process and generate both textual and visual outputs within a unified inference process.
+
+\subsection{Open-Source Unified / Interleaved Generation Models}
+
+\paragraph{Janus-Pro}~\cite{janus} An advanced open-source model designed for unified multimodal understanding and generation, operating over both visual and textual modalities in a single framework.
+
+\paragraph{OmniGen2}~\cite{omnigen2} An open-source multimodal model that integrates a diffusion-based image decoder with LLM hidden states, enabling context-driven image generation and visual reasoning without compromising the model's core textual capabilities.
+
+\paragraph{Showo2}~\cite{show} A native unified multimodal model that innovatively fuses autoregressive modeling (for text and understanding tasks) and flow matching/diffusion modeling (for visual generation) within a single Transformer architecture.
+
+\paragraph{Bagel}~\cite{bagel} An open-source foundation model featuring a Mixture-of-Transformer-Experts (MoT) architecture. It dedicates separate expert networks to understanding and generation tasks while sharing a unified self-attention mechanism to efficiently handle interleaved text and image data.
+
+\subsection{Understanding-only Models}
+
+\paragraph{Claude Opus 4.6}~\cite{anthropic_claude_opus46_2026} Anthropic's flagship model known for exceptional logical reasoning and visual understanding capabilities; however, it operates strictly within a vision-text-to-text paradigm.
+
+\paragraph{Gemini 3.1 Pro}~\cite{google_gemini31_pro_2026}  Google's advanced multimodal understanding model. It excels at processing complex multimodal inputs to produce detailed textual reasoning traces but cannot explicitly generate visual evidence.
+
+\paragraph{Qwen Family (Qwen3.5-122B, Qwen3.5-Plus, Qwen3-VL-235B)}~\cite{qwen2026qwen35,qwen3vl} A powerful series of models developed by the Qwen team. While possessing strong foundational language and vision-language understanding, they are fundamentally constrained to text-only generation and rely purely on textual or symbolic reasoning.
+
+
+\begin{table*}[!t]
+  \centering
+  \small
+  \begin{tabular}{lccccccccc}
+    \toprule
+    Model & Acc. & Img. Acc. & Fused & Local-T & Local-I & Local & Global-T & Global-I & Global \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Unified Models}} \\
+    \midrule
+    Gemini 2.5 Flash Image & 11.42 & 69.55 & 68.57 & 58.47 & 78.70 & 68.57 & 62.83 & 82.65 & 70.58 \\
+    GPT-5.4 + GPT-Image & 33.20 & 55.02 & 69.55 & 57.44 & 59.72 & 57.69 & 73.04 & 89.32 & 79.34 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Interleaved Generation Models}} \\
+    \midrule
+    Bagel & 1.90 & 0.00 & 43.72 & 28.99 & 52.57 & 41.46 & 47.01 & 44.07 & 45.77 \\
+    Janus-Pro & 0.00 & 0.00 & 33.37 & 21.09 & 47.30 & 43.70 & 28.51 & 11.24 & 21.32 \\
+    OmniGen2 & 0.96 & 0.00 & 43.89 & 26.52 & 60.44 & 41.74 & 45.07 & 38.90 & 45.88 \\
+    Showo2 & 0.00 & 0.00 & 39.69 & 37.03 & 56.93 & 48.56 & 34.19 & 24.56 & 30.85 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Understanding-only Models}} \\
+    \midrule
+    Gemini 3.1 Pro & 33.33 & 0.00 & 40.67 & 66.22 & 0.00 & 38.34 & 74.86 & 0.00 & 42.94 \\
+    Claude Opus 4.6 & 31.43 & 0.00 & 38.66 & 61.01 & 0.00 & 35.49 & 73.72 & 0.00 & 41.92 \\
+    Qwen3.5-122B & 23.81 & 0.00 & 36.06 & 64.12 & 0.00 & 36.81 & 63.33 & 0.00 & 35.22 \\
+    Qwen3.5-Plus & 21.90 & 0.00 & 35.35 & 57.10 & 0.00 & 32.91 & 67.22 & 0.00 & 37.68 \\
+    Qwen3-VL-235B & 15.96 & 0.00 & 32.84 & 64.05 & 0.00 & 35.57 & 53.97 & 0.00 & 30.16 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Model performance on the Engineering subset which includes 105 problems with textual final answer and 6 problems with image-based final answer.}
+  \label{tab:domain_eng_metrics}
+\end{table*}
+
+\begin{table*}[t]
+  \centering
+  \small
+  \begin{tabular}{lccccccccc}
+    \toprule
+    Model & Acc. & Img. Acc. & Fused & Local-T & Local-I & Local & Global-T & Global-I & Global \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Unified Models}} \\
+    \midrule
+    Gemini 2.5 Flash Image & 9.68 & 0.00 & 70.05 & 61.08 & 66.60 & 64.66 & 70.18 & 80.59 & 75.16 \\
+    GPT-5.4 + GPT-Image & 24.63 & 74.18 & 77.36 & 61.58 & 69.62 & 66.74 & 77.98 & 94.96 & 86.45 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Interleaved Generation Models}} \\
+    \midrule
+    Bagel & 3.23 & 0.00 & 48.67 & 30.01 & 52.66 & 43.89 & 53.21 & 52.93 & 53.16 \\
+    Janus-Pro & 0.00 & 0.00 & 42.85 & 30.41 & 56.75 & 53.97 & 36.01 & 16.31 & 27.30 \\
+    OmniGen2 & 2.15 & 0.00 & 44.66 & 27.57 & 58.76 & 45.90 & 40.80 & 44.15 & 43.51 \\
+    Showo2 & 4.30 & 0.00 & 41.95 & 33.67 & 49.93 & 44.73 & 47.48 & 28.19 & 38.82 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Understanding-only Models}} \\
+    \midrule
+    Gemini 3.1 Pro & 33.33 & 0.00 & 37.82 & 68.34 & 0.00 & 37.30 & 70.25 & 0.00 & 38.41 \\
+    Claude Opus 4.6 & 35.48 & 0.00 & 38.44 & 63.05 & 0.00 & 34.57 & 77.02 & 0.00 & 41.81 \\
+    Qwen3.5-122B & 35.48 & 0.00 & 38.00 & 67.39 & 0.00 & 36.05 & 73.76 & 0.00 & 39.98 \\
+    Qwen3.5-Plus & 24.73 & 0.00 & 35.44 & 55.82 & 0.00 & 29.77 & 73.81 & 0.00 & 40.21 \\
+    Qwen3-VL-235B & 23.78 & 0.00 & 34.59 & 67.32 & 0.00 & 34.84 & 62.85 & 0.00 & 34.23 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Model performance on the Physics subset which includes 93 problems with textual final answer and 1 problem with image-based final answer.}
+  \label{tab:domain_phy_metrics}
+\end{table*}
+
+\begin{table*}[t]
+  \centering
+  \small
+  \begin{tabular}{lccccccccc}
+    \toprule
+    Model & Acc. & Img. Acc. & Fused & Local-T & Local-I & Local & Global-T & Global-I & Global \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Unified Models}} \\
+    \midrule
+    Gemini 2.5 Flash Image & 21.74 & 59.06 & 67.02 & 55.21 & 66.72 & 62.72 & 56.93 & 82.00 & 70.98 \\
+    GPT-5.4 + GPT-Image & 30.31 & 73.68 & 68.94 & 53.39 & 55.35 & 56.64 & 65.72 & 86.98 & 78.90 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Interleaved Generation Models}} \\
+    \midrule
+    Bagel & 4.35 & 0.00 & 40.61 & 26.89 & 43.21 & 39.00 & 41.73 & 42.33 & 42.02 \\
+    Janus-Pro & 4.35 & 0.00 & 48.97 & 21.06 & 58.41 & 52.02 & 50.00 & 39.67 & 45.82 \\
+    OmniGen2 & 8.70 & 0.00 & 44.61 & 19.11 & 58.00 & 43.04 & 39.60 & 53.33 & 46.13 \\
+    Showo2 & 0.00 & 0.00 & 43.52 & 32.69 & 55.04 & 46.50 & 49.60 & 26.00 & 40.45 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Understanding-only Models}} \\
+    \midrule
+    Gemini 3.1 Pro & 43.48 & 0.00 & 35.44 & 63.41 & 0.00 & 33.87 & 68.80 & 0.00 & 36.86 \\
+    Claude Opus 4.6 & 39.13 & 0.00 & 34.80 & 56.59 & 0.00 & 30.29 & 72.27 & 0.00 & 38.85 \\
+    Qwen3.5-122B & 30.43 & 0.00 & 34.95 & 61.70 & 0.00 & 32.74 & 68.73 & 0.00 & 36.91 \\
+    Qwen3.5-Plus & 30.43 & 0.00 & 33.28 & 53.48 & 0.00 & 28.66 & 69.80 & 0.00 & 37.43 \\
+    Qwen3-VL-235B & 20.40 & 0.00 & 31.79 & 61.63 & 0.00 & 31.64 & 58.57 & 0.00 & 31.60 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Model performance on the Chemistry subset which includes 23 problems with textual final answer and 2 problems with image-based final answer.}
+  \label{tab:domain_che_metrics}
+\end{table*}
+
+\begin{table*}[t]
+  \centering
+  \small
+  \begin{tabular}{lccccccccc}
+    \toprule
+    Model & Acc. & Img. Acc. & Fused & Local-T & Local-I & Local & Global-T & Global-I & Global \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Unified Models}} \\
+    \midrule
+    Gemini 2.5 Flash Image & 36.67 & 0.00 & 59.33 & 65.61 & 0.00 & 34.83 & 74.83 & 76.94 & 76.21 \\
+    GPT-5.4 + GPT-Image & 68.70 & 0.00 & 72.82 & 59.53 & 62.07 & 62.06 & 81.71 & 83.31 & 81.90 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Interleaved Generation Models}} \\
+    \midrule
+    Bagel & 6.67 & 0.00 & 58.01 & 41.54 & 68.40 & 58.12 & 58.28 & 58.89 & 57.99 \\
+    Janus-Pro & 0.00 & 0.00 & 49.46 & 25.80 & 56.31 & 53.43 & 64.44 & 24.72 & 45.06 \\
+    OmniGen2 & 10.00 & 0.00 & 51.43 & 12.03 & 58.20 & 35.38 & 70.78 & 63.89 & 67.62 \\
+    Showo2 & 3.33 & 0.00 & 46.33 & 42.12 & 56.92 & 53.69 & 41.17 & 33.33 & 37.42 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Understanding-only Models}} \\
+    \midrule
+    Gemini 3.1 Pro & 63.33 & 0.00 & 38.74 & 71.34 & 0.00 & 37.55 & 76.61 & 0.00 & 40.02 \\
+    Claude Opus 4.6 & 70.00 & 0.00 & 41.51 & 68.51 & 0.00 & 36.23 & 87.44 & 0.00 & 46.13 \\
+    Qwen3.5-122B & 76.67 & 0.00 & 40.53 & 70.38 & 0.00 & 37.19 & 83.61 & 0.00 & 43.71 \\
+    Qwen3.5-Plus & 70.00 & 0.00 & 37.54 & 64.29 & 0.00 & 34.00 & 77.89 & 0.00 & 40.64 \\
+    Qwen3-VL-235B & 51.39 & 0.00 & 36.86 & 70.30 & 0.00 & 35.94 & 71.25 & 0.00 & 37.43 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Model performance on the Mathematics subset which includes 30 problems with textual final answer.}
+  \label{tab:domain_mat_metrics}
+\end{table*}
+
+\begin{table*}[t]
+  \centering
+  \small
+  \begin{tabular}{lccccccccc}
+    \toprule
+    Model & Acc. & Img. Acc. & Fused & Local-T & Local-I & Local & Global-T & Global-I & Global \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Unified Models}} \\
+    \midrule
+    Gemini 2.5 Flash Image & 27.78 & 35.16 & 57.60 & 43.87 & 64.18 & 58.37 & 57.25 & 48.91 & 54.16 \\
+    GPT-5.4 + GPT-Image & 22.13 & 0.00 & 58.32 & 45.65 & 46.89 & 47.05 & 67.01 & 63.02 & 67.09 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Interleaved Generation Models}} \\
+    \midrule
+    Bagel & 27.78 & 0.00 & 53.26 & 31.04 & 61.14 & 51.43 & 53.62 & 47.47 & 52.74 \\
+    Janus-Pro & 0.00 & 0.00 & 50.42 & 15.14 & 57.43 & 51.59 & 53.26 & 39.49 & 47.46 \\
+    OmniGen2 & 5.55 & 0.00 & 44.32 & 13.03 & 55.80 & 38.51 & 46.01 & 55.44 & 50.05 \\
+    Showo2 & 0.00 & 0.00 & 48.17 & 28.66 & 53.16 & 45.96 & 44.93 & 43.12 & 44.25 \\
+    \midrule
+    \multicolumn{10}{c}{\textit{Understanding-only Models}} \\
+    \midrule
+    Gemini 3.1 Pro & 44.45 & 0.00 & 29.28 & 52.87 & 0.00 & 27.68 & 56.52 & 0.00 & 29.84 \\
+    Claude Opus 4.6 & 38.89 & 0.00 & 30.37 & 52.27 & 0.00 & 27.44 & 59.42 & 0.00 & 31.99 \\
+    Qwen3.5-122B & 33.34 & 0.00 & 29.59 & 52.56 & 0.00 & 27.17 & 55.44 & 0.00 & 30.10 \\
+    Qwen3.5-Plus & 22.22 & 0.00 & 30.18 & 50.95 & 0.00 & 26.08 & 63.41 & 0.00 & 33.36 \\
+    Qwen3-VL-235B & 22.35 & 0.00 & 25.82 & 52.50 & 0.00 & 26.26 & 47.24 & 0.00 & 25.77 \\
+    \bottomrule
+  \end{tabular}
+  \caption{Model performance on the Other subset which includes 18 problems with textual final answer and 5 problems with image-based final answer.}
+  \label{tab:domain_bio_oth_metrics}
+\end{table*}
+
+\section{Detailed Experimental Results on Each Specific Domain}
+
+Tables~\ref{tab:domain_eng_metrics} --~\ref{tab:domain_bio_oth_metrics} present the detailed results on the Engineering, Physics, Chemistry, Biology, Mathematics, and Other subsets. Overall, the subset-level analysis is consistent with the main findings in the paper: model performance varies substantially across disciplines, and final-answer accuracy alone does not fully reflect multimodal reasoning ability.
+
+A first notable pattern is the consistent advantage of unified models on image-involved reasoning. On Engineering, Physics, and Chemistry, Gemini 2.5 Flash Image and GPT-5.4 + GPT-Image achieve the strongest image-side process scores. This result indicates that tightly coupling visual understanding and generation is beneficial for problems that require intermediate visual derivations or image-based final outputs.
+
+In contrast, understanding-only models remain highly competitive on subsets that favor textual or symbolic reasoning. This trend is particularly clear on Mathematics subset, where models such as Qwen3.5-122B, Qwen3.5-Plus, and Claude Opus 4.6 achieve the best final-answer accuracy despite scoring zero on image-related metrics. These results suggest that when a task can be largely solved through text-based reasoning after extracting key information, stronger language reasoning may outweigh the absence of image generation. At the same time, their consistently zero image-answer accuracy highlights a structural limitation of this model family on tasks whose reasoning process or final output must be expressed visually.
+
+\section{Actual Prompt Templates}
+
+In this section, we provide the prompt templates used in our experiments for reference and reproducibility. These include the prompts for interleaved generation, which instruct models to combine textual and visual reasoning within a unified inference process, as well as the prompts used in the LLM-as-a-Judge evaluation framework. We release these templates to improve the transparency of our experimental setup and to support future research on multimodal reasoning and fine-grained evaluation.
+
+
+
+
+\clearpage
+\onecolumn
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=black,
+  arc=3mm,
+  boxrule=0.8pt,
+  width=\textwidth,
+  title=\textbf{1. INTERLEAVED\_QUERY\_PREFIX},
+  coltitle=white,
+  colbacktitle=blue,
+  fonttitle=\bfseries,
+  left=6pt,
+  right=6pt,
+  top=6pt,
+  bottom=6pt,
+  before skip=8pt,
+  after skip=8pt
+]
+\begin{tcblisting}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0mm,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  listing only,
+  listing options={
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible
+  }
+}
+You will be given a problem. Please answer by strictly following these instructions:
+
+[Task Requirements]
+1. Carefully understand the problem first, then provide a complete step-by-step solution.
+2. The solution process must use an "interleaved text-and-visual"format:
+- For each key step, first explain the reasoning in text.
+- Then provide a "visual illustration" block to support that step.
+- Each "Visual Illustration" must be an actual image output generated by the model. It must not be replaced by ASCII art, tables, plain text diagrams, flowcharts written in text, or any other text-only substitute.
+3. At the end, provide the final answer separately, and it must be strictly wrapped in:
+<final_answer>final answer</final_answer>
+4. Do not put any extra explanation inside the `<final_answer>` tag other than the final answer itself.
+5. Any requirement in the problem statement about the form of the final submitted answer applies only to the final answer itself, not to the reasoning process before it.
+6. Any answer-format requirement in the problem statement constrains only the content inside `<final_answer>...</final_answer>'. It does not constrain the length, level of detail, or structure of the reasoning before it.
+
+[Required Output Format]
+- Use the following structure:
+
+Problem Understanding
+Textual Reasoning
+Visual Illustration
+Textual Reasoning
+Visual Illustration
+...
+Final Answer
+<final_answer>...</final_answer>
+
+[Style Requirements]
+- Start directly with "Problem Understanding"; do not describe user intent or restate instructions.
+- Do not output meta narration (e.g., "The user wants...", "I need to...", "Let's...").
+- Use only the required section headers above. Do not add extra sections, preface, appendix, or commentary.
+- Do not output any headings like "Step 1", "Step 2", etc.
+- Fully expand the key reasoning needed to justify the answer. Do not over-compress intermediate derivations.
+- Prefer preserving explicit intermediate steps over aggressive summarization.
+- Each "Textual Reasoning" block may use multiple sentences when needed to make the reasoning complete and self-contained.
+- Each "Visual Illustration" block must be an actual image, not a text block.
+- Each required section header should appear on its own line.
+- Each "Textual Reasoning" block should be followed by a line break before the next "Visual Illustration" block.
+- If the solution naturally contains multiple key substeps, keep them as separate interleaved blocks instead of merging them into one paragraph.
+- Each visual illustration must closely match the corresponding step.
+- Do not omit key reasoning or derivation steps.
+
+[Hard Constraint]
+- <final_answer>...</final_answer> must appear exactly once and be the last non-empty line.
+- The last non-empty line must be exactly one block: <final_answer>...</final_answer>.
+- Do not output any text after the final answer tag.
+- Do not use ASCII art or text-only pseudo-visuals in place of images.
+- If information is insufficient, still output <final_answer>insufficient_information</final_answer>.
+\end{tcblisting}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=black,
+  arc=3mm,
+  boxrule=0.8pt,
+  width=\textwidth,
+  title=\textbf{2. TOOL\_INTERLEAVED\_PROMPT},
+  coltitle=white,
+  colbacktitle=blue,
+  fonttitle=\bfseries,
+  left=6pt,
+  right=6pt,
+  top=6pt,
+  bottom=6pt,
+  before skip=8pt,
+  after skip=8pt
+]
+\begin{tcblisting}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0mm,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  listing only,
+  listing options={
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible
+  }
+}
+You are solving a multimodal problem.
+
+Please solve it through a genuinely interleaved text-and-image reasoning process. Your goal is not to finish as quickly as possible, but to use generated images as part of the reasoning itself.
+
+Follow these principles:
+
+1. Produce at least one text reasoning segment.
+2. Generate multiple genuinely helpful images and distribute them throughout the reasoning process.
+3. Text and images must be interleaved:
+   - do not write a long stretch of text first and then dump several images at the end;
+   - do not generate multiple images in a row without new reasoning progress between them.
+4. The process should look like:
+   reasoning -> helpful image -> further reasoning from that image -> another helpful image -> further reasoning ...
+5. Every image must directly support reasoning rather than decoration. It may help with:
+   - understanding the setup
+   - marking key objects
+   - highlighting relevant regions
+   - clarifying structural relations
+   - redrawing a schematic more clearly
+   - showing an intermediate analytical result
+6. Each image must advance the later reasoning, rather than merely repeat earlier content or serve as a presentation illustration.
+7. Before generating an image, explain what is still uncertain, what the image is meant to clarify, and why it is useful.
+8. After an image is generated, read it carefully and continue reasoning from what it clarifies.
+9. The reasoning must be sufficiently detailed and clear. Do not give only a one-line conclusion.
+10. Do not generate images that merely paste large amounts of text on the canvas. Images must provide genuinely useful visual information such as schematics, structural relations, arrows, axes, regions, force directions, connections, or key labels.
+11. Any answer-format requirement in the problem statement constrains only the final answer itself. It does not constrain the length, level of detail, or structure of the reasoning before it.
+12. Requirements such as "one token", "ASCII only", "no extra text", "one final image only", "exact format", or similar restrictions apply only to the final answer, not to the earlier reasoning process.
+13. A bare short answer string by itself is not a valid reasoning process. Before the final answer, provide at least one substantive reasoning block even for easy problems.
+14. If the problem includes an image, do not end immediately with only a short final answer unless the reasoning has already been explained in a substantive text block.
+15. Only give the final answer when you believe the conclusion is stable.
+16. For text-answer problems, the final answer must appear in the final text portion and must end with exactly one <final_answer>...</final_answer> block.
+17. Do not output any text after the final answer tag.
+18. If the required final answer is itself an image, structure, diagram, conformation, or drawing, then the last generated image should be the answer image itself rather than merely an auxiliary illustration.
+19. Even when the final answer is an image, provide at least one substantive text block before the answer image explaining what is being drawn, what key structure or relation it must show, and why it is the correct final answer.
+20. For such drawing problems, do not replace the answer image with markdown image syntax, SVG code, a data URI, an attachment placeholder, or any other text surrogate. The final answer should be realized as the last generated image itself.
+21. Unless the problem is truly trivial, do not finish before using multiple helpful generated images to advance the reasoning.
+\end{tcblisting}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=black,
+  arc=3mm,
+  boxrule=0.8pt,
+  width=\textwidth,
+  title=\textbf{3. Final-answer Judge Prompts},
+  coltitle=white,
+  colbacktitle=blue,
+  fonttitle=\bfseries,
+  left=6pt,
+  right=6pt,
+  top=6pt,
+  bottom=6pt,
+  before skip=8pt,
+  after skip=8pt
+]
+\begin{tcblisting}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0mm,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  listing only,
+  listing options={
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible
+  }
+}
+You are a strict and careful judge for final-answer equivalence. Your only job is to decide whether the predicted final answer is truly semantically identical to one acceptable ground-truth answer. Be conservative: when a difference may change the meaning, treat it as not equivalent.
+\end{tcblisting}
+
+\vspace{6pt}
+
+\begin{tcblisting}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0mm,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  listing only,
+  listing options={
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible
+  }
+}
+You are judging final-answer equivalence.
+
+Task: Decide whether the predicted final answer should count as correct against at least one acceptable ground-truth answer.
+
+Decision policy: Be conservative. Mark the answer correct only when the predicted final answer and a ground-truth answer have the same meaning with no material mismatch. If you are unsure, return 0.
+
+Important rules:
+1. Focus on final-answer equivalence only.
+2. Ignore harmless formatting differences only: punctuation, whitespace, LaTeX wrappers, capitalization, surrounding filler words, and standard algebraic rewrites.
+3. Give credit for mathematically equivalent expressions only when they are fully equivalent, with the same variables, same constraints, same set of solutions, same sign, same units, and same boundaries.
+4. Do not give credit when any meaningful content changes, including:
+   - different numeric value or approximation that is not clearly intended as the same value
+   - different sign, inequality direction, interval boundary, ordering, or logical relation
+   - different variable, symbol, label, object identity, or named entity
+   - different chemical structure, substituent, isotope placement, compound name, or mapping between labels such as A/B/C/D/E
+   - different biological sequence, gene/protein name, stage, category, or ordering
+   - one answer being more vague, more generic, or only partially matching the ground truth
+5. For structured answers with multiple items, all items must align correctly. A reordering is acceptable only if the answer is explicitly unordered and every item still matches exactly. If labels or item-to-item correspondences change, return 0.
+6. Do not infer correctness from topic similarity. Two answers in the same domain are still wrong if any key term or component differs.
+7. Use the candidate response tail only as supporting context when the extracted predicted final answer is awkwardly formatted. Do not use it to invent a better final answer than the extracted one.
+8. If the predicted answer is empty, image-only, placeholder-like, or lacks enough information to verify exact equivalence, return 0.
+9. Output exactly one block between <judge_result> and </judge_result>.
+10. Inside the block output a single JSON object with fields:
+   "verdict": 0 or 1
+   "matched_gt_index": integer index starting from 1, or 0 if none
+   "reason": short string
+
+Checklist before returning 1:
+- Same objects or entities?
+- Same mapping between labels and items?
+- Same mathematical meaning, not just similar form?
+- No missing or extra components?
+If any answer is "no" or "unclear", return 0.
+
+Problem: {question_text}
+Predicted extracted final answer: {pred_block}
+Candidate response tail: {raw_block}
+Acceptable ground-truth final answers: {gt_block}
+\end{tcblisting}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=black,
+  arc=3mm,
+  boxrule=0.8pt,
+  width=\textwidth,
+  title=\textbf{4. Whole-trace Judge Prompts},
+  coltitle=white,
+  colbacktitle=blue,
+  fonttitle=\bfseries,
+  left=6pt,
+  right=6pt,
+  top=6pt,
+  bottom=6pt,
+  before skip=8pt,
+  after skip=8pt
+]
+\begin{tcblisting}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0mm,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  listing only,
+  listing options={
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible
+  }
+}
+You are a generous, evidence-based judge for reasoning-process coverage.
+\end{tcblisting}
+
+\vspace{6pt}
+
+\begin{tcblisting}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0mm,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  listing only,
+  listing options={
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible
+  }
+}
+
+Task: Given the original problem, a candidate model's whole reply, and a list of reference contents, determine for each reference content whether the candidate reply semantically covers it.
+
+Core principle: Your goal is to judge semantic entailment and coverage, not literal wording overlap. Prefer avoiding false negatives on actually correct reasoning. When the candidate reply is mathematically consistent and clearly on the right solution path, be willing to count semantically implied references as covered. Treat a clearly correct final derivation as positive evidence for intermediate coverage whenever the missing intermediate item is a standard consequence of that derivation.
+
+Judging rules:
+1. Match against the entire candidate reply, not only the final answer.
+2. Mark 1 if the candidate reply explicitly states the reference content, clearly paraphrases it, or provides enough mathematical or semantic evidence that entails it.
+3. Mark 1 if the candidate reply gives an algebraically equivalent formula, an equivalent constraint, an equivalent domain statement, or a stronger statement that clearly subsumes the reference.
+4. Mark 1 if the evidence is distributed across multiple nearby or logically connected sentences or equations, as long as together they support the reference content.
+5. Mark 1 if a later derivation, equation, or final expression clearly implies the reference content, even if the intermediate wording is omitted.
+6. Mark 1 if the candidate reply reaches the same local conclusion or a directly equivalent stronger conclusion by a different but valid derivation path.
+7. Do not require the same wording, the same notation, the same variable names, the same derivation order, or the same decomposition granularity as the reference.
+8. Ignore harmless differences in formatting, equation rearrangement, symbol renaming, simplification, factorization, unit style, and equivalent notation.
+9. If the candidate reply states a more concrete result that logically contains the reference idea, count the reference as covered.
+10. Use a generous semantic matching standard for correct or near-correct reasoning traces; do not demand verbatim intermediate steps.
+11. If the candidate reply provides the correct equation, invariant, constraint, ranking, or final symbolic result from which the reference naturally follows, count it as covered even when the explicit wording differs.
+12. Mark 0 only if the reference content is truly missing, too vague to verify, merely topically related, or contradicted by the candidate reply.
+13. Do not give 1 for generic topic overlap without concrete supporting evidence.
+14. When uncertain between 0 and 1, prefer 1 if there is plausible mathematical or semantic evidence in the candidate reply.
+
+Output format:
+- Output exactly one block between <judge_result> and </judge_result>.
+- Inside the block, output one line per reference in the format step_id=0 or step_id=1.
+- Do not output explanations.
+
+Problem: {question_text}
+Candidate whole reply: {raw_response}
+Reference contents: {ref_block}
+\end{tcblisting}
+
+\vspace{6pt}
+
+\begin{tcblisting}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0mm,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  listing only,
+  listing options={
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible
+  }
+}
+You are a careful multimodal judge for reasoning-process coverage.
+
+Task: Given the original problem, a candidate model's whole reply, and a GT reference image step, determine whether the candidate reply semantically covers the visual reasoning evidence represented by the reference step.
+
+You will receive multiple images as native model inputs in this exact order: {image_inputs_block}
+
+The important regions are specified by normalized bounding boxes over the GT reference image only. You should compare the GT reference image against the candidate generated images and decide whether the candidate generated images support the same visual reasoning evidence or conclusion associated with this GT step.
+
+Judging rules:
+1. Consider both the reference text and the important GT image regions.
+2. Mark 1 only if at least one candidate generated image semantically matches the GT visual evidence.
+3. Pure text alone is not sufficient for image coverage. If the candidate has no relevant generated image evidence, mark 0.
+4. Mark 1 if the candidate image evidence plus the candidate reply together capture the same visual idea, relation, geometry, highlight, or conclusion as the GT reference.
+5. Mark 0 if the relevant visual evidence is missing from the candidate image panels, contradicted, or too vague to verify.
+6. The question image, if provided, is context only. Do not count it as candidate evidence.
+7. When uncertain between 0 and 1, prefer 0 unless there is visible evidence in the candidate image panels.
+
+Output format:
+- Output exactly one block between <judge_result> and </judge_result>.
+- Inside the block, output exactly one line in the format {step_id}=0 or {step_id}=1.
+- Do not output explanations.
+
+Problem: {question_text}
+Candidate whole reply: {raw_response}
+Reference image step id: {step_id}
+Reference text: {reference_text}
+Important GT image regions: {bbox_block}
+\end{tcblisting}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=black,
+  arc=3mm,
+  boxrule=0.8pt,
+  width=\textwidth,
+  title=\textbf{5. Score Text-Matching Prompt},
+  coltitle=white,
+  colbacktitle=blue,
+  fonttitle=\bfseries,
+  left=6pt,
+  right=6pt,
+  top=6pt,
+  bottom=6pt,
+  before skip=8pt,
+  after skip=8pt
+]
+\begin{tcblisting}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  arc=0mm,
+  left=0pt,
+  right=0pt,
+  top=0pt,
+  bottom=0pt,
+  listing only,
+  listing options={
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    columns=fullflexible
+  }
+}
+You are a strict grader.
+
+Your goal is to determine whether the Predicted reasoning step between <predicted> and </predicted> semantically contains the Reference key point between <reference> and </reference>.
+
+Judging procedure:
+1. Identify the essential propositions in the Reference key point.
+2. Check whether each essential proposition is present in the Predicted reasoning step, allowing paraphrase.
+3. If all essential propositions are covered and there is no contradiction, output 1.
+4. Otherwise output 0.
+
+Rules:
+- Paraphrase counts as match.
+- Missing any essential proposition => 0.
+- Contradiction => 0.
+- Mere topic similarity => 0.
+- Extra correct information is acceptable.
+- Exactly same => 1.
+- Same information => 1.
+
+Reference key point:
+<reference>{ref}</reference>
+
+Predicted reasoning step:
+<predicted>
+\end{tcblisting}
+\end{tcolorbox}
+
+\end{document}
