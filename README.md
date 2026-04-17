@@ -1,4 +1,4 @@
-# Beyond Final Answers: Evaluating MultiModal Interleaved Reasoning Chains in Multimodal STEM Tasks
+# Unveiling Fine-Grained Visual Traces: Evaluating MultiModal Interleaved Reasoning Chains in Multimodal STEM Tasks
 
 This repository contains the **StepSTEM** benchmark and the **core evaluation code** used in our paper.
 
